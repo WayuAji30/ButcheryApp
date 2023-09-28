@@ -36,7 +36,7 @@
     @yield('content')
 
     <!-- @vite('resources/js/hamburgerToggle.js') -->
-    @vite('resources/js/app.js')
+    @vite(['resources/js/tambahProduk.js', 'resources/js/app.js'])
     <script>
     // Menambahkan event listener untuk link dengan ID "produk"
     $("#produk").click(function(e) {

@@ -84,7 +84,7 @@
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
     <div class="mt-32 bg-white rounded-tl-2xl w-full ml-4 shadow-md">
         <p class="mt-7">
-            <a href="" class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Informasi
+            <a class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium cursor-default">Informasi
                 Produk</a>
         </p>
         <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
@@ -178,11 +178,12 @@
                 </div>
                 <div class="col-span-2 mt-5" id="varian-plus">
                     <div class="bg-[#eeeeee] w-[547px] rounded-md">
-                        <div class="px-10 py-5" style="display: flex; align-items: center">
+                        <div class="px-10 py-5 pembungkus-page" style="display: flex; align-items: center">
                             <label for="" class="font-semibold mr-4">Varian 2</label>
                             <button id="btn-tambah-produk" form="none"
                                 class="btn-tambah-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
-                                <span><img src="/src/mitra_center/asset/tambahProduk/buttonPlus.svg" alt="" /></span>
+                                <span><img src="{{asset('assets/img_mitra_center/asset/tambahProduk/buttonPlus.svg')}}"
+                                        alt="" /></span>
                                 Tambah Varian
                             </button>
                             <input required hidden type="text" placeholder="Contoh: 250gr"
@@ -202,7 +203,8 @@
                             <label for="" class="font-semibold mr-4">Varian 3</label>
                             <button form="none"
                                 class="btn-tambah-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
-                                <span><img src="/src/mitra_center/asset/tambahProduk/buttonPlus.svg" alt="" /></span>
+                                <span><img src="{{asset('assets/img_mitra_center/asset/tambahProduk/buttonPlus.svg')}}"
+                                        alt="" /></span>
                                 Tambah Varian
                             </button>
                             <input required hidden type="text" placeholder="Contoh: 250gr"

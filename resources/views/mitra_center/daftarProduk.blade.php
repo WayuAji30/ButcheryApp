@@ -83,7 +83,7 @@
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
     <div class="mt-32 bg-white rounded-tl-2xl w-full ml-4 shadow-md">
         <p class="mt-7">
-            <a href="" class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Daftar
+            <a class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium cursor-default">Daftar
                 Produk</a>
         </p>
         <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
@@ -115,7 +115,7 @@
                     <option value="">Sapi</option>
                 </select>
             </div>
-            <form action="tambahProduk.html">
+            <form action="/tambahProduk">
                 <button class="bg-[#D10B05] px-3 py-2 rounded-md text-white font-semibold hover:bg-[#9F0804]">
                     + Tambah Produk
                 </button>
