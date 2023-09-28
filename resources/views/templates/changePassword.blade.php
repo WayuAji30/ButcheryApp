@@ -285,7 +285,7 @@
     </footer>
     <!-- FOOTER -->
 
-    @vite('resources/js/changePassword.js')
+    @vite(['resources/js/changePassword.js, resources/js/app.js'])
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const cancelButton = document.getElementById("cancelButton");

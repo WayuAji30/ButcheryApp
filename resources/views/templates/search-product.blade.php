@@ -299,7 +299,7 @@
         </div>
     </footer>
     <!-- FOOTER -->
-    @vite('resources/js/product.js')
+    @vite(['resources/js/product.js, resources/js/app.js'])
 </body>
 
 </html>
