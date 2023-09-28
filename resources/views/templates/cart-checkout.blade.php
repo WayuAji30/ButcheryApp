@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/css/ouput.css'])
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
-    <link rel="shortcut icon" href="asset/navbar/logoTitle.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
     <style>
     #remove button:hover svg path {
         fill: #d10b05;

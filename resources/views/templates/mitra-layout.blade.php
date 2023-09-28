@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>Butchery | Mitra Center</title>
-    <link rel="shortcut icon" href="asset/navbar/logoTitle.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
 </head>
 
 <body class="flex">
