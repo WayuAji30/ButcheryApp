@@ -4,7 +4,7 @@
 <!-- LOGIN -->
 <div class="w-full">
     <div class="container mx-auto px-[53px] mt-14">
-        <a href="index.html"><img src="{{asset('assets/img_index/asset/loginPage/logo.svg')}}" alt="" /></a>
+        <a href="/index"><img src="{{asset('assets/img_index/asset/loginPage/logo.svg')}}" alt="" /></a>
         <div class="grid grid-cols-12">
             <div class="col-span-6 items-center flex justify-center">
                 <div class="flex-none text-center lg:block md:hidden sm:hidden max-sm:hidden">
