@@ -38,7 +38,7 @@ class HomeController extends Controller
      * @return View
     */
 
-    public function seacrhProduct(): View
+    public function searchProduct(): View
     {
         return view('searchProduct'); // view('folder.file', compact())
     }

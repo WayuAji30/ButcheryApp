@@ -18,7 +18,7 @@ use App\Http\Controllers\MitraController;
 
 Route::get('/index', [HomeController::class,'index']);
 Route::get('/', [HomeController::class,'index']);
-Route::get('/searchProduct', [HomeController::class,'seacrhProduct']);
+Route::get('/searchProduct', [HomeController::class,'searchProduct']);
 Route::get('/login', [AuthController::class,'login']);
 Route::get('/register', [AuthController::class,'register']);
 Route::get('/profile', [AuthController::class,'profile']);
