@@ -1,5 +1,6 @@
 @extends('../templates/mitra-layout')
 @section('content')
+
 <!-- Navbar kiri -->
 <aside class="relative pt-20 h-screen w-64 hidden sm:block shadow-xl bg-white">
     <nav class="">

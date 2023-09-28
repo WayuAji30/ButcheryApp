@@ -9,6 +9,21 @@
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
+    <style>
+    #fitur button:hover svg path {
+        fill: white;
+    }
+
+    .active {
+        border-bottom: 2px solid #d10b05;
+        color: #d10b05;
+        font-weight: 600;
+    }
+
+    #remove button:hover svg path {
+        fill: #d10b05;
+    }
+    </style>
 </head>
 
 <body>
@@ -48,7 +63,7 @@
                 <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}"
                         alt="LogoButchery" class="mr-9" /></a>
                 <div class="flex mr-8">
-                    <form action="/index">
+                    <form action="/searchProduct">
                         <div class="relative flex items-center">
                             <input type="text" name="" id=""
                                 placeholder="Beli Daging Segar Dengan Kualitas Terbaik Disini"
@@ -284,6 +299,7 @@
         </div>
     </footer>
     <!-- FOOTER -->
+    @vite('resources/js/product.js')
 </body>
 
 </html>

@@ -43,6 +43,21 @@ class HomeController extends Controller
         return view('searchProduct'); // view('folder.file', compact())
     }
 
+    public function product(): View
+    {
+        return view('product'); // view('folder.file', compact())
+    }
+
+    public function cart(): View
+    {
+        return view('cart'); // view('folder.file', compact())
+    }
+
+    public function checkOut(): View
+    {
+        return view('checkOut'); // view('folder.file', compact())
+    }
+
      /**
      * index
      *
