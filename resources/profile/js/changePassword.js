@@ -72,14 +72,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    const cancelButton = document.getElementById("cancelButton");
-
-    cancelButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Mencegah formulir dikirim
-
-        // Mengarahkan ke ../index.html
-        window.location.href = "/login";
-    });
-});

@@ -285,19 +285,8 @@
     </footer>
     <!-- FOOTER -->
 
-    @vite(['resources/js/changePassword.js, resources/js/app.js'])
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const cancelButton = document.getElementById("cancelButton");
+    @vite(['resources/js/changePassword.js', 'resources/js/app.js', 'resources/js/password.js'])
 
-        cancelButton.addEventListener("click", function(event) {
-            event.preventDefault(); // Mencegah formulir dikirim
-
-            // Mengarahkan ke ../index.html
-            window.location.href = "../login.html";
-        });
-    });
-    </script>
 </body>
 
 </html>
