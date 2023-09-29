@@ -51,11 +51,11 @@
 
 <body>
     <!-- todo Preloader -->
-    <div class="loader_bg">
+    <!-- <div class="loader_bg">
         <div class="loader">
             <img src="{{asset('assets/img_index/asset/loader/loader-animasi.gif')}}" alt="loader" />
         </div>
-    </div>
+    </div> -->
     <!-- todo Preloader -->
 
     <!-- NAVBAR -->

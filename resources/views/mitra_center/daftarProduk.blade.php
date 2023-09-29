@@ -124,7 +124,8 @@
         <!-- SEARCH BAR -->
 
         <!-- TABLE -->
-        <table class="table-auto w-full mt-5 mb-5" data-aos="fade-right">
+        <table class="table-auto w-full mt-5 mb-5" data-aos="fade-right" data-aos-duration="400"
+            data-aos-easing="ease-in-out">
             <thead>
                 <tr class="text-[#787878] font-semibold border-y-2 border-[#e6e6e6] w-full">
                     <th colspan="2" class="py-4">Info Produk</th>

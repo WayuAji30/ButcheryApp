@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/output.css', 'resources/css/app.css'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- AOS Animate -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <title>Butchery | Mitra Center</title>
@@ -38,6 +39,7 @@
 
     <!-- @vite('resources/js/hamburgerToggle.js') -->
     @vite(['resources/js/tambahProduk.js', 'resources/js/app.js'])
+     <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
     AOS.init();

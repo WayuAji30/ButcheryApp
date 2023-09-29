@@ -1,7 +1,7 @@
 @extends('../templates/mitra-layout')
 @section('content')
 <!-- Navbar kiri -->
-<aside class="relative pt-20 h-screen w-64 hidden sm:block shadow-xl bg-white">
+<aside class="relative pt-20 h-screen w-64 hidden lg:block shadow-xl bg-white">
     <nav class="">
         <div class="px-6 pt-[36px]">
             <h1 class="flex items-center font-semibold text-[18px]">
@@ -116,7 +116,8 @@
                     Bulan Lalu</a>
             </p>
             <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
-            <img src="{{asset('assets/img_mitra_center/asset/trenDaging/chart.png')}}" alt="" class="ml-14 mt-5" />
+            <img src="{{asset('assets/img_mitra_center/asset/trenDaging/chart.png')}}" alt=""
+                class="ml-14 mt-5 lg:w-fit md:w-[80%] sm:w[50%]" />
         </div>
         <!-- GRAFIK -->
 
