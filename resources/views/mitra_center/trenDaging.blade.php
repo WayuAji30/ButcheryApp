@@ -83,19 +83,22 @@
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
     <!-- TREN NAV -->
     <div class="flex ml-8 gap-8">
-        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]">
+        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]" data-aos="zoom-in-up"
+            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="font-medium text-[#D10b05] ml-7 mt-7">
                 Prediksi Tren Daging Bulan Ini
             </p>
             <p class="font-semibold text-[20px] ml-7">Daging Ayam</p>
         </div>
-        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]">
+        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]" data-aos="zoom-in-up"
+            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="font-medium text-[#D10b05] ml-7 mt-7">
                 Tren Daging Bulan Lalu
             </p>
             <p class="font-semibold text-[20px] ml-7">Daging Sapi</p>
         </div>
-        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]">
+        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]" data-aos="zoom-in-up"
+            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="font-medium text-[#D10b05] ml-7 mt-7">
                 Tidak Diminati Bulan Lalu
             </p>
@@ -106,7 +109,8 @@
 
     <div class="flex gap-9 ml-8">
         <!-- GRAFIK -->
-        <div class="mt-8 bg-white w-[62%] rounded-lg h-96 shadow-md">
+        <div class="mt-8 bg-white w-[62%] rounded-lg h-96 shadow-md" data-aos="zoom-in-up" data-aos-easing="ease-in-out"
+            data-aos-anchor-placement="top-bottom">
             <p class="mt-4">
                 <a href="" class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Grafik Minat Daging
                     Bulan Lalu</a>
@@ -117,7 +121,8 @@
         <!-- GRAFIK -->
 
         <!-- TOP 5 DAGING -->
-        <div class="mt-8 bg-white w-[30%] rounded-r-lg h-96 shadow-md">
+        <div class="mt-8 bg-white w-[30%] rounded-r-lg h-96 shadow-md" data-aos="zoom-in-up"
+            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="mt-4">
                 <a href="" class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Top 5 Daging Bulan
                     Lalu</a>

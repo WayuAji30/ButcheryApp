@@ -170,7 +170,7 @@
         </div>
     </footer>
     <!-- FOOTER -->
-    @vite('resources/js/password.js')
+    @vite(['resources/js/password.js, resources/js/app.js'])
 </body>
 
 </html>

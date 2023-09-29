@@ -67,10 +67,6 @@ class AuthController extends Controller
         return view('profile.profile');
     }
 
-    public function seacrhProduct(): View
-    {
-        return view('seacrhProduct');
-    }
 
     /**
      * store

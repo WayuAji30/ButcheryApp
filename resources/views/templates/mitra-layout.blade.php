@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/output.css', 'resources/css/app.css'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <title>Butchery | Mitra Center</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
@@ -37,6 +38,10 @@
 
     <!-- @vite('resources/js/hamburgerToggle.js') -->
     @vite(['resources/js/tambahProduk.js', 'resources/js/app.js'])
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
     <script>
     // Menambahkan event listener untuk link dengan ID "produk"
     $("#produk").click(function(e) {
