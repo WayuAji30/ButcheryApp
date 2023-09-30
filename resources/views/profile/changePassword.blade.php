@@ -80,7 +80,7 @@
                                         Batal
                                     </button>
                                     <button id="saveButton"
-                                        class="bg-[#ccc] rounded-md text-white px-14 py-2 font-semibold hover:bg-[#D10B05]">
+                                        class="bg-[#ccc] rounded-md text-white px-14 py-2 font-semibold ">
                                         Simpan
                                     </button>
                                 </div>

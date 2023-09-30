@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Product -->
-<div class="lg:pt-[201px] md:pt-32 px-12 w-full">
+<div class="lg:pt-[201px] md:pt-60 px-12 w-full">
     <div class="container mx-auto">
         <div class="grid grid-cols-12">
             <!-- Left -->

@@ -2,15 +2,15 @@
 @section('content')
 
 <!-- CART -->
-<div class="container pt-[201px]">
+<div class="container lg:pt-[201px] md:pt-32">
     <div class="grid grid-cols-12">
-        <div class="col-span-8">
-            <div class="ml-24">
+        <div class="lg:col-span-8 md:col-span-12">
+            <div class="lg:ml-24 md:ml-10">
                 <button class="text-[#D10B05] text-[20px] pb-4 px-12 border-b-4 border-[#D10B05] font-medium">
                     Checkout
                 </button>
             </div>
-            <div class="ml-24">
+            <div class="lg:ml-24 md:mx-10">
                 <!-- Product -->
                 <div class="w-[100%] bg-white border-b-4 border-[#e6e6e6] mt-8">
                     <div class="flex items-center gap-2">
@@ -44,7 +44,7 @@
                             <p class="font-semibold text-[18px]">Alamat Pengiriman</p>
                         </div>
                         <form action="">
-                            <button class="text-[#D10B05] font-semibold">Ubah</button>
+                            <button class="text-[#D10B05] font-semibold hover:text-[#]">Ubah</button>
                         </form>
                     </div>
                     <div class="mt-3">
@@ -139,6 +139,7 @@
                                 Pengiriman menggunakan kendaraan motor. Digunakan untuk
                                 <br />
                                 pengiriman 1 hari sampai dan jarak dekat.
+                            <p class="text-start mt-3 text-[#ff4444] hidden">* Tidak memenuhi minimum pemesanan</p>
                             </p>
                         </button>
                         <button class="pl-5 py-2 border-l-4 border-[#D10B05] mt-4">
@@ -153,6 +154,7 @@
                                 <br />
                                 pengiriman antar kota dan pembelian dalam jumlah tertentu.
                             </p>
+                            <p class="text-start mt-3 text-[#ff4444] hidden">* Tidak memenuhi minimum pemesanan</p>
                         </button>
                     </div>
                     <div class=""></div>
@@ -161,9 +163,9 @@
         </div>
 
         <!-- Right -->
-        <div class="col-span-4">
+        <div class="lg:col-span-4 md:col-span-12 lg:mt-0 md:mt-10">
             <div class="grid justify-items-center">
-                <div class="lg:w-[75%] md:w-[100%] h-[100%] border-2 border-[#CCC] rounded-3xl">
+                <div class="lg:w-[75%] md:w-[80%] h-[100%] border-2 border-[#CCC] rounded-3xl">
                     <div class="m-7">
                         <p class="text-[18px] font-semibold">Rincian Belanjaan</p>
                         <div class="flex items-center mt-5 justify-between">
