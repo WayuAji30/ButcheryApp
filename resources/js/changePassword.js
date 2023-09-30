@@ -21,18 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// FUCTION UNTUK MENGARAHKAN BUTTON SIMPAN KE LOGIN.HTML TANPA PERLU REQUIRED DULU
-document.addEventListener("DOMContentLoaded", function () {
-    const cancelButton = document.getElementById("cancelButton");
-
-    cancelButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Mencegah formulir dikirim
-
-        // Mengarahkan ke ../index.html
-        window.location.href = "../login.html";
-    });
-});
-
 // FUNCTION UNTUK VALIDASI INPUT SUDAH DIISI BARU BISA CLICK BUTTON SIMPAN
 document.addEventListener("DOMContentLoaded", function () {
     // Memilih elemen-elemen yang diperlukan

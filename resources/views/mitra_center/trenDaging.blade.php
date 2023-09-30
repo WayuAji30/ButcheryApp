@@ -53,6 +53,14 @@
             <p class="font-semibold text-[18px]">Pesanan</p>
         </a>
 
+        <a href="" class="flex items-center active-nav-link cta-btn pb-4 pl-6 nav-item">
+            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M4 13v2h16v-2H4ZM4 2h16q.825 0 1.413.588T22 4v11q0 .825-.588 1.413T20 17h-4v5l-4-2l-4 2v-5H4q-.825 0-1.413-.588T2 15V4q0-.825.588-1.413T4 2Zm0 8h16V4H4v6Zm0 5V4v11Z" />
+            </svg>
+            <p class="font-semibold text-[18px]">Langganan</p>
+        </a>
+
         <a href="" class="nav-item" id="data">
             <h1 class="flex items-center font-semibold px-6 text-[18px]">
                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">

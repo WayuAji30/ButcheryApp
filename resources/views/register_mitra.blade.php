@@ -29,7 +29,7 @@
                     class="px-3 py-1 text-[#D10B05] rounded-full border-solid border-2 border-[#D10B05] inline-block mt-1 font-medium">
                     2
                 </p>
-                <div class="w-1 h-96 bg-[#D10B05] mr-4 mt-1"></div>
+                <div class="w-1 h-[490px] bg-[#D10B05] mr-4 mt-1"></div>
                 <p
                     class="px-3 py-1 text-[#D10B05] rounded-full border-solid border-2 border-[#D10B05] inline-block mt-1 font-medium">
                     3
@@ -51,17 +51,22 @@
                     class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
                     type="text" name="" id="email" placeholder="Messitahaluasix@gmail.com" required disabled />
                 <br />
-                <label for="email" class="font-medium text-[#787878]">No. Telepon</label>
+                <label for="notelp" class="font-medium text-[#787878]">No. Telepon</label>
                 <br />
                 <input
                     class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="text" name="" id="email" placeholder="" required />
+                    type="text" name="" id="notelp" placeholder="" required />
                 <br />
-                <label for="email" class="font-medium text-[#787878]">No. Whatsapp (Contact Person)</label>
+                <label for="norek" class="font-medium text-[#787878]">No. Whatsapp (Contact Person)</label>
+                <br />
+                <input
+                    class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
+                    type="text" name="" id="norek" placeholder="" required />
+                <label for="whatsapp" class="font-medium text-[#787878]">No. Rekening</label>
                 <br />
                 <input
                     class="px-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="text" name="" id="email" placeholder="" required />
+                    type="text" name="" id="whatsapp" placeholder="" required />
 
                 <p class="font-semibold text-[18px] mt-20 mb-4">
                     Masukan Alamat Toko
