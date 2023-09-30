@@ -50,7 +50,7 @@
                                 </button>
                             </div>
                             <p class="mt-3 text-end pr-11">
-                                <a href="/changePassword" class="text-[#D10B05] mt-3">Lupa Password</a>
+                                <a href="/forgetPassword" class="text-[#D10B05] mt-3">Lupa Password</a>
                             </p>
                             <button
                                 class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold mt-8 hover:bg-[#9F0804]">

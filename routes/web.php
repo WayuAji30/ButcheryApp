@@ -28,7 +28,7 @@ Route::get('/profile', [AuthController::class,'profile']);
 Route::get('/register_password', [AuthController::class,'register_password']);
 Route::get('/register_user', [AuthController::class,'register_user']);
 Route::get('/register_mitra', [AuthController::class,'register_mitra']);
-Route::get('/changePassword', [AuthController::class,'changePassword']);
+Route::get('/forgetPassword', [AuthController::class,'forgetPassword']);
 Route::get('/trenDaging', [MitraController::class,'trenDaging']);
 Route::get('/daftarProduk', [MitraController::class,'daftarProduk']);
 Route::get('/tambahProduk', [MitraController::class,'tambahProduk']);

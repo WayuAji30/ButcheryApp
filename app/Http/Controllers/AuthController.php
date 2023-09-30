@@ -57,9 +57,9 @@ class AuthController extends Controller
         return view('register_mitra');
     }
 
-    public function changePassword(): View
+    public function forgetPassword(): View
     {
-        return view('profile.changePassword');
+        return view('profile.forgetPassword');
     }
 
     public function profile(): View

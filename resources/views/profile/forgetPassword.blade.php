@@ -9,8 +9,8 @@
                 <div class="bg-white rounded-md w-[80%] shadow-md">
                     <p class="mt-7">
                         <a href=""
-                            class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Ubah
-                            Kata Sandi</a>
+                            class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Lupa
+                            Password</a>
                     </p>
                     <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
                     <div class="grid grid-rows-1 grid-flow-col ml-28 mt-16">
