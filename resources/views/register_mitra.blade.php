@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Register Mitra -->
-<div class="container flex justify-around mx-auto px-[85px] mt-44">
+<div class="container flex justify-around mx-auto lg:px-[85px] md:pr-28  mt-44">
     <!-- TODO Make div below STICKY -->
     <!--DONE-->
     <div class="flex items-start relative">
@@ -18,7 +18,6 @@
         </div>
     </div>
     <div class="flex justify-center">
-        <div class="flex"></div>
         <div class="">
             <div class="grid justify-items-end">
                 <p
@@ -79,7 +78,7 @@
                     <div class="flex-col">
                         <label for="kota">Kota</label>
                         <select required name="" id="kota"
-                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[120%] focus:outline-[#D10B05]">
+                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[120%] md:w-full focus:outline-[#D10B05]">
                             <option value=""></option>
                             <option value="">Bojong Gede</option>
                             <option value="">Jawa Barat</option>
@@ -89,7 +88,7 @@
                     <div class="flex-col">
                         <label for="kecamatan">Kecamatan</label>
                         <select required name="" id="kecamatan"
-                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
+                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[100%] md:w-[80%] focus:outline-[#D10B05]">
                             <option value=""></option>
                             <option value="">Gambir</option>
                             <option value="">Jawa Barat</option>

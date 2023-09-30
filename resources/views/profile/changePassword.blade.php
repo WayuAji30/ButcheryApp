@@ -86,7 +86,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-span-2">
+                        <div class="col-span-2 lg:block md:hidden">
                             <div class="grid justify-items-center mt-16">
                                 <img src="{{asset('assets/img_index/asset/profile/hiro.svg')}}" alt="" />
                             </div>

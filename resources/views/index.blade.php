@@ -1,7 +1,7 @@
 @extends('templates.layout')
 @section('content')
 <!-- Hiro -->
-<div class="pt-[201px] px-12 w-full">
+<div class="lg:pt-[201px] md:pt-60 px-12 w-full">
     <div class="container mx-auto">
         <div class="grid grid-cols-12">
             <div class="col-span-8 mx-auto">
@@ -118,8 +118,8 @@
                 <form action="">
                     <button
                         class="px-3 py-[5px] lg:mr-0 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
-                        <svg class="pr-2 lg:ml-11 md:ml-10 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewBox="0 0 24 24">
+                        <svg class="pr-2 lg:ml-11 md:ml-10 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" viewBox="0 0 24 24">
                             <path fill="#d10b05"
                                 d="m9.675 13.7l.875-2.85L8.25 9h2.85l.9-2.8l.9 2.8h2.85l-2.325 1.85l.875 2.85l-2.3-1.775L9.675 13.7ZM6 23v-7.725q-.95-1.05-1.475-2.4T4 10q0-3.35 2.325-5.675T12 2q3.35 0 5.675 2.325T20 10q0 1.525-.525 2.875T18 15.275V23l-6-2l-6 2Zm6-7q2.5 0 4.25-1.75T18 10q0-2.5-1.75-4.25T12 4Q9.5 4 7.75 5.75T6 10q0 2.5 1.75 4.25T12 16Z" />
                         </svg>Daging Premium
@@ -142,8 +142,8 @@
                 <form action="">
                     <button
                         class="px-5 py-[5px] lg:mr-0 md:mr-10 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
-                        <svg class="pr-2 lg:ml-7 md:ml-7 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewBox="0 0 512 512">
+                        <svg class="pr-2 lg:ml-7 md:ml-7 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" viewBox="0 0 512 512">
                             <path fill="#d10b05"
                                 d="M312.813 24.313L88.5 282.938l65.563 95.718c90.372-68.07 182.097-177.937 254.843-295.844l-96.094-58.5zm9.125 30.03c2.658.03 4.815.813 6.562 2c3.494 2.376 6.438 7.41 6.438 16.376c0 17.928-14.45 41.012-29.657 48.124c-7.603 3.555-12.692 2.844-16.186.47c-3.494-2.377-6.47-7.412-6.47-16.376c0-17.93 14.48-41.014 29.688-48.126c3.803-1.777 6.967-2.5 9.625-2.468zm102.937 38.188c-73.88 119.784-166.747 231.365-260.25 301.564l42.53 62.125c93.965-68.158 219.3-202.6 281.564-324.845L424.874 92.53zM73.5 294.126c-17.832 17.12-35.684 32.712-53.563 46.844v120.59c27.78-33.634 57.404-75.49 87.75-117.53L73.5 294.124z" />
                         </svg>Potong Fillet
@@ -153,8 +153,8 @@
                 <form action="">
                     <button
                         class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
-                        <svg class="pr-2 lg:ml-7 md:ml-6 sm:ml-3" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                            viewBox="0 0 24 24">
+                        <svg class="pr-2 lg:ml-7 md:ml-6 sm:ml-3" xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" viewBox="0 0 24 24">
                             <path fill="#d10b05" fill-rule="evenodd"
                                 d="M17 3a4 4 0 1 0 0 8a4 4 0 0 0 0-8ZM3 17a4 4 0 1 1 8 0a4 4 0 0 1-8 0Zm10-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v5a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-5ZM3 4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4Z"
                                 clip-rule="evenodd" />
@@ -192,9 +192,10 @@
         </div>
         <div class="container mt-9">
             <div class="grid grid-cols-12 mx-auto items-center">
-                <div class="col-span-3 lg:block md:hidden">
-                    <div class="bg-[#FA4742] lg:w-full md:w-[120%] h-[336px] rounded-lg text-white lg:pl-9 md:pl-5 pt-12 relative">
-                        <p class="font-semibold text-[25px] leading-none">
+                <div class="col-span-3 ">
+                    <div
+                        class="bg-[#FA4742] lg:w-full md:w-[100%] h-[336px] rounded-lg text-white lg:pl-9 md:pl-5 pt-12 relative">
+                        <p class="font-semibold lg:text-[25px] md:text-[20px] leading-none">
                             Diskon Gede <br />
                             Tiap Hari
                         </p>
@@ -202,19 +203,20 @@
                             Dapetin harga <br /><b>spesial</b> dengan <br />
                             waktu <b>terbatas</b>.
                         </p>
-                        <button class="text-[#D10B05] bg-white px-4 py-2 rounded-full mt-6 font-bold">
+                        <button
+                            class="text-[#D10B05] bg-white px-4 py-2 rounded-full mt-6 font-bold lg:text-base md:text-[12px]">
                             Selengkapnya
                         </button>
                         <p class="text-white pt-3">*S&K Berlaku</p>
                     </div>
                 </div>
                 <!-- 1 -->
-                <div class="col-span-2 absolute lg:ml-[230px] ">
+                <div class="col-span-2 absolute lg:ml-[230px] md:ml-36  ">
                     <a href="">
                         <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/sliceYakiniku.png')}}" alt="" />
                             <div class="pt-3 pl-3">
-                                <p class="text-[14px] leading-4 font-medium">
+                                <p class="lg:text-[14px] md:text-[12px] leading-4 font-medium">
                                     US Sliced Beef Slice <br />
                                     Yakiniku Gyudon 500gr
                                 </p>
@@ -230,12 +232,12 @@
                     </a>
                 </div>
                 <!-- 2 -->
-                <div class="col-span-2 lg:ml-28 md:ml-44">
+                <div class="col-span-2 lg:ml-28 md:ml-36">
                     <a href="">
                         <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/wagyuMeltique.png')}}" alt="" />
                             <div class="pt-3 pl-3">
-                                <p class="text-[14px] leading-4 font-medium">
+                                <p class="lg:text-[14px] md:text-[12px] leading-4 font-medium">
                                     Saikoro Beef Wagyu <br />
                                     Meltique Cube 500gr
                                 </p>
@@ -251,12 +253,12 @@
                     </a>
                 </div>
                 <!-- 3 -->
-                <div class="col-span-2 lg:ml-28 md:ml-60">
+                <div class="col-span-2 lg:ml-28 md:ml-[200px]">
                     <a href="">
                         <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/AUSstriploin.png')}}" alt="" />
                             <div class="pt-3 pl-3">
-                                <p class="text-[14px] leading-4 font-medium">
+                                <p class="lg:text-[14px] md:text-[12px] leading-4 font-medium">
                                     Daging Sapi AUS Striploin <br />
                                     Beef Steak Cut 200gr
                                 </p>
@@ -272,7 +274,7 @@
                     </a>
                 </div>
                 <!-- 4 -->
-                <div class="col-span-2 lg:ml-28 md:ml-[305px]">
+                <div class="col-span-2 lg:ml-28 lg:block md:hidden">
                     <a href="">
                         <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/Angus.png')}}" alt="" />
@@ -984,84 +986,84 @@
         <h1 class="text-[24px] font-medium mb-20">Ngga Cuma Daging Sapi!</h1>
         <div class="grid grid-cols-12 gap-10">
             <!-- 1 -->
-            <div class="col-span-3">
+            <div class="lg:col-span-3 md:col-span-6">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ikan.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Ikan</span>
                 </a>
             </div>
             <!-- 2 -->
-            <div class="col-span-3">
+            <div class="lg:col-span-3 md:col-span-6">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/bebek.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Bebek</span>
                 </a>
             </div>
             <!-- 3 -->
-            <div class="col-span-3">
+            <div class="lg:col-span-3 md:col-span-6 lg:mt-0 md:mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerbau.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Kerbau</span>
                 </a>
             </div>
             <!-- 4 -->
-            <div class="col-span-3">
+            <div class="lg:col-span-3 md:col-span-6 lg:mt-0 md:mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kelinci.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Kelinci</span>
                 </a>
             </div>
             <!-- 5 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ayam.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Ayam</span>
                 </a>
             </div>
             <!-- 6 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kambing.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Kambing</span>
                 </a>
             </div>
             <!-- 7 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/domba.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Domba</span>
                 </a>
             </div>
             <!-- 8 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/udang.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Udang</span>
                 </a>
             </div>
             <!-- 9 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/sapi.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Sapi</span>
                 </a>
             </div>
             <!-- 10 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/merpati.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Daging Puyuh</span>
                 </a>
             </div>
             <!-- 11 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerang.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Kerang dan Tiram</span>
                 </a>
             </div>
             <!-- 12 -->
-            <div class="col-span-3 mt-20">
+            <div class="lg:col-span-3 md:col-span-6 mt-20">
                 <a href="" class="items-center flex">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/cumi.svg')}}" alt="" class="absolute" />
                     <span class="relative text-white text-[20px] font-semibold pl-8 block">Cumi Cumi</span>
@@ -1079,7 +1081,7 @@
         <h1 class="text-[24px] font-semibold">Rekomendasi Buat Kamu</h1>
         <div class="grid grid-cols-12 mt-9 gap-10">
             <!-- Baris 1 -->
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="/product">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">

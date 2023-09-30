@@ -2,12 +2,12 @@
 @section('content')
 
 <!-- PRODUCT -->
-<div class="w-full mt-32">
+<div class="w-full lg:mt-32 md:mt-40">
     <div class="container mx-auto px-[56px]">
         <h1 class="text-[24px] font-semibold">Rekomendasi Buat Kamu</h1>
         <div class="grid grid-cols-12 mt-9 gap-10">
             <!-- Baris 1 -->
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -33,7 +33,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -59,7 +59,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -85,7 +85,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -111,7 +111,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="product.html">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -137,7 +137,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -165,7 +165,7 @@
             </div>
 
             <!-- Baris 2 -->
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -191,7 +191,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -217,7 +217,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -243,7 +243,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -269,7 +269,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -295,7 +295,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -323,7 +323,7 @@
             </div>
 
             <!-- Baris 3 -->
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -349,7 +349,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -375,7 +375,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -401,7 +401,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -427,7 +427,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -453,7 +453,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -480,7 +480,7 @@
                 </a>
             </div>
             <!-- Baris 4 -->
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -506,7 +506,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -532,7 +532,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -558,7 +558,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -584,7 +584,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="product.html">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
@@ -610,7 +610,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-span-2">
+            <div class="lg:col-span-2 md:col-span-4">
                 <a href="">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
