@@ -28,7 +28,7 @@
                             <a href="/login" class="text-[#D10B05] font-medium hover:text-[#9F0804]">Masuk</a>
                             aja langsung
                         </p>
-                        <form action="/">
+                        <form action="/register_password">
                             <input
                                 class="pl-5 py-3 mt-9 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
                                 type="text" name="" id="" placeholder="No. Handphone/Email" required />
