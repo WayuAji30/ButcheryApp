@@ -336,7 +336,7 @@
             <swiper-container class="mySwiper mt-6 mb-6" navigation="true" pagination="false" keyboard="true"
                 mousewheel="true" css-mode="true" loop="true">
                 <swiper-slide>
-                    <div class="flex mx-16 gap-8">
+                    <div class="flex mx-20 gap-8">
                         <!-- 1 -->
                         <div class="col-span-2">
                             <a href="">
@@ -496,7 +496,7 @@
                 </swiper-slide>
 
                 <swiper-slide>
-                    <div class="flex mx-16 gap-8">
+                    <div class="flex mx-20 gap-8">
                         <!-- 1 -->
                         <div class="col-span-2">
                             <a href="">
@@ -656,7 +656,7 @@
                 </swiper-slide>
 
                 <swiper-slide>
-                    <div class="flex mx-16 gap-8">
+                    <div class="flex mx-20 gap-8">
                         <!-- 1 -->
                         <div class="col-span-2">
                             <a href="">
@@ -816,7 +816,7 @@
                 </swiper-slide>
 
                 <swiper-slide>
-                    <div class="flex mx-16 gap-8">
+                    <div class="flex mx-20 gap-8">
                         <!-- 1 -->
                         <div class="col-span-2">
                             <a href="">
