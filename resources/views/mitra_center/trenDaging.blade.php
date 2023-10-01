@@ -1,7 +1,7 @@
 @extends('../templates/mitra-layout')
 @section('content')
 <!-- Navbar kiri -->
-<aside class="relative pt-20 h-screen w-64 hidden lg:block shadow-xl bg-white">
+<aside class="relative pt-20 h-screen w-64 hidden lg:block md:block shadow-xl bg-white">
     <nav class="">
         <div class="px-6 pt-[36px]">
             <h1 class="flex items-center font-semibold text-[18px]">
