@@ -28,10 +28,11 @@
                             <a href="/login" class="text-[#D10B05] font-medium hover:text-[#9F0804]">Masuk</a>
                             aja langsung
                         </p>
-                        <form action="/register_password">
+                        <form action="/save_register" method="POST">
+                            @csrf
                             <input
                                 class="pl-5 py-3 mt-9 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                type="text" name="" id="" placeholder="No. Handphone/Email" required />
+                                type="text" name="identifier" id="" placeholder="No. Handphone/Email"/>
                             <p class="mt-2 text-[14px] pl-12 text-start">
                                 <a href="" class="text-[#787878] mt-3">Contoh: email@butchery.com</a>
                             </p>
@@ -42,6 +43,11 @@
                             <div class="justify-center flex mt-6">
                                 <img src="{{asset('assets/img_index/asset/loginPage/atau.svg')}}" alt="" />
                             </div>
+                            @error('identifier')
+                            <span class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                {{$message}}
+                             </span>
+                            @enderror
                         </form>
                         <div class="justify-center flex">
                             <form action="">

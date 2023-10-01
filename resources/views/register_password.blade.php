@@ -27,14 +27,15 @@
                             <a href="/login" class="text-[#D10B05] font-medium hover:text-[#9F0804]">Masuk</a>
                             aja langsung
                         </p>
-                        <form action="/register_user" class="mt-9">
+                        <form action="/save_register2" method="POST" class="mt-9">
+                            @csrf
                             <div class="relative">
                                 <p class="text-start ml-12 font-semibold">
                                     Buat Kata Sandi
                                 </p>
                                 <input
                                     class="pr-10 pl-5 py-3 mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                    type="password" name="" id="password1" placeholder="" required />
+                                    type="password" name="password" id="password1" placeholder=""/>
                                 <button class="absolute right-14 btn-eye-close" form="none">
                                     <svg class="mt-5" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                         viewBox="0 0 24 24">
@@ -49,6 +50,11 @@
                                             d="M247.31 124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57 61.26 162.88 48 128 48S61.43 61.26 36.34 86.35C17.51 105.18 9 124 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208s66.57-13.26 91.66-38.34c18.83-18.83 27.3-37.61 27.65-38.4a8 8 0 0 0 0-6.5ZM128 192c-30.78 0-57.67-11.19-79.93-33.25A133.47 133.47 0 0 1 25 128a133.33 133.33 0 0 1 23.07-30.75C70.33 75.19 97.22 64 128 64s57.67 11.19 79.93 33.25A133.46 133.46 0 0 1 231.05 128c-7.21 13.46-38.62 64-103.05 64Zm0-112a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z" />
                                     </svg>
                                 </button>
+                                @error('password')
+                                <p class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                    {{$message}}
+                                </p>
+                                @enderror
                             </div>
                             <div class="relative mt-8">
                                 <p class="text-start ml-12 font-semibold">
@@ -56,7 +62,8 @@
                                 </p>
                                 <input
                                     class="pr-10 pl-5 py-3 mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                    type="password" name="" id="password1" placeholder="" required />
+                                    type="password" name="confirm_password" id="password1" placeholder=""/>
+                                
                                 <button class="absolute right-14 btn-eye-close" form="none">
                                     <svg class="mt-5" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                         viewBox="0 0 24 24">
@@ -71,6 +78,11 @@
                                             d="M247.31 124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57 61.26 162.88 48 128 48S61.43 61.26 36.34 86.35C17.51 105.18 9 124 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208s66.57-13.26 91.66-38.34c18.83-18.83 27.3-37.61 27.65-38.4a8 8 0 0 0 0-6.5ZM128 192c-30.78 0-57.67-11.19-79.93-33.25A133.47 133.47 0 0 1 25 128a133.33 133.33 0 0 1 23.07-30.75C70.33 75.19 97.22 64 128 64s57.67 11.19 79.93 33.25A133.46 133.46 0 0 1 231.05 128c-7.21 13.46-38.62 64-103.05 64Zm0-112a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z" />
                                     </svg>
                                 </button>
+                                @error('confirm_password')
+                                    <p class="mt-2 text-start ml-12 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                        {{$message}}
+                                    </p>
+                                @enderror
                             </div>
 
                             <button

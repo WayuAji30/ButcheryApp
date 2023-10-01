@@ -128,13 +128,13 @@
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="" class="mx-4" />
                 <div class="block">
                     <div class="flex gap-3">
-                        <form action="/login">
+                        <a href="/login">
                             <button
                                 class="border-solid border-2 border-[#D10B05] font-semibold rounded-lg py-3 px-10 text-[#D10B05] hover:bg-[#D10B05] hover:text-white">
                                 Masuk
                             </button>
                         </form>
-                        <form action="/register">
+                        <a href="/register">
                             <button
                                 class="border-solid border-2 bg-[#D10B05] font-semibold rounded-lg py-3 px-10 border-[#D10B05] text-white mr-4 hover:bg-[#9F0804] hover:border-[#9F0804]">
                                 Daftar

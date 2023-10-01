@@ -28,7 +28,8 @@
                             <a href="/login" class="text-[#D10B05] font-medium hover:text-[#9F0804]">Masuk</a>
                             aja langsung
                         </p>
-                        <form action="" class="mt-9">
+                        <form action="/save_register3" method = "POST" class="mt-9">
+                            @csrf
                             <label for="username" class="flex justify-start ml-12 font-semibold">Masukan
                                 Username</label>
                             <input
@@ -38,7 +39,7 @@
                                 Masukan Alamat Toko
                             </p>
                             <p class="text-[#787878] text-start ml-12 mt-4">Provinsi</p>
-                            <select required name="" id=""
+                            <select required name="provinsi" id=""
                                 class="pl-5 py-3 border-solid border-2 mt-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]">
                                 <option value=""></option>
                                 <option value="">Jawa Barat</option>
@@ -47,7 +48,7 @@
                             <div class="flex mt-4 justify-center gap-5 ml-10 mb-5">
                                 <div class="flex-col text-start">
                                     <label for="kota" class="text-[#787878]">Kota</label>
-                                    <select required name="" id="kota"
+                                    <select required name="kota" id="kota"
                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
                                         <option value=""></option>
                                         <option value="">Jawa Barat</option>
@@ -56,7 +57,7 @@
                                 </div>
                                 <div class="flex-col text-start">
                                     <label for="kecamatan" class="text-[#787878]">Kecamatan</label>
-                                    <select required name="" id="kecamatan"
+                                    <select required name="kecamatan" id="kecamatan"
                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]">
                                         <option value=""></option>
                                         <option value="">Jawa Barat</option>
@@ -67,7 +68,7 @@
                             <p class="text-[#787878] text-start ml-12">Alamat Detail</p>
                             <input
                                 class="pl-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] h-28 focus:outline-[#D10B05]"
-                                type="text" name="" id="alamat" placeholder="" required />
+                                type="text" name="alamat" id="alamat" placeholder="" required />
                             <p class="text-[#B3B3B3]">
                                 Dengan mendaftar, saya menyetujui <br />
                                 <a href="" class="font-medium text-[#D10B05] hover:text-[#9F0804]">

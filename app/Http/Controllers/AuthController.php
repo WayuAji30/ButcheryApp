@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Post; // memanggil model dalam folder Models
+use App\Models\KonsumensModel; // memanggil model dalam folder Models
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -67,137 +68,65 @@ class AuthController extends Controller
         return view('profile.profile');
     }
 
-
-    /**
-     * store
-     *
-     * @param  mixed $request
-     * 
-     */
-    public function store(Request $request)
-    {
-        //validate form
-        $this->validate($request, [
-            'image'     => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'nama'     => 'required',
-            'jurusan'   => 'required',
-            'deskripsi'   => 'required',
+    public function save_register(Request $request){
+        $this->validate($request,[
+            'identifier' => 'required|nullable',
         ]);
 
-        //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/posts', $image->hashName());
+        $identifier = $request->input('identifier');
 
-        //create post
-        Post::create([
-            'nama'     => $request->nama,
-            'jurusan'     => $request->jurusan,
-            'image'     => $image->hashName(),
-            'deskripsi'   => $request->deskripsi
-        ]);
-
-        //redirect to index
-        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Disimpan!']);
-    }
-    /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        //get post by ID
-        $post = Post::findOrFail($id);
-
-        //render view with post
-        return view('posts.show', compact('post'));
-    }
-
-     /**
-     * edit
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function edit(string $id): View
-    {
-        //get post by ID
-        $post = Post::findOrFail($id);
-
-        //render view with post
-        return view('posts.edit', compact('post'));
-    }
-    
-    /**
-     * update
-     *
-     * @param  mixed $request
-     * @param  mixed $id
-     * 
-     */
-    public function update(Request $request, $id)
-    {
-        //validate form
-        $this->validate($request, [
-            'image'     => 'image|mimes:jpeg,jpg,png|max:2048',
-            'nama'     => 'required',
-            'jurusan'   => 'required',
-            'deskripsi'   => 'required',
-        ]);
-
-        //get post by ID
-        $post = Post::findOrFail($id);
-
-        //check if image is uploaded
-        if ($request->hasFile('image')) {
-
-            //upload new image
-            $image = $request->file('image');
-            $image->storeAs('public/posts', $image->hashName());
-
-            //delete old image
-            Storage::delete('public/posts/'.$post->image);
-
-            //update post with new image
-            $post->update([
-                'image'     => $image->hashName(),
-                'title'     => $request->title,
-                'content'   => $request->content
-            ]);
-
-        } else {
-
-            //update post without image
-            $post->update([
-                'nama'     => $request->nama,
-                'jurusan'   => $request->jurusan,
-                'deskripsi'   => $request->deskripsi
-            ]);
+        if(filter_var($identifier, FILTER_VALIDATE_EMAIL)){
+            $email = $identifier;
+            $request->session()->put('registration_data.email', $email);
+            return redirect()->to('/register_password');
+        }else{
+            $no_hp = $identifier;
+            $request->session()->put('registration_data.no_hp', $no_hp);
+            return redirect()->to('/register_password');
         }
-
-        //redirect to index
-        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
-     /**
-     * destroy
-     *
-     * @param  mixed $post
-     * @return void
-     */
-    public function destroy($id)
-    {
-        //get post by ID
-        $post = Post::findOrFail($id);
+  public function save_register2(Request $request){
+        $this->validate($request,[
+            'password' => 'required|string',
+            'confirm_password' => 'required|same:password',
+        ]);
 
-        //delete image
-        Storage::delete('public/posts/'. $post->image);
+        $password = $request->input('password');
+        $hash_password= Hash::make($password);
 
-        //delete post
-        $post->delete();
-
-        //redirect to index
-        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        $request->session()->put('registration_data.password', $hash_password);
+        return redirect()->to('/register_user');
     }
+    public function save_register3(Request $request){
+       
+    }
+
+    public function store_register(Request $request){
+        $registrationData = $request->session()->get('registration_data');
+        
+        $email = (isset($registrationData['email'])) ? $registrationData['email']: '' ;
+        $no_hp = (isset($registrationData['no_hp'])) ? $registrationData['no_hp']: '';
+        $password = $registrationData['password'];
+
+        try {
+            KonsumensModel::create(['email' => $email, 'no_hp' => $no_hp, 'password' => $password]); 
+            $request->session()->flush();
+            return redirect()->to('/');
+        } catch (\Exception $e) {
+            $request->session()->flush(); // Hapus seluruh sesi jika gagal
+            echo $e;
+        }
+    }
+
+    public function getSession(Request $request){
+        $registrationData = $request->session()->get('registration_data');
+        var_dump($registrationData);
+    }
+
+    public function sessionDelete(Request $request){
+        session()->flush();
+    }
+
+   
 }
