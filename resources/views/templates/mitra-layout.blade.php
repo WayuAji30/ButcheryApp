@@ -26,8 +26,16 @@
                     </p>
                 </div>
                 <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
-                    <a href=""><img src="asset/navbar/notification.svg" alt="" class="mr-2" /></a>
-                    <a href=""><img src="asset/navbar/profile.svg" alt=""
+                    <a href="" class="p-1 rounded-lg hover:bg-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                            <g fill="none" stroke="#454545" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                <circle cx="12" cy="3" r="1" />
+                            </g>
+                        </svg>
+                    </a>
+                    <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
                             class="border-2 border-[#D10B05] rounded-full" /></a>
                     <p class="font-medium">Rahmat Messi Talahu</p>
                 </div>
@@ -39,7 +47,7 @@
 
     <!-- @vite('resources/js/hamburgerToggle.js') -->
     @vite(['resources/js/tambahProduk.js', 'resources/js/app.js'])
-     <!-- AOS Animate -->
+    <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
     AOS.init();

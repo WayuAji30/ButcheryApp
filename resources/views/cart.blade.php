@@ -30,7 +30,7 @@
 
                     <div class="my-10 flex justify-between items-center">
                         <input type="text" name="" id="" placeholder="Tambahkan Catatan"
-                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:outline-white" />
+                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none" />
                         <div class="flex items-center gap-4 mr-20" id="remove">
                             <button id="btn-remove">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
@@ -70,7 +70,7 @@
 
                     <div class="my-10 flex justify-between items-center">
                         <input type="text" name="" id="" placeholder="Tambahkan Catatan"
-                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:outline-white" />
+                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none" />
                         <div class="flex items-center gap-4 mr-20" id="remove">
                             <button id="btn-remove">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
@@ -110,7 +110,7 @@
 
                     <div class="my-10 flex justify-between items-center">
                         <input type="text" name="" id="" placeholder="Tambahkan Catatan"
-                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:outline-white" />
+                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none" />
                         <div class="flex items-center gap-4 mr-20" id="remove">
                             <button id="btn-remove">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
@@ -150,7 +150,7 @@
 
                     <div class="my-10 flex justify-between items-center">
                         <input type="text" name="" id="" placeholder="Tambahkan Catatan"
-                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:outline-white" />
+                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none" />
                         <div class="flex items-center gap-4 mr-20" id="remove">
                             <button id="btn-remove">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
