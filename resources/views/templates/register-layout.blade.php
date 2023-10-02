@@ -171,6 +171,9 @@
     </footer>
     <!-- FOOTER -->
     @vite(['resources/js/password.js, resources/js/app.js'])
+    <script>
+        
+    </script>
 </body>
 
 </html>

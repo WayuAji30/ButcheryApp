@@ -41,9 +41,9 @@
                             <p class="text-[#787878] text-start ml-12 mt-4">Provinsi</p>
                             <select required name="provinsi" id=""
                                 class="pl-5 py-3 border-solid border-2 mt-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]">
-                                <option value=""></option>
-                                <option value="">Jawa Barat</option>
-                                <option value="">Jawa Tengah</option>
+                                @foreach ( $provinsiData as $pd )
+                                    <option value="{{$pd['id']}}">{{$pd['name']}}</option>    
+                                @endforeach
                             </select><br />
                             <div class="flex mt-4 justify-center gap-5 ml-10 mb-5">
                                 <div class="flex-col text-start">

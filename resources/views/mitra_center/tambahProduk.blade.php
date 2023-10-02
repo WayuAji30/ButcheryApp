@@ -96,7 +96,11 @@
                 Produk</a>
         </p>
         <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
-        <form action="">
+        <form action="{{(isset($produk->_id) ? '/edit_produk' : '/store_produk')}}" method = "POST" enctype="multipart/form-data">
+            @if (isset($produk->_id))
+                <input type="hidden" name = "id" value = "{{$produk->_id}}"/>
+            @endif
+            @csrf
             <div class="flex ml-11 mt-10 gap-10 items-center">
                 <div>
                     <p class="font-semibold text-[18px]">Foto Produk</p>
@@ -109,28 +113,24 @@
                         perhatian pembeli.
                     </p>
                 </div>
-
-                <input type="file" accept="image/png, image/jpeg, image/jpg" required />
-                <input type="file" accept="image/png, image/jpeg, image/jpg" />
-                <input type="file" accept="image/png, image/jpeg, image/jpg" />
+                <input type="file" name = "foto[foto1]"/>
+                <input type="file" name = "foto[foto2]"/>
+                <input type="file" name = "foto[foto3]"/>
             </div>
             <div class="flex ml-11 mt-16 items-center">
                 <p class="font-semibold text-[18px] mr-64">Nama Produk</p>
-
-                <input required type="text" placeholder="Ketikan Disini"
+                <input name = "nama_produk" type="text" placeholder="Ketikan Disini" value = "{{(isset($produk->nama_produk)) ? $produk->nama_produk : ''}}"
                     class="px-3 py-4 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-[547px] focus:outline-[#D10B05]" />
             </div>
             <div class="flex ml-11 mt-10 items-center">
                 <p class="font-semibold text-[18px] mr-[300px]">Kategori</p>
 
-                <select required name="" id="Kategori"
+                <select name="kategori" id="Kategori"
                     class="px-3 py-4 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-[547px] focus:outline-[#D10B05]">
-                    <option value="">Pilih kategori produkmu</option>
-                    <option value="">Ayam</option>
-                    <option value="">Ikan</option>
-                    <option value="">Bebek</option>
-                    <option value="">Kambing</option>
-                    <option value="">Sapi</option>
+                    <option value = "{{(isset($produk->id_kategori)) ? $produk->id_kategori : '' }}" >{{(isset($produk->id_kategori)) ? $produk->id_kategori : 'Pilih kategori produkmu'}} </option>
+                    @foreach ($kategori as $k)
+                        <option value = "{{$k['nama_kategori']['slug']}}"> {{$k['nama_kategori']['nama']}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="flex ml-11 mt-10 items-center">
@@ -147,7 +147,7 @@
                     </p>
                 </div>
 
-                <input required type="text" placeholder="Ketikan deskripsi produkmu disini"
+                <input name = "deskripsi" type="text" placeholder="Ketikan deskripsi produkmu disini" value = "{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}"
                     class="px-3 py-4 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-[547px] h-64 focus:outline-[#D10B05]" />
             </div>
             <p class="mt-2 ml-[32%]">
@@ -173,13 +173,13 @@
                     <div class="bg-[#eeeeee] w-[547px] rounded-md">
                         <div class="px-10 py-5">
                             <label for="" class="font-semibold mr-4">Varian 1</label>
-                            <input required type="text" placeholder="Contoh: 250gr"
+                            <input name="varian[varian1]" type="text" placeholder="Contoh: 250gr" value = "{{(isset($produk['varian'][0]['varian1'])) ? $produk['varian'][0]['varian1']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]">Harga</label>
-                            <input required type="text" placeholder="Masukan dalam Rupiah"
+                            <input name="varian[harga1]" type="text" placeholder="Masukan dalam Rupiah" value = "{{(isset($produk['varian'][0]['harga'])) ? $produk['varian'][0]['harga']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10">Stok</label>
-                            <input required type="text" placeholder="Contoh: 17"
+                            <input name = "varian[stok1]" type="text" placeholder="Contoh: 17" value = "{{(isset($produk['varian'][0]['stok'])) ? $produk['varian'][0]['stok']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                         </div>
                     </div>
@@ -194,13 +194,13 @@
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input required hidden type="text" placeholder="Contoh: 250gr"
+                            <input name="varian[varian2]" hidden type="text" placeholder="Contoh: 250gr" value = "{{(isset($produk['varian'][1]['varian2'])) ? $produk['varian'][1]['varian2']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input required hidden type="text" placeholder="Masukan dalam Rupiah"
+                            <input name ="varian[harga2]" hidden type="text" placeholder="Masukan dalam Rupiah" value = "{{(isset($produk['varian'][1]['harga'])) ? $produk['varian'][1]['harga']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input required hidden type="text" placeholder="Contoh: 17"
+                            <input name="varian[stok2]" hidden type="text" placeholder="Contoh: 17" value = "{{(isset($produk['varian'][1]['stok'])) ? $produk['varian'][1]['stok']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                         </div>
                     </div>
@@ -215,13 +215,13 @@
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input required hidden type="text" placeholder="Contoh: 250gr"
+                            <input hidden type="text" placeholder="Contoh: 250gr"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input required hidden type="text" placeholder="Masukan dalam Rupiah"
+                            <input hidden type="text" placeholder="Masukan dalam Rupiah"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input required hidden type="text" placeholder="Contoh: 17"
+                            <input hidden type="text" placeholder="Contoh: 17"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                         </div>
                     </div>
@@ -234,6 +234,7 @@
                         Kembali
                     </button>
                     <button
+                        name = "submit"
                         class="border-2 border-[#D10B05] text-white bg-[#D10b05] py-2 px-14 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804]">
                         Simpan
                     </button>
