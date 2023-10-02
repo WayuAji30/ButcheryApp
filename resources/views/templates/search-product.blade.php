@@ -300,6 +300,16 @@
     </footer>
     <!-- FOOTER -->
     @vite(['resources/js/product.js', 'resources/js/app.js'])
+    <script>
+    function changeProduct(product) {
+        const productImage = document.getElementById('product-image');
+        const imagePath = `{{asset('assets/img_index/asset/product/${product}.svg')}}`;
+        productImage.src = imagePath;
+    }
+
+    // Set product1 as default
+    changeProduct('product1');
+    </script>
 </body>
 
 </html>

@@ -8,16 +8,21 @@
             <!-- Left -->
             <div class="lg:col-span-4 md:col-span-12">
                 <div class="grid justify-items-center">
-                    <img src="{{asset('assets/img_index/asset/product/product.svg')}}" alt="" class="rounded-md" />
+                    <img id="product-image" src="{{asset('assets/img_index/asset/product/product1.svg')}}" alt=""
+                        class="rounded-md" />
+
                 </div>
                 <div class="flex gap-3 mt-4 lg:pl-16 lg:justify-normal md:justify-center">
-                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg">
+                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg"
+                        onclick="changeProduct('product1')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan1.svg')}}" alt="" class="rounded-md" />
                     </button>
-                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg">
+                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg"
+                        onclick="changeProduct('product2')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan2.svg')}}" alt="" class="rounded-md" />
                     </button>
-                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg">
+                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg"
+                        onclick="changeProduct('product3')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan3.svg')}}" alt="" class="rounded-md" />
                     </button>
                 </div>
