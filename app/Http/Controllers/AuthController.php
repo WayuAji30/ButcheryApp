@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
@@ -43,14 +44,15 @@ class AuthController extends Controller
         return view('register_password');
     }
 
-    /**
-     * register_user
-     *
-     * @return View
-     */
-    public function register_user(): View
+    public function register_user()
     {
-        return view('register_user');
+        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
+
+        $response = Http::get($apiProvinsi);
+
+        $provinsiData = $response->json();
+
+        return view('register_user', ['provinsiData' => $provinsiData]);
     }
 
     public function register_mitra(): View

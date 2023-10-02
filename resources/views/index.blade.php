@@ -1081,25 +1081,26 @@
         <h1 class="text-[24px] font-semibold">Rekomendasi Buat Kamu</h1>
         <div class="grid grid-cols-12 mt-9 gap-10">
             <!-- Baris 1 -->
+            @foreach ($rekProduk as $rp )
             <div class="lg:col-span-2 md:col-span-4">
-                <a href="/product">
+                <a href="/product/{{$rp['_id']}}">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
-                        <img src="asset/rekomendasi/baris1/udangVaname.png" alt="" />
+                        <img src="{{asset('assets/img_index/asset/rekomendasi/baris1/udangVaname.png')}}" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
-                                Udang Vaname segar size <br />
-                                85-95 250gr/500gr/1kg
+                                {{$rp['nama_produk']}}
+                                {{$rp['varian'][0]['varian1']}}/{{$rp['varian'][1]['varian2']}}
                             </p>
-                            <p class="font-bold pt-2">Rp<span>99.000</span></p>
+                            <p class="font-bold pt-2">Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
                             <p class="pt-5 flex text-[#999]">
-                                <img class="pr-2" src="asset/card/clarity_store-solid.svg" alt="" />Culture Tambak
+                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}" alt="" />Culture Tambak
                             </p>
                             <p class="text-[#D10B05] font-medium flex">
-                                <img class="pr-2" src="asset/card/solar_point-on-map-bold.svg" alt="" />Bekasi Timur
+                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}" alt="" />Bekasi Timur
                             </p>
                             <p class="flex text-[#999]">
-                                <img class="pr-2" src="asset/card/ic_round-star.svg" alt="" /><span
+                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}" alt="" /><span
                                     class="pr-1">4.7</span> |
                                 <span class="pl-1 pr-1">672</span>terjual
                             </p>
@@ -1107,6 +1108,8 @@
                     </div>
                 </a>
             </div>
+            @endforeach
+      
         </div>
         <div class="flex justify-center pt-12 pb-32">
             <form action="">

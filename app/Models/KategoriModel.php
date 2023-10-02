@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
-class SuppliersModel extends Authenticatable
+class KategoriModel extends Model
 {
     use HasFactory;
 
     protected $connection = 'mongodb';
-    protected $collection = 'tbl_suppliers';
+    protected $collection = 'tbl_kategori_produk';
 
     protected $fillable = [
-        'username', 'email', 'no_hp', 'provinsi', 'kota', 'kecamatan', 'alamat', 'password','role'
+        'nama_kategori', 'slug'
     ];
 
 }

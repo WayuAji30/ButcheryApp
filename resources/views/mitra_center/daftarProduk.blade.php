@@ -123,11 +123,11 @@
                     <option value="">Sapi</option>
                 </select>
             </div>
-            <form action="/tambahProduk">
+            <a href="/tambahProduk">
                 <button class="bg-[#D10B05] px-3 py-2 rounded-md text-white font-semibold hover:bg-[#9F0804]">
                     + Tambah Produk
                 </button>
-            </form>
+            </a>
         </div>
         <!-- SEARCH BAR -->
 
@@ -144,35 +144,40 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($daftarProduk as $dp )
                 <tr>
                     <td>
                         <img src="{{asset('assets/img_mitra_center/asset/daftarProduk/sapi.png')}}" alt=""
                             class="rounded-lg ml-5" />
                     </td>
                     <td class="font-semibold">
-                        Daging US Beef Slice Premium Quality 1kg <br />
+                        {{$dp['nama_produk']}}<br />
                         <p class="font-normal text-[#999]">
-                            ID: <span id="id-barang">1yb1675f</span>
+                            ID: <span id="id-barang">{{$dp['_id']}}</span>
                         </p>
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
-                        Rp<span id="harga">169.500</span>
+                        Rp<span id="harga">{{$dp['varian'][0]['harga']}}</span> |
+                        Rp<span id="harga">{{$dp['varian'][1]['harga']}}</span>
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
-                        250gr, 500gr, 1kg
+                        {{$dp['varian'][0]['varian1']}} |
+                        {{$dp['varian'][1]['varian2']}}
                     </td>
-                    <td class="text-center font-semibold text-[#5e5e5e]">35</td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">{{$dp['varian'][0]['stok']}} | {{$dp['varian'][1]['stok']}}</td>
                     <td class="text-center">
-                        <a href="tambahProduk.html"
+                        <a href="/tambahProduk/{{$dp['_id']}}"
                             class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white">
                             Edit
                         </a>
-                        <a href=""
-                            class="border-2 border-[#D10B05] bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804]">
+                        <a href="/hapusProduk/{{$dp['_id']}}"
+                            class="border-2 border-[#D10B05] bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804]" onclick="return confirm('apakah kamu yakin?')">
                             Hapus
                         </a>
                     </td>
                 </tr>
+                @endforeach
+               
             </tbody>
         </table>
         <!-- TABLE -->
