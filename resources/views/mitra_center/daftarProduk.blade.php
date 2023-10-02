@@ -164,23 +164,47 @@
                         {{$dp['varian'][0]['varian1']}} |
                         {{$dp['varian'][1]['varian2']}}
                     </td>
-                    <td class="text-center font-semibold text-[#5e5e5e]">{{$dp['varian'][0]['stok']}} | {{$dp['varian'][1]['stok']}}</td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">{{$dp['varian'][0]['stok']}} |
+                        {{$dp['varian'][1]['stok']}}</td>
                     <td class="text-center">
                         <a href="/tambahProduk/{{$dp['_id']}}"
                             class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white">
                             Edit
                         </a>
                         <a href="/hapusProduk/{{$dp['_id']}}"
-                            class="border-2 border-[#D10B05] bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804]" onclick="return confirm('apakah kamu yakin?')">
+                            class="border-2 border-[#D10B05] bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804]"
+                            onclick="return confirm('apakah kamu yakin?')">
                             Hapus
                         </a>
                     </td>
                 </tr>
                 @endforeach
-               
+
             </tbody>
         </table>
         <!-- TABLE -->
+    </div>
+    <div class="flex justify-center items-center">
+        <div class="w-[460px] bg-white shadow-md rounded-md text-center">
+            <svg class="mt-5 mx-auto my-auto" xmlns="http://www.w3.org/2000/svg" width="100" height="100"
+                viewBox="0 0 40 40">
+                <path fill="#d10b05"
+                    d="M35.765 35.729H4.24a2.101 2.101 0 0 1-1.806-1.039a2.07 2.07 0 0 1-.006-2.085L18.2 5.312a2.074 2.074 0 0 1 1.801-1.041c.743 0 1.435.399 1.805 1.042l15.729 27.224a2.087 2.087 0 0 1-1.77 3.192zM19.948 6.312h-.017L4.162 33.601l.078.129h31.525c.044 0 .087-.043.087-.086c-.007-.011-.042-.096-.049-.107L20.073 6.312h-.125z" />
+                <path fill="#d10b05"
+                    d="M19.029 15.549v8.701a1.136 1.136 0 0 0 2.27 0v-8.701a1.14 1.14 0 0 0-1.135-1.139c-.623 0-1.135.513-1.135 1.139zm1.136 11.35c-.624 0-1.135.506-1.135 1.132v.761a1.14 1.14 0 0 0 1.135 1.132c.626 0 1.135-.513 1.135-1.132v-.761c0-.626-.51-1.132-1.135-1.132zm0 0" />
+            </svg>
+            <p class="font-semibold text-[20px] mt-2">Apakah anda yakin <br>
+                ingin menghapus data ini?</p>
+
+            <form action="">
+                <div class="flex justify-center gap-10  my-5">
+                    <button
+                        class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05]">Batal</button>
+                    <button
+                        class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 rounded-md font-semibold">Hapus</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
