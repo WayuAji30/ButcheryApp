@@ -194,13 +194,13 @@
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input required hidden type="text" placeholder="Contoh: 250gr"
+                            <input hidden type="text" placeholder="Contoh: 250gr"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input required hidden type="text" placeholder="Masukan dalam Rupiah"
+                            <input hidden type="text" placeholder="Masukan dalam Rupiah"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input required hidden type="text" placeholder="Contoh: 17"
+                            <input hidden type="text" placeholder="Contoh: 17"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                         </div>
                     </div>
@@ -215,13 +215,13 @@
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input required hidden type="text" placeholder="Contoh: 250gr"
+                            <input hidden type="text" placeholder="Contoh: 250gr"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input required hidden type="text" placeholder="Masukan dalam Rupiah"
+                            <input hidden type="text" placeholder="Masukan dalam Rupiah"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input required hidden type="text" placeholder="Contoh: 17"
+                            <input hidden type="text" placeholder="Contoh: 17"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                         </div>
                     </div>

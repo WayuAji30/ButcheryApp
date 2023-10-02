@@ -6,7 +6,8 @@
     <div class="grid grid-cols-12">
         <div class="col-span-8">
             <div class="ml-24">
-                <button class="text-[#D10B05] text-[20px] pb-4 px-12 border-b-4 border-[#D10B05] font-medium">
+                <button
+                    class="text-[#D10B05] text-[20px] pb-4 px-12 border-b-4 border-[#D10B05] font-medium cursor-default">
                     Keranjang
                 </button>
             </div>
