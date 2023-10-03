@@ -55,13 +55,13 @@
                 <br />
                 <input
                     class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="text" name="" id="notelp" placeholder="" required />
+                    type="tel" name="" id="notelp" placeholder="" required />
                 <br />
                 <label for="norek" class="font-medium text-[#787878]">No. Whatsapp (Contact Person)</label>
                 <br />
                 <input
                     class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="text" name="" id="norek" placeholder="" required />
+                    type="tel" name="" id="norek" placeholder="" required />
                 <label for="whatsapp" class="font-medium text-[#787878]">No. Rekening</label>
                 <br />
                 <input
@@ -103,9 +103,12 @@
                 </div>
                 <label for="alamat" class="font-medium text-[#787878]">Alamat Detail</label>
                 <br />
-                <input
+                <!-- <input
                     class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] h-28 focus:outline-[#D10B05]"
-                    type="text" name="" id="alamat" placeholder="" required />
+                    type="text" name="" id="alamat" placeholder="" required /> -->
+                <textarea
+                    class="peer block min-h-[auto] w-full mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary focus:border-[#D10B05] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                    id="alamat" rows="4" required></textarea>
                 <p class="text-[#B3B3B3]">
                     Dengan mendaftar, saya menyetujui <br />
                     <a href="" class="font-medium text-[#D10B05] hover:text-[#9F0804]">

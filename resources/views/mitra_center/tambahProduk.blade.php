@@ -149,10 +149,13 @@
                         menemukan produkmu.
                     </p>
                 </div>
-
-                <input name="deskripsi" type="text" placeholder="Ketikan deskripsi produkmu disini"
+                <textarea
+                    class="peer block min-h-[auto] w-[547px] h-64 mt-3 rounded-md border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear peer-focus:text-primary focus:border-[#D10B05]"
+                    id="alamat" rows="4" placeholder="Ketikan deskripsi produkmu"
+                    value="{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}" required></textarea>
+                <!-- <input name="deskripsi" type="text" placeholder="Ketikan deskripsi produkmu disini"
                     value="{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}"
-                    class="px-3 py-4 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-[547px] h-64 focus:outline-[#D10B05]" />
+                    class="px-3 py-4 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-[547px] h-64 focus:outline-[#D10B05]" /> -->
             </div>
             <p class="mt-2 ml-[32%]">
                 <span class="text-[#D10B05]">*</span> Tulis deskripsi produkmu max.

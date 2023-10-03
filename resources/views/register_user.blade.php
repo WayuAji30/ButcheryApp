@@ -28,7 +28,7 @@
                             <a href="/login" class="text-[#D10B05] font-medium hover:text-[#9F0804]">Masuk</a>
                             aja langsung
                         </p>
-                        <form action="/save_register3" method = "POST" class="mt-9">
+                        <form action="/save_register3" method="POST" class="mt-9">
                             @csrf
                             <label for="username" class="flex justify-start ml-12 font-semibold">Masukan
                                 Username</label>
@@ -42,7 +42,7 @@
                             <select required name="alamat[provinsi]" id="provinsi"
                                 class="pl-5 py-3 border-solid border-2 mt-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]">
                                 @foreach ( $provinsiData as $pd )
-                                    <option value="{{$pd['id']}}">{{$pd['name']}}</option>    
+                                <option value="{{$pd['id']}}">{{$pd['name']}}</option>
                                 @endforeach
                             </select><br />
                             <div class="flex mt-4 justify-center gap-5 ml-10 mb-5">
@@ -51,11 +51,11 @@
                                     <select required name="alamat[kota]" id="kota"
                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
                                         @if (isset($kotaData))
-                                            @foreach ( $kotaData as $kotd )
-                                                <option value="{{$kotd['id']}}">{{$kotd['name']}}</option>    
-                                            @endforeach
+                                        @foreach ( $kotaData as $kotd )
+                                        <option value="{{$kotd['id']}}">{{$kotd['name']}}</option>
+                                        @endforeach
                                         @else
-                                         <option value=""></option>    
+                                        <option value=""></option>
                                         @endif
                                     </select>
                                 </div>
@@ -64,19 +64,19 @@
                                     <select required name="alamat[kecamatan]" id="kecamatan"
                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]">
                                         @if (isset($kecamatanData))
-                                            @foreach ( $kecamatanData as $kecd )
-                                                <option value="{{$kecd['id']}}">{{$kecd['name']}}</option>    
-                                            @endforeach
+                                        @foreach ( $kecamatanData as $kecd )
+                                        <option value="{{$kecd['id']}}">{{$kecd['name']}}</option>
+                                        @endforeach
                                         @else
-                                         <option value=""></option>    
+                                        <option value=""></option>
                                         @endif
                                     </select>
                                 </div>
                             </div>
                             <p class="text-[#787878] text-start ml-12">Alamat Detail</p>
-                            <input
-                                class="pl-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] h-28 focus:outline-[#D10B05]"
-                                type="text" name="alamat[alamat]" id="alamat" placeholder="" required />
+                            <textarea
+                                class="peer block min-h-[auto] mx-auto my-auto w-[80%] mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary focus:border-[#D10B05] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                id="alamat" rows="4" required></textarea>
                             <p class="text-[#B3B3B3]">
                                 Dengan mendaftar, saya menyetujui <br />
                                 <a href="" class="font-medium text-[#D10B05] hover:text-[#9F0804]">
