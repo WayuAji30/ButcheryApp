@@ -170,14 +170,7 @@
         </div>
     </footer>
     <!-- FOOTER -->
-<<<<<<< HEAD
-    @vite(['resources/js/password.js, resources/js/app.js'])
-    <script>
-        
-    </script>
-=======
-    @vite(['resources/js/password.js', 'resources/js/app.js'])
->>>>>>> 8de31245f6305a05452b6c7b0c086a28222a6a24
+    @vite(['resources/js/password.js', 'resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/selectIndonesia.js'])
 </body>
 
 </html>

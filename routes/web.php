@@ -28,6 +28,7 @@ Route::get('/register', [AuthController::class,'register']);
 Route::get('/register_password', [AuthController::class,'register_password']);
 Route::get('/register_user', [AuthController::class,'register_user']);
 
+Route::get('/register_userProv/{idProv}/{idKota}', [AuthController::class,'register_userProv']);
 
 Route::post('/save_register',[AuthController::class,'save_register']);
 Route::post('/save_register2',[AuthController::class,'save_register2']);

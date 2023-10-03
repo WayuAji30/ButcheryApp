@@ -13,11 +13,21 @@ use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
-    /**
-     * index
-     *
-     * @return View
-    */
+    private $idProvinsi, $idKota;
+
+    public function getIdProvinsi(){
+        return $this->idProvinsi;
+    }
+    public function getIdKota(){
+        return $this->idKota;
+    }
+
+    public function setIdProvinsi($value){
+        $this->idProvinsi = $value;
+    }
+    public function setIdKota($value){
+        $this->idKota = $value;
+    }
 
     public function login(): View
     {
@@ -52,10 +62,42 @@ class AuthController extends Controller
 
         $provinsiData = $response->json();
 
+        $apiKota = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/".$this->getIdProvinsi().".json";
+
+        $response2 = Http::get($apiKota);
+
+        $kotaData = $response2->json();
+
         return view('register_user', ['provinsiData' => $provinsiData]);
     }
 
-    public function register_mitra(): View
+    public function register_userProv($idProv, $idKota)
+    {
+        $this->setIdProvinsi($idProv);
+        $this->setIdKota($idKota);
+
+        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
+
+        $response = Http::get($apiProvinsi);
+
+        $provinsiData = $response->json();
+
+        $apiKota = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/".$this->getIdProvinsi().".json";
+
+        $response2 = Http::get($apiKota);
+
+        $kotaData = $response2->json();       
+
+        $apiKecamatan = "https://emsifa.github.io/api-wilayah-indonesia/api/districts/".$this->getIdKota().".json";
+
+        $response3 = Http::get($apiKecamatan);
+
+        $kecamatanData = $response3->json();
+
+        return view('register_user', ['provinsiData' => $provinsiData,'kotaData' => $kotaData, 'kecamatanData' => $kecamatanData]);
+    }
+
+    public function register_mitra()
     {
         return view('register_mitra');
     }
@@ -101,18 +143,58 @@ class AuthController extends Controller
         return redirect()->to('/register_user');
     }
     public function save_register3(Request $request){
-       
+        $this->validate($request,[
+            'username' => 'required',
+            'alamat.provinsi' => 'required',
+            'alamat.kota' => 'required',
+            'alamat.kecamatan' => 'required',
+            'alamat.alamat' => 'required'
+        ]);
+
+        $username  = $request->input('username');
+        $provinsi  = $request->input('alamat.provinsi');
+        $kota  = $request->input('alamat.kota');
+        $kecamatan  = $request->input('alamat.kecamatan');
+        $alamat  = $request->input('alamat.alamat');
+
+        $request->session()->put('registration_data.username', $username);
+        $request->session()->put('registration_data.provinsi', $provinsi);
+        $request->session()->put('registration_data.kota', $kota);
+        $request->session()->put('registration_data.kecamatan', $kecamatan);
+        $request->session()->put('registration_data.alamat', $alamat);
+        
+        return redirect()->to('/index');
+  
     }
 
     public function store_register(Request $request){
         $registrationData = $request->session()->get('registration_data');
         
+        $username = $registrationData['username'];
+        $provinsi = $registrationData['provinsi'];
+        $kota = $registrationData['kota'];
+        $kecamatan = $registrationData['kecamatan'];
+        $alamat = $registrationData['alamat'];
         $email = (isset($registrationData['email'])) ? $registrationData['email']: '' ;
         $no_hp = (isset($registrationData['no_hp'])) ? $registrationData['no_hp']: '';
         $password = $registrationData['password'];
 
         try {
-            KonsumensModel::create(['email' => $email, 'no_hp' => $no_hp, 'password' => $password]); 
+            KonsumensModel::create([
+                'username' => $username,
+                'email' => $email, 
+                'no_hp' => $no_hp, 
+                'alamat' =>[
+                        [
+                            'provinsi' => $provinsi,
+                            'kota/kab' => $kota,
+                            'kecamatan' => $kecamatan,
+                            'alamat' => $alamat
+                        ]
+                    ],
+                'password' => $password
+            ]);
+
             $request->session()->flush();
             return redirect()->to('/');
         } catch (\Exception $e) {
