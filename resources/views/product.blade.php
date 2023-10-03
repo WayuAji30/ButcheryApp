@@ -13,15 +13,18 @@
 
                 </div>
                 <div class="flex gap-3 mt-4 lg:pl-16 lg:justify-normal md:justify-center">
-                    <button class="border-4 border-white rounded-lg focus:border-[#d10b05]"
+                    <button
+                        class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
                         onclick="changeProduct('product1')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan1.svg')}}" alt="" class="rounded-md" />
                     </button>
-                    <button class="border-4 border-white rounded-lg focus:border-[#d10b05]"
+                    <button
+                        class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
                         onclick="changeProduct('product2')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan2.svg')}}" alt="" class="rounded-md" />
                     </button>
-                    <button class="border-4 border-white rounded-lg focus:border-[#d10b05]"
+                    <button
+                        class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
                         onclick="changeProduct('product3')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan3.svg')}}" alt="" class="rounded-md" />
                     </button>
@@ -109,13 +112,16 @@
                 <section class="mt-9">
                     <p class="font-semibold text-[18px]">Pilih varian:</p>
                     <div class="flex gap-3 mt-4">
-                        <button id="low" class="py-2 px-4 rounded-lg border-2 border-gray-300 active">
+                        <button id="low"
+                            class="py-2 px-4 rounded-lg border-2 border-gray-300 active transition-all duration-500 ease-in-out">
                             250gr
                         </button>
-                        <button id="mid" class="py-2 px-4 rounded-lg border-2 border-gray-300 ">
+                        <button id="mid"
+                            class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
                             500gr
                         </button>
-                        <button id="high" class="py-2 px-6 rounded-lg border-2 border-gray-300 ">
+                        <button id="high"
+                            class="py-2 px-6 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
                             1kg
                         </button>
                     </div>
@@ -286,11 +292,11 @@
                                 </div>
                                 <div class="flex items-center justify-between mt-6">
                                     <button
-                                        class="text-[#D10B05] py-2 px-8 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white">
+                                        class="text-[#D10B05] py-2 px-8 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                                         Beli
                                     </button>
                                     <button
-                                        class="py-2 lg:px-5 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804]">
+                                        class="py-2 lg:px-5 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
                                         + Keranjang
                                     </button>
                                 </div>

@@ -69,7 +69,7 @@
                 <!-- 1 -->
                 <form action="">
                     <button
-                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 ml-6" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 256 256">
                             <path fill="#d10b05"
@@ -81,7 +81,7 @@
                 <!-- 2 -->
                 <form action="">
                     <button
-                        class="py-[5px] px-6 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="py-[5px] px-6 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 ml-5" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 24 24">
                             <path fill="#d10b05" fill-rule="evenodd"
@@ -93,7 +93,7 @@
                 <!-- 3 -->
                 <form action="">
                     <button
-                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 ml-6" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 24 24">
                             <path fill="#d10b05"
@@ -104,7 +104,7 @@
                 <!-- 4 -->
                 <form action="">
                     <button
-                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 ml-8" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 24 24">
                             <path fill="#d10b05"
@@ -117,7 +117,7 @@
                 <!-- 5 -->
                 <form action="">
                     <button
-                        class="px-3 py-[5px] lg:mr-0 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="px-3 py-[5px] lg:mr-0 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 lg:ml-11 md:ml-10 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40"
                             height="40" viewBox="0 0 24 24">
                             <path fill="#d10b05"
@@ -128,7 +128,7 @@
                 <!-- 6 -->
                 <form action="">
                     <button
-                        class="px-8 py-[5px] lg:mr-0 md:mr-9 sm:mr-0 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="px-8 py-[5px] lg:mr-0 md:mr-9 sm:mr-0 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 ml-4" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 512 512">
                             <path fill="#d10b05"
@@ -141,7 +141,7 @@
                 <!-- 7 -->
                 <form action="">
                     <button
-                        class="px-5 py-[5px] lg:mr-0 md:mr-10 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="px-5 py-[5px] lg:mr-0 md:mr-10 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 lg:ml-7 md:ml-7 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40"
                             height="40" viewBox="0 0 512 512">
                             <path fill="#d10b05"
@@ -152,7 +152,7 @@
                 <!-- 8 -->
                 <form action="">
                     <button
-                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05]">
+                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
                         <svg class="pr-2 lg:ml-7 md:ml-6 sm:ml-3" xmlns="http://www.w3.org/2000/svg" width="40"
                             height="40" viewBox="0 0 24 24">
                             <path fill="#d10b05" fill-rule="evenodd"
@@ -1092,16 +1092,20 @@
                                 {{$rp['nama_produk']}}
                                 {{$rp['varian'][0]['varian1']}}/{{$rp['varian'][1]['varian2']}}
                             </p>
-                            <p class="font-bold pt-2">Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
+                            <p class="font-bold pt-2">
+                                Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
                             <p class="pt-5 flex text-[#999]">
-                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}" alt="" />Culture Tambak
+                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
+                                    alt="" />Culture Tambak
                             </p>
                             <p class="text-[#D10B05] font-medium flex">
-                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}" alt="" />Bekasi Timur
+                                <img class="pr-2"
+                                    src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
+                                    alt="" />Bekasi Timur
                             </p>
                             <p class="flex text-[#999]">
-                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}" alt="" /><span
-                                    class="pr-1">4.7</span> |
+                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}"
+                                    alt="" /><span class="pr-1">4.7</span> |
                                 <span class="pl-1 pr-1">672</span>terjual
                             </p>
                         </div>
@@ -1109,7 +1113,7 @@
                 </a>
             </div>
             @endforeach
-      
+
         </div>
         <div class="flex justify-center pt-12 pb-32">
             <form action="">

@@ -40,7 +40,7 @@
             <form action="/daftarProduk">
                 <p class="font-semibold text-[18px]">Masukan Nama Toko Kamu</p>
                 <input
-                    class="px-5 py-3 mt-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
+                    class="px-5 py-3 mt-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05] font-semibold"
                     type="text" name="" id="" placeholder="" required />
                 <p class="font-semibold text-[18px] mt-16 mb-4">
                     Masukan Detail Informasi
@@ -103,9 +103,6 @@
                 </div>
                 <label for="alamat" class="font-medium text-[#787878]">Alamat Detail</label>
                 <br />
-                <!-- <input
-                    class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] h-28 focus:outline-[#D10B05]"
-                    type="text" name="" id="alamat" placeholder="" required /> -->
                 <textarea
                     class="peer block min-h-[auto] w-full mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary focus:border-[#D10B05] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="alamat" rows="4" required></textarea>

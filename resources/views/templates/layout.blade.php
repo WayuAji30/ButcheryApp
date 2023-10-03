@@ -96,7 +96,7 @@
                 <div class="flex mr-8">
                     <form action="/searchProduct">
                         <div class="relative flex items-center">
-                            <input type="text" name="" id=""
+                            <input type="text" name="" id="" required
                                 placeholder="Beli Daging Segar Dengan Kualitas Terbaik Disini"
                                 class="border-solid border-2 border-slate-300 rounded-md w-[650px] pl-5 py-4 focus:outline-[#D10B05]" />
                             <button class="absolute right-7">
@@ -109,13 +109,13 @@
                     </form>
                 </div>
                 <div class="gap-3 flex" id="icon-bar">
-                    <a href="/cart" class="p-1 rounded-lg hover:bg-gray-200">
+                    <a href="/cart" class="p-1 rounded-lg hover:bg-gray-200 transition-all duration-300 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                             <path fill="#454545"
                                 d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
                         </svg>
                     </a>
-                    <a href="" class="p-1 rounded-lg hover:bg-gray-200">
+                    <a href="" class="p-1 rounded-lg hover:bg-gray-200 transition-all duration-300 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                             <g fill="none" stroke="#454545" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -130,16 +130,16 @@
                     <div class="flex gap-3">
                         <a href="/login">
                             <button
-                                class="border-solid border-2 border-[#D10B05] font-semibold rounded-lg py-3 px-10 text-[#D10B05] hover:bg-[#D10B05] hover:text-white">
+                                class="border-solid border-2 border-[#D10B05] font-semibold rounded-lg py-3 px-10 text-[#D10B05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">
                                 Masuk
                             </button>
-                        </form>
-                        <a href="/register">
-                            <button
-                                class="border-solid border-2 bg-[#D10B05] font-semibold rounded-lg py-3 px-10 border-[#D10B05] text-white mr-4 hover:bg-[#9F0804] hover:border-[#9F0804]">
-                                Daftar
-                            </button>
-                        </form>
+                            </form>
+                            <a href="/register">
+                                <button
+                                    class="border-solid border-2 bg-[#D10B05] font-semibold rounded-lg py-3 px-10 border-[#D10B05] text-white mr-4 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                                    Daftar
+                                </button>
+                                </form>
                     </div>
                 </div>
 
