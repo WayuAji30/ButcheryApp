@@ -33,7 +33,7 @@
                             <label for="username" class="flex justify-start ml-12 font-semibold">Masukan
                                 Username</label>
                             <input
-                                class="pl-5 py-3 mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
+                                class="pl-5 py-3 mt-2 border-solid border-2 transition-all duration-200 ease-linear border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
                                 type="text" name="username" id="username" placeholder="" required />
                             <p class="font-semibold mt-8 ml-12 text-start">
                                 Masukan Alamat Toko
@@ -75,7 +75,7 @@
                             </div>
                             <p class="text-[#787878] text-start ml-12">Alamat Detail</p>
                             <textarea
-                                class="peer block min-h-[auto] mx-auto my-auto w-[80%] mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary focus:border-[#D10B05] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                class="peer block min-h-[auto] mx-auto my-auto w-[80%] mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
                                 id="alamat" rows="4" required></textarea>
                             <p class="text-[#B3B3B3]">
                                 Dengan mendaftar, saya menyetujui <br />
@@ -97,5 +97,4 @@
     </div>
 </div>
 <!-- REGISTER -->
-
 @endsection

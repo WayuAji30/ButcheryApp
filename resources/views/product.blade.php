@@ -13,15 +13,15 @@
 
                 </div>
                 <div class="flex gap-3 mt-4 lg:pl-16 lg:justify-normal md:justify-center">
-                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg"
+                    <button class="border-4 border-white rounded-lg focus:border-[#d10b05]"
                         onclick="changeProduct('product1')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan1.svg')}}" alt="" class="rounded-md" />
                     </button>
-                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg"
+                    <button class="border-4 border-white rounded-lg focus:border-[#d10b05]"
                         onclick="changeProduct('product2')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan2.svg')}}" alt="" class="rounded-md" />
                     </button>
-                    <button class="focus:border-[#D10B05] border-4 border-white rounded-lg"
+                    <button class="border-4 border-white rounded-lg focus:border-[#d10b05]"
                         onclick="changeProduct('product3')">
                         <img src="{{asset('assets/img_index/asset/product/pilihan3.svg')}}" alt="" class="rounded-md" />
                     </button>
@@ -109,16 +109,13 @@
                 <section class="mt-9">
                     <p class="font-semibold text-[18px]">Pilih varian:</p>
                     <div class="flex gap-3 mt-4">
-                        <button id="low"
-                            class="py-2 px-4 rounded-lg border-2 border-gray-300 focus:border-[#D10B05] focus:text-[#D10B05]">
+                        <button id="low" class="py-2 px-4 rounded-lg border-2 border-gray-300 active">
                             250gr
                         </button>
-                        <button id="mid"
-                            class="py-2 px-4 rounded-lg border-2 border-gray-300 focus:border-[#D10B05] focus:text-[#D10B05]">
+                        <button id="mid" class="py-2 px-4 rounded-lg border-2 border-gray-300 ">
                             500gr
                         </button>
-                        <button id="high"
-                            class="py-2 px-6 rounded-lg border-2 border-gray-300 focus:border-[#D10B05] focus:text-[#D10B05]">
+                        <button id="high" class="py-2 px-6 rounded-lg border-2 border-gray-300 ">
                             1kg
                         </button>
                     </div>
@@ -153,14 +150,14 @@
                     </div>
                 </div>
                 <div class="flex gap-14 mt-9">
-                    <button class="font-semibold text-[#CCC] pb-3 active" id="deskripsi">
+                    <p class="font-semibold pb-3 text-[#d10b05] border-b-2 border-[#d10b05]">
                         Deskripsi Produk
-                    </button>
-                    <button class="font-semibold text-[#CCC] pb-3" id="spesifikasi">
+                    </p>
+                    <!-- <button class="font-semibold text-[#CCC] pb-3" id="spesifikasi">
                         Spesifikasi
-                    </button>
+                    </button> -->
                 </div>
-                <p id="deskripsi-text" class="mt-8">
+                <p class="mt-8">
                     Kami menyediakan udang vaname segar dengan berat 1 kilogram, hasil
                     tangkapan harian yang selalu segar dan utuh, serta bergaransi
                     kesegaran. <br />
@@ -177,7 +174,7 @@
                     produk berkualitas dan layanan yang prima, kami siap memenuhi
                     kebutuhan udang segar Anda.
                 </p>
-                <p id="spesifikasi-text" class="mt-8" hidden>
+                <!-- <p id="spesifikasi-text" class="mt-8" hidden>
                     Udang Vaname segar dengan ukuran 85-90 memiliki berat yang
                     tersedia dalam tiga pilihan: <br />
                     1. 250 gram <br />
@@ -205,10 +202,10 @@
                     Pastikan untuk memeriksa label atau informasi yang diberikan oleh
                     penjual Anda untuk mendapatkan rincian lebih lanjut tentang produk
                     Udang Vaname segar yang Anda beli.
-                </p>
+                </p> -->
                 <div class="border-t-2 border-solid border-[#E6E6E6] mt-11"></div>
                 <div class="mt-8">
-                    <button class="text-[#D10B05] font-medium border-b-2 border-[#D10B05] py-2">
+                    <button class="text-[#D10B05] font-medium border-b-2 border-[#D10B05] py-2 cursor-default">
                         Pengiriman
                     </button>
                     <div class="mt-5">
@@ -277,8 +274,9 @@
                                 </p>
                                 <div class="border-t-2 border-solid border-[#E6E6E6] mt-2"></div>
                                 <div class="mt-5">
-                                    <input class="pl-4 border-2 border-[#e6e6e6] w-[100%] h-20 focus:border-[#D10B05]"
-                                        type="text" name="" id="" placeholder="Tambahkan Catatan" />
+                                    <textarea
+                                        class="peer block min-h-[auto] mx-auto w-full mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
+                                        id="alamat" rows="4" placeholder="Tambahkan Catatan"></textarea>
                                 </div>
                                 <div class="flex justify-between mx-1 mt-6">
                                     <p class="text-[#999] font-medium">Subtotal</p>
@@ -415,5 +413,4 @@
     </div>
 </div>
 <!-- Product -->
-
 @endsection

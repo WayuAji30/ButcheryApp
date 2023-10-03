@@ -14,14 +14,23 @@
         fill: white;
     }
 
-    .active {
+    /* .active {
         border-bottom: 2px solid #d10b05;
         color: #d10b05;
         font-weight: 600;
-    }
+    } */
 
     #remove button:hover svg path {
         fill: #d10b05;
+    }
+
+    .flex button.active {
+        border-color: #d10b05;
+        color: #d10b05;
+    }
+
+    .border-focus {
+        border-color: #d10b05 !important;
     }
     </style>
 </head>
