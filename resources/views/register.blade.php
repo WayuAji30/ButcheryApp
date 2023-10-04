@@ -32,27 +32,28 @@
                             @csrf
                             <input
                                 class="pl-5 py-3 mt-9 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                type="text" name="identifier" id="" placeholder="No. Handphone/Email"/>
+                                type="text" name="identifier" id="" placeholder="No. Handphone/Email" />
                             <p class="mt-2 text-[14px] pl-12 text-start">
                                 <a href="" class="text-[#787878] mt-3">Contoh: email@butchery.com</a>
                             </p>
                             <button
-                                class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold mt-8 hover:bg-[#9F0804]">
+                                class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold mt-8 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Masuk
                             </button>
                             <div class="justify-center flex mt-6">
                                 <img src="{{asset('assets/img_index/asset/loginPage/atau.svg')}}" alt="" />
                             </div>
                             @error('identifier')
-                            <span class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                            <span
+                                class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
                                 {{$message}}
-                             </span>
+                            </span>
                             @enderror
                         </form>
                         <div class="justify-center flex">
                             <form action="">
                                 <button
-                                    class="bg-white border-[#CCC] border-2 py-3 lg:px-[82px] md:px-16 sm:px-10 rounded-lg font-semibold mt-6 flex hover:bg-[#191C50] hover:text-white hover:border-[#191C50]">
+                                    class="bg-white border-[#CCC] border-2 py-3 lg:px-[82px] md:px-16 sm:px-10 rounded-lg font-semibold mt-6 flex hover:bg-[#191C50] hover:text-white hover:border-[#191C50] transition-all duration-200 ease-linear">
                                     <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt=""
                                         class="pr-3" />
                                     Masuk dengan Google

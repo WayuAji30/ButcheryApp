@@ -69,7 +69,7 @@
                 <!-- 1 -->
                 <form action="">
                     <button
-                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 ml-6" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 256 256">
                             <path fill="#d10b05"
@@ -81,7 +81,7 @@
                 <!-- 2 -->
                 <form action="">
                     <button
-                        class="py-[5px] px-6 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="py-[5px] px-6 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 ml-5" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 24 24">
                             <path fill="#d10b05" fill-rule="evenodd"
@@ -93,7 +93,7 @@
                 <!-- 3 -->
                 <form action="">
                     <button
-                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 ml-6" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 24 24">
                             <path fill="#d10b05"
@@ -104,7 +104,7 @@
                 <!-- 4 -->
                 <form action="">
                     <button
-                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="px-3 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 ml-8" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 24 24">
                             <path fill="#d10b05"
@@ -117,7 +117,7 @@
                 <!-- 5 -->
                 <form action="">
                     <button
-                        class="px-3 py-[5px] lg:mr-0 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="px-3 py-[5px] lg:mr-0 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 lg:ml-11 md:ml-10 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40"
                             height="40" viewBox="0 0 24 24">
                             <path fill="#d10b05"
@@ -128,7 +128,7 @@
                 <!-- 6 -->
                 <form action="">
                     <button
-                        class="px-8 py-[5px] lg:mr-0 md:mr-9 sm:mr-0 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="px-8 py-[5px] lg:mr-0 md:mr-9 sm:mr-0 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 ml-4" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 512 512">
                             <path fill="#d10b05"
@@ -141,7 +141,7 @@
                 <!-- 7 -->
                 <form action="">
                     <button
-                        class="px-5 py-[5px] lg:mr-0 md:mr-10 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="px-5 py-[5px] lg:mr-0 md:mr-10 sm:mr-3 rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 lg:ml-7 md:ml-7 sm:ml-4" xmlns="http://www.w3.org/2000/svg" width="40"
                             height="40" viewBox="0 0 512 512">
                             <path fill="#d10b05"
@@ -152,7 +152,7 @@
                 <!-- 8 -->
                 <form action="">
                     <button
-                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-500 ease-in-out">
+                        class="px-5 py-[5px] rounded-lg items-center hover:bg-[#D10B05] hover:text-white hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                         <svg class="pr-2 lg:ml-7 md:ml-6 sm:ml-3" xmlns="http://www.w3.org/2000/svg" width="40"
                             height="40" viewBox="0 0 24 24">
                             <path fill="#d10b05" fill-rule="evenodd"
@@ -1085,7 +1085,7 @@
             <div class="lg:col-span-2 md:col-span-4">
                 <a href="/product/{{$rp['_id']}}">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="{{asset('assets/img_index/asset/rekomendasi/baris1/udangVaname.png')}}" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -1118,7 +1118,7 @@
         <div class="flex justify-center pt-12 pb-32">
             <form action="">
                 <button
-                    class="border-solid border-2 border-[#D10B05] text-[#D10B05] font-semibold py-3 px-24 rounded-xl hover:bg-[#D10B05] hover:text-white">
+                    class="border-solid border-2 border-[#D10B05] text-[#D10B05] font-semibold py-3 px-24 rounded-xl hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                     Lihat Lainnya
                 </button>
             </form>

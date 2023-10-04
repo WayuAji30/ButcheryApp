@@ -26,7 +26,7 @@
                     </p>
                 </div>
                 <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
-                    <a href="" class="p-1 rounded-lg hover:bg-gray-200">
+                    <a href="" class="p-1 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-linear">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                             <g fill="none" stroke="#454545" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"

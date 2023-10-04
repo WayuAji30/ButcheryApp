@@ -100,7 +100,7 @@
             <div class="flex gap-5">
                 <form action="">
                     <div class="relative flex items-center">
-                        <input type="text" name="" id="" placeholder="Cari Nama Produk"
+                        <input type="text" name="" id="" placeholder="Cari Nama Produk" required
                             class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
                         <button class="absolute right-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
@@ -124,7 +124,8 @@
                 </select>
             </div>
             <a href="/tambahProduk">
-                <button class="bg-[#D10B05] px-3 py-2 rounded-md text-white font-semibold hover:bg-[#9F0804]">
+                <button
+                    class="bg-[#D10B05] px-3 py-2 rounded-md text-white font-semibold hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                     + Tambah Produk
                 </button>
             </a>
@@ -168,11 +169,11 @@
                         {{$dp['varian'][1]['stok']}}</td>
                     <td class="text-center">
                         <a href="/tambahProduk/{{$dp['_id']}}"
-                            class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white">
+                            class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                             Edit
                         </a>
                         <a href="/hapusProduk/{{$dp['_id']}}"
-                            class="border-2 border-[#D10B05] bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804]"
+                            class="border-2 border-[#D10B05] bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear"
                             onclick="return confirm('apakah kamu yakin?')">
                             Hapus
                         </a>

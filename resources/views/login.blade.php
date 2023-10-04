@@ -50,10 +50,11 @@
                                 </button>
                             </div>
                             <p class="mt-3 text-end pr-11">
-                                <a href="/forgetPassword" class="text-[#D10B05] mt-3">Lupa Password</a>
+                                <a href="/forgetPassword" class="text-[#D10B05] mt-3 hover:text-[#9F0804]">Lupa
+                                    Password</a>
                             </p>
                             <button
-                                class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold mt-8 hover:bg-[#9F0804]">
+                                class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold mt-8 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Masuk
                             </button>
                             <div class="justify-center flex mt-6">
@@ -63,7 +64,7 @@
                         <div class="justify-center flex mb-10">
                             <form action="">
                                 <button
-                                    class="bg-white border-[#CCC] border-2 py-3 lg:px-[82px] md:px-16 sm:px-10 rounded-lg font-semibold mt-6 flex hover:bg-[#191C50] hover:text-white hover:border-[#191C50]">
+                                    class="bg-white border-[#CCC] border-2 py-3 lg:px-[82px] md:px-16 sm:px-10 rounded-lg font-semibold mt-6 flex hover:bg-[#191C50] hover:text-white hover:border-[#191C50] transition-all duration-200 ease-linear">
                                     <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt=""
                                         class="pr-3" />
                                     Masuk dengan Google

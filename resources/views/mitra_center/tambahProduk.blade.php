@@ -240,11 +240,11 @@
             <div class="my-20">
                 <div class="flex items-center gap-3 justify-end mr-[26%]">
                     <button id="cancelButton"
-                        class="border-2 border-[#D10B05] text-[#D10b05] py-2 px-14 rounded-md font-semibold hover:bg-[#D10B05] hover:text-white">
+                        class="border-2 border-[#D10B05] text-[#D10b05] py-2 px-14 rounded-md font-semibold hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                         Kembali
                     </button>
                     <button name="submit"
-                        class="border-2 border-[#D10B05] text-white bg-[#D10b05] py-2 px-14 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804]">
+                        class="border-2 border-[#D10B05] text-white bg-[#D10b05] py-2 px-14 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
                         Simpan
                     </button>
                 </div>

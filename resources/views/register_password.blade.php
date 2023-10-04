@@ -35,7 +35,7 @@
                                 </p>
                                 <input
                                     class="pr-10 pl-5 py-3 mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                    type="password" name="password" id="password1" placeholder=""/>
+                                    type="password" name="password" id="password1" placeholder="" />
                                 <button class="absolute right-14 btn-eye-close" form="none">
                                     <svg class="mt-5" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                         viewBox="0 0 24 24">
@@ -51,7 +51,8 @@
                                     </svg>
                                 </button>
                                 @error('password')
-                                <p class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                <p
+                                    class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
                                     {{$message}}
                                 </p>
                                 @enderror
@@ -62,8 +63,8 @@
                                 </p>
                                 <input
                                     class="pr-10 pl-5 py-3 mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                    type="password" name="confirm_password" id="password1" placeholder=""/>
-                                
+                                    type="password" name="confirm_password" id="password1" placeholder="" />
+
                                 <button class="absolute right-14 btn-eye-close" form="none">
                                     <svg class="mt-5" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                         viewBox="0 0 24 24">
@@ -79,14 +80,15 @@
                                     </svg>
                                 </button>
                                 @error('confirm_password')
-                                    <p class="mt-2 text-start ml-12 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
-                                        {{$message}}
-                                    </p>
+                                <p
+                                    class="mt-2 text-start ml-12 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                    {{$message}}
+                                </p>
                                 @enderror
                             </div>
 
                             <button
-                                class="text-white bg-[#D10B05] py-3 lg:px-36 md:px-32 sm:px-24 rounded-lg font-semibold my-16 hover:bg-[#9F0804]">
+                                class="text-white bg-[#D10B05] py-3 lg:px-36 md:px-32 sm:px-24 rounded-lg font-semibold my-16 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Selanjutnya
                             </button>
                         </form>

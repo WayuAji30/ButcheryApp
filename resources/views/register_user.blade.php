@@ -86,7 +86,7 @@
                                     Kebijakan Privasi</a>
                             </p>
                             <button
-                                class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold my-10 hover:bg-[#9F0804]">
+                                class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold my-10 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Daftar
                             </button>
                         </form>

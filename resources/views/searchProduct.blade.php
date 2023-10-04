@@ -9,7 +9,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/tunaBeku.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -35,7 +35,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/eyeSteak.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -61,7 +61,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/usBeef.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -87,7 +87,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/fillet.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -113,7 +113,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="product.html">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/udangVaname.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -139,7 +139,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/oyster.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -167,7 +167,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris2/pahaBawah.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -193,7 +193,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris2/wagyuA5.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -219,7 +219,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris2/pahaDomba.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -245,7 +245,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris2/leleFillet.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -271,7 +271,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris2/tunaFillet.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -297,7 +297,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris2/beefWagyu.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -325,7 +325,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris3/bebekPeking.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -351,7 +351,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris3/trimDori.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -377,7 +377,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris3/kerbauTanpaTulang.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -403,7 +403,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris3/ayamBroiler.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -429,7 +429,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris3/kambingMurni.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -455,7 +455,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris3/yoshinoya.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -482,7 +482,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/tunaBeku.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -508,7 +508,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/eyeSteak.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -534,7 +534,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/usBeef.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -560,7 +560,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/fillet.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -586,7 +586,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="product.html">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/udangVaname.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">
@@ -612,7 +612,7 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="">
                     <div
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2">
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="asset/rekomendasi/baris1/oyster.png" alt="" />
                         <div class="pt-3 pl-3">
                             <p class="text-[14px] leading-4 font-medium">

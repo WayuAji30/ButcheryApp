@@ -114,7 +114,8 @@
                     <a href="" class="font-medium text-[#D10B05] hover:text-[#9F0804]">
                         Kebijakan Privasi</a>
                 </p>
-                <button class="text-white bg-[#D10B05] py-3 w-[100%] rounded-lg font-semibold mt-8 hover:bg-[#9F0804]">
+                <button
+                    class="text-white bg-[#D10B05] py-3 w-[100%] rounded-lg font-semibold mt-8 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                     Daftar
                 </button>
             </form>
