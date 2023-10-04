@@ -12,6 +12,9 @@
     #remove button:hover svg path {
         fill: #d10b05;
     }
+    button.active {
+    border-color: #d10b05;
+    }
     </style>
 </head>
 
@@ -60,7 +63,7 @@
     <!-- NAVBAR -->
 
     @yield('content')
-    @vite('resources/js/app.js')
+    @vite(['resources/js/app.js' , 'resources/js/cart.js'])
 </body>
 
 </html>

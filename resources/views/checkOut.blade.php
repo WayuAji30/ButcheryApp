@@ -75,66 +75,66 @@
                         <form action="">
                             <div class="flex mt-5 gap-5">
                                 <button
-                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="" />
                                 </button>
                             </div>
                             <div class="flex mt-5 gap-5">
                                 <button
-                                    class="bg-white px-2 py-2 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-2 py-2 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-3 py-3 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-3 py-3 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-4 py-2 shadow-md rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-4 py-2 shadow-md rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="" />
                                 </button>
                             </div>
                             <div class="flex mt-5 gap-5">
                                 <button
-                                    class="bg-white px-4 py-2 shadow-lg rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-4 py-2 shadow-lg rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-3 py-2 shadow-lg rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-3 py-2 shadow-lg rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-4 py-2 shadow-lg rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-4 py-2 shadow-lg rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="" />
                                 </button>
                                 <button
-                                    class="bg-white px-5 py-2 shadow-lg rounded-lg border-2 border-slate-100 focus:border-[#d10b05]"
+                                    class="bg-white px-5 py-2 shadow-lg rounded-lg border-2 border-slate-100 "
                                     form="none">
                                     <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="" />
                                 </button>
@@ -226,4 +226,5 @@
 </div>
 <!-- CART -->
 <div class="mt-20"></div>
+
 @endsection

@@ -76,11 +76,11 @@
 
                                 <div class="mt-12 mb-20 flex">
                                     <button id="cancelButton"
-                                        class="bg-[#D10B05] rounded-md text-white px-14 py-2 mr-3 font-semibold hover:bg-[#9F0804]">
+                                        class="bg-[#D10B05] rounded-md text-white px-14 py-2 mr-3 font-semibold hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                         Batal
                                     </button>
                                     <button id="saveButton"
-                                        class="bg-[#ccc] rounded-md text-white px-14 py-2 font-semibold hover:bg-[#D10B05]">
+                                        class="bg-[#ccc] rounded-md text-white px-14 py-2 font-semibold hover:bg-[#D10B05] transition-all duration-200 ease-linear">
                                         Simpan
                                     </button>
                                 </div>
