@@ -34,6 +34,10 @@ class AuthController extends Controller
         return view('login'); // view('folder.file', compact())
     }
 
+    public function auth_system(Request $request){
+
+    }
+
     /**
      * register
      *
@@ -145,17 +149,17 @@ class AuthController extends Controller
     public function save_register3(Request $request){
         $this->validate($request,[
             'username' => 'required',
-            'alamat.provinsi' => 'required',
-            'alamat.kota' => 'required',
-            'alamat.kecamatan' => 'required',
-            'alamat.alamat' => 'required'
+            'provinsi' => 'required',
+            'kota' => 'required',
+            'kecamatan' => 'required',
+            'alamat' => 'required'
         ]);
 
         $username  = $request->input('username');
-        $provinsi  = $request->input('alamat.provinsi');
-        $kota  = $request->input('alamat.kota');
-        $kecamatan  = $request->input('alamat.kecamatan');
-        $alamat  = $request->input('alamat.alamat');
+        $provinsi  = $request->input('provinsi');
+        $kota  = $request->input('kota');
+        $kecamatan  = $request->input('kecamatan');
+        $alamat  = $request->input('alamat');
 
         $request->session()->put('registration_data.username', $username);
         $request->session()->put('registration_data.provinsi', $provinsi);
@@ -163,7 +167,7 @@ class AuthController extends Controller
         $request->session()->put('registration_data.kecamatan', $kecamatan);
         $request->session()->put('registration_data.alamat', $alamat);
         
-        return redirect()->to('/index');
+        return redirect()->to('/store_register');
   
     }
 
@@ -178,6 +182,7 @@ class AuthController extends Controller
         $email = (isset($registrationData['email'])) ? $registrationData['email']: '' ;
         $no_hp = (isset($registrationData['no_hp'])) ? $registrationData['no_hp']: '';
         $password = $registrationData['password'];
+        $role = 'konsumen';
 
         try {
             KonsumensModel::create([
@@ -192,11 +197,17 @@ class AuthController extends Controller
                             'alamat' => $alamat
                         ]
                     ],
-                'password' => $password
+                'password' => $password,
+                'role' => $role
             ]);
 
             $request->session()->flush();
-            return redirect()->to('/');
+            echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin=
+            "anonymous"></script>';
+            echo '<script> $(document).ready(function(){
+                localStorage.clear();
+                window.location.href = "/index";
+            }); </script>';
         } catch (\Exception $e) {
             $request->session()->flush(); // Hapus seluruh sesi jika gagal
             echo $e;

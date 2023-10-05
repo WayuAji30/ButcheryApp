@@ -33,6 +33,7 @@ Route::get('/register_userProv/{idProv}/{idKota}', [AuthController::class,'regis
 Route::post('/save_register',[AuthController::class,'save_register']);
 Route::post('/save_register2',[AuthController::class,'save_register2']);
 Route::post('/save_register3',[AuthController::class,'save_register3']);
+
 Route::get('/store_register',[AuthController::class,'store_register']);
 
 
