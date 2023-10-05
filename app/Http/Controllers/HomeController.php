@@ -8,6 +8,7 @@ use App\Models\MitraProdukModel;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
@@ -51,9 +52,13 @@ class HomeController extends Controller
         return view('product'); // view('folder.file', compact())
     }
 
-    public function cart(): View
+    public function cart()
     {
-        return view('cart'); // view('folder.file', compact())
+        if(Session::get('login')){
+            return view('cart');
+        }else{
+            return view('login');
+        }
     }
 
     public function checkOut(): View

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\KonsumensModel; // memanggil model dalam folder Models
+use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
+
 
 class AuthController extends Controller
 {
@@ -35,7 +38,26 @@ class AuthController extends Controller
     }
 
     public function auth_system(Request $request){
+        $this->validate($request,[
+            'identifier' => 'required',
+            'password' => 'required'
+        ]);
 
+        $identifier = $request->input('identifier');
+        $password = $request->input('password');
+
+        $idn = KonsumensModel::where('email',$identifier)->orWhere('no_hp',$identifier)->first();
+
+        if($idn){
+            if(Hash::check($password, $idn->password)){
+                session(['login' => true,'id_user' => $idn->_id]);
+                return redirect()->to('/');
+            }else{
+                return redirect()->to('/login')->with(['error' => 'No. Handphone/Email atau Password salah']);
+            }
+        }else{
+            return redirect()->to('/login')->with(['error' => 'No. Handphone/Email atau Password']);
+        }
     }
 
     /**
@@ -66,12 +88,6 @@ class AuthController extends Controller
 
         $provinsiData = $response->json();
 
-        $apiKota = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/".$this->getIdProvinsi().".json";
-
-        $response2 = Http::get($apiKota);
-
-        $kotaData = $response2->json();
-
         return view('register_user', ['provinsiData' => $provinsiData]);
     }
 
@@ -101,9 +117,91 @@ class AuthController extends Controller
         return view('register_user', ['provinsiData' => $provinsiData,'kotaData' => $kotaData, 'kecamatanData' => $kecamatanData]);
     }
 
-    public function register_mitra()
+    public function register_mitra($id)
     {
-        return view('register_mitra');
+        $user = KonsumensModel::find($id);
+
+        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
+
+        $response = Http::get($apiProvinsi);
+
+        $provinsiData = $response->json();
+
+        return view('register_mitra', ['user' => $user,'provinsiData' => $provinsiData]);
+    }
+
+    public function register_mitraProv($id,$idProv,$idKota)
+    {
+        $this->setIdProvinsi($idProv);
+        $this->setIdKota($idKota);
+
+        $user = KonsumensModel::find($id);
+
+        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
+
+        $response = Http::get($apiProvinsi);
+
+        $provinsiData = $response->json();
+
+        $apiKota = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/".$this->getIdProvinsi().".json";
+
+        $response2 = Http::get($apiKota);
+
+        $kotaData = $response2->json();       
+
+        $apiKecamatan = "https://emsifa.github.io/api-wilayah-indonesia/api/districts/".$this->getIdKota().".json";
+
+        $response3 = Http::get($apiKecamatan);
+
+        $kecamatanData = $response3->json();
+
+        return view('register_mitra', ['user' => $user, 'provinsiData' => $provinsiData,'kotaData' => $kotaData, 'kecamatanData' => $kecamatanData]);
+    }
+
+    public function store_register_mitra(Request $request){
+        $request->validate([
+            'nama_toko' => 'required',
+            'email' => 'required',
+            'no_telp' => 'required',
+            'no_wa' => 'required',
+            'norek' => 'required',
+            'provinsi' => 'required',
+            'kota' => 'required',
+            'kecamatan' => 'required',
+            'alamat' => 'required'
+        ]);
+
+        $user_id = $request->input('id');
+        $nama_toko = $request->input('nama_toko');
+        $email = $request->input('email');
+        $no_telp = $request->input('no_telp');
+        $no_wa = $request->input('no_wa');
+        $no_rekening = $request->input('norek');
+        $provinsi = $request->input('provinsi');
+        $kota = $request->input('kota');
+        $kecamatan = $request->input('kecamatan');
+        $alamat = $request->input('alamat');
+        $role = 'supplier';
+
+       $user_supplier =  SuppliersModel::create([
+            'user_id' => $user_id,
+            'nama_toko' => $nama_toko,
+            'email'=> $email,
+            'no_hp'=> $no_telp,
+            'no_wa'=> $no_wa,
+            'no_rekening'=> $no_rekening,
+            'alamat' => [
+                [
+                'provinsi' => $provinsi,
+                'kota' => $kota,
+                'kecamatan' => $kecamatan,
+                'alamat' => $alamat,
+                ]
+            ]
+        ]);
+
+        echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>';
+        echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/daftarProduk";}); </script>';
     }
 
     public function forgetPassword(): View
@@ -204,10 +302,7 @@ class AuthController extends Controller
             $request->session()->flush();
             echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin=
             "anonymous"></script>';
-            echo '<script> $(document).ready(function(){
-                localStorage.clear();
-                window.location.href = "/index";
-            }); </script>';
+            echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/index";}); </script>';
         } catch (\Exception $e) {
             $request->session()->flush(); // Hapus seluruh sesi jika gagal
             echo $e;
@@ -216,7 +311,8 @@ class AuthController extends Controller
 
     public function getSession(Request $request){
         $registrationData = $request->session()->get('registration_data');
-        var_dump($registrationData);
+        $idData = $request->session()->get('id');
+        var_dump([$registrationData,$idData]);
     }
 
     public function sessionDelete(Request $request){

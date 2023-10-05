@@ -22,7 +22,10 @@ Route::get('/searchProduct', [HomeController::class,'searchProduct']);
 Route::get('/product', [HomeController::class,'product']);
 Route::get('/cart', [HomeController::class,'cart']);
 Route::get('/checkOut', [HomeController::class,'checkOut']);
+
 Route::get('/login', [AuthController::class,'login']);
+Route::post('/auth_system', [AuthController::class,'auth_system']);
+
 
 Route::get('/register', [AuthController::class,'register']);
 Route::get('/register_password', [AuthController::class,'register_password']);
@@ -41,7 +44,13 @@ Route::get('/getSession',[AuthController::class,'getSession']);
 Route::get('/sessionDelete',[AuthController::class,'sessionDelete']);
 
 Route::get('/profile', [AuthController::class,'profile']);
-Route::get('/register_mitra', [AuthController::class,'register_mitra']);
+
+Route::get('/register_mitra/{id}', [AuthController::class,'register_mitra']);
+Route::get('/register_mitraProv/{id_user}/{idProv}/{idKota}', [AuthController::class,'register_mitraProv']);
+Route::post('/store_register_mitra', [AuthController::class,'store_register_mitra']);
+Route::get('/updateRoleUser/{id}', [AuthController::class,'updateRoleUser']);
+
+
 Route::get('/forgetPassword', [AuthController::class,'forgetPassword']);
 
 

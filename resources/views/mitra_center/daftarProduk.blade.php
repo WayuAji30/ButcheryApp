@@ -1,6 +1,12 @@
 @extends('../templates/mitra-layout')
 @section('content')
 
+@if (!session()->has('login'))
+    <script>
+        document.location.href = "/login";
+    </script>
+@endif
+
 <!-- Navbar kiri -->
 <aside class="relative pt-20 h-screen w-64 hidden lg:block md:block shadow-xl bg-white">
     <nav class="">
