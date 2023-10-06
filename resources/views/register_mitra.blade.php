@@ -158,9 +158,9 @@ document.location.href = "/login";
 
                 <div class="flex mt-4 lg:gap-16 md:gap-5 mb-5">
                     <div class="flex-col">
-                        <label for="kota">Kota</label>
+                        <label for="kota">Kota</label> <br>
                         <select name="kota" id="kota"
-                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[100%] md:w-full focus:outline-[#D10B05]">
+                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] md:w-full focus:outline-[#D10B05]">
                             @if (isset($kotaData))
                             @foreach ($kotaData as $kd )
                             <option value="{{$kd['id']}}">{{$kd['name']}}</option>
@@ -177,9 +177,9 @@ document.location.href = "/login";
                         @enderror
                     </div>
                     <div class="flex-col">
-                        <label for="kecamatan">Kecamatan</label>
+                        <label for="kecamatan">Kecamatan</label> <br>
                         <select name="kecamatan" id="kecamatan"
-                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[100%] md:w-[80%] focus:outline-[#D10B05]">
+                            class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] md:w-[80%] focus:outline-[#D10B05]">
                             @if(isset($kecamatanData))
                             @foreach ($kecamatanData as $kecd )
                             <option value="{{$kecd['id']}}">{{$kecd['name']}}</option>
