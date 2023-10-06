@@ -75,9 +75,14 @@
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt="office"
                                 class="pr-1" />Tentang Kami</a>
+<<<<<<< HEAD
                         <a href="/register_mitra" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="mitra"
                                 class="pr-1" />Daftar
+=======
+                        <a href="/register_mitra/{{session('id_user')}}" class="text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}"><img
+                                src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
+>>>>>>> a40246dcba7b431f87e763b5999354a980ac09b7
                             Jadi Mitra
                         </a>
                         <a href="" class="text-white flex"><img
@@ -137,13 +142,13 @@
                                 class="border-solid border-2 border-[#D10B05] font-semibold rounded-lg py-3 px-10 text-[#D10B05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">
                                 Masuk
                             </button>
-                            </form>
-                            <a href="/register">
-                                <button
-                                    class="border-solid border-2 bg-[#D10B05] font-semibold rounded-lg py-3 px-10 border-[#D10B05] text-white mr-4 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
-                                    Daftar
-                                </button>
-                                </form>
+                        </a>
+                        <a href="/register">
+                            <button
+                                class="border-solid border-2 bg-[#D10B05] font-semibold rounded-lg py-3 px-10 border-[#D10B05] text-white mr-4 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                                Daftar
+                            </button>
+                        </a>
                     </div>
                 </div>
 
@@ -349,7 +354,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
     @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/loader.js',
     'resources/js/time.js', 'resources/js/hamburgerToggle.js', 'resources/js/cart.js',
-    'resources/js/product.js','resources/js/password.js, resources/js/app.js'])
+    'resources/js/product.js','resources/js/selectIndonesiaSupplier.js'])
 </body>
 
 </html>

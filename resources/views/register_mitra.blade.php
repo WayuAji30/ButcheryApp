@@ -1,6 +1,12 @@
 @extends('../templates/register-mitra')
 @section('content')
 
+@if (!session()->has('login'))
+    <script>
+        document.location.href = "/login";
+    </script>
+@endif
+
 <!-- Register Mitra -->
 <div class="container flex justify-around mx-auto lg:px-[85px] md:pr-28  mt-44">
     <!-- TODO Make div below STICKY -->
@@ -37,75 +43,171 @@
             </div>
         </div>
         <div class="col-span-5 ml-7">
-            <form action="/daftarProduk">
+            <form action="/store_register_mitra" method = "POST">
+                @csrf
+
+                <input type="hidden" name="id" id = "id" value = "{{$user->_id}}">
+
                 <p class="font-semibold text-[18px]">Masukan Nama Toko Kamu</p>
                 <input
                     class="px-5 py-3 mt-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05] font-semibold"
-                    type="text" name="" id="" placeholder="" required />
+                    type="text" name="nama_toko" id="nama_toko" placeholder=""/>
+                    @error('nama_toko')
+                        <p
+                        class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                            {{$message}}
+                        </p>
+                    @enderror
                 <p class="font-semibold text-[18px] mt-16 mb-4">
                     Masukan Detail Informasi
                 </p>
                 <label for="email" class="font-medium text-[#787878]">Email</label>
                 <br />
+                @if (isset($user->email))
                 <input
                     class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="text" name="" id="email" placeholder="Messitahaluasix@gmail.com" required disabled />
+                    type="text" name="email" id="email" placeholder="Messitahaluasix@gmail.com" value = "{{$user->email}}" />
+                    @error('email')
+                        <p
+                        class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                            {{$message}}
+                        </p>
+                    @enderror
+                @else
+                <input
+                    class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
+                    type="text" name="email" id="email" placeholder="Messitahaluasix@gmail.com" value = ""/>
+                    @error('email')
+                        <p
+                        class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                            {{$message}}
+                        </p>
+                    @enderror
+                @endif
+               
                 <br />
                 <label for="notelp" class="font-medium text-[#787878]">No. Telepon</label>
                 <br />
-                <input
+                @if (isset($user->no_hp))
+                    <input
+                        class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
+                        type="text" name="no_telp" id="no_telp" placeholder="" value = "{{$user->no_hp}}" />
+                        @error('no_telp')
+                            <p
+                            class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                {{$message}}
+                            </p>
+                         @enderror
+                @else
+                    <input
+                        class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
+                        type="text" name="no_telp" id="no_telp" placeholder="" value = "" />
+                        @error('no_telp')
+                            <p
+                            class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                {{$message}}
+                            </p>
+                        @enderror
+                @endif
+              
+                <br />
+                
+                <label for="whatsapp" class="font-medium text-[#787878]">No. Whatsapp (Contact Person)</label>
+                    <input
                     class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="tel" name="" id="notelp" placeholder="" required />
-                <br />
-                <label for="norek" class="font-medium text-[#787878]">No. Whatsapp (Contact Person)</label>
-                <br />
-                <input
-                    class="px-5 py-3 mt-3 mb-5 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="tel" name="" id="norek" placeholder="" required />
-                <label for="whatsapp" class="font-medium text-[#787878]">No. Rekening</label>
-                <br />
-                <input
-                    class="px-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
-                    type="text" name="" id="whatsapp" placeholder="" required />
+                    type="text" name="no_wa" id="no_wa" placeholder="" value = ""/>
+                    @error('no_wa')
+                        <p
+                        class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                            {{$message}}
+                        </p>
+                    @enderror
 
+                <br />
+               
+                <label for="norek" class="font-medium text-[#787878]">No. Rekening</label>
+                
+                <br />
+
+                <input
+                class="px-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]"
+                type="text" name="norek" id="norek" placeholder="" />
+                @error('norek')
+                    <p
+                    class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                        {{$message}}
+                    </p>
+                @enderror
                 <p class="font-semibold text-[18px] mt-20 mb-4">
                     Masukan Alamat Toko
                 </p>
                 <label for="" class="text-[#787878]">Provinsi</label> <br />
-                <select required name="" id=""
-                    class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
-                    <option value=""></option>
-                    <option value="">DKI Jakarta</option>
-                    <option value="">Jawa Barat</option>
-                    <option value="">Jawa Tengah</option>
-                </select><br />
+                <select name="provinsi" id="provinsi"
+                    class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">  
+                    @foreach ($provinsiData as $pd )
+                        <option value="{{$pd['id']}}">{{$pd['name']}}</option>
+                    @endforeach
+                </select>
+                @error('provinsi')
+                    <p
+                    class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                        {{$message}}
+                    </p>
+                @enderror
+
+                <br />
+                
                 <div class="flex mt-4 lg:gap-16 md:gap-5 mb-5">
                     <div class="flex-col">
                         <label for="kota">Kota</label>
-                        <select required name="" id="kota"
+                        <select name="kota" id="kota"
                             class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[120%] md:w-full focus:outline-[#D10B05]">
-                            <option value=""></option>
-                            <option value="">Bojong Gede</option>
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
+                            @if (isset($kotaData))
+                                @foreach ($kotaData as $kd )
+                                    <option value="{{$kd['id']}}">{{$kd['name']}}</option>
+                                @endforeach
+                            @else
+                                <option value=""></option>
+                            @endif
                         </select>
+                        @error('kota')
+                            <p
+                            class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                {{$message}}
+                            </p>
+                        @enderror
                     </div>
                     <div class="flex-col">
                         <label for="kecamatan">Kecamatan</label>
-                        <select required name="" id="kecamatan"
+                        <select name="kecamatan" id="kecamatan"
                             class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[100%] md:w-[80%] focus:outline-[#D10B05]">
-                            <option value=""></option>
-                            <option value="">Gambir</option>
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
+                            @if(isset($kecamatanData))    
+                                @foreach ($kecamatanData as $kecd )
+                                    <option value="{{$kecd['id']}}">{{$kecd['name']}}</option>
+                                @endforeach 
+                            @else
+                                <option value=""></option>
+                            @endif
                         </select>
+                        @error('kecamatan')
+                            <p
+                            class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                {{$message}}
+                            </p>
+                        @enderror
                     </div>
                 </div>
                 <label for="alamat" class="font-medium text-[#787878]">Alamat Detail</label>
                 <br />
                 <textarea
                     class="peer block min-h-[auto] w-full mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary focus:border-[#D10B05] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="alamat" rows="4" required></textarea>
+                    id="alamat" name="alamat" rows="4"></textarea>
+                    @error('alamat')
+                        <p
+                        class="mt-2 ml-12 text-start text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                            {{$message}}
+                        </p>
+                    @enderror
                 <p class="text-[#B3B3B3]">
                     Dengan mendaftar, saya menyetujui <br />
                     <a href="" class="font-medium text-[#D10B05] hover:text-[#9F0804]">
