@@ -151,7 +151,7 @@
                 </div>
                 <textarea
                     class="peer block min-h-[auto] w-[547px] h-64 mt-3 rounded-md border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear peer-focus:text-primary focus:border-[#D10B05]"
-                    id="alamat" rows="4" placeholder="Ketikan deskripsi produkmu" name="deskripsi"
+                    id="alamat" rows="4" placeholder="Ketikan deskripsi produkmu disini" name="deskripsi"
                     value="{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}" required></textarea>
                 <!-- <input name="deskripsi" type="text" placeholder="Ketikan deskripsi produkmu disini"
                     value="{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}"
