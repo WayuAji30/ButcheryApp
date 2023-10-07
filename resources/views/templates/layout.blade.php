@@ -79,9 +79,16 @@ $user = KonsumensModel::find(session('id_user'));
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
                                 class="pr-1" />Tentang Kami</a>
+<<<<<<< HEAD
                         @if (session()->has('login') && $user->role == "supplier")
                         <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}"><img
                             src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
+=======
+                        <a href="/register_mitra/{{session('id_user')}}" class="text-white flex" id="register_mitra"
+                            data-id="{{session('id_user')}}"><img
+                                src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
+                            Jadi Mitra
+>>>>>>> 90203301555b5fc5d516ee49f6d3c9359bb16743
                         </a>
                         @else
                             <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}"><img

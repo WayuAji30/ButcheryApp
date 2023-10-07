@@ -35,7 +35,7 @@
                             </g>
                         </svg>
                     </a>
-                    <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                    <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="profile"
                             class="border-2 border-[#D10B05] rounded-full" /></a>
                     <p class="font-medium">Rahmat Messi Talahu</p>
                 </div>

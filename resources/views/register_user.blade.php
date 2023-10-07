@@ -34,13 +34,13 @@
                                 Username</label>
                             <input
                                 class="pl-5 py-3 mt-2 border-solid border-2 transition-all duration-200 ease-linear border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                type="text" name="username" id="username" placeholder=""  />
-                                @error('username')
-                                <span
-                                    class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
-                                    {{$message}}
-                                </span>
-                                @enderror
+                                type="text" name="username" id="username" placeholder="" />
+                            @error('username')
+                            <span
+                                class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                {{$message}}
+                            </span>
+                            @enderror
                             <p class="font-semibold mt-8 ml-12 text-start">
                                 Masukan Alamat Toko
                             </p>
@@ -62,7 +62,7 @@
                                 <div class="flex-col text-start">
                                     <label for="kota" class="text-[#787878]">Kota</label>
                                     <select name="kota" id="kota"
-                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
+                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[200px] focus:outline-[#D10B05]">
                                         @if (isset($kotaData))
                                         @foreach ( $kotaData as $kotd )
                                         <option value="{{$kotd['id']}}">{{$kotd['name']}}</option>
@@ -81,7 +81,7 @@
                                 <div class="flex-col text-start">
                                     <label for="kecamatan" class="text-[#787878]">Kecamatan</label>
                                     <select name="kecamatan" id="kecamatan"
-                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]">
+                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[200px] focus:outline-[#D10B05]">
                                         @if (isset($kecamatanData))
                                         @foreach ( $kecamatanData as $kecd )
                                         <option value="{{$kecd['id']}}">{{$kecd['name']}}</option>
@@ -101,7 +101,7 @@
                             <p class="text-[#787878] text-start ml-12">Alamat Detail</p>
                             <textarea
                                 class="peer block min-h-[auto] mx-auto my-auto w-[80%] mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
-                                id="alamat" name = "alamat" rows="4" ></textarea>
+                                id="alamat" name="alamat" rows="4"></textarea>
                             @error('alamat')
                             <span
                                 class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
@@ -116,7 +116,7 @@
                                 <a href="" class="font-medium text-[#D10B05] hover:text-[#9F0804]">
                                     Kebijakan Privasi</a>
                             </p>
-                            <button type = "submit"
+                            <button type="submit"
                                 class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold my-10 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Daftar
                             </button>

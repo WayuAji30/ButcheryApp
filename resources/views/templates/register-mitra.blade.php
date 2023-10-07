@@ -69,10 +69,13 @@
                         </div>
                         <p class="font-semibold mt-9">Ikuti Kami</p>
                         <div class="flex gap-2 mt-4">
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/facebook.svg')}}" alt="" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/x.svg')}}" alt="" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/youtube.svg')}}" alt="" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}" alt="" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/facebook.svg')}}"
+                                    alt="facebook" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/x.svg')}}" alt="x" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/youtube.svg')}}"
+                                    alt="youtube" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}"
+                                    alt="instagram" /></a>
                         </div>
                     </div>
                     <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0">
@@ -108,50 +111,50 @@
                         <h1 class="font-semibold">Pembayaran</h1>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="BCA" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="BNI" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="BRI" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="Mandiri" />
                             </button>
                         </div>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-2 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="BSI" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="Permata" />
                             </button>
                             <button class="bg-white px-3 py-3 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="CimbNiaga" />
                             </button>
                             <button class="bg-white px-4 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="SeaBank" />
                             </button>
                         </div>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-4 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="ovo" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="dana" />
                             </button>
                             <button class="bg-white px-4 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="gopay" />
                             </button>
                             <button class="bg-white px-5 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="shopeepay" />
                             </button>
                         </div>
                         <h1 class="font-semibold mt-10">Pengiriman</h1>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-2 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/butchery.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/butchery.svg')}}" alt="butchery" />
                             </button>
                             <!-- <button
                   class="bg-white px-3 py-2 shadow-md rounded-lg"
@@ -171,17 +174,17 @@
                         <h1 class="font-semibold">Get Butchery App</h1>
                         <div class="flex mt-5 items-center">
                             <button class="p-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/qr.svg')}}" alt="" />
+                                <img src="{{asset('assets/img_index/asset/footer/qr.svg')}}" alt="qrcode" />
                             </button>
                             <ul class="ml-5 list-none">
                                 <li>
                                     <a href="" class="ml-5"><img
                                             src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
-                                            alt="" /></a>
+                                            alt="googleplay" /></a>
                                 </li>
                                 <li class="mt-3">
                                     <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
-                                            alt="" /></a>
+                                            alt="appstore" /></a>
                                 </li>
                             </ul>
                         </div>
