@@ -1,3 +1,9 @@
+<?php 
+use App\Models\KonsumensModel;
+
+$user = KonsumensModel::find(session('id_user'));
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -66,18 +72,22 @@
                     <div class="flex">
                         <img src="{{asset('assets/img_index/asset/navbar/phone.svg')}}" alt="" class="pr-2 -mt-2" />
                         <p class="text-white mr-4">Butchery app is now available on</p>
-                        <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}"
-                                alt="" /></a>
+                        <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}" alt="" /></a>
                         <a href=""><img src="{{asset('assets/img_index/asset/navbar/appstore.svg')}}" alt="" /></a>
                     </div>
                     <div class="flex gap-5 items-center">
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
                                 class="pr-1" />Tentang Kami</a>
-                        <a href="/register_mitra/{{session('id_user')}}" class="text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}"><img
-                                src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
-                            Jadi Mitra
+                        @if (session()->has('login') && $user->role == "supplier")
+                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}"><img
+                            src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
                         </a>
+                        @else
+                            <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}"><img
+                                src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
+                            </a>
+                        @endif
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
@@ -126,6 +136,29 @@
                     </a>
                 </div>
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="" class="mx-4" />
+                @if (session()->has('login') && $user->role == 'konsumen')
+                <div class="">
+                    <div class="flex items-center gap-3">
+                        <a href="" class="flex items-center gap-2"><img
+                                src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
+                            <p class="font-medium text-lg mr-8">{{$user->username}}</p>
+                        </a>
+                    </div>
+                </div>
+                @elseif(session()->has('login') && $user->role == "supplier")
+                <div class="">
+                    <div class="flex items-center gap-8">
+                        <a href="/daftarProduk/{{$user->_id}}" class="flex items-center gap-2"><img
+                                src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
+                            <p class="font-semibold text-lg">Toko Saya</p>
+                        </a>
+                        <a href="/profile/{{$user->_id}}" class="flex items-center gap-2"><img
+                                src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
+                            <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
+                        </a>
+                    </div>
+                </div>
+                @else
                 <div class="block">
                     <div class="flex gap-3">
                         <a href="/login">
@@ -142,32 +175,7 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Jika sudah login -->
-                <div class="hidden">
-                    <div class="flex items-center gap-3">
-                        <a href="" class="flex items-center gap-2"><img
-                                src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
-                            <p class="font-medium text-lg mr-8">Rahmat Messi Tahalu</p>
-                        </a>
-                    </div>
-                </div>
-                <!-- Jika sudah login -->
-
-                <!-- Sudah login customer dan memiliki akun mitra -->
-                <div class="hidden">
-                    <div class="flex items-center gap-8">
-                        <a href="" class="flex items-center gap-2"><img
-                                src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
-                            <p class="font-semibold text-lg">Toko Saya</p>
-                        </a>
-                        <a href="profile/profile.html" class="flex items-center gap-2"><img
-                                src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
-                            <p class="font-medium text-lg mr-8">R...</p>
-                        </a>
-                    </div>
-                </div>
-                <!-- Sudah login customer dan memiliki akun mitra -->
+                @endif
             </div>
         </div>
     </nav>

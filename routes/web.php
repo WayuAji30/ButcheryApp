@@ -48,7 +48,7 @@ Route::get('/profile', [AuthController::class,'profile']);
 Route::get('/register_mitra/{id}', [AuthController::class,'register_mitra']);
 Route::get('/register_mitraProv/{id_user}/{idProv}/{idKota}', [AuthController::class,'register_mitraProv']);
 Route::post('/store_register_mitra', [AuthController::class,'store_register_mitra']);
-Route::get('/updateRoleUser/{id}', [AuthController::class,'updateRoleUser']);
+Route::get('/updateUser/{id}/{no_telp}/{email}', [AuthController::class,'updateUser']);
 
 
 Route::get('/forgetPassword', [AuthController::class,'forgetPassword']);

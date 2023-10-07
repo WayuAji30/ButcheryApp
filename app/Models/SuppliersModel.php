@@ -14,7 +14,7 @@ class SuppliersModel extends Authenticatable
     protected $collection = 'tbl_suppliers';
 
     protected $fillable = [
-        'nama_toko', 'email', 'no_hp', 'no_wa','no_rekening','provinsi', 'kota', 'kecamatan', 'alamat'
+        'user_id','nama_toko','email', 'no_hp', 'no_wa','no_rekening','provinsi', 'kota', 'kecamatan', 'alamat'
     ];
 
 }

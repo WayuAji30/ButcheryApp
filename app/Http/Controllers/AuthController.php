@@ -181,7 +181,6 @@ class AuthController extends Controller
         $kota = $request->input('kota');
         $kecamatan = $request->input('kecamatan');
         $alamat = $request->input('alamat');
-        $role = 'supplier';
 
        $user_supplier =  SuppliersModel::create([
             'user_id' => $user_id,
@@ -201,7 +200,19 @@ class AuthController extends Controller
         ]);
 
         echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>';
-        echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/daftarProduk";}); </script>';
+        echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/updateUser/'.$user_id.'/'.$no_telp.'/'.$email.'";}); </script>';
+    }
+
+    public function updateUser($id, $no_telp, $email){
+       $user = KonsumensModel::find($id);
+
+       KonsumensModel::where('_id',$user->_id)->update([
+        'email' => $email,
+        'no_hp' => $no_telp,
+        'role' => 'supplier'
+       ]);
+
+       return redirect()->to('/');
     }
 
     public function forgetPassword(): View
@@ -209,7 +220,7 @@ class AuthController extends Controller
         return view('profile.forgetPassword');
     }
 
-    public function profile(): View
+    public function profile($id)
     {
         return view('profile.profile');
     }
@@ -302,7 +313,7 @@ class AuthController extends Controller
             $request->session()->flush();
             echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin=
             "anonymous"></script>';
-            echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/index";}); </script>';
+            echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/login";}); </script>';
         } catch (\Exception $e) {
             $request->session()->flush(); // Hapus seluruh sesi jika gagal
             echo $e;
