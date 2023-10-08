@@ -125,7 +125,8 @@
                                     class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" />
                                 <p class="text-[12px] mt-2"><span class="text-[#ff4444]">*</span> Minimum 8 karakter</p>
                                 <div class="relative flex items-center">
-                                    <input type="password" name="" id="" placeholder="Masukan Kata Sandi Baru" required
+                                    <input type="password" name="" id="" placeholder="Konfirmasi Kata Sandi Baru"
+                                        required
                                         class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" />
 
                                     <button class="absolute right-[50%] btn-eye-close" form="none">
