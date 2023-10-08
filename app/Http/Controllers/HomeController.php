@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Post; // memanggil model dalam folder Models
+use App\Models\KonsumensModel; // memanggil model dalam folder Models
 use App\Models\MitraProdukModel;
 
 use Illuminate\View\View;
@@ -22,7 +22,6 @@ class HomeController extends Controller
     public function index(): View
     {
         $rekProduk = MitraProdukModel::all(); 
-
         return view('index',['rekProduk' => $rekProduk]); // view('folder.file', compact())
     }
 
@@ -54,11 +53,7 @@ class HomeController extends Controller
 
     public function cart()
     {
-        if(Session::get('login')){
-            return view('cart');
-        }else{
-            return view('login');
-        }
+        return view('cart');
     }
 
     public function checkOut(): View

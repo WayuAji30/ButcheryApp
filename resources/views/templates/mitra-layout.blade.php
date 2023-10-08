@@ -1,3 +1,9 @@
+<?php 
+use App\Models\KonsumensModel;
+
+$user = KonsumensModel::find(session('id_user'));
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -35,9 +41,9 @@
                             </g>
                         </svg>
                     </a>
-                    <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="profile"
+                    <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
                             class="border-2 border-[#D10B05] rounded-full" /></a>
-                    <p class="font-medium">Rahmat Messi Talahu</p>
+                    <p class="font-medium">{{$user->username}}</p>
                 </div>
             </div>
         </div>
@@ -45,8 +51,7 @@
     <!-- NAVBAR -->
     @yield('content')
 
-    <!-- @vite('resources/js/hamburgerToggle.js') -->
-    @vite(['resources/js/tambahProduk.js', 'resources/js/app.js'])
+    @vite(['resources/js/tambahProduk.js', 'resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
     <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

@@ -21,32 +21,41 @@
                                 </button>
                             </form>
                             <br />
-                            <form action="">
+                            <a href="">
                                 <button
                                     class="py-2 px-4 mt-11 border-2 border-[#D10B05] rounded-md text-[#D10B05] font-semibold w-[80%] hover:bg-[#D10B05] hover:text-white"
                                     form="none">
                                     Ubah Kata Sandi
                                 </button>
-                            </form>
-                            <form action="../index.html">
-                                <button
-                                    class="py-2 px-4 mt-5 border-2 border-[#ccc] bg-[#ccc] rounded-md text-white font-semibold w-[80%] hover:bg-[#D10B05] hover:border-[#D10B05]">
-                                    Simpan Perubahan
-                                </button>
-                            </form>
+                            </a>
+                            
+                            <button
+                                type="submit"
+                                id="submitEditProfile"
+                                class="py-2 px-4 mt-5 border-2 border-[#ccc] bg-[#ccc] rounded-md text-white font-semibold w-[80%] hover:bg-[#D10B05] hover:border-[#D10B05]">
+                                Simpan Perubahan
+                            </button>
+                            
                         </div>
                         <div class="col-span-2 mt-5">
-                            <form action="" id="profile">
-                                <label for="username" name="" class="font-semibold mr-6">Username</label>
-                                <input type="text" placeholder="Rahmat Tahalu" id="username"
+                            <form action="/edit_profile" method = "POST" id = "form_edit_profile">
+                                @csrf
+
+                                <input type="hidden" name="id" id="id" value = "{{$user->_id}}">
+                                <input type="hidden" name="idProv" id="idProv" value = "{{$user['alamat'][0]['provinsi']}}">
+                                <input type="hidden" name="idKota" id="idKota" value = "{{$user['alamat'][0]['kota/kab']}}">
+                                <input type="hidden" name="idKec" id="idKec" value = "{{$user['alamat'][0]['kecamatan']}}">
+
+                                <label for="username" class="font-semibold mr-6">Username</label>
+                                <input type="text" placeholder="" name="username" id="username" value = "{{$user->username}}"
                                     class="border-2 border-[#ccc] rounded-md w-[50%] py-3 px-4 focus:outline-[#D10B05]" />
                                 <br />
-                                <label for="email" name="" class="font-semibold mr-6 ml-8">Email</label>
-                                <input type="email" placeholder="rahmattahaluremik@gmail.com" id="email"
+                                <label for="email" class="font-semibold mr-6 ml-8">Email</label>
+                                <input type="text" placeholder="rahmattahaluremik@gmail.com" name="email" id="email" value = "{{(isset($user->email)) ? $user->email : ''}}"
                                     class="border-2 border-[#ccc] rounded-md w-[50%] py-3 px-4 mt-5 focus:outline-[#D10B05]" />
                                 <br />
-                                <label for="no.hp" name="" class="font-semibold mr-5">Nomor HP</label>
-                                <input type="text" placeholder="08187655617718" id="no.hp"
+                                <label for="no.hp" class="font-semibold mr-5">Nomor HP</label>
+                                <input type="text" placeholder="" id="no_hp" name="no_hp" value = "{{(isset($user->no_hp)) ? $user->no_hp : ''}}"
                                     class="border-2 border-[#ccc] rounded-md w-[50%] py-3 px-4 mt-5 focus:outline-[#D10B05]" />
                                 <br />
                                 <div class="flex">
@@ -59,47 +68,23 @@
                                             <p class="text-[#999] mt-8">
                                                 Provinsi
                                             </p>
-                                            <select name="" id="Kategori"
+                                            <select name="provinsi" id="provinsi"
                                                 class="px-3 py-4 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
-                                                <option value="">
-                                                    Jawa Barat
-                                                </option>
-                                                <option value="">
-                                                    Jawa Tengah
-                                                </option>
-                                                <option value="">
-                                                    Jawa Timur
-                                                </option>
+                                                <option value = "{{$provinsiData['id']}}">{{$provinsiData['name']}}"</option>
                                             </select>
                                             <div class="flex mt-4 lg:gap-16 md:gap-5 mb-5">
                                                 <div class="flex-col">
                                                     <label for="kota" class="text-[#999]">Kota</label>
-                                                    <select name="" id="kota"
+                                                    <select name="kota" id="kota"
                                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[120%] focus:outline-[#D10B05]">
-                                                        <option value="">
-                                                            Bojong Gede
-                                                        </option>
-                                                        <option value="">
-                                                            Jawa Barat
-                                                        </option>
-                                                        <option value="">
-                                                            Jawa Tengah
-                                                        </option>
+                                                        <option value = "{{$kotaData['id']}}">{{$kotaData['name']}}"</option>
                                                     </select>
                                                 </div>
                                                 <div class="flex-col">
                                                     <label for="kecamatan" class="text-[#999]">Kecamatan</label>
-                                                    <select name="" id="kecamatan"
+                                                    <select name="kecamatan" id="kecamatan"
                                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
-                                                        <option value="">
-                                                            Gambir
-                                                        </option>
-                                                        <option value="">
-                                                            Jawa Barat
-                                                        </option>
-                                                        <option value="">
-                                                            Jawa Tengah
-                                                        </option>
+                                                        <option value = "{{$kecData['id']}}">{{$kecData['name']}}"</option>
                                                     </select><br />
                                                 </div>
                                             </div>
@@ -107,7 +92,7 @@
                                             <br />
                                             <input
                                                 class="px-5 py-3 mt-3 mb-10 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] h-28 focus:outline-[#D10B05]"
-                                                type="text" name="" id="alamat" placeholder="" />
+                                                type="text" name="alamat" id="alamat" placeholder="" value = "{{$user['alamat'][0]['alamat']}}" />
                                         </div>
                                     </div>
                                 </div>
@@ -116,9 +101,7 @@
                             <form action="" id="ubahPassword" hidden>
                                 <p class="font-semibold text-[20px]">Kata Sandi Baru</p>
                                 <p class="mt-3 text-[#999]">Ubah kata sandi anda dengan yang lebih kuat demi <br>
-                                    keamanan akun anda
-                                    dalam
-                                    menggunakan Butchery.</p>
+                                    keamanan akun anda dalam menggunakan Butchery.</p>
                                 <input type="password" name="" id="" placeholder="Masukan Kata Sandi Baru" required
                                     class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" />
                                 <p class="text-[12px] mt-2"><span class="text-[#ff4444]">*</span> Minimum 8 karakter</p>

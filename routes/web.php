@@ -31,8 +31,6 @@ Route::get('/register', [AuthController::class,'register']);
 Route::get('/register_password', [AuthController::class,'register_password']);
 Route::get('/register_user', [AuthController::class,'register_user']);
 
-Route::get('/register_userProv/{idProv}/{idKota}', [AuthController::class,'register_userProv']);
-
 Route::post('/save_register',[AuthController::class,'save_register']);
 Route::post('/save_register2',[AuthController::class,'save_register2']);
 Route::post('/save_register3',[AuthController::class,'save_register3']);
@@ -43,16 +41,14 @@ Route::get('/store_register',[AuthController::class,'store_register']);
 Route::get('/getSession',[AuthController::class,'getSession']);
 Route::get('/sessionDelete',[AuthController::class,'sessionDelete']);
 
-Route::get('/profile', [AuthController::class,'profile']);
+Route::get('/profile/{id}/{idProv}/{idKota}/{idKec}', [AuthController::class,'profile']);
+Route::post('/edit_profile', [AuthController::class,'edit_profile']);
 
 Route::get('/register_mitra/{id}', [AuthController::class,'register_mitra']);
-Route::get('/register_mitraProv/{id_user}/{idProv}/{idKota}', [AuthController::class,'register_mitraProv']);
 Route::post('/store_register_mitra', [AuthController::class,'store_register_mitra']);
-Route::get('/updateRoleUser/{id}', [AuthController::class,'updateRoleUser']);
-
+Route::get('/updateUser/{id}/{no_telp}/{email}', [AuthController::class,'updateUser']);
 
 Route::get('/forgetPassword', [AuthController::class,'forgetPassword']);
-
 
 Route::get('/trenDaging', [MitraController::class,'trenDaging']);
 Route::get('/daftarProduk', [MitraController::class,'daftarProduk']);
