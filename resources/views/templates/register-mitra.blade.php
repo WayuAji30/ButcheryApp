@@ -1,3 +1,9 @@
+<?php 
+use App\Models\KonsumensModel;
+
+$user = KonsumensModel::find(session('id_user'));
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +33,7 @@
                 <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
                     <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="profile"
                             class="border-2 border-[#D10B05] rounded-full" /></a>
-                    <p class="font-medium">Rahmat Messi Talahu</p>
+                    <p class="font-medium">{{$user->username}}</p>
                 </div>
             </div>
         </div>
@@ -69,13 +75,10 @@
                         </div>
                         <p class="font-semibold mt-9">Ikuti Kami</p>
                         <div class="flex gap-2 mt-4">
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/facebook.svg')}}"
-                                    alt="facebook" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/x.svg')}}" alt="x" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/youtube.svg')}}"
-                                    alt="youtube" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}"
-                                    alt="instagram" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/facebook.svg')}}" alt="" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/x.svg')}}" alt="" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/youtube.svg')}}" alt="" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}" alt="" /></a>
                         </div>
                     </div>
                     <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0">
@@ -111,50 +114,50 @@
                         <h1 class="font-semibold">Pembayaran</h1>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="BCA" />
+                                <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="BNI" />
+                                <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="BRI" />
+                                <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="Mandiri" />
+                                <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="" />
                             </button>
                         </div>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-2 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="BSI" />
+                                <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="Permata" />
+                                <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-3 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="CimbNiaga" />
+                                <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-4 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="SeaBank" />
+                                <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="" />
                             </button>
                         </div>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-4 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="ovo" />
+                                <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="dana" />
+                                <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-4 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="gopay" />
+                                <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-5 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="shopeepay" />
+                                <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="" />
                             </button>
                         </div>
                         <h1 class="font-semibold mt-10">Pengiriman</h1>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-2 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/butchery.svg')}}" alt="butchery" />
+                                <img src="{{asset('assets/img_index/asset/footer/butchery.svg')}}" alt="" />
                             </button>
                             <!-- <button
                   class="bg-white px-3 py-2 shadow-md rounded-lg"
@@ -174,17 +177,17 @@
                         <h1 class="font-semibold">Get Butchery App</h1>
                         <div class="flex mt-5 items-center">
                             <button class="p-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/qr.svg')}}" alt="qrcode" />
+                                <img src="{{asset('assets/img_index/asset/footer/qr.svg')}}" alt="" />
                             </button>
                             <ul class="ml-5 list-none">
                                 <li>
                                     <a href="" class="ml-5"><img
                                             src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
-                                            alt="googleplay" /></a>
+                                            alt="" /></a>
                                 </li>
                                 <li class="mt-3">
                                     <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
-                                            alt="appstore" /></a>
+                                            alt="" /></a>
                                 </li>
                             </ul>
                         </div>
@@ -198,7 +201,7 @@
     </footer>
     <!-- FOOTER -->
 
-    @vite(['resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/selectIndonesiaSupplier.js'])
+    @vite(['resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/selectIndonesia.js'])
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 </body>
 

@@ -1,3 +1,9 @@
+<?php 
+use App\Models\KonsumensModel;
+
+$user = KonsumensModel::find(session('id_user'));
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +18,8 @@
     #remove button:hover svg path {
         fill: #d10b05;
     }
-
     button.active {
-        border-color: #d10b05;
+    border-color: #d10b05;
     }
     </style>
 </head>
@@ -26,25 +31,22 @@
             <div class="bg-[#D10B05] py-4">
                 <div class="mx-12 flex items-center justify-between">
                     <div class="flex">
-                        <img src="{{asset('assets/img_index/asset/navbar/phone.svg')}}" alt="phone"
-                            class="pr-2 -mt-2" />
+                        <img src="{{asset('assets/img_index/asset/navbar/phone.svg')}}" alt="" class="pr-2 -mt-2" />
                         <p class="text-white mr-4">Butchery app is now available on</p>
                         <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}"
-                                alt="googleplay" /></a>
-                        <a href=""><img src="{{asset('assets/img_index/asset/navbar/appstore.svg')}}"
-                                alt="appstore" /></a>
+                                alt="" /></a>
+                        <a href=""><img src="{{asset('assets/img_index/asset/navbar/appstore.svg')}}" alt="" /></a>
                     </div>
                     <div class="flex gap-5 items-center">
                         <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt="office"
+                                src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
                                 class="pr-1" />Tentang Kami</a>
                         <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="help"
-                                class="pr-1" />Bantuan
+                                src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
-                            Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="arrowUp" /></a>
+                            Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -57,9 +59,9 @@
                             alt="LogoButchery" class="mr-5" /></a>
                 </div>
                 <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
-                    <a href=""><img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="profile"
+                    <a href=""><img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt=""
                             class="border-2 border-[#D10B05] rounded-full" /></a>
-                    <p class="font-medium">Rahmat Messi Talahu</p>
+                    <p class="font-medium">{{$user->username}}</p>
                 </div>
             </div>
         </div>

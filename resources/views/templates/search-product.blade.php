@@ -1,3 +1,9 @@
+<?php 
+use App\Models\KonsumensModel;
+
+$user = KonsumensModel::find(session('id_user'));
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -42,31 +48,31 @@
             <div class="bg-[#D10B05] py-4">
                 <div class="mx-12 flex items-center justify-between">
                     <div class="flex">
-                        <img src="{{asset('assets/img_index/asset/navbar/phone.svg')}}" alt="phone"
-                            class="pr-2 -mt-2" />
+                        <img src="{{asset('assets/img_index/asset/navbar/phone.svg')}}" alt="" class="pr-2 -mt-2" />
                         <p class="text-white mr-4">Butchery app is now available on</p>
                         <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}"
-                                alt="googleplay" /></a>
-                        <a href=""><img src="{{asset('assets/img_index/asset/navbar/appstore.svg')}}"
-                                alt="appstore" /></a>
+                                alt="" /></a>
+                        <a href=""><img src="{{asset('assets/img_index/asset/navbar/appstore.svg')}}" alt="" /></a>
                     </div>
                     <div class="flex gap-5 items-center">
                         <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt="office"
+                                src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
                                 class="pr-1" />Tentang Kami</a>
-                        <a href="/register_mitra" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="mitra"
-                                class="pr-1" />Daftar
-                            Jadi Mitra
+                        @if (session()->has('login') && $user->role == "supplier")
+                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}">
+                            <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
+                        </a>
+                        @else
+                            <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}">
+                                <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
+                            </a>
+                        @endif
+                        <a href="" class="text-white flex"><img
+                                src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
                         <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="help"
-                                class="pr-1" />Bantuan
-                        </a>
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="globe"
-                                class="pr-1" />Bahasa
-                            Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="arrowUp" /></a>
+                                src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
+                            Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -108,7 +114,30 @@
                         </svg>
                     </a>
                 </div>
-                <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="pembatas" class="mx-4" />
+                <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="" class="mx-4" />
+                @if (session()->has('login') && $user->role == 'konsumen')
+                <div class="">
+                    <div class="flex items-center gap-3">
+                        <a href="/profile/{{session('id_user')}}" class="flex items-center gap-2" id = "profile" data-id ="{{session('id_user')}}">
+                            <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
+                            <p class="font-medium text-lg mr-8">{{$user->username}}</p>
+                        </a>
+                    </div>
+                </div>
+                @elseif(session()->has('login') && $user->role == "supplier")
+                <div class="">
+                    <div class="flex items-center gap-8">
+                        <a href="/daftarProduk/{{$user->_id}}" class="flex items-center gap-2"><img
+                                src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
+                            <p class="font-semibold text-lg">Toko Saya</p>
+                        </a>
+                        <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="flex items-center gap-2" id = "profile" data-id ="">
+                            <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
+                            <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
+                        </a>
+                    </div>
+                </div>
+                @else
                 <div class="block">
                     <div class="flex gap-3">
                         <form action="/login">
@@ -125,31 +154,7 @@
                         </form>
                     </div>
                 </div>
-
-                <!-- Jika sudah login -->
-                <div class="hidden">
-                    <div class="flex items-center gap-3">
-                        <a href="" class="flex items-center gap-2"><img src="asset/navbar/profile.svg" alt="profile" />
-                            <p class="font-medium text-lg mr-8">Rahmat Messi Tahalu</p>
-                        </a>
-                    </div>
-                </div>
-                <!-- Jika sudah login -->
-
-                <!-- Sudah login customer dan memiliki akun mitra -->
-                <div class="hidden">
-                    <div class="flex items-center gap-8">
-                        <a href="" class="flex items-center gap-2"><img src="asset/navbar/tokosaya.svg"
-                                alt="tokosaya" />
-                            <p class="font-semibold text-lg">Toko Saya</p>
-                        </a>
-                        <a href="profile/profile.html" class="flex items-center gap-2"><img
-                                src="asset/navbar/profile.svg" alt="profile" />
-                            <p class="font-medium text-lg mr-8">R...</p>
-                        </a>
-                    </div>
-                </div>
-                <!-- Sudah login customer dan memiliki akun mitra -->
+                @endif
             </div>
         </div>
     </nav>
@@ -189,13 +194,10 @@
                         </div>
                         <p class="font-semibold mt-9">Ikuti Kami</p>
                         <div class="flex gap-2 mt-4">
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/facebook.svg')}}"
-                                    alt="facebook" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/x.svg')}}" alt="x" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/youtube.svg')}}"
-                                    alt="youtube" /></a>
-                            <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}"
-                                    alt="instagram" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/facebook.svg')}}" alt="" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/x.svg')}}" alt="" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/youtube.svg')}}" alt="" /></a>
+                            <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}" alt="" /></a>
                         </div>
                     </div>
                     <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0">
@@ -231,50 +233,50 @@
                         <h1 class="font-semibold">Pembayaran</h1>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="BCA" />
+                                <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="BNI" />
+                                <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="BRI" />
+                                <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="Mandiri" />
+                                <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="" />
                             </button>
                         </div>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-2 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="BSI" />
+                                <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="Permata" />
+                                <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-3 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="CimbNiaga" />
+                                <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-4 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="SeaBank" />
+                                <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="" />
                             </button>
                         </div>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-4 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="ovo" />
+                                <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-3 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="dana" />
+                                <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-4 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="gopay" />
+                                <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="" />
                             </button>
                             <button class="bg-white px-5 py-2 shadow-lg rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="shopeepay" />
+                                <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="" />
                             </button>
                         </div>
                         <h1 class="font-semibold mt-10">Pengiriman</h1>
                         <div class="flex mt-5 gap-2">
                             <button class="bg-white px-2 py-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/butchery.svg')}}" alt="butchery" />
+                                <img src="{{asset('assets/img_index/asset/footer/butchery.svg')}}" alt="" />
                             </button>
                             <!-- <button
                   class="bg-white px-3 py-2 shadow-md rounded-lg"
@@ -294,17 +296,17 @@
                         <h1 class="font-semibold">Get Butchery App</h1>
                         <div class="flex mt-5 items-center">
                             <button class="p-2 shadow-md rounded-lg" disabled>
-                                <img src="{{asset('assets/img_index/asset/footer/qr.svg')}}" alt="qr" />
+                                <img src="{{asset('assets/img_index/asset/footer/qr.svg')}}" alt="" />
                             </button>
                             <ul class="ml-5 list-none">
                                 <li>
                                     <a href="" class="ml-5"><img
                                             src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
-                                            alt="googleplay" /></a>
+                                            alt="" /></a>
                                 </li>
                                 <li class="mt-3">
                                     <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
-                                            alt="appstore" /></a>
+                                            alt="" /></a>
                                 </li>
                             </ul>
                         </div>

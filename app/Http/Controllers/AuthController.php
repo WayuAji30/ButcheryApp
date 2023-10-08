@@ -50,7 +50,7 @@ class AuthController extends Controller
 
         if($idn){
             if(Hash::check($password, $idn->password)){
-                session(['login' => true,'id_user' => $idn->_id]);
+                session(['login' => true,'id_user' => $idn->_id, 'provinsi_id' => $idn['alamat'][0]['provinsi'], 'kota_id' => $idn['alamat'][0]['kota/kab'], 'kecamatan_id' => $idn['alamat'][0]['kecamatan']]);
                 return redirect()->to('/');
             }else{
                 return redirect()->to('/login')->with(['error' => 'No. Handphone/Email atau Password salah']);
@@ -82,80 +82,14 @@ class AuthController extends Controller
 
     public function register_user()
     {
-        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
-
-        $response = Http::get($apiProvinsi);
-
-        $provinsiData = $response->json();
-
-        return view('register_user', ['provinsiData' => $provinsiData]);
+        return view('register_user');
     }
-
-    public function register_userProv($idProv, $idKota)
-    {
-        $this->setIdProvinsi($idProv);
-        $this->setIdKota($idKota);
-
-        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
-
-        $response = Http::get($apiProvinsi);
-
-        $provinsiData = $response->json();
-
-        $apiKota = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/".$this->getIdProvinsi().".json";
-
-        $response2 = Http::get($apiKota);
-
-        $kotaData = $response2->json();       
-
-        $apiKecamatan = "https://emsifa.github.io/api-wilayah-indonesia/api/districts/".$this->getIdKota().".json";
-
-        $response3 = Http::get($apiKecamatan);
-
-        $kecamatanData = $response3->json();
-
-        return view('register_user', ['provinsiData' => $provinsiData,'kotaData' => $kotaData, 'kecamatanData' => $kecamatanData]);
-    }
-
+    
     public function register_mitra($id)
     {
         $user = KonsumensModel::find($id);
 
-        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
-
-        $response = Http::get($apiProvinsi);
-
-        $provinsiData = $response->json();
-
-        return view('register_mitra', ['user' => $user,'provinsiData' => $provinsiData]);
-    }
-
-    public function register_mitraProv($id,$idProv,$idKota)
-    {
-        $this->setIdProvinsi($idProv);
-        $this->setIdKota($idKota);
-
-        $user = KonsumensModel::find($id);
-
-        $apiProvinsi = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
-
-        $response = Http::get($apiProvinsi);
-
-        $provinsiData = $response->json();
-
-        $apiKota = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/".$this->getIdProvinsi().".json";
-
-        $response2 = Http::get($apiKota);
-
-        $kotaData = $response2->json();       
-
-        $apiKecamatan = "https://emsifa.github.io/api-wilayah-indonesia/api/districts/".$this->getIdKota().".json";
-
-        $response3 = Http::get($apiKecamatan);
-
-        $kecamatanData = $response3->json();
-
-        return view('register_mitra', ['user' => $user, 'provinsiData' => $provinsiData,'kotaData' => $kotaData, 'kecamatanData' => $kecamatanData]);
+        return view('register_mitra', ['user' => $user]);
     }
 
     public function store_register_mitra(Request $request){
@@ -220,9 +154,69 @@ class AuthController extends Controller
         return view('profile.forgetPassword');
     }
 
-    public function profile($id)
+    public function profile($id, $idProv, $idKota,$idKec)
     {
-        return view('profile.profile');
+        $user = KonsumensModel::find($id);
+        $provinsi = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/province/'.$idProv.'.json');
+        $response = $provinsi->json();
+        $kota = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/regency/'.$idKota.'.json');
+        $response2 = $kota->json();
+        $kecamatan = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/district/'.$idKec.'.json');
+        $response3 = $kecamatan->json();
+
+        return view('profile.profile',['user' => $user, 'provinsiData' => $response,'kotaData' => $response2, 'kecData' => $response3]);
+    }
+
+    public function edit_profile(Request $request)
+    {
+        $this->validate($request,[
+            'username' => 'required',
+            'email' => 'required|email',
+            'no_hp' => 'required',
+            'provinsi' => 'required',
+            'kota' => 'required',
+            'kecamatan' => 'required',
+            'alamat' => 'required'
+        ]);
+        
+        //upload image
+        //$image1 = $request->file('foto.foto1');
+        
+        //upload image2
+        //$image2 = $request->file('foto.foto2');
+
+        //upload image3
+        //$image3 = $request->file('foto.foto3');
+
+        $id = $request->input('id');
+        $idProv = $request->input('idProv');
+        $idKota = $request->input('idKota');
+        $idKec = $request->input('idKec');
+        $username = $request->input('username');
+        $email = $request->input('email');
+        $no_hp = $request->input('no_hp');
+        $provinsi = $request->input('provinsi');
+        $kota = $request->input('kota');
+        $kecamatan = $request->input('kecamatan');
+        $alamat = $request->input('alamat');
+
+        KonsumensModel::where('_id', $id)->update([
+            'username' => $username,
+            'email' => $email,
+            'no_hp' => $no_hp,
+            'alamat' => [
+                [
+                    'provinsi' => $provinsi,
+                    'kota/kab' => $kota,
+                    'kecamatan' => $kecamatan,
+                    'alamat' => $alamat,
+                ]
+            ]
+        ]);
+
+        session()->forget(['provinsi_id','kota_id','kecamatan_id']);
+        session(['provinsi_id' => $idProv, 'kota_id' => $idKota, 'kecamatan_id' => $idKec]);
+        return redirect()->to('/profile'.'/'. $id .'/'.$provinsi.'/'.$kota.'/'.$kecamatan);
     }
 
     public function save_register(Request $request){
@@ -322,8 +316,11 @@ class AuthController extends Controller
 
     public function getSession(Request $request){
         $registrationData = $request->session()->get('registration_data');
-        $idData = $request->session()->get('id');
-        var_dump([$registrationData,$idData]);
+        $idData = $request->session()->get('id_user');
+        $prov = $request->session()->get('provinsi_id');
+        $kota = $request->session()->get('kota_id');
+        $kecamatan = $request->session()->get('kecamatan_id');
+        var_dump([$registrationData,$idData,$prov,$kota,$kecamatan]);
     }
 
     public function sessionDelete(Request $request){

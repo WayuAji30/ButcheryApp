@@ -71,3 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "/login";
     });
 });
+
+$(document).ready(function(){
+    $('#submitEditProfile').click(function(){
+        $('#form_edit_profile').submit();
+    });
+});
