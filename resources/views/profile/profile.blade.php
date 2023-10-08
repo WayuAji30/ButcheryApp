@@ -104,6 +104,10 @@
                                             </div>
                                             <label for="alamat" class="text-[#999]">Alamat Detail</label>
                                             <br />
+                                            <textarea
+                                                class="peer block min-h-[auto] w-full mt-3 mb-5 rounded-lg border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary focus:border-[#D10B05] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                id="alamat" name="alamat" rows="4"
+                                                value="{{$user['alamat'][0]['alamat']}}"></textarea>
                                             <input
                                                 class="px-5 py-3 mt-3 mb-10 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] h-28 focus:outline-[#D10B05]"
                                                 type="text" name="alamat" id="alamat" placeholder=""
