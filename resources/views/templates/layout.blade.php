@@ -84,7 +84,7 @@
                         </a>
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
-                            Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="" /></a>
+                            Indonesia<img src="{{asset('assets/img_index/asset/navbar/arrowUp.svg')}}" alt="" /></a>
                     </div>
                 </div>
             </div>

@@ -66,7 +66,8 @@
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="globe"
                                 class="pr-1" />Bahasa
-                            Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="arrowUp" /></a>
+                            Indonesia<img src="{{asset('assets/img_index/asset/navbar/arrowUp.svg')}}"
+                                alt="arrowUp" /></a>
                     </div>
                 </div>
             </div>
