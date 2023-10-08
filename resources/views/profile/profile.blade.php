@@ -7,55 +7,66 @@
         <div class="col-span-12">
             <div class="grid justify-items-center">
                 <div class="bg-white rounded-md w-[80%] shadow-md">
-                    <p class="mt-7">
-                        <a href=""
-                            class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Profil
-                            Saya</a>
-                    </p>
+                    <div class="flex justify-between items-center mt-7" id="logout">
+                        <p class="">
+                            <a href=""
+                                class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Profil
+                                Saya</a>
+                        </p>
+                        <button class="mr-5 transition-all duration-200 ease-in-out"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                                <path fill="#ccc"
+                                    d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                            </svg></button>
+                    </div>
                     <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
                     <div class="grid grid-rows-1 grid-flow-col ml-20 mt-16">
                         <div class="row-span-3">
                             <form action="">
-                                <button class="bg-white p-5 shadow-md rounded-md">
+                                <button class="bg-white p-5 shadow-md rounded-md" id="profile-picture">
                                     <img src="{{asset('assets/img_index/asset/profile/avatar.svg')}}" alt="" />
                                 </button>
                             </form>
                             <br />
-                            <a href="">
-                                <button
-                                    class="py-2 px-4 mt-11 border-2 border-[#D10B05] rounded-md text-[#D10B05] font-semibold w-[80%] hover:bg-[#D10B05] hover:text-white"
-                                    form="none">
-                                    Ubah Kata Sandi
-                                </button>
-                            </a>
-                            
+
                             <button
-                                type="submit"
-                                id="submitEditProfile"
-                                class="py-2 px-4 mt-5 border-2 border-[#ccc] bg-[#ccc] rounded-md text-white font-semibold w-[80%] hover:bg-[#D10B05] hover:border-[#D10B05]">
+                                class="py-2 px-4 mt-11 border-2 border-[#D10B05] rounded-md text-[#D10B05] font-semibold w-[280px] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out"
+                                id="profile-change-password">
+                                Ubah Kata Sandi
+                            </button>
+
+
+                            <button type="submit" id="submitEditProfile"
+                                class="py-2 px-4 mt-5 border-2 border-[#ccc] bg-[#ccc] rounded-md text-white font-semibold w-[280px] hover:bg-[#D10B05] hover:border-[#D10B05] transition-all duration-200 ease-in-out">
                                 Simpan Perubahan
                             </button>
-                            
+
                         </div>
                         <div class="col-span-2 mt-5">
-                            <form action="/edit_profile" method = "POST" id = "form_edit_profile">
+                            <form action="/edit_profile" method="POST" id="form_edit_profile">
                                 @csrf
 
-                                <input type="hidden" name="id" id="id" value = "{{$user->_id}}">
-                                <input type="hidden" name="idProv" id="idProv" value = "{{$user['alamat'][0]['provinsi']}}">
-                                <input type="hidden" name="idKota" id="idKota" value = "{{$user['alamat'][0]['kota/kab']}}">
-                                <input type="hidden" name="idKec" id="idKec" value = "{{$user['alamat'][0]['kecamatan']}}">
+                                <input type="hidden" name="id" id="id" value="{{$user->_id}}">
+                                <input type="hidden" name="idProv" id="idProv"
+                                    value="{{$user['alamat'][0]['provinsi']}}">
+                                <input type="hidden" name="idKota" id="idKota"
+                                    value="{{$user['alamat'][0]['kota/kab']}}">
+                                <input type="hidden" name="idKec" id="idKec"
+                                    value="{{$user['alamat'][0]['kecamatan']}}">
 
                                 <label for="username" class="font-semibold mr-6">Username</label>
-                                <input type="text" placeholder="" name="username" id="username" value = "{{$user->username}}"
+                                <input type="text" placeholder="" name="username" id="username"
+                                    value="{{$user->username}}"
                                     class="border-2 border-[#ccc] rounded-md w-[50%] py-3 px-4 focus:outline-[#D10B05]" />
                                 <br />
                                 <label for="email" class="font-semibold mr-6 ml-8">Email</label>
-                                <input type="text" placeholder="rahmattahaluremik@gmail.com" name="email" id="email" value = "{{(isset($user->email)) ? $user->email : ''}}"
+                                <input type="text" placeholder="rahmattahaluremik@gmail.com" name="email" id="email"
+                                    value="{{(isset($user->email)) ? $user->email : ''}}"
                                     class="border-2 border-[#ccc] rounded-md w-[50%] py-3 px-4 mt-5 focus:outline-[#D10B05]" />
                                 <br />
                                 <label for="no.hp" class="font-semibold mr-5">Nomor HP</label>
-                                <input type="text" placeholder="" id="no_hp" name="no_hp" value = "{{(isset($user->no_hp)) ? $user->no_hp : ''}}"
+                                <input type="text" placeholder="" id="no_hp" name="no_hp"
+                                    value="{{(isset($user->no_hp)) ? $user->no_hp : ''}}"
                                     class="border-2 border-[#ccc] rounded-md w-[50%] py-3 px-4 mt-5 focus:outline-[#D10B05]" />
                                 <br />
                                 <div class="flex">
@@ -70,21 +81,24 @@
                                             </p>
                                             <select name="provinsi" id="provinsi"
                                                 class="px-3 py-4 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
-                                                <option value = "{{$provinsiData['id']}}">{{$provinsiData['name']}}"</option>
+                                                <option value="{{$provinsiData['id']}}">{{$provinsiData['name']}}"
+                                                </option>
                                             </select>
                                             <div class="flex mt-4 lg:gap-16 md:gap-5 mb-5">
                                                 <div class="flex-col">
                                                     <label for="kota" class="text-[#999]">Kota</label>
                                                     <select name="kota" id="kota"
-                                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[120%] focus:outline-[#D10B05]">
-                                                        <option value = "{{$kotaData['id']}}">{{$kotaData['name']}}"</option>
+                                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] focus:outline-[#D10B05]">
+                                                        <option value="{{$kotaData['id']}}">{{$kotaData['name']}}"
+                                                        </option>
                                                     </select>
                                                 </div>
                                                 <div class="flex-col">
                                                     <label for="kecamatan" class="text-[#999]">Kecamatan</label>
                                                     <select name="kecamatan" id="kecamatan"
-                                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
-                                                        <option value = "{{$kecData['id']}}">{{$kecData['name']}}"</option>
+                                                        class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] focus:outline-[#D10B05]">
+                                                        <option value="{{$kecData['id']}}">{{$kecData['name']}}"
+                                                        </option>
                                                     </select><br />
                                                 </div>
                                             </div>
@@ -92,13 +106,14 @@
                                             <br />
                                             <input
                                                 class="px-5 py-3 mt-3 mb-10 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] h-28 focus:outline-[#D10B05]"
-                                                type="text" name="alamat" id="alamat" placeholder="" value = "{{$user['alamat'][0]['alamat']}}" />
+                                                type="text" name="alamat" id="alamat" placeholder=""
+                                                value="{{$user['alamat'][0]['alamat']}}" />
                                         </div>
                                     </div>
                                 </div>
                             </form>
 
-                            <form action="" id="ubahPassword" hidden>
+                            <form action="" id="ubahPassword" style="display: none;">
                                 <p class="font-semibold text-[20px]">Kata Sandi Baru</p>
                                 <p class="mt-3 text-[#999]">Ubah kata sandi anda dengan yang lebih kuat demi <br>
                                     keamanan akun anda dalam menggunakan Butchery.</p>
@@ -126,7 +141,7 @@
                                 </div>
 
                                 <div class="mt-12 mb-20 flex">
-                                    <button id="cancelButton"
+                                    <button id="cancelButton2" form="none"
                                         class="bg-[#D10B05] rounded-md text-white px-16 py-2 mr-3 font-semibold hover:bg-[#9F0804]">
                                         Batal
                                     </button>

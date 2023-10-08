@@ -9,6 +9,12 @@
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
+    <style>
+    #logout button:hover svg path {
+        fill: #d10b05;
+    }
+    </style>
+
 </head>
 
 <body class="bg-[#f3f3f3]">
@@ -30,13 +36,17 @@
                                 src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
                                 class="pr-1" />Tentang Kami</a>
                         @if (session()->has('login') && $user->role == "supplier")
-                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}">
-                            <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
+                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex"
+                            id="register_mitra" data-id="{{session('id_user')}}">
+                            <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
+                            Jadi Mitra
                         </a>
                         @else
-                            <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}">
-                                <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
-                            </a>
+                        <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id="register_mitra"
+                            data-id="{{session('id_user')}}">
+                            <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
+                            Jadi Mitra
+                        </a>
                         @endif
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
@@ -89,7 +99,8 @@
                 @if (session()->has('login') && $user->role == 'konsumen')
                 <div class="">
                     <div class="flex items-center gap-3">
-                        <a href="/profile/{{session('id_user')}}" class="flex items-center gap-2" id = "profile" data-id ="{{session('id_user')}}">
+                        <a href="/profile/{{session('id_user')}}" class="flex items-center gap-2" id="profile"
+                            data-id="{{session('id_user')}}">
                             <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
                             <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                         </a>
@@ -102,7 +113,8 @@
                                 src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
                             <p class="font-semibold text-lg">Toko Saya</p>
                         </a>
-                        <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="flex items-center gap-2" id = "profile" data-id ="">
+                        <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
+                            class="flex items-center gap-2" id="profile" data-id="">
                             <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
                             <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
                         </a>
@@ -273,7 +285,10 @@
     </footer>
     <!-- FOOTER -->
 
-    @vite(['resources/js/app.js', 'resources/js/password.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js','resources/js/changePassword.js', 'resources/js/selectIndonesia.js'])
+    @vite(['resources/js/app.js', 'resources/js/password.js',
+    'resources/jquery/code.jquery.com_jquery-3.7.1.min.js','resources/js/changePassword.js',
+    'resources/js/selectIndonesia.js', 'resources/js/profile.js'])
+
 </body>
 
 </html>
