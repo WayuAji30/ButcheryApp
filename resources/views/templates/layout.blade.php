@@ -52,6 +52,10 @@ $user = KonsumensModel::find(session('id_user'));
     .loader img {
         width: 500px;
     }
+
+    :root {
+        --swiper-navigation-color: #d10b05;
+    }
     </style>
 </head>
 
