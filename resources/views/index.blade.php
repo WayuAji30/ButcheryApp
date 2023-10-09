@@ -327,9 +327,9 @@
             <div class="justify-between flex mx-16 mt-10">
                 <p class="text-[24px] font-semibold">Produk Paling Laris</p>
                 <div class="items-center flex">
-                    <button class="text-[#D10B05] flex gap-2">
+                    <button class="text-[#D10B05] flex gap-2 font-semibold">
                         Lihat Semua
-                        <img src="asset/hiro/flashsale.svg" alt="" />
+                        <img src="{{asset('assets/img_index/asset/hiro/flashsale.svg')}}" alt="" />
                     </button>
                 </div>
             </div>
