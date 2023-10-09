@@ -25,3 +25,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+// FUCTION UNTUK MENGHAPUS PRODUK YG DIPILIH DI
+document.addEventListener('DOMContentLoaded', function() {
+        // Mengambil semua tombol remove
+        var removeButtons = document.querySelectorAll('#btn-remove');
+
+        // Menambahkan event listener untuk setiap tombol remove
+        removeButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Mengambil parent element (div) dari tombol remove
+                var parentDiv = button.parentElement.parentElement.parentElement;
+
+                // Menghapus parentDiv dari DOM
+                parentDiv.remove();
+
+                // Hitung ulang jumlah produk dan total harga
+                updateCartSummary();
+            });
+        });
+
+        function updateCartSummary() {
+            var totalProducts = document.querySelectorAll('.w-[100%]').length;
+            var totalPrice = 0;
+
+            // Mengambil semua elemen harga
+            var prices = document.querySelectorAll('#harga');
+
+            prices.forEach(function(price) {
+                var priceValue = parseFloat(price.innerText.replace('Rp', '').replace(',', ''));
+                totalPrice += priceValue;
+            });
+
+            // Memperbarui jumlah produk dan total harga di HTML
+            document.getElementById('jumlah-produk').innerText = totalProducts;
+            document.getElementById('harga-total').innerText = totalPrice.toLocaleString('id-ID');
+        }
+    });
+
+
+    
+
+    

@@ -71,6 +71,8 @@ $user = KonsumensModel::find(session('id_user'));
 
     @yield('content')
     @vite(['resources/js/app.js' , 'resources/js/cart.js'])
+
+
 </body>
 
 </html>
