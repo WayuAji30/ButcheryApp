@@ -59,19 +59,22 @@ $user = KonsumensModel::find(session('id_user'));
                                 src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
                                 class="pr-1" />Tentang Kami</a>
                         @if (session()->has('login') && $user->role == "supplier")
-                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}">
-                            <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
+                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex"
+                            id="register_mitra" data-id="{{session('id_user')}}">
+                            <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
+                            Jadi Mitra
                         </a>
                         @else
-                            <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id = "register_mitra" data-id ="{{session('id_user')}}">
-                                <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar Jadi Mitra
-                            </a>
+                        <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id="register_mitra"
+                            data-id="{{session('id_user')}}">
+                            <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
+                            Jadi Mitra
+                        </a>
                         @endif
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
                         <a href="" class="text-white flex"><img
-<<<<<<< HEAD
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="help"
                                 class="pr-1" />Bantuan
                         </a>
@@ -80,10 +83,6 @@ $user = KonsumensModel::find(session('id_user'));
                                 class="pr-1" />Bahasa
                             Indonesia<img src="{{asset('assets/img_index/asset/navbar/arrowUp.svg')}}"
                                 alt="arrowUp" /></a>
-=======
-                                src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
-                            Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="" /></a>
->>>>>>> 44f80279aed70f7ecfc864baf2e9374161006343
                     </div>
                 </div>
             </div>
@@ -116,21 +115,27 @@ $user = KonsumensModel::find(session('id_user'));
                         </svg>
                     </a>
                     <a href="" class="p-1 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-linear">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <g fill="none" stroke="#454545" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
-                                <circle cx="12" cy="3" r="1" />
-                            </g>
-                        </svg>
+                        <div class="relative inline-flex">
+                            <div
+                                class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#454545" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                    <circle cx="12" cy="3" r="1" />
+                                </g>
+                            </svg>
+                        </div>
                     </a>
                 </div>
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="" class="mx-4" />
                 @if (session()->has('login') && $user->role == 'konsumen')
                 <div class="">
                     <div class="flex items-center gap-3">
-                        <a href="/profile/{{session('id_user')}}" class="flex items-center gap-2" id = "profile" data-id ="{{session('id_user')}}">
-                            <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
+                        <a href="/profile/{{session('id_user')}}" class="flex items-center gap-2" id="profile"
+                            data-id="{{session('id_user')}}">
+                            <img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt="" />
                             <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                         </a>
                     </div>
@@ -142,7 +147,8 @@ $user = KonsumensModel::find(session('id_user'));
                                 src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
                             <p class="font-semibold text-lg">Toko Saya</p>
                         </a>
-                        <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="flex items-center gap-2" id = "profile" data-id ="">
+                        <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
+                            class="flex items-center gap-2" id="profile" data-id="">
                             <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
                             <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
                         </a>

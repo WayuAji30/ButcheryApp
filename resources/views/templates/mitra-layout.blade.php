@@ -17,6 +17,7 @@ $user = KonsumensModel::find(session('id_user'));
 
     <title>Butchery | Mitra Center</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
+
 </head>
 
 <body class="flex">
@@ -31,19 +32,27 @@ $user = KonsumensModel::find(session('id_user'));
                         Pusat Mitra
                     </p>
                 </div>
-                <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
+                <div class="lg:gap-4 md:gap-1 flex items-center" id="icon-bar">
                     <a href="" class="p-1 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-linear">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <g fill="none" stroke="#454545" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
-                                <circle cx="12" cy="3" r="1" />
-                            </g>
-                        </svg>
+                        <div class="relative inline-flex">
+                            <div
+                                class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#454545" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                    <circle cx="12" cy="3" r="1" />
+                                </g>
+                            </svg>
+                        </div>
                     </a>
-                    <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
-                            class="border-2 border-[#D10B05] rounded-full" /></a>
-                    <p class="font-medium">{{$user->username}}</p>
+                    <a href="" class="flex items-center gap-3"><img
+                            src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                            class="border-2 border-[#D10B05] rounded-full" />
+                        <p class="font-medium">{{$user->username}}</p>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -51,7 +60,8 @@ $user = KonsumensModel::find(session('id_user'));
     <!-- NAVBAR -->
     @yield('content')
 
-    @vite(['resources/js/tambahProduk.js', 'resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
+    @vite(['resources/js/tambahProduk.js', 'resources/js/app.js',
+    'resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
     <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -80,6 +90,41 @@ $user = KonsumensModel::find(session('id_user'));
     // Mencegah event klik menyebar ke dalam menu-data
     $("#menu-data").on("click", function(e) {
         e.stopPropagation();
+    });
+    </script>
+
+    <!-- FUCTION UNTUK ANIMASI ARROW DI NAVBAR KIRI -->
+    <script>
+    // Ambil elemen-elemen yang diperlukan
+    const produkLink = document.getElementById('produk');
+    const dataLink = document.getElementById('data');
+
+    // Fungsi untuk menutup dropdown yang lain dan membuka yang terkait
+    function toggleDropdown(link) {
+        const arrow1 = link.querySelector('.arrow-1');
+        const arrow2 = link.querySelector('.arrow-2');
+
+        arrow1.classList.toggle('hidden');
+        arrow2.classList.toggle('hidden');
+
+        const otherLinks = document.querySelectorAll('.nav-item:not(#' + link.id + ')');
+        otherLinks.forEach((otherLink) => {
+            const otherArrow1 = otherLink.querySelector('.arrow-1');
+            const otherArrow2 = otherLink.querySelector('.arrow-2');
+            otherArrow1.classList.remove('hidden');
+            otherArrow2.classList.add('hidden');
+        });
+    }
+
+    // Tambahkan event listener untuk setiap link
+    produkLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleDropdown(this);
+    });
+
+    dataLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleDropdown(this);
     });
     </script>
 </body>

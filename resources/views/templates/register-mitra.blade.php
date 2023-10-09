@@ -201,7 +201,8 @@ $user = KonsumensModel::find(session('id_user'));
     </footer>
     <!-- FOOTER -->
 
-    @vite(['resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/selectIndonesia.js'])
+    @vite(['resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js',
+    'resources/js/selectIndonesia.js'])
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 </body>
 

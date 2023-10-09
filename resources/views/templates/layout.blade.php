@@ -131,13 +131,18 @@ $user = KonsumensModel::find(session('id_user'));
                         </svg>
                     </a>
                     <a href="" class="p-1 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <g fill="none" stroke="#454545" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
-                                <circle cx="12" cy="3" r="1" />
-                            </g>
-                        </svg>
+                        <div class="relative inline-flex">
+                            <div
+                                class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#454545" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                    <circle cx="12" cy="3" r="1" />
+                                </g>
+                            </svg>
+                        </div>
                     </a>
                 </div>
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="" class="mx-4" />
@@ -160,7 +165,7 @@ $user = KonsumensModel::find(session('id_user'));
                         </a>
                         <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
                             class="flex items-center gap-2" id="profile" data-id="">
-                            <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
+                            <img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt="" />
                             <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
                         </a>
                     </div>

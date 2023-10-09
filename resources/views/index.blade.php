@@ -1087,8 +1087,8 @@
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="{{asset('assets/img_index/asset/rekomendasi/baris1/udangVaname.png')}}" alt="" />
-                        <div class="pt-3 pl-3">
-                            <p class="text-[14px] leading-4 font-medium">
+                        <div class="pt-3 pl-4">
+                            <p class="text-[14px] leading-4 font-medium pr-5">
                                 {{$rp['nama_produk']}}
                                 {{$rp['varian'][0]['varian1']}}/{{$rp['varian'][1]['varian2']}}
                             </p>

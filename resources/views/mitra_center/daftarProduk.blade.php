@@ -2,9 +2,9 @@
 @section('content')
 
 @if (!session()->has('login'))
-    <script>
-        document.location.href = "/login";
-    </script>
+<script>
+document.location.href = "/login";
+</script>
 @endif
 
 <!-- Navbar kiri -->
@@ -34,6 +34,9 @@
                         d="M22 3H2v6h1v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9h1V3zM4 5h16v2H4V5zm15 15H5V9h14v11zM9 11h6a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z" />
                 </svg>
                 Produk
+                <img src="{{asset('assets/img_mitra_center/asset/navbar/arrow_down.svg')}}" alt="" class="ml-2 arrow-1">
+                <img src="{{asset('assets/img_mitra_center/asset/navbar/arrow_up.svg')}}" alt=""
+                    class="ml-2 arrow-2 hidden">
             </h1>
         </a>
         <div class="font-medium hidden" id="menu-produk">
@@ -74,6 +77,9 @@
                         d="M22 3H2v6h1v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9h1V3zM4 5h16v2H4V5zm15 15H5V9h14v11zM9 11h6a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z" />
                 </svg>
                 Data
+                <img src="{{asset('assets/img_mitra_center/asset/navbar/arrow_down.svg')}}" alt="" class="ml-2 arrow-1">
+                <img src="{{asset('assets/img_mitra_center/asset/navbar/arrow_up.svg')}}" alt=""
+                    class="ml-2 arrow-2 hidden">
             </h1>
         </a>
         <div class="font-medium hidden" id="menu-data">

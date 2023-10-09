@@ -18,8 +18,9 @@ $user = KonsumensModel::find(session('id_user'));
     #remove button:hover svg path {
         fill: #d10b05;
     }
+
     button.active {
-    border-color: #d10b05;
+        border-color: #d10b05;
     }
     </style>
 </head>
@@ -59,7 +60,7 @@ $user = KonsumensModel::find(session('id_user'));
                             alt="LogoButchery" class="mr-5" /></a>
                 </div>
                 <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
-                    <a href=""><img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt=""
+                    <a href=""><img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt=""
                             class="border-2 border-[#D10B05] rounded-full" /></a>
                     <p class="font-medium">{{$user->username}}</p>
                 </div>
