@@ -60,9 +60,18 @@ $user = KonsumensModel::find(session('id_user'));
                             alt="LogoButchery" class="mr-5" /></a>
                 </div>
                 <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
-                    <a href=""><img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt=""
-                            class="border-2 border-[#D10B05] rounded-full" /></a>
-                    <p class="font-medium">{{$user->username}}</p>
+                    <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
+                        <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
+                                <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                                    class="border-2 border-[#D10B05] rounded-full" />
+                                <p class="font-medium mr-8">{{$user->username}}</p>
+                            </a></label>
+                        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
+                                    class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
+                            <li><a href="" class="font-semibold">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,7 +80,6 @@ $user = KonsumensModel::find(session('id_user'));
 
     @yield('content')
     @vite(['resources/js/app.js' , 'resources/js/cart.js'])
-
 
 </body>
 

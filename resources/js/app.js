@@ -1,6 +1,7 @@
 import "./bootstrap";
 import "flowbite";
 
+
 // Membuat border merah ketika input sudah di isi
 document.addEventListener("DOMContentLoaded", function () {
     const inputFields = document.querySelectorAll("input, textarea");

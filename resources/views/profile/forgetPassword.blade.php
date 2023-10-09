@@ -1,8 +1,8 @@
-@extends('templates.changePassword')
+@extends('templates.layout')
 @section('content')
 
 <!-- PROFILE -->
-<div class="container mt-52">
+<div class="container mt-52 mb-20">
     <div class="grid grid-cols-12">
         <div class="col-span-12">
             <div class="grid justify-items-center">

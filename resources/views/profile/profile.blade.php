@@ -2,24 +2,19 @@
 @section('content')
 
 <!-- PROFILE -->
-<div class="container mt-52">
+<div class="container pt-52">
     <div class="grid grid-cols-12">
         <div class="col-span-12">
             <div class="grid justify-items-center">
                 <div class="bg-white rounded-md w-[80%] shadow-md">
-                    <div class="flex justify-between items-center mt-7" id="logout">
+                    <div class="mt-7" id="logout">
                         <p class="">
                             <a href=""
                                 class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Profil
                                 Saya</a>
                         </p>
-                        <button class="mr-5 transition-all duration-200 ease-in-out"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                                <path fill="#ccc"
-                                    d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
-                            </svg></button>
                     </div>
-                    <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-3"></div>
+                    <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
                     <div class="grid grid-rows-1 grid-flow-col ml-20 mt-16">
                         <div class="row-span-3">
                             <form action="">

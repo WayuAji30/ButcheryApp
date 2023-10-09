@@ -104,11 +104,18 @@
                 @if (session()->has('login') && $user->role == 'konsumen')
                 <div class="">
                     <div class="flex items-center gap-3">
-                        <a href="/profile/{{session('id_user')}}" class="flex items-center gap-2" id="profile"
-                            data-id="{{session('id_user')}}">
-                            <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
-                            <p class="font-medium text-lg mr-8">{{$user->username}}</p>
-                        </a>
+                        <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
+                            <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
+                                    <img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt="" />
+                                    <p class="font-medium mr-8">{{substr($user->username,0,1)}}...</p>
+                                </a></label>
+                            <ul tabindex="0"
+                                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
+                                        class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
+                                <li><a href="" class="font-semibold">Logout</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 @elseif(session()->has('login') && $user->role == "supplier")
@@ -118,11 +125,18 @@
                                 src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
                             <p class="font-semibold text-lg">Toko Saya</p>
                         </a>
-                        <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
-                            class="flex items-center gap-2" id="profile" data-id="">
-                            <img src="{{asset('assets/img_index/asset/navbar/profile.svg')}}" alt="" />
-                            <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
-                        </a>
+                        <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
+                            <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
+                                    <img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt="" />
+                                    <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
+                                </a></label>
+                            <ul tabindex="0"
+                                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <!-- <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
+                                        class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li> -->
+                                <li><a class="font-semibold">Logout</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 @endif
