@@ -127,7 +127,8 @@
                         </a>
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
-                                    <img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt="" />
+                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                                        class="border-2 border-[#D10B05] rounded-full" />
                                     <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
                                 </a></label>
                             <ul tabindex="0"
