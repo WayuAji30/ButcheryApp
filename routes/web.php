@@ -39,7 +39,7 @@ Route::get('/store_register',[AuthController::class,'store_register']);
 
 
 Route::get('/getSession',[AuthController::class,'getSession']);
-Route::get('/sessionDelete',[AuthController::class,'sessionDelete']);
+Route::get('/logout',[AuthController::class,'logout']);
 
 Route::get('/profile/{id}/{idProv}/{idKota}/{idKec}', [AuthController::class,'profile']);
 Route::post('/edit_profile', [AuthController::class,'edit_profile']);
@@ -49,6 +49,7 @@ Route::post('/store_register_mitra', [AuthController::class,'store_register_mitr
 Route::get('/updateUser/{id}/{no_telp}/{email}', [AuthController::class,'updateUser']);
 
 Route::get('/forgetPassword', [AuthController::class,'forgetPassword']);
+Route::post('/ubah_Password', [AuthController::class,'ubah_password']);
 
 Route::get('/trenDaging', [MitraController::class,'trenDaging']);
 Route::get('/daftarProduk', [MitraController::class,'daftarProduk']);
@@ -56,6 +57,6 @@ Route::get('/tambahProduk', [MitraController::class,'tambahProduk']);
 Route::get('/tambahProduk/{id}', [MitraController::class,'updateProduk']);
 
 Route::post('/store_produk', [MitraController::class,'store_produk']);
-Route::post('/edit_produk', [MitraController::class,'edit_produk']);
+Route::post('/eit_produk', [MitraController::class,'edit_produk']);
 
-Route::get('/hapusProduk/{id}', [MitraController::class,'deleteProduk']);
+Route::post('/hapusProduk', [MitraController::class,'deleteProduk']);

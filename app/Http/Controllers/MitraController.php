@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Models\MitraProdukModel;
-use App\Models\KategoriModel; // memanggil model dalam folder Models
+use App\Models\KategoriModel;
+use App\Models\KonsumensModel; // memanggil model dalam folder Models
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class MitraController extends Controller
 
     public function daftarProduk()
     {
+
         $daftarProduk = MitraProdukModel::all();
 
         return view('mitra_center.daftarProduk',['daftarProduk' => $daftarProduk]);
@@ -82,7 +84,9 @@ class MitraController extends Controller
         return redirect()->to('/daftarProduk');
     }
 
-    public function deleteProduk($id){
+    public function deleteProduk(Request $request){
+        $id = $request->input('id');
+
         $produk = MitraProdukModel::find($id);
 
         $produk->delete();

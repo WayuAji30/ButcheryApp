@@ -9,7 +9,7 @@
                 <div class="bg-white rounded-md w-[80%] shadow-md">
                     <div class="mt-7" id="logout">
                         <p class="">
-                            <a href=""
+                            <a href="/logout"
                                 class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Profil
                                 Saya</a>
                         </p>
@@ -31,8 +31,8 @@
                             </button>
 
 
-                            <button type="submit" id="submitEditProfile"
-                                class="py-2 px-4 mt-5 border-2 border-[#ccc] bg-[#ccc] rounded-md text-white font-semibold w-[280px] hover:bg-[#D10B05] hover:border-[#D10B05] transition-all duration-200 ease-in-out">
+                            <button type="submit" id="submitEditProfile" disabled
+                                class="py-2 px-4 mt-5 border-2 bg-[#ccc] rounded-md text-white font-semibold w-[280px] transition-all duration-200 ease-in-out">
                                 Simpan Perubahan
                             </button>
 
@@ -76,7 +76,7 @@
                                             </p>
                                             <select name="provinsi" id="provinsi"
                                                 class="px-3 py-4 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
-                                                <option value="{{$provinsiData['id']}}">{{$provinsiData['name']}}"
+                                                <option value="{{$provinsiData['id']}}">{{$provinsiData['name']}}
                                                 </option>
                                             </select>
                                             <div class="flex mt-4 lg:gap-16 md:gap-5 mb-5">
@@ -84,7 +84,7 @@
                                                     <label for="kota" class="text-[#999]">Kota</label>
                                                     <select name="kota" id="kota"
                                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] focus:outline-[#D10B05]">
-                                                        <option value="{{$kotaData['id']}}">{{$kotaData['name']}}"
+                                                        <option value="{{$kotaData['id']}}">{{$kotaData['name']}}
                                                         </option>
                                                     </select>
                                                 </div>
@@ -92,7 +92,7 @@
                                                     <label for="kecamatan" class="text-[#999]">Kecamatan</label>
                                                     <select name="kecamatan" id="kecamatan"
                                                         class="pl-5 py-3 mt-3 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] focus:outline-[#D10B05]">
-                                                        <option value="{{$kecData['id']}}">{{$kecData['name']}}"
+                                                        <option value="{{$kecData['id']}}">{{$kecData['name']}}
                                                         </option>
                                                     </select><br />
                                                 </div>
@@ -102,23 +102,25 @@
                                             <textarea
                                                 class="peer block min-h-[auto] w-full mt-3 mb-5 rounded-lg border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary focus:border-[#D10B05] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                 id="alamat" name="alamat" rows="4"
-                                                value="{{$user['alamat'][0]['alamat']}}"></textarea>
-                                            <input
-                                                class="px-5 py-3 mt-3 mb-10 border-solid border-2 border-[#CCCCCC] rounded-lg w-[100%] h-28 focus:outline-[#D10B05]"
-                                                type="text" name="alamat" id="alamat" placeholder=""
-                                                value="{{$user['alamat'][0]['alamat']}}" />
+                                                value="">{{$user['alamat'][0]['alamat']}}</textarea>
                                         </div>
                                     </div>
                                 </div>
                             </form>
 
-                            <form action="" id="ubahPassword" style="display: none;">
+                            <form action="/ubah_Password" method = "POST" id="ubahPassword" style="display: none;">
+                                @csrf
+
+                                <input type="hidden" name="id" id="id" value="{{$user->_id}}">
+                                <input type="hidden" name="idProv" id="idProv" value="{{$user['alamat'][0]['provinsi']}}">
+                                <input type="hidden" name="idKota" id="idKota" value="{{$user['alamat'][0]['kota/kab']}}">
+                                <input type="hidden" name="idKec" id="idKec" value="{{$user['alamat'][0]['kecamatan']}}">
+
                                 <p class="font-semibold text-[20px]">Kata Sandi Baru</p>
                                 <p class="mt-3 text-[#999]">Ubah kata sandi anda dengan yang lebih kuat demi <br>
                                     keamanan akun anda dalam menggunakan Butchery.</p>
                                 <div class="relative flex items-center">
-                                    <input type="password" name="" id="" placeholder="Konfirmasi Kata Sandi Baru"
-                                        required
+                                    <input type="password" name="password" id="password" placeholder="Konfirmasi Kata Sandi Baru"
                                         class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" />
 
                                     <button class="absolute right-[50%] btn-eye-close" form="none">
@@ -135,13 +137,17 @@
                                                 d="M247.31 124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57 61.26 162.88 48 128 48S61.43 61.26 36.34 86.35C17.51 105.18 9 124 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208s66.57-13.26 91.66-38.34c18.83-18.83 27.3-37.61 27.65-38.4a8 8 0 0 0 0-6.5ZM128 192c-30.78 0-57.67-11.19-79.93-33.25A133.47 133.47 0 0 1 25 128a133.33 133.33 0 0 1 23.07-30.75C70.33 75.19 97.22 64 128 64s57.67 11.19 79.93 33.25A133.46 133.46 0 0 1 231.05 128c-7.21 13.46-38.62 64-103.05 64Zm0-112a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z" />
                                         </svg>
                                     </button>
+                                    @error('password')
+                                       <script>
+                                            alert('{{$message}}');
+                                        </script>
+                                    @enderror
                                 </div>
                                 <!-- <input type="password" name="" id="" placeholder="Masukan Kata Sandi Baru" required
                                     class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" /> -->
                                 <p class="text-[12px] mt-2"><span class="text-[#ff4444]">*</span> Minimum 8 karakter</p>
                                 <div class="relative flex items-center">
-                                    <input type="password" name="" id="" placeholder="Konfirmasi Kata Sandi Baru"
-                                        required
+                                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Konfirmasi Kata Sandi Baru"
                                         class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" />
 
                                     <button class="absolute right-[50%] btn-eye-close" form="none">
@@ -158,6 +164,11 @@
                                                 d="M247.31 124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57 61.26 162.88 48 128 48S61.43 61.26 36.34 86.35C17.51 105.18 9 124 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208s66.57-13.26 91.66-38.34c18.83-18.83 27.3-37.61 27.65-38.4a8 8 0 0 0 0-6.5ZM128 192c-30.78 0-57.67-11.19-79.93-33.25A133.47 133.47 0 0 1 25 128a133.33 133.33 0 0 1 23.07-30.75C70.33 75.19 97.22 64 128 64s57.67 11.19 79.93 33.25A133.46 133.46 0 0 1 231.05 128c-7.21 13.46-38.62 64-103.05 64Zm0-112a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z" />
                                         </svg>
                                     </button>
+                                    @error('confirm_password')
+                                       <script>
+                                            alert('{{$message}}');
+                                        </script>
+                                    @enderror
                                 </div>
 
                                 <div class="mt-12 mb-20 flex">
@@ -169,7 +180,6 @@
                                         class="bg-[#ccc] rounded-md text-white px-16 py-2 font-semibold">
                                         Simpan
                                     </button>
-
                                 </div>
                             </form>
                         </div>

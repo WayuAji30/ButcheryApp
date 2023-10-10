@@ -171,8 +171,6 @@ class AuthController extends Controller
     {
         $this->validate($request,[
             'username' => 'required',
-            'email' => 'required|email',
-            'no_hp' => 'required',
             'provinsi' => 'required',
             'kota' => 'required',
             'kecamatan' => 'required',
@@ -219,6 +217,27 @@ class AuthController extends Controller
         return redirect()->to('/profile'.'/'. $id .'/'.$provinsi.'/'.$kota.'/'.$kecamatan);
     }
 
+    public function ubah_password(Request $request){
+        $this->validate($request,[
+            'password' => 'required',
+            'confirm_password' => 'required|same:password',
+        ]);
+
+        $id = $request->input('id');
+        $idProv = $request->input('idProv');
+        $idKota = $request->input('idKota');
+        $idKec = $request->input('idKec');
+
+        $password = $request->input('password');
+        $hash_password= Hash::make($password);
+        
+        KonsumensModel::where('_id', $id)->update([
+          'password' => $hash_password
+        ]);
+        
+        return redirect()->to('/profile'.'/'. $id .'/'.$idProv.'/'.$idKota.'/'.$idKec);
+    }
+
     public function save_register(Request $request){
         $this->validate($request,[
             'identifier' => 'required|nullable',
@@ -249,6 +268,7 @@ class AuthController extends Controller
         $request->session()->put('registration_data.password', $hash_password);
         return redirect()->to('/register_user');
     }
+
     public function save_register3(Request $request){
         $this->validate($request,[
             'username' => 'required',
@@ -323,8 +343,9 @@ class AuthController extends Controller
         var_dump([$registrationData,$idData,$prov,$kota,$kecamatan]);
     }
 
-    public function sessionDelete(Request $request){
+    public function logout(){
         session()->flush();
+        return redirect()->to('/');
     }
 
    
