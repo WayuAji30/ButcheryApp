@@ -51,7 +51,7 @@
                             <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}" alt="" /></a>
                         </div>
                     </div>
-                    <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0">
+                    <div class="lg:col-span-2 col-span-6 mt-0 lg:ml-0 sm:ml-6">
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">
@@ -151,13 +151,10 @@
                             </button>
                             <ul class="ml-5 list-none">
                                 <li>
-                                    <a href="" class="ml-5"><img
-                                            src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
-                                            alt="" /></a>
+                                    <a href="" class="ml-5"><img src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}" alt="" /></a>
                                 </li>
                                 <li class="mt-3">
-                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
-                                            alt="" /></a>
+                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}" alt="" /></a>
                                 </li>
                             </ul>
                         </div>
@@ -170,7 +167,8 @@
         </div>
     </footer>
     <!-- FOOTER -->
-    @vite(['resources/js/password.js', 'resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/selectIndonesia.js'])
+    @vite(['resources/js/password.js', 'resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js',
+    'resources/js/selectIndonesia.js'])
 </body>
 
 </html>

@@ -3,10 +3,10 @@
 <!-- REGISTER -->
 <div class="w-full">
     <div class="container mx-auto px-[53px] mt-14">
-        <a href="/index"><img src="{{asset('assets/img_index/asset/loginPage/logo.svg')}}" alt="" /></a>
+        <a href="/index"><img src="{{asset('assets/img_index/asset/loginPage/logo.svg')}}" alt="" class="lg:w-fit md:w-fit sm:w-[50%]" /></a>
         <div class="grid grid-cols-12">
             <div class="col-span-6 items-center flex justify-center">
-                <div class="flex-none text-center lg:block md:hidden sm:hidden max-sm:hidden">
+                <div class="flex-none text-center lg:block hidden max-sm:hidden">
                     <img src="{{asset('assets/img_index/asset/loginPage/hiro2.svg')}}" alt="" class="mt-12" />
                     <h1 class="font-semibold text-[28px] pt-9">
                         Belanja Daging Anti Ribet
@@ -17,50 +17,44 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-6 md:col-span-12 sm:col-span-12 lg:mt-0 md:mt-7">
+            <div class="lg:col-span-6 col-span-12 lg:mt-0 md:mt-7">
                 <div class="justify-center flex">
-                    <div class="w-[65%] h-[80%] bg-white rounded-lg shadow-lg text-center">
-                        <p class="font-semibold text-[24px] mt-14">
+                    <div class="lg:w-[65%] lg:h-[80%] md:w-[65%] md:h-[80%] sm:w-[100%] sm:h-[100%] bg-white rounded-lg shadow-lg text-center">
+                        <p class="font-semibold lg:text-[24px] md:text-[24px] sm:text-[20px] mt-14">
                             Hai! Daftar Dulu Ya
                         </p>
-                        <p class="pt-3 text-[#787878]">
+                        <p class="lg:pt-3 text-[#787878] lg:text-base md:text-base sm:text-[14px]">
                             Udah punya akun?
                             <a href="/login" class="text-[#D10B05] font-medium hover:text-[#9F0804]">Masuk</a>
                             aja langsung
                         </p>
                         <form action="/save_register" method="POST">
                             @csrf
-                            <input
-                                class="pl-5 py-3 mt-9 border-solid border-2 border-[#CCCCCC] rounded-lg w-[80%] focus:outline-[#D10B05]"
-                                type="text" name="identifier" id="" placeholder="No. Handphone/Email" />
-                            <p class="mt-2 text-[14px] pl-12 text-start">
-                                <a href="" class="text-[#787878] mt-3">Contoh: email@butchery.com</a>
+                            <input class="pl-5 lg:py-3 md:py-3 sm:py-2 mt-9 border-solid border-2 border-[#CCCCCC] lg:text-base md:text-base sm:text-[12px] rounded-lg w-[80%] focus:outline-[#D10B05]" type="text" name="identifier" id="" placeholder="No. Handphone/Email" />
+                            <p class="lg:mt-2 mt-1 lg:text-[14px] md:text-[14px] sm:text-[10px] lg:pl-12 md:pl-12 sm:pl-7 text-start">
+                                <a class="text-[#787878] lg:mt-3">Contoh: email@butchery.com</a>
                             </p>
-                            <button
-                                class="text-white bg-[#D10B05] py-3 lg:px-40 md:px-36 sm:px-28 rounded-lg font-semibold mt-8 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
+                            @error('identifier')
+                            <span class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                                {{$message}}
+                            </span>
+                            @enderror
+                            <button class="text-white bg-[#D10B05] lg:py-3 md:py-3 sm:py-2 lg:px-40 md:px-36 px-[86px] lg:text-base md:text-base sm:text-[15px] rounded-lg font-semibold mt-8 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Masuk
                             </button>
                             <div class="justify-center flex mt-6">
                                 <img src="{{asset('assets/img_index/asset/loginPage/atau.svg')}}" alt="" />
                             </div>
-                            @error('identifier')
-                            <span
-                                class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
-                                {{$message}}
-                            </span>
-                            @enderror
                         </form>
                         <div class="justify-center flex">
                             <form action="">
-                                <button
-                                    class="bg-white border-[#CCC] border-2 py-3 lg:px-[82px] md:px-16 sm:px-10 rounded-lg font-semibold mt-6 flex hover:bg-[#191C50] hover:text-white hover:border-[#191C50] transition-all duration-200 ease-linear">
-                                    <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt=""
-                                        class="pr-3" />
+                                <button class="bg-white border-[#CCC] border-2 lg:py-3 md:py-3 sm:py-2 lg:px-[82px] md:px-16 sm:px-4 rounded-lg font-semibold mt-6 lg:text-base md:text-base sm:text-[15px] flex hover:bg-[#191C50] hover:text-white hover:border-[#191C50] transition-all duration-200 ease-linear">
+                                    <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt="" class="lg:pr-3 pr-2" />
                                     Masuk dengan Google
                                 </button>
                             </form>
                         </div>
-                        <p class="text-[#B3B3B3] mt-5 mb-10">
+                        <p class="text-[#B3B3B3] lg:text-base text-sm mt-5 mb-10">
                             Dengan mendaftar, saya menyetujui <br />
                             <a href="" class="text-[#D10B05]">Syarat dan Ketentuan</a>
                             serta

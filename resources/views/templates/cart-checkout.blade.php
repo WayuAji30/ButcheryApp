@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 use App\Models\KonsumensModel;
 
 $user = KonsumensModel::find(session('id_user'));
@@ -15,13 +16,13 @@ $user = KonsumensModel::find(session('id_user'));
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
     <style>
-    #remove button:hover svg path {
-        fill: #d10b05;
-    }
+        #remove button:hover svg path {
+            fill: #d10b05;
+        }
 
-    button.active {
-        border-color: #d10b05;
-    }
+        button.active {
+            border-color: #d10b05;
+        }
     </style>
 </head>
 
@@ -34,19 +35,14 @@ $user = KonsumensModel::find(session('id_user'));
                     <div class="flex">
                         <img src="{{asset('assets/img_index/asset/navbar/phone.svg')}}" alt="" class="pr-2 -mt-2" />
                         <p class="text-white mr-4">Butchery app is now available on</p>
-                        <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}"
-                                alt="" /></a>
+                        <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}" alt="" /></a>
                         <a href=""><img src="{{asset('assets/img_index/asset/navbar/appstore.svg')}}" alt="" /></a>
                     </div>
                     <div class="flex gap-5 items-center">
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
-                                class="pr-1" />Tentang Kami</a>
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
+                        <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt="" class="pr-1" />Tentang Kami</a>
+                        <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
+                        <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
                             Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="" /></a>
                     </div>
                 </div>
@@ -56,23 +52,18 @@ $user = KonsumensModel::find(session('id_user'));
         <div class="bg-white drop-shadow-md">
             <div class="pt-6 pb-7 items-center justify-between flex px-10 mr-5">
                 <div class="flex items-center">
-                    <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}"
-                            alt="LogoButchery" class="mr-5" /></a>
+                    <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}" alt="LogoButchery" class="mr-5" /></a>
                 </div>
                 <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
                     <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                         <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
-                                <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
-                                    class="border-2 border-[#D10B05] rounded-full" />
-                                <p class="font-medium mr-8">{{$user->username}}</p>
+                                <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" class="border-2 border-[#D10B05] rounded-full" />
+                                <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                             </a></label>
                         <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
-                                    class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
-                            <li><a href="" class="font-semibold flex justify-between">Logout <svg
-                                        xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                            <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
+                            <li><a href="" class="font-semibold flex justify-between">Logout <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
                                     </svg></a></li>
                         </ul>
                     </div>
