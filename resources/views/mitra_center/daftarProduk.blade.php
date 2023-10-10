@@ -201,13 +201,19 @@ document.location.href = "/login";
                                     </svg>
                                     <p class="font-semibold text-[20px] mt-2">Apakah anda yakin <br>
                                         ingin menghapus data ini?</p>
-
-                                    <form action="">
+                                    <form action="/hapusProduk" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" id = "id" value="{{$dp['_id']}}">
                                         <div class="flex justify-center gap-10  my-5">
+<<<<<<< HEAD
                                             <button
                                                 class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Batal</button>
                                             <a href="/hapusProduk/{{$dp['_id']}}"
                                                 class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</a>
+=======
+                                            <button class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Batal</button>
+                                            <button class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</button>
+>>>>>>> efd60a871bb3d60b2b5d7a63376779b4dc45d852
                                         </div>
                                     </form>
                                 </div>
@@ -216,7 +222,6 @@ document.location.href = "/login";
                     </td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
         <!-- TABLE -->
