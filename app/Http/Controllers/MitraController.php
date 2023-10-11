@@ -6,10 +6,13 @@ namespace App\Http\Controllers;
 use App\Models\MitraProdukModel;
 use App\Models\KategoriModel;
 use App\Models\KonsumensModel; // memanggil model dalam folder Models
+use App\Http\Requests\StoreFileRequest;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+
 
 class MitraController extends Controller
 {
@@ -36,6 +39,7 @@ class MitraController extends Controller
     public function store_produk(Request $request)
     {
         $this->validate($request,[
+            'foto1' => 'required|image|mimes:jpg,jpeg,png,svg',
             'nama_produk' => 'required',
             'kategori' => 'required',
             'deskripsi' => 'required|string|max:1200',
@@ -45,13 +49,16 @@ class MitraController extends Controller
         ]);
         
         //upload image
-        //$image1 = $request->file('foto.foto1');
-        
-        //upload image2
-        //$image2 = $request->file('foto.foto2');
+        $image = $request->file('foto1');
+        $image->storeAs('img_uploaded', $image->hashName(), 'public');
 
-        //upload image3
-        //$image3 = $request->file('foto.foto3');
+        //upload image
+        $image2 = $request->file('foto2');
+        $image2->storeAs('img_uploaded', $image2->hashName(), 'public');
+      
+        //upload image
+        $image3 = $request->file('foto3');
+        $image3->storeAs('img_uploaded', $image3->hashName(), 'public');
 
         $nama_produk = $request->input('nama_produk');
         $kategori = $request->input('kategori');
@@ -64,6 +71,11 @@ class MitraController extends Controller
         $stok2 = $request->input('varian.stok2');
 
         MitraProdukModel::create([
+            'foto' =>[
+                'foto1'=>$image->hashName(),
+                'foto2'=>$image2->hashName(),
+                'foto3'=>$image3->hashName(),
+            ],
             'nama_produk' => $nama_produk,
             'id_kategori' => $kategori,
             'deskripsi' => $deskripsi,

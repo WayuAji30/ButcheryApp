@@ -1,5 +1,14 @@
 @extends('templates.layout')
 @section('content')
+
+<?php
+
+use App\Models\SuppliersModel;
+
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
+
+?>
+
 <!-- Hiro -->
 <div class="lg:pt-[201px]   pt-20 lg:px-12 w-full">
     <div class="container mx-auto">
@@ -1398,24 +1407,37 @@
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="/product/{{$rp['_id']}}">
                     <div
+<<<<<<< HEAD
                         class="bg-white lg:h-[344px] sm:h-[285px] lg:w-[207px] sm:w-[170px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="{{asset('assets/img_index/asset/rekomendasi/baris1/udangVaname.png')}}" alt="" />
                         <div class="pt-3 pl-2">
                             <p class="lg:text-[14px] sm:text-[12px] leading-4 font-medium">
+=======
+                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
+                        <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt="" />
+                        <div class="pt-3 pl-4">
+                            <p class="text-[14px] leading-4 font-medium pr-5">
+>>>>>>> 3c985a3979abc5544806e4185d4f49fc731299c8
                                 {{$rp['nama_produk']}}
                                 {{$rp['varian'][0]['varian1']}}/{{$rp['varian'][1]['varian2']}}
                             </p>
                             <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
                                 Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
+<<<<<<< HEAD
                             <p class="lg:pt-5 sm:pt-2 flex text-[#999] sm:text-xs">
                                 <img class="pr-2 sm:w-6"
                                     src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
                                     alt="" />Culture Tambak
+=======
+                            <p class="pt-5 flex text-[#999]">
+                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
+                                    alt="" />{{(isset($supplier->nama_toko) ? $supplier->nama_toko : '')}}
+>>>>>>> 3c985a3979abc5544806e4185d4f49fc731299c8
                             </p>
                             <p class="text-[#D10B05] font-medium flex sm:text-xs sm:mt-1">
                                 <img class="pr-2 sm:w-6"
                                     src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
-                                    alt="" />Bekasi Timur
+                                    alt="" />{{(isset($supplier['alamat'][0]['kecamatan']) ? $supplier['alamat'][0]['kecamatan'] : '')}}
                             </p>
                             <p class="flex text-[#999] sm:text-xs sm:mt-1">
                                 <img class="pr-2 sm:w-6"

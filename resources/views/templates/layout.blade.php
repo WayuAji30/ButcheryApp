@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
+
 
 ?>
 <!DOCTYPE html>
@@ -147,7 +149,7 @@ $user = KonsumensModel::find(session('id_user'));
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
                                     <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
+                                    <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                                 </a></label>
                             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a href="/logout" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat
