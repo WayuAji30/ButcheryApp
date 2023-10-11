@@ -61,22 +61,6 @@ $user = KonsumensModel::find(session('id_user'));
         .splide__pagination__page.is-active {
             background-color: #d10b05;
         }
-
-        @media (max-width: 767px) {
-            #icon-bar svg {
-                width: 25px;
-                height: 25px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            svg {
-                width: 25px;
-                /* Atur lebar menjadi 25 piksel */
-                height: 25px;
-                /* Atur tinggi menjadi 25 piksel */
-            }
-        }
     </style>
 </head>
 
@@ -123,12 +107,12 @@ $user = KonsumensModel::find(session('id_user'));
         </div>
 
         <div class="bg-white drop-shadow-md">
-            <div class="lg:pt-6 py-3 lg:pb-7 items-center justify-between flex lg:px-10 px-2">
+            <div class="lg:pt-6 py-3 lg:pb-7 items-center justify-between flex lg:px-10 md:px-14 px-2">
                 <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}" alt="LogoButchery" class="mr-9 lg:block hidden" /></a>
-                <div class="flex lg:mr-8 mr-1">
+                <div class="flex lg:mr-8 sm:mr-1">
                     <form action="/searchProduct">
                         <div class="relative flex items-center">
-                            <input type="text" name="" id="" required placeholder="Cari di Bucthery" class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] w-56 pl-5 lg:py-4 py-2 focus:outline-[#D10B05] " />
+                            <input type="text" name="" id="" required placeholder="Cari di Bucthery" class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] w-56 pl-5 lg:py-4 py-2 focus:outline-[#D10B05] " />
                             <button class="absolute lg:right-7 right-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                     <path fill="#999" d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
@@ -137,7 +121,7 @@ $user = KonsumensModel::find(session('id_user'));
                         </div>
                     </form>
                 </div>
-                <div class="lg:gap-3 gap-1 lg:ml-0 ml-3 lg:mt-0 mt-1 flex" id="icon-bar">
+                <div class="lg:gap-3 md:gap-2 sm:gap-1 lg:ml-0 md:ml-10 sm:ml-3 lg:mt-0 mt-1 flex" id="icon-bar">
                     <a href="/cart" class="p-1 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                             <path fill="#454545" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
@@ -166,7 +150,8 @@ $user = KonsumensModel::find(session('id_user'));
                                     <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
                                 </a></label>
                             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a href="/logout" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
+                                <li><a href="/logout" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat
+                                        Profile</a></li>
                                 <li><a class="font-semibold">Logout</a></li>
                             </ul>
                         </div>
@@ -185,11 +170,11 @@ $user = KonsumensModel::find(session('id_user'));
                                 </a></label>
                             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
-                                <li><a href="/logout" class="font-semibold flex justify-between">Logout 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
-                                    </svg>
-                                </a></li>
+                                <li><a href="/logout" class="font-semibold flex justify-between">Logout
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                                        </svg>
+                                    </a></li>
                             </ul>
                         </div>
                     </div>
@@ -210,7 +195,7 @@ $user = KonsumensModel::find(session('id_user'));
                     </div>
                 </div>
                 @endif
-                <div class="drawer drawer-end lg:hidden block ml-2">
+                <div class="drawer drawer-end lg:hidden block md:ml-3">
                     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
                     <div class="drawer-content">
                         <!-- Page content here -->
@@ -249,16 +234,6 @@ $user = KonsumensModel::find(session('id_user'));
                                 </div>
                             </div>
                             <div class="border-t-4 border-[#e6e6e6] mt-4"></div>
-
-                            <!-- <li class="mt-3"><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="font-semibold text-[16px]"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                                        <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
-                                            <path d="M16 9a4 4 0 1 1-8 0a4 4 0 0 1 8 0Zm-2 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z" />
-                                            <path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11s11-4.925 11-11S18.075 1 12 1ZM3 12c0 2.09.713 4.014 1.908 5.542A8.986 8.986 0 0 1 12.065 14a8.984 8.984 0 0 1 7.092 3.458A9 9 0 1 0 3 12Zm9 9a8.963 8.963 0 0 1-5.672-2.012A6.992 6.992 0 0 1 12.065 16a6.991 6.991 0 0 1 5.689 2.92A8.964 8.964 0 0 1 12 21Z" />
-                                        </g>
-                                    </svg>Lihat Profile</a></li>
-                            <li><a class="font-semibold text-[16px]"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
-                                    </svg>Logout</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -272,7 +247,7 @@ $user = KonsumensModel::find(session('id_user'));
     <div class="border-t-2 border-solid border-[#E6E6E6]"></div>
     <!-- FOOTER -->
     <footer>
-        <div class="w-full mt-12 mb-12">
+        <div class="w-full mt-12 mb-12 sm:text-xs">
             <div class="container px-[53px]">
                 <div class="grid grid-cols-12">
                     <div class="lg:col-span-2 md:col-span-6 sm:col-span-6">
@@ -307,7 +282,7 @@ $user = KonsumensModel::find(session('id_user'));
                             <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}" alt="" /></a>
                         </div>
                     </div>
-                    <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0">
+                    <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 sm:ml-3">
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">
