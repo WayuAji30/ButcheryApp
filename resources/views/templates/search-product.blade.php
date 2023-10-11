@@ -151,13 +151,13 @@ $user = KonsumensModel::find(session('id_user'));
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
                                     <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
                                         class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
+                                    <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                                 </a></label>
                             <ul tabindex="0"
                                 class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
                                         class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
-                                <li><a href="" class="font-semibold flex justify-between">Logout <svg
+                                <li><a href="/logout" class="font-semibold flex justify-between">Logout <svg
                                             xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             viewBox="0 0 24 24">
                                             <path fill="currentColor"

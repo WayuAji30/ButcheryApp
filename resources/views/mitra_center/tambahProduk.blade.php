@@ -102,12 +102,13 @@
                 Produk</a>
         </p>
         <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
-        <form action="{{(isset($produk->_id) ? '/edit_produk' : '/store_produk')}}" method="POST"
-            enctype="multipart/form-data">
+        <form action="{{(isset($produk->_id) ? '/edit_produk' : '/store_produk')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+
             @if (isset($produk->_id))
             <input type="hidden" name="id" value="{{$produk->_id}}" />
             @endif
-            @csrf
+            
             <div class="flex ml-11 mt-10 gap-10 items-center">
                 <div>
                     <p class="font-semibold text-[18px]">Foto Produk</p>
@@ -120,9 +121,9 @@
                         perhatian pembeli.
                     </p>
                 </div>
-                <input type="file" name="foto[foto1]" />
-                <input type="file" name="foto[foto2]" />
-                <input type="file" name="foto[foto3]" />
+                <input type="file" name="foto1" id = "foto1" accept=".jpg,.jpeg,.png,.gif,.svg"/>
+                <input type="file" name="foto2" id = "foto2" accept=".jpg,.jpeg,.png,.gif,.svg"  />
+                <input type="file" name="foto3" id = "foto3" accept=".jpg,.jpeg,.png,.gif,.svg" />
             </div>
             <div class="flex ml-11 mt-16 items-center">
                 <p class="font-semibold text-[18px] mr-64">Nama Produk</p>
@@ -210,13 +211,13 @@
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input hidden type="text" placeholder="Contoh: 250gr"
+                            <input hidden name="varian[varian2]" type="text" placeholder="Contoh: 250gr"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input hidden type="text" placeholder="Masukan dalam Rupiah"
+                            <input hidden name="varian[harga2]"  type="text" placeholder="Masukan dalam Rupiah"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input hidden type="text" placeholder="Contoh: 17"
+                            <input hidden type="text" name="varian[stok2]" placeholder="Contoh: 17"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                         </div>
                     </div>

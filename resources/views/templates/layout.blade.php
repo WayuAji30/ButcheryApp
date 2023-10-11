@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
+
 
 ?>
 <!DOCTYPE html>
@@ -163,7 +165,7 @@ $user = KonsumensModel::find(session('id_user'));
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
                                     <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
+                                    <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                                 </a></label>
                             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a href="/logout" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
@@ -249,16 +251,6 @@ $user = KonsumensModel::find(session('id_user'));
                                 </div>
                             </div>
                             <div class="border-t-4 border-[#e6e6e6] mt-4"></div>
-
-                            <!-- <li class="mt-3"><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="font-semibold text-[16px]"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                                        <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
-                                            <path d="M16 9a4 4 0 1 1-8 0a4 4 0 0 1 8 0Zm-2 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z" />
-                                            <path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11s11-4.925 11-11S18.075 1 12 1ZM3 12c0 2.09.713 4.014 1.908 5.542A8.986 8.986 0 0 1 12.065 14a8.984 8.984 0 0 1 7.092 3.458A9 9 0 1 0 3 12Zm9 9a8.963 8.963 0 0 1-5.672-2.012A6.992 6.992 0 0 1 12.065 16a6.991 6.991 0 0 1 5.689 2.92A8.964 8.964 0 0 1 12 21Z" />
-                                        </g>
-                                    </svg>Lihat Profile</a></li>
-                            <li><a class="font-semibold text-[16px]"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
-                                    </svg>Logout</a></li> -->
                         </ul>
                     </div>
                 </div>

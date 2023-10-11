@@ -1,5 +1,14 @@
 @extends('templates.layout')
 @section('content')
+
+<?php
+
+use App\Models\SuppliersModel;
+
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
+
+?>
+
 <!-- Hiro -->
 <div class="lg:pt-[201px] md:pt-60 px-12 w-full">
     <div class="container mx-auto">
@@ -1086,7 +1095,7 @@
                 <a href="/product/{{$rp['_id']}}">
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
-                        <img src="{{asset('assets/img_index/asset/rekomendasi/baris1/udangVaname.png')}}" alt="" />
+                        <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt="" />
                         <div class="pt-3 pl-4">
                             <p class="text-[14px] leading-4 font-medium pr-5">
                                 {{$rp['nama_produk']}}
@@ -1096,12 +1105,12 @@
                                 Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
                             <p class="pt-5 flex text-[#999]">
                                 <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
-                                    alt="" />Culture Tambak
+                                    alt="" />{{(isset($supplier->nama_toko) ? $supplier->nama_toko : '')}}
                             </p>
                             <p class="text-[#D10B05] font-medium flex">
                                 <img class="pr-2"
                                     src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
-                                    alt="" />Bekasi Timur
+                                    alt="" />{{(isset($supplier['alamat'][0]['kecamatan']) ? $supplier['alamat'][0]['kecamatan'] : '')}}
                             </p>
                             <p class="flex text-[#999]">
                                 <img class="pr-2" src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}"
