@@ -10,7 +10,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 ?>
 
 <!-- Hiro -->
-<div class="lg:pt-[201px]   pt-20 lg:px-12 w-full">
+<div class="lg:pt-[201px] pt-[70px] lg:px-12 w-full">
     <div class="container mx-auto">
         <div class="grid grid-cols-12">
             <div class="lg:col-span-8 col-span-12 mx-auto">
@@ -291,21 +291,24 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     <div class="container mx-auto mt-24 sm:mt-5">
         <div class="flex">
             <div class="flex items-center">
-                <p class="font-semibold text-[24px] sm:text-[14px] pr-4 sm:pr-1">
+                <p class="font-semibold text-[24px] pr-4 lg:block hidden">
                     Flash Sale Waktu Terbatas
                 </p>
-                <div class="flex gap-2 items-center">
-                    <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 rounded-lg font-semibold sm:text-xs"
+                <p class="font-semibold text-[14px] pr-1 lg:hidden block">
+                    Flash Sale
+                </p>
+                <div class="flex lg:gap-2 sm:gap-1 items-center">
+                    <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 lg:rounded-lg sm:rounded-sm lg:font-semibold sm:text-xs"
                         id="hour">
                         00
                     </p>
                     :
-                    <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 rounded-lg font-semibold sm:text-xs"
+                    <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 lg:rounded-lg sm:rounded-sm lg:font-semibold sm:text-xs"
                         id="minute">
                         41
                     </p>
                     :
-                    <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 rounded-lg font-semibold sm:text-xs"
+                    <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 lg:rounded-lg sm:rounded-sm lg:font-semibold sm:text-xs"
                         id="second">
                         29
                     </p>
@@ -1227,12 +1230,12 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             <div class="lg:col-span-3 col-span-6 ">
                 <a href="" class="items-center flex lg:mt-5 group">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ikan.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Ikan</p>
                 </a>
@@ -1241,152 +1244,152 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             <div class="lg:col-span-3 col-span-6 ">
                 <a href="" class="items-center flex group lg:mt-5">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/bebek.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Bebek</p>
                 </a>
             </div>
             <!-- 3 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-5 mt-20">
+                <a href="" class="items-center flex group lg:mt-5 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerbau.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Kerbau</p>
                 </a>
             </div>
             <!-- 4 -->
             <div class="lg:col-span-3 col-span-6 ">
-                <a href="" class="items-center flex group lg:mt-5 mt-20">
+                <a href="" class="items-center flex group lg:mt-5 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kelinci.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Kelinci</p>
                 </a>
             </div>
             <!-- 5 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ayam.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Ayam</p>
                 </a>
             </div>
             <!-- 6 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kambing.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Kambing</p>
                 </a>
             </div>
             <!-- 7 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/domba.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Domba</p>
                 </a>
             </div>
             <!-- 8 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/udang.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Udang</p>
                 </a>
             </div>
             <!-- 9 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/sapi.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Sapi</p>
                 </a>
             </div>
             <!-- 10 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/puyuh.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Daging
                         Puyuh</p>
                 </a>
             </div>
             <!-- 11 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerang.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Kerang
                         dan Tiram</p>
                 </a>
             </div>
             <!-- 12 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 mt-20">
+                <a href="" class="items-center flex group lg:mt-28 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/cumi.png')}}" alt=""
-                        class="absolute sm:w-44" />
+                        class="absolute sm:w-40" />
                     <div
                         class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-500 sm:hidden">
                     </div>
                     <p
-                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[16px] group-hover:opacity-100">
+                        class="absolute block text-white text-[20px] font-semibold lg:pl-8 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
                         Cumi Cumi</p>
                 </a>
             </div>
@@ -1401,38 +1404,25 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 <div class="w-full mt-11 sm:mt-[60px]">
     <div class="container mx-auto lg:px-[56px] sm:px-5">
         <h1 class="text-[24px] font-semibold sm:text-[16px]">Rekomendasi Buat Kamu</h1>
-        <div class="grid grid-cols-12 lg:mt-9 lg:gap-10 sm:gap-2">
+        <div class="grid grid-cols-12 lg:mt-9 mt-2 lg:gap-10 sm:gap-2">
             <!-- Baris 1 -->
             @foreach ($rekProduk as $rp )
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="/product/{{$rp['_id']}}">
                     <div
-<<<<<<< HEAD
-                        class="bg-white lg:h-[344px] sm:h-[285px] lg:w-[207px] sm:w-[170px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
+                        class="bg-white lg:h-[344px] sm:h-[285px] lg:w-[207px] sm:w-[160px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="{{asset('assets/img_index/asset/rekomendasi/baris1/udangVaname.png')}}" alt="" />
                         <div class="pt-3 pl-2">
                             <p class="lg:text-[14px] sm:text-[12px] leading-4 font-medium">
-=======
-                        class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
-                        <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt="" />
-                        <div class="pt-3 pl-4">
-                            <p class="text-[14px] leading-4 font-medium pr-5">
->>>>>>> 3c985a3979abc5544806e4185d4f49fc731299c8
                                 {{$rp['nama_produk']}}
                                 {{$rp['varian'][0]['varian1']}}/{{$rp['varian'][1]['varian2']}}
                             </p>
                             <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
                                 Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
-<<<<<<< HEAD
                             <p class="lg:pt-5 sm:pt-2 flex text-[#999] sm:text-xs">
                                 <img class="pr-2 sm:w-6"
                                     src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
                                     alt="" />Culture Tambak
-=======
-                            <p class="pt-5 flex text-[#999]">
-                                <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
-                                    alt="" />{{(isset($supplier->nama_toko) ? $supplier->nama_toko : '')}}
->>>>>>> 3c985a3979abc5544806e4185d4f49fc731299c8
                             </p>
                             <p class="text-[#D10B05] font-medium flex sm:text-xs sm:mt-1">
                                 <img class="pr-2 sm:w-6"

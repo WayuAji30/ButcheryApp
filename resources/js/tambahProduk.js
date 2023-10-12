@@ -13,7 +13,7 @@ document
 
         // Membuka elemen input dan label yang tersembunyi
         var hiddenInputs = formElement.querySelectorAll(
-            "input[hidden], label[hidden]"
+            "input[hidden], label[hidden]",
         );
         hiddenInputs.forEach(function (element) {
             element.removeAttribute("hidden");
@@ -52,5 +52,3 @@ document
             label.removeAttribute("hidden");
         });
     });
-
-
