@@ -8,25 +8,24 @@
             <!-- Left -->
             <div class="lg:col-span-4 md:col-span-12">
                 <div class="grid justify-items-center">
-                    <img id="product-image" src="{{asset('assets/img_index/asset/product/product1.svg')}}" alt=""
-                        class="rounded-md" />
-
+                    <img id="product-image" src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto1'])}}" alt=""
+                        class="w-[345px] rounded-md" />
                 </div>
                 <div class="flex gap-3 mt-4 lg:pl-16 lg:justify-normal md:justify-center">
                     <button
                         class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
-                        onclick="changeProduct('product1')">
-                        <img src="{{asset('assets/img_index/asset/product/pilihan1.svg')}}" alt="" class="rounded-md" />
+                        onclick="changeProduct('{{$detail_produk['foto']['foto1']}}')">
+                        <img src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto1'])}}" alt="" class="w-[61px] rounded-md" />
                     </button>
                     <button
                         class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
-                        onclick="changeProduct('product2')">
-                        <img src="{{asset('assets/img_index/asset/product/pilihan2.svg')}}" alt="" class="rounded-md" />
+                        onclick="changeProduct('{{$detail_produk['foto']['foto2']}}')">
+                        <img src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto2'])}}" alt="" class="w-[61px] rounded-md" />
                     </button>
                     <button
                         class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
-                        onclick="changeProduct('product3')">
-                        <img src="{{asset('assets/img_index/asset/product/pilihan3.svg')}}" alt="" class="rounded-md" />
+                        onclick="changeProduct('{{$detail_produk['foto']['foto3']}}')">
+                        <img src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto3'])}}" alt="" class="w-[61px] rounded-md" />
                     </button>
                 </div>
                 <div class="border-t-2 border-solid border-[#E6E6E6] mt-11 mx-16"></div>
@@ -36,8 +35,8 @@
                     <div class="flex pl-16 mt-10 items-center">
                         <img src="{{asset('assets/img_index/asset/product/profile.svg')}}" alt="" class="" />
                         <div class="ml-4">
-                            <h1 class="font-semibold">Culture Tambak</h1>
-                            <p class="text-[#999999]">Bekasi Timur</p>
+                            <h1 class="font-semibold">{{$detail_produk->nama_toko}}</h1>
+                            <p class="text-[#999999]">{{$detail_produk->alamat_toko}}</p>
                         </div>
                     </div>
                     <div class="flex pl-16 mt-6 gap-4">
@@ -71,34 +70,13 @@
                             </p>
                         </div>
                     </button>
-                    <button class="flex shadow-lg w-[328px] h-24 text-[12px] font-medium text-start mt-5">
-                        <img src="{{asset('assets/img_index/asset/product/lainnya2.svg')}}" alt="" />
-                        <div class="flex-none pl-4 mt-3">
-                            <p>Ikan Dory Fillet Premium Beku <br />Frozen kemasan 1kg</p>
-                            <p class="font-semibold text-[#D10B05] text-[16px] mt-2">
-                                Rp<span>49.000</span>
-                            </p>
-                        </div>
-                    </button>
-                    <button class="flex shadow-lg w-[328px] h-24 text-[12px] font-medium text-start mt-5">
-                        <img src="{{asset('assets/img_index/asset/product/lainnya3.svg')}}" alt="" />
-                        <div class="flex-none pl-4 mt-3">
-                            <p>
-                                Cumi Sotong Super Fresh <br />
-                                Kualitas Bagus 250gr
-                            </p>
-                            <p class="font-semibold text-[#D10B05] text-[16px] mt-2">
-                                Rp<span>20.000</span>
-                            </p>
-                        </div>
-                    </button>
                 </div>
             </div>
 
             <!-- Center -->
             <div class="lg:col-span-4 md:col-span-6 lg:mt-0 md:mt-5">
                 <h1 class="font-medium text-[24px]">
-                    Udang Vaname segar size 85-90 250gr/500gr/1kg
+                    {{$detail_produk->nama_produk}} 
                 </h1>
                 <div class="flex">
                     <p>4.7</p>
@@ -107,18 +85,18 @@
                     <p class="ml-2"><span>672 </span>Terjual</p>
                 </div>
                 <p class="font-semibold text-[36px] mt-6">
-                    Rp <span id="value-view">99.000</span>
+                    Rp <span id="value-view"></span>
                 </p>
                 <section class="mt-9">
                     <p class="font-semibold text-[18px]">Pilih varian:</p>
                     <div class="flex gap-3 mt-4">
-                        <button id="low"
+                        <button id="low" data-varian="{{$detail_produk['varian'][0]['varian1']}}" data-price = "{{$detail_produk['varian'][0]['harga']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 active transition-all duration-500 ease-in-out">
-                            250gr
+                            {{$detail_produk['varian'][0]['varian1']}} 
                         </button>
-                        <button id="mid"
+                        <button id="mid" data-varian="{{$detail_produk['varian'][1]['varian2']}}" data-price = "{{$detail_produk['varian'][1]['harga']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
-                            500gr
+                            {{$detail_produk['varian'][1]['varian2']}}
                         </button>
                         <button id="high"
                             class="py-2 px-6 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
@@ -131,8 +109,8 @@
                     <div class="flex mt-5 items-center">
                         <img src="{{asset('assets/img_index/asset/product/profile.svg')}}" alt="" class="" />
                         <div class="ml-4">
-                            <h1 class="font-semibold">Culture Tambak</h1>
-                            <p class="text-[#999999]">Bekasi Timur</p>
+                            <h1 class="font-semibold">{{$detail_produk->nama_toko}}</h1>
+                            <p class="text-[#999999]">{{$detail_produk->alamat_toko}}</p>
                         </div>
                     </div>
                     <div class="flex mt-6 gap-4">
@@ -159,56 +137,11 @@
                     <p class="font-semibold pb-3 text-[#d10b05] border-b-2 border-[#d10b05]">
                         Deskripsi Produk
                     </p>
-                    <!-- <button class="font-semibold text-[#CCC] pb-3" id="spesifikasi">
-                        Spesifikasi
-                    </button> -->
                 </div>
                 <p class="mt-8">
-                    Kami menyediakan udang vaname segar dengan berat 1 kilogram, hasil
-                    tangkapan harian yang selalu segar dan utuh, serta bergaransi
-                    kesegaran. <br />
-                    <br />
-                    Layanan kami mencakup pemrosesan gratis seperti penghilangan
-                    kepala, kupas bersih, dan penghilangan sisa ekor, sehingga Anda
-                    dapat menikmati udang dengan mudah. Kami hanya menyediakan layanan
-                    tersebut tanpa layanan tambahan lainnya. <br /><br />
-                    Selain memberikan cita rasa lezat, udang vaname ini juga
-                    memberikan manfaat kesehatan yang berharga, seperti tingginya
-                    kandungan protein untuk pembentukan sel tubuh, yodium untuk
-                    produksi hormon, kalsium untuk kesehatan gigi dan tulang, serta
-                    asam lemak Omega-3 yang baik untuk kesehatan jantung. Dengan
-                    produk berkualitas dan layanan yang prima, kami siap memenuhi
-                    kebutuhan udang segar Anda.
+                   {{$detail_produk->deskripsi}}
                 </p>
-                <!-- <p id="spesifikasi-text" class="mt-8" hidden>
-                    Udang Vaname segar dengan ukuran 85-90 memiliki berat yang
-                    tersedia dalam tiga pilihan: <br />
-                    1. 250 gram <br />
-                    2. 500 gram <br />
-                    3. 1 kilogram <br />
-                    <br />
-                    Berikut adalah spesifikasi umum dari Udang Vaname segar dengan
-                    ukuran tersebut: <br />
-                    <br />
-                    <b>Nama:</b> Udang Vaname segar <br />
-                    <b>Ukuran:</b> 85-90 <br />
-                    <b>Kondisi:</b> Segar <br />
-                    <b>Asal:</b> Tergantung pada sumbernya, bisa berasal dari perairan
-                    laut atau budidaya. <br />
-                    <b>Penanganan:</b> Udang telah diawetkan dengan metode yang sesuai
-                    untuk mempertahankan kesegarannya. <br />
-                    <b>Penyimpanan:</b> Disarankan untuk disimpan dalam suhu rendah
-                    dan terkendali, seperti di dalam kulkas. <br />
-                    <b>Kandungan Gizi:</b> Udang adalah sumber protein tinggi dan
-                    rendah lemak. Mereka juga mengandung nutrisi penting seperti
-                    selenium, fosfor, dan vitamin B12. <br />
-                    <br />
-                    Harap diingat bahwa informasi ini bersifat umum dan dapat
-                    bervariasi tergantung pada produsen atau penjual spesifik.
-                    Pastikan untuk memeriksa label atau informasi yang diberikan oleh
-                    penjual Anda untuk mendapatkan rincian lebih lanjut tentang produk
-                    Udang Vaname segar yang Anda beli.
-                </p> -->
+              
                 <div class="border-t-2 border-solid border-[#E6E6E6] mt-11"></div>
                 <div class="mt-8">
                     <button class="text-[#D10B05] font-medium border-b-2 border-[#D10B05] py-2 cursor-default">
@@ -218,7 +151,7 @@
                         <p class="flex">
                             <img class="pr-3" src="{{asset('assets/img_index/asset/product/ion_location-sharp.svg')}}"
                                 alt="" />Dikirim dari
-                            <span class="font-semibold pl-1"> Bekasi Timur</span>
+                            <span class="font-semibold pl-1">{{$detail_produk->alamat_toko}}</span>
                         </p>
                         <p class="flex mt-4">
                             <img class="pr-3" src="{{asset('assets/img_index/asset/product/mdi_courier-fast.svg')}}"
@@ -271,7 +204,7 @@
                                     </div>
                                     <p class="">
                                         Sisa Stok:
-                                        <span class="font-semibold" id="value-stok">22</span>
+                                        <span class="font-semibold" id="value-stok">{{$detail_produk['varian'][0]['stok']}} / {{$detail_produk['varian'][1]['stok']}}</span>
                                     </p>
                                 </div>
                                 <p class="mt-7">
@@ -287,7 +220,7 @@
                                 <div class="flex justify-between mx-1 mt-6">
                                     <p class="text-[#999] font-medium">Subtotal</p>
                                     <p class="font-semibold text-[20px]">
-                                        Rp <span id="total-value">99.000</span>
+                                        Rp <span id="total-value"></span>
                                     </p>
                                 </div>
                                 <div class="flex items-center justify-between mt-6">
@@ -418,5 +351,116 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Mengambil elemen-elemen HTML yang diperlukan
+    const lowButton = document.getElementById("low");
+    const midButton = document.getElementById("mid");
+    const highButton = document.getElementById("high");
+    const plusButton = document.getElementById("plus");
+    const minusButton = document.getElementById("mines");
+    const valueProduct = document.getElementById("value-product");
+    const itemWeight = document.getElementById("item-weight");
+    const totalValue = document.getElementById("total-value");
+    const valueView = document.getElementById("value-view");
+
+    // Mendefinisikan harga awal
+    var currentPrice = parseInt("{{$detail_produk['varian'][0]['harga']}}");
+    var currentWeight = "{{$detail_produk['varian'][0]['varian1']}}";
+
+    // Menetapkan nilai awal pada elemen-elemen HTML
+    valueProduct.innerText = "1";
+    itemWeight.innerText = currentWeight;
+    totalValue.innerText = currentPrice.toLocaleString("id-ID");
+    valueView.innerText = currentPrice.toLocaleString("id-ID");
+
+    // Menangani klik pada tombol berat
+    function handleWeightButtonClick(weight, price) {
+        return function () {
+            currentPrice = price;
+            currentWeight = weight;
+            itemWeight.innerText = weight;
+            totalValue.innerText = currentPrice.toLocaleString("id-ID");
+            valueView.innerText = currentPrice.toLocaleString("id-ID");
+            valueProduct.innerText = "1";
+        };
+    }
+
+    lowButton.addEventListener(
+        "click",
+        handleWeightButtonClick("{{$detail_produk['varian'][0]['varian1']}}", parseInt("{{$detail_produk['varian'][0]['harga']}}"))
+    );
+    midButton.addEventListener(
+        "click",
+        handleWeightButtonClick("{{$detail_produk['varian'][1]['varian2']}}", parseInt("{{$detail_produk['varian'][1]['harga']}}"))
+    );
+    highButton.addEventListener(
+        "click",
+        handleWeightButtonClick("1kg", 200000)
+    );
+
+    // Menangani klik pada tombol plus
+    plusButton.addEventListener("click", function () {
+        valueProduct.innerText = (
+            parseInt(valueProduct.innerText) + 1
+        ).toString();
+        totalValue.innerText = (
+            currentPrice * parseInt(valueProduct.innerText)
+        ).toLocaleString("id-ID");
+    });
+
+    // Menangani klik pada tombol minus
+    minusButton.addEventListener("click", function () {
+        if (parseInt(valueProduct.innerText) > 1) {
+            valueProduct.innerText = (
+                parseInt(valueProduct.innerText) - 1
+            ).toString();
+            totalValue.innerText = (
+                currentPrice * parseInt(valueProduct.innerText)
+            ).toLocaleString("id-ID");
+        }
+    });
+});
+
+    function setActive(id) {
+        const buttons = document.querySelectorAll(".flex button");
+        buttons.forEach((button) => {
+            if (button.id === id) {
+                button.classList.add("active");
+            } else {
+                button.classList.remove("active");
+            }
+        });
+    }
+
+    const lowButton = document.getElementById("low");
+    const midButton = document.getElementById("mid");
+    const highButton = document.getElementById("high");
+
+    lowButton.addEventListener("click", function () {
+        setActive("low");
+    });
+
+    midButton.addEventListener("click", function () {
+        setActive("mid");
+    });
+
+    highButton.addEventListener("click", function () {
+        setActive("high");
+    });
+
+
+
+    function changeProduct(product) {
+        const productImage = $('#product-image');
+        const imagePath = `{{asset('storage/img_uploaded/${product}')}}`;
+        productImage.attr('src', imagePath);
+    }
+
+    // Set product1 as default
+    changeProduct("{{$detail_produk['foto']['foto1']}}");
+
+</script>
 <!-- Product -->
 @endsection

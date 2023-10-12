@@ -105,9 +105,14 @@
         <form action="{{(isset($produk->_id) ? '/edit_produk' : '/store_produk')}}" method="POST"
             enctype="multipart/form-data">
             @csrf
-
+        
             @if (isset($produk->_id))
-            <input type="hidden" name="id" value="{{$produk->_id}}" />
+                <input type="hidden" name="id" value="{{$produk->_id}}" />
+                <input type="hidden" name="old_foto1" value="{{$produk['foto']['foto1']}}" />
+                <input type="hidden" name="old_foto2" value="{{$produk['foto']['foto2']}}" />
+                <input type="hidden" name="old_foto3" value="{{$produk['foto']['foto3']}}" />
+            @else
+                <input type="hidden" name="user_id" value="{{session('id_user')}}" />
             @endif
 
             <div class="flex ml-11 mt-10 gap-10 items-center">
@@ -122,9 +127,15 @@
                         perhatian pembeli.
                     </p>
                 </div>
+<<<<<<< HEAD
                 <input type="file" name="foto1" id="foto1" accept=".jpg,.jpeg,.png,.gif,.svg" />
                 <input type="file" name="foto2" id="foto2" accept=".jpg,.jpeg,.png,.gif,.svg" />
                 <input type="file" name="foto3" id="foto3" accept=".jpg,.jpeg,.png,.gif,.svg" />
+=======
+                <input type="file" name="foto1" id = "foto1" value="{{(isset($produk['foto']['foto1']) ? $produk['foto']['foto1'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg"/>
+                <input type="file" name="foto2" id = "foto2" value="{{(isset($produk['foto']['foto2']) ? $produk['foto']['foto2'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg"  />
+                <input type="file" name="foto3" id = "foto3" value="{{(isset($produk['foto']['foto3']) ? $produk['foto']['foto3'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg" />
+>>>>>>> 98227639c7ebb9e2109472471265f473959359e1
             </div>
             <div class="flex ml-11 mt-16 items-center">
                 <p class="font-semibold text-[18px] mr-64">Nama Produk</p>
@@ -161,7 +172,7 @@
                 <textarea
                     class="peer block min-h-[auto] w-[547px] h-64 mt-3 rounded-md border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear peer-focus:text-primary focus:border-[#D10B05]"
                     id="alamat" rows="4" placeholder="Ketikan deskripsi produkmu" name="deskripsi"
-                    value="{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}"></textarea>
+                    value="">{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}</textarea>
                 <!-- <input name="deskripsi" type="text" placeholder="Ketikan deskripsi produkmu disini"
                     value=""
                     class="px-3 py-4 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-[547px] h-64 focus:outline-[#D10B05]" /> -->
@@ -190,7 +201,7 @@
                         <div class="px-10 py-5">
                             <label for="" class="font-semibold mr-4">Varian 1</label>
                             <input name="varian[varian1]" type="text" placeholder="Contoh: 250gr"
-                                value="{{(isset($produk['varian'][0]['varian1'])) ? $produk['varian'][0]['varian1']: '' }}"
+                                value="{{( isset($produk['varian'][0]['varian1']) ) ? $produk['varian'][0]['varian1'] : '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]">Harga</label>
                             <input name="varian[harga1]" type="text" placeholder="Masukan dalam Rupiah"
@@ -213,13 +224,17 @@
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input hidden name="varian[varian2]" type="text" placeholder="Contoh: 250gr"
+                            <input hidden name="varian[varian2]" type="text" placeholder="Contoh: 250gr" value = "{{( isset($produk['varian'][1]['varian2']) ) ? $produk['varian'][1]['varian2'] : '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
+<<<<<<< HEAD
                             <input hidden name="varian[harga2]" type="text" placeholder="Masukan dalam Rupiah"
+=======
+                            <input hidden name="varian[harga2]"  type="text" placeholder="Masukan dalam Rupiah" value = "{{( isset($produk['varian'][1]['harga']) ) ? $produk['varian'][1]['harga'] : '' }}"
+>>>>>>> 98227639c7ebb9e2109472471265f473959359e1
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input hidden type="text" name="varian[stok2]" placeholder="Contoh: 17"
+                            <input hidden type="text" name="varian[stok2]" placeholder="Contoh: 17"value = "{{( isset($produk['varian'][1]['stok']) ) ? $produk['varian'][1]['stok'] : '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                         </div>
                     </div>

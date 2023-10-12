@@ -18,11 +18,16 @@ class MitraProdukModel extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
+        'nama_toko',
+        'alamat_toko',
         'foto', 
         'nama_produk',
         'id_kategori',
         'deskripsi', 
-        'varian'
+        'varian',
+        'rating',
+        'reviews'
     ];
     
 }
