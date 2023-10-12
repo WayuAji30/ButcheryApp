@@ -152,9 +152,13 @@ $user = KonsumensModel::find(session('id_user'));
                                     <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                                 </a></label>
                             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a href="/logout" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat
+                                <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat
                                         Profile</a></li>
-                                <li><a class="font-semibold">Logout</a></li>
+                                <li><a href="/logout" class="font-semibold flex justify-between">Logout
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                                    </svg>
+                                </a></li>
                             </ul>
                         </div>
                     </div>

@@ -57,6 +57,8 @@ Route::get('/tambahProduk', [MitraController::class,'tambahProduk']);
 Route::get('/tambahProduk/{id}', [MitraController::class,'updateProduk']);
 
 Route::post('/store_produk', [MitraController::class,'store_produk']);
-Route::post('/eit_produk', [MitraController::class,'edit_produk']);
+Route::post('/edit_produk', [MitraController::class,'edit_produk']);
 
 Route::post('/hapusProduk', [MitraController::class,'deleteProduk']);
+
+Route::get('/produk/{name}', [HomeController::class,'produk']);

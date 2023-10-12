@@ -158,11 +158,11 @@ $user = KonsumensModel::find(session('id_user'));
                                 <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
                                         class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
                                 <li><a href="/logout" class="font-semibold flex justify-between">Logout <svg
-                                            xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                            viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
-                                        </svg></a></li>
+                                    xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                    viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                                </svg></a></li>
                             </ul>
                         </div>
                     </div>
@@ -349,17 +349,7 @@ $user = KonsumensModel::find(session('id_user'));
         </div>
     </footer>
     <!-- FOOTER -->
-    @vite(['resources/js/product.js', 'resources/js/app.js'])
-    <script>
-    function changeProduct(product) {
-        const productImage = document.getElementById('product-image');
-        const imagePath = `{{asset('assets/img_index/asset/product/${product}.svg')}}`;
-        productImage.src = imagePath;
-    }
-
-    // Set product1 as default
-    changeProduct('product1');
-    </script>
+    @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
 </body>
 
 </html>
