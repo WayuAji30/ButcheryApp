@@ -20,7 +20,12 @@ Route::get('/index', [HomeController::class,'index']);
 Route::get('/', [HomeController::class,'index']);
 Route::get('/searchProduct', [HomeController::class,'searchProduct']);
 Route::get('/product', [HomeController::class,'product']);
+
 Route::get('/cart', [HomeController::class,'cart']);
+Route::get('/store_cart/{id_gambar}/{id}/{gambar}/{nama_produk}/{varian}/{qty}/{harga}/{subtotal}/{note}', [HomeController::class,'store_cart']);
+Route::post('/deleteCart', [HomeController::class,'deleteCart']);
+
+
 Route::get('/checkOut', [HomeController::class,'checkOut']);
 
 Route::get('/login', [AuthController::class,'login']);

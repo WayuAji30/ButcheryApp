@@ -1,3 +1,4 @@
+/*
 // Temukan semua elemen checkbox di dalam dokumen
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/*
 // FUCTION UNTUK MENGHAPUS PRODUK YG DIPILIH DI
 document.addEventListener("DOMContentLoaded", function () {
     // Mengambil semua tombol remove
@@ -44,7 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
             updateCartSummary();
         });
     });
-
+*/
+/*
+document.addEventListener("DOMContentLoaded", function () {
     function updateCartSummary() {
         var totalProducts = document.querySelectorAll(".w-[100%]").length;
         var totalPrice = 0;
@@ -65,3 +69,5 @@ document.addEventListener("DOMContentLoaded", function () {
             totalPrice.toLocaleString("id-ID");
     }
 });
+
+*/

@@ -127,9 +127,15 @@
                         perhatian pembeli.
                     </p>
                 </div>
+<<<<<<< HEAD
                 <input type="file" name="foto1" id="foto1" accept=".jpg,.jpeg,.png,.gif,.svg" />
                 <input type="file" name="foto2" id="foto2" accept=".jpg,.jpeg,.png,.gif,.svg" />
                 <input type="file" name="foto3" id="foto3" accept=".jpg,.jpeg,.png,.gif,.svg" />
+=======
+                <input type="file" name="foto1" id = "foto1" value="{{(isset($produk['foto']['foto1']) ? $produk['foto']['foto1'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg"/>
+                <input type="file" name="foto2" id = "foto2" value="{{(isset($produk['foto']['foto2']) ? $produk['foto']['foto2'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg"  />
+                <input type="file" name="foto3" id = "foto3" value="{{(isset($produk['foto']['foto3']) ? $produk['foto']['foto3'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg" />
+>>>>>>> 0fe79d2a8dc149928880c484e903283ab9a17910
             </div>
             <div class="flex ml-11 mt-16 items-center">
                 <p class="font-semibold text-[18px] mr-64">Nama Produk</p>
@@ -222,7 +228,11 @@
                                 value="{{( isset($produk['varian'][1]['varian2']) ) ? $produk['varian'][1]['varian2'] : '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
+<<<<<<< HEAD
                             <input hidden name="varian[harga2]" type="text" placeholder="Masukan dalam Rupiah"
+=======
+                            <input hidden name="varian[harga2]"  type="text" placeholder="Masukan dalam Rupiah" value = "{{( isset($produk['varian'][1]['harga']) ) ? $produk['varian'][1]['harga'] : '' }}"
+>>>>>>> 0fe79d2a8dc149928880c484e903283ab9a17910
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
                             <label for="" class="mr-10" hidden>Stok</label>
                             <input hidden type="text" name="varian[stok2]" placeholder="Contoh: 17"

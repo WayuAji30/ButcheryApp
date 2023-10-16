@@ -11,8 +11,10 @@ $user = KonsumensModel::find(session('id_user'));
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <!-- tailwind -->
-    @vite(['resources/css/app.css', 'resources/css/ouput.css'])
+    @vite(['resources/css/app.css', 'resources/css/ouput.css', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
@@ -408,7 +410,11 @@ $user = KonsumensModel::find(session('id_user'));
         </div>
     </footer>
     <!-- FOOTER -->
+<<<<<<< HEAD
     @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/drawer.js'])
+=======
+    @vite(['resources/js/app.js','resources/js/product.js'])
+>>>>>>> 0fe79d2a8dc149928880c484e903283ab9a17910
 </body>
 
 </html>
