@@ -160,12 +160,7 @@ document.location.href = "/login";
                 @foreach ($daftarProduk as $dp )
                 <tr>
                     <td>
-<<<<<<< HEAD
-                        <img src="{{asset('assets/img_mitra_center/asset/daftarProduk/sapi.png')}}" alt=""
-                            class="rounded-lg ml-5" />
-=======
                         <img src="{{asset('storage/img_uploaded/'.$dp['foto']['foto1'])}}" alt="" class="w-[84px] rounded-lg ml-5" />
->>>>>>> 98227639c7ebb9e2109472471265f473959359e1
                     </td>
                     <td class="font-semibold">
                         {{$dp['nama_produk']}}<br />
@@ -192,13 +187,9 @@ document.location.href = "/login";
                         <!-- You can open the modal using ID.showModal() method -->
                         <button
                             class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear"
-<<<<<<< HEAD
-                            onclick="my_modal_4.showModal()">Hapus</button>
-=======
                             onclick="my_modal_4.showModal()">Hapus
                         </button>
 
->>>>>>> 98227639c7ebb9e2109472471265f473959359e1
                         <dialog id="my_modal_4" class="modal">
                             <div class="flex justify-center items-center">
                                 <div class="w-[460px] bg-white shadow-md rounded-md text-center">
@@ -211,16 +202,6 @@ document.location.href = "/login";
                                     </svg>
                                     <p class="font-semibold text-[20px] mt-2">Apakah anda yakin <br>
                                         ingin menghapus data ini?</p>
-<<<<<<< HEAD
-                                    <form action="/hapusProduk" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="id" id="id" value="{{$dp['_id']}}">
-                                        <div class="flex justify-center gap-10  my-5">
-                                            <button
-                                                class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Batal</button>
-                                            <a href="/hapusProduk/{{$dp['_id']}}"
-                                                class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</a>
-=======
                                         <div class="flex justify-center gap-10  my-5">
                                             <button class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Batal</button>
                                             <form action="/hapusProduk" method="POST">
@@ -228,9 +209,7 @@ document.location.href = "/login";
                                                 <input type="hidden" name="id" id = "id" value="{{$dp['_id']}}">
                                                 <button class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</button>
                                             </form>
->>>>>>> 98227639c7ebb9e2109472471265f473959359e1
                                         </div>
-
                                 </div>
                             </div>
                         </dialog>

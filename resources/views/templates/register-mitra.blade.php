@@ -10,6 +10,8 @@ $user = KonsumensModel::find(session('id_user'));
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     @vite(['resources/css/app.css','resources/css/output.css'])
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />

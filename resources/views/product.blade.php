@@ -15,7 +15,7 @@
                     <button
                         class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
                         onclick="changeProduct('{{$detail_produk['foto']['foto1']}}')">
-                        <img src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto1'])}}" alt="" class="w-[61px] rounded-md" />
+                        <img src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto1'])}}" alt="" class="w-[61px] rounded-md" id="foto1  "/>
                     </button>
                     <button
                         class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
@@ -75,9 +75,8 @@
 
             <!-- Center -->
             <div class="lg:col-span-4 md:col-span-6 lg:mt-0 md:mt-5">
-                <h1 class="font-medium text-[24px]">
-                    {{$detail_produk->nama_produk}} 
-                </h1>
+                <input type="hidden" name="id" id="id_produk" value = "{{$detail_produk->_id}}">
+                <h1 class="font-medium text-[24px]" id = "nama_produk">{{$detail_produk->nama_produk}}</h1>
                 <div class="flex">
                     <p>4.7</p>
                     <button><img src="asset/product/star.svg" alt="" /></button>
@@ -184,7 +183,7 @@
                                 <div class="flex items-center mt-6 justify-between">
                                     <div
                                         class="flex w-[50%] h-11 items-center border-2 border-[#D10B05] justify-between rounded-lg text-[18px] font-semibold">
-                                        <button class="pl-5" id="mines" form="none">
+                                        <button class="pl-5" id="mines" form="" onclick = "">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path id="minusSign"
@@ -192,8 +191,8 @@
                                                     fill="#CCCCCC" />
                                             </svg>
                                         </button>
-                                        <p id="value-product">1</p>
-                                        <button class="pr-5" id="plus" form="none">
+                                        <p id="value-product"></p>
+                                        <button class="pr-5" id="plus" form="none" onclick = "">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -215,7 +214,7 @@
                                 <div class="mt-5">
                                     <textarea
                                         class="peer block min-h-[auto] mx-auto w-full mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
-                                        id="alamat" rows="4" placeholder="Tambahkan Catatan"></textarea>
+                                        id="catatan" rows="4" placeholder="Tambahkan Catatan"></textarea>
                                 </div>
                                 <div class="flex justify-between mx-1 mt-6">
                                     <p class="text-[#999] font-medium">Subtotal</p>
@@ -228,10 +227,13 @@
                                         class="text-[#D10B05] py-2 px-8 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                                         Beli
                                     </button>
-                                    <button
+                                    <a
+                                        href = "javascript:void(0);"
+                                        id = "addToCart"
+                                        data-id = "{{session('id_user')}}"
                                         class="py-2 lg:px-5 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
                                         + Keranjang
-                                    </button>
+                                    </a>
                                 </div>
                             </form>
                         </div>
@@ -365,7 +367,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalValue = document.getElementById("total-value");
     const valueView = document.getElementById("value-view");
 
-    // Mendefinisikan harga awal
+      // Mendefinisikan harga awal
     var currentPrice = parseInt("{{$detail_produk['varian'][0]['harga']}}");
     var currentWeight = "{{$detail_produk['varian'][0]['varian1']}}";
 
@@ -402,37 +404,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Menangani klik pada tombol plus
     plusButton.addEventListener("click", function () {
-        valueProduct.innerText = (
-            parseInt(valueProduct.innerText) + 1
-        ).toString();
-        totalValue.innerText = (
-            currentPrice * parseInt(valueProduct.innerText)
-        ).toLocaleString("id-ID");
+        var currentValue = parseInt(valueProduct.textContent); // Mengambil nilai saat ini
+        valueProduct.textContent = (currentValue + 1).toString();
+
+        var currentTotalValue = currentPrice * (currentValue + 1);
+        totalValue.textContent = currentTotalValue.toLocaleString("id-ID");
     });
 
     // Menangani klik pada tombol minus
     minusButton.addEventListener("click", function () {
-        if (parseInt(valueProduct.innerText) > 1) {
-            valueProduct.innerText = (
-                parseInt(valueProduct.innerText) - 1
-            ).toString();
-            totalValue.innerText = (
-                currentPrice * parseInt(valueProduct.innerText)
-            ).toLocaleString("id-ID");
+        var currentValue = parseInt(valueProduct.textContent); // Mengambil nilai saat ini
+        if (currentValue > 1) {
+            valueProduct.textContent = (currentValue - 1).toString();
+
+            var currentTotalValue = currentPrice * (currentValue - 1);
+            totalValue.textContent = currentTotalValue.toLocaleString("id-ID");
         }
     });
+
+  
 });
 
-    function setActive(id) {
-        const buttons = document.querySelectorAll(".flex button");
-        buttons.forEach((button) => {
-            if (button.id === id) {
-                button.classList.add("active");
-            } else {
-                button.classList.remove("active");
-            }
-        });
-    }
+function setActive(id) {
+    const buttons = document.querySelectorAll(".flex button");
+    buttons.forEach((button) => {
+        if (button.id === id) {
+            button.classList.add("active");
+        } else {
+            button.classList.remove("active");
+        }
+    });
+}
 
     const lowButton = document.getElementById("low");
     const midButton = document.getElementById("mid");
