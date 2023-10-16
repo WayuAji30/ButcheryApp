@@ -83,10 +83,8 @@ class MitraController extends Controller
             'user_id' => $user_id,
             'nama_toko' => $data_supplier->nama_toko,
             'alamat_toko' => [
-                [
-                    'id_alamat' => $response3['id'],
-                    'alamat' => $response3['name']
-                ]    
+                'id_alamat' => $response3['id'],
+                'alamat' => $response3['name']      
             ],
             'foto' =>[
                 'foto1'=>$image->hashName(),

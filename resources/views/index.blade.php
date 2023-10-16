@@ -1425,7 +1425,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             <p class="text-[#D10B05] font-medium flex sm:text-xs sm:mt-1">
                                 <img class="pr-2 sm:w-6"
                                     src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
-                                    alt="" />{{$rp['alamat_toko']}}
+                                    alt="" />{{$rp['alamat_toko']['alamat']}}
                             </p>
                             <p class="flex text-[#999] sm:text-xs sm:mt-1">
                                 <img class="pr-2 sm:w-6"
