@@ -410,11 +410,7 @@ $user = KonsumensModel::find(session('id_user'));
         </div>
     </footer>
     <!-- FOOTER -->
-<<<<<<< HEAD
-    @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/drawer.js'])
-=======
     @vite(['resources/js/app.js','resources/js/product.js'])
->>>>>>> 0fe79d2a8dc149928880c484e903283ab9a17910
 </body>
 
 </html>

@@ -1182,39 +1182,21 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             @foreach ($rekProduk as $rp )
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="/produk/{{$rp['_id']}}">
-<<<<<<< HEAD
-                    <div class="bg-white lg:h-[344px] sm:h-[285px] lg:w-[207px] sm:w-[160px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
-                        <img src="{{asset('assets/img_index/asset/rekomendasi/baris1/udangVaname.png')}}" alt="" />
-                        <div class="pt-3 pl-2">
-                            <p class="lg:text-[14px] sm:text-[12px] leading-4 font-medium">
-=======
                     <div
                         class="bg-white h-[344px] w-[207px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt="" />
                         <div class="pt-3 pl-4">
                             <p class="text-[14px] leading-4 font-medium pr-5">
->>>>>>> 0fe79d2a8dc149928880c484e903283ab9a17910
                                 {{$rp['nama_produk']}}
                             </p>
                             <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
                                 Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
-<<<<<<< HEAD
-                            <p class="lg:pt-5 sm:pt-2 flex text-[#999] sm:text-xs">
-                                <img class="pr-2 sm:w-6" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}" alt="" />Culture Tambak
-=======
                             <p class="pt-5 flex text-[#999]">
                                 <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
                                     alt="" />{{$rp['nama_toko']}}
->>>>>>> 0fe79d2a8dc149928880c484e903283ab9a17910
                             </p>
                             <p class="text-[#D10B05] font-medium flex sm:text-xs sm:mt-1">
-<<<<<<< HEAD
-                                <img class="pr-2 sm:w-6"
-                                    src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
-                                    alt="" />{{$rp['alamat_toko']['alamat']}}
-=======
-                                <img class="pr-2 sm:w-6" src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}" alt="" />{{$rp['alamat_toko']}}
->>>>>>> d91c2353fbf190bc70744607b3c9540801bc09d9
+                                <img class="pr-2 sm:w-6" src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}" alt="" />{{$rp['alamat_toko']['alamat']}}
                             </p>
                             <p class="flex text-[#999] sm:text-xs sm:mt-1">
                                 <img class="pr-2 sm:w-6" src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}" alt="" /><span class="pr-1">4.7</span> |
