@@ -15,9 +15,9 @@
 
     @yield('content')
 
-    <div class="border-t-2 border-solid border-[#E6E6E6] mt-40"></div>
+    <div class="border-t-2 border-solid border-[#E6E6E6] lg:mt-40 sm:mt-20"></div>
     <!-- FOOTER -->
-    <footer>
+    <footer class="sm:text-xs">
         <div class="w-full mt-12 mb-12">
             <div class="container px-[53px]">
                 <div class="grid grid-cols-12">
