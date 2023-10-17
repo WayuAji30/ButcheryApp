@@ -76,6 +76,3 @@ $user = KonsumensModel::find(session('id_user'));
 
     @yield('content')
 
-</body>
-
-</html>
