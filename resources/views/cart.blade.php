@@ -2,11 +2,11 @@
 @section('content')
 
 <!-- CART -->
-<div class="container pt-[201px]">
+<div class="container lg:pt-[201px] pt-16">
     <div class="grid grid-cols-12">
-        <div class="col-span-8">
-            <div class="ml-24">
-                <button class="text-[#D10B05] text-[20px] pb-4 px-12 border-b-4 border-[#D10B05] font-medium cursor-default">
+        <div class="lg:col-span-8 col-span-12">
+            <div class="lg:ml-24 ml-5">
+                <button class="text-[#D10B05] text-[20px] lg:pb-4 pb-1 lg:px-12 px-5 lg:border-b-4 border-b-2 border-[#D10B05] font-medium cursor-default sm:text-[16px]">
                     Keranjang
                 </button>
             </div>
@@ -15,32 +15,28 @@
                 @foreach ($cart_items as $ci )
                 <div class="w-[100%] bg-white border-b-4 border-[#e6e6e6] mt-11 cart-item">
                     <div class="flex items-center">
-                        <input 
-                        type="checkbox" 
-                        checked="checked" 
-                        class="harga-item checkbox checkbox-error mr-6" 
-                        data-harga = "{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}"
-                        />
-                        
+                        <input type="checkbox" checked="checked" class="harga-item checkbox checkbox-error mr-6" data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}" />
+
                         <img src="{{asset('assets/img_index/asset/cart/produk.png')}}" alt="" class="rounded-md" />
                         <ul class="ml-6">
                             <li>
                                 {{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}} <br />
-                                <span class="text-[#D10B05] font-semibold"> {{(isset($ci->varian)) ? $ci->varian : ''}} </span>
+                                <span class="text-[#D10B05] font-semibold"> {{(isset($ci->varian)) ? $ci->varian : ''}}
+                                </span>
                             </li>
                             <li class="font-semibold mt-4">
                                 Rp<span id="harga"> {{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}} </span>
                             </li>
-                            
+
                         </ul>
                     </div>
 
                     <div class="my-10 flex justify-between items-center">
-                        <input type="text" name="" id="" placeholder="Tambahkan Catatan" class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none" value = " {{$ci->note}} " />
+                        <input type="text" name="" id="" placeholder="Tambahkan Catatan" class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none" value=" {{$ci->note}} " />
                         <div class="flex items-center gap-4 mr-20">
                             <form action="/deleteCart" method="POST">
                                 @csrf
-                                <input type="hidden" name="id_cart_items" id = "id_cart_items" value = "{{$ci->_id}}">
+                                <input type="hidden" name="id_cart_items" id="id_cart_items" value="{{$ci->_id}}">
                                 <button id="btn-remove" onclick="return confirm('apakah anda yakin?')">
                                     <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 512 512">
                                         <path fill="none" d="M296 64h-80a7.91 7.91 0 0 0-8 8v24h96V72a7.91 7.91 0 0 0-8-8Z" />
@@ -48,39 +44,49 @@
                                     </svg>
                                 </button>
                             </form>
-                            <button class="btn-action" id = "mines">
+                            <button class="btn-action" id="mines">
                                 <img src="{{asset('assets/img_index/asset/cart/mines.svg')}}" alt="" />
                             </button>
                             <span class="font-semibold" id="jumlah-barang">{{(isset($ci->qty)) ? $ci->qty : ''}}</span>
-                            <button class="btn-action" id = "plus">
+                            <button class="btn-action" id="plus">
                                 <img src="{{asset('assets/img_index/asset/cart/plus.svg')}}" alt="" />
                             </button>
                         </div>
                     </div>
                 </div>
-                
+
                 @endforeach
                 <!--  -->
             </div>
         </div>
 
         <!-- Right -->
-        <div class="col-span-4">
+        <div class="lg:col-span-4 col-span-12 sm:fixed sm:bottom-0 sm:w-full">
             <div class="grid justify-items-center">
-                <div class="lg:w-[65%] md:w-[100%] h-[100%] border-2 border-[#CCC] rounded-3xl">
-                    <div class="m-7">
-                        <p class="text-[18px] font-semibold">Tinggal Klik Beli</p>
-                        <p class="mt-8 text-[#999] font-medium">Jumlah Produk</p>
-                        <p class="mt-1 font-semibold text-[18px]">
+                <div class="lg:w-[65%] w-full sm:bg-white lg:border-2 sm:border-t-2 border-[#CCC] lg:rounded-3xl">
+                    <div class="lg:m-7 sm:mb-6 sm:flex sm:justify-around sm:items-center">
+                        <p class="text-[18px] font-semibold lg:block hidden">Tinggal Klik Beli</p>
+                        <p class="mt-8 text-[#999] font-medium lg:block hidden">Jumlah Produk</p>
+                        <p class="mt-1 font-semibold text-[18px] lg:block hidden">
                             <span id="jumlah-produk"></span> Produk
                         </p>
-                        <div class="border-t-2 border-solid border-[#E6E6E6] mt-5"></div>
-                        <p class="mt-8 text-[#999] font-medium">Total Harga</p>
-                        <p class="text-[#D10B05] text-[24px] font-semibold">
+                        <div class="border-t-2 border-solid border-[#E6E6E6] mt-5 lg:block hidden"></div>
+                        <p class="lg:mt-8 sm:mt-2 text-[#999] font-medium lg:block hidden">Total Harga</p>
+                        <p class="text-[#D10B05] text-[24px] font-semibold sm:text-[20px] lg:block hidden">
                             Rp<span id="harga-total"></span>
                         </p>
-                        <form action="/checkOut" class="mt-6">
-                            <button class="py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804]">
+                        <ul class="lg:hidden block">
+                            <li>
+                                <p class="mt-2 text-[#999] ">Total Harga</p>
+                            </li>
+                            <li>
+                                <p class="text-[#D10B05] font-semibold text-[20px]">
+                                    Rp<span id="harga-total"></span>
+                                </p>
+                            </li>
+                        </ul>
+                        <form action="/checkOut" class="lg:mt-6 sm:mt-4">
+                            <button class="py-2 lg:px-7 md:px-4 px-16 border-2 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
                                 Beli
                             </button>
                         </form>
@@ -95,8 +101,8 @@
 <div class="border-t-2 border-solid border-[#E6E6E6] mt-40"></div>
 
 <!-- FOOTER -->
-<footer>
-    <div class="w-full mt-12 mb-12">
+<footer class="sm:text-xs">
+    <div class="w-full lg:mt-12 mt-5 mb-12">
         <div class="container px-[53px]">
             <div class="grid grid-cols-12">
                 <div class="lg:col-span-2 md:col-span-6 sm:col-span-6">
@@ -131,7 +137,7 @@
                         <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}" alt="" /></a>
                     </div>
                 </div>
-                <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0">
+                <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0 lg:ml-0 sm:ml-3">
                     <h1 class="font-semibold">Layanan Pelanggan</h1>
                     <div class="mt-5 text-[#999999]">
                         <ul class="list-none">
@@ -238,7 +244,7 @@
                             </li>
                         </ul>
                     </div>
-                    <p class="text-[#B3B3B3] mt-20">
+                    <p class="text-[#B3B3B3] lg:mt-20 my-14">
                         © Butchery 2023. Hak Cipta Dilindungi
                     </p>
                 </div>
@@ -250,88 +256,87 @@
 
 @vite(['resources/js/app.js', 'resources/js/product.js' ,'resources/js/cart.js'])
 <script>
-   
-// Mengambil semua checkbox
-const checkboxes = document.querySelectorAll('.checkbox');
-const plusButtons = document.querySelectorAll('#plus');
-const minesButtons = document.querySelectorAll('#mines');
-const jumlahBarangElements = document.querySelectorAll('#jumlah-barang');
-const hargaElements = document.querySelectorAll('#harga');
+    // Mengambil semua checkbox
+    const checkboxes = document.querySelectorAll('.checkbox');
+    const plusButtons = document.querySelectorAll('#plus');
+    const minesButtons = document.querySelectorAll('#mines');
+    const jumlahBarangElements = document.querySelectorAll('#jumlah-barang');
+    const hargaElements = document.querySelectorAll('#harga');
 
-// Mendengarkan perubahan pada checkbox
-checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-        perbaruiJumlahProduk();
-        perbaruiTotalHarga();
+    // Mendengarkan perubahan pada checkbox
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            perbaruiJumlahProduk();
+            perbaruiTotalHarga();
+        });
     });
-});
 
-// Fungsi untuk menghitung jumlah produk yang dicentang
-function perbaruiJumlahProduk() {
-    const jumlahProduk = document.querySelectorAll('.checkbox:checked').length;
-    document.getElementById("jumlah-produk").textContent = jumlahProduk;
-}
+    // Fungsi untuk menghitung jumlah produk yang dicentang
+    function perbaruiJumlahProduk() {
+        const jumlahProduk = document.querySelectorAll('.checkbox:checked').length;
+        document.getElementById("jumlah-produk").textContent = jumlahProduk;
+    }
 
-plusButtons.forEach((button, index) => {
-    button.addEventListener('click', function () {
-        // Mengambil kuantitas dan harga dari elemen terkait
-        let jumlah = parseInt(jumlahBarangElements[index].textContent);
-        let harga = parseInt(hargaElements[index].textContent);
+    plusButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            // Mengambil kuantitas dan harga dari elemen terkait
+            let jumlah = parseInt(jumlahBarangElements[index].textContent);
+            let harga = parseInt(hargaElements[index].textContent);
 
-        // Menambah satu kuantitas
-        jumlah++;
-        jumlahBarangElements[index].textContent = jumlah;
-
-        // Menghitung harga total dan memperbarui tampilan
-        hargaElements[index].textContent = (harga * jumlah);
-        perbaruiTotalHarga();
-    });
-});
-
-minesButtons.forEach((button, index) => {
-    button.addEventListener('click', function () {
-        // Mengambil kuantitas dan harga dari elemen terkait
-        let jumlah = parseInt(jumlahBarangElements[index].textContent);
-        let harga = parseInt(hargaElements[index].textContent);
-
-        // Mengurangi satu kuantitas jika jumlah lebih dari 1
-        if (jumlah > 1) {
-            jumlah--;
+            // Menambah satu kuantitas
+            jumlah++;
             jumlahBarangElements[index].textContent = jumlah;
 
             // Menghitung harga total dan memperbarui tampilan
             hargaElements[index].textContent = (harga * jumlah);
             perbaruiTotalHarga();
-        }
-    });
-});
-
-// Fungsi untuk menghitung total harga
-function hitungTotalHarga() {
-    let total = 0;
-    // Mengambil semua checkbox yang dicentang
-    const checkedCheckboxes = document.querySelectorAll('.checkbox:checked');
-    
-    checkedCheckboxes.forEach(function (checkbox) {
-        const item = checkbox.closest('.bg-white');
-        const hargaItem = parseInt(item.querySelector("#harga").textContent.replace(/\D/g, ''));
-        total += hargaItem;
+        });
     });
 
-    return total;
-}
+    minesButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            // Mengambil kuantitas dan harga dari elemen terkait
+            let jumlah = parseInt(jumlahBarangElements[index].textContent);
+            let harga = parseInt(hargaElements[index].textContent);
 
-// Fungsi untuk memperbarui tampilan total harga
-function perbaruiTotalHarga() {
-    const totalHarga = hitungTotalHarga();
-    document.getElementById("harga-total").textContent = totalHarga.toLocaleString("id-ID");
-}
+            // Mengurangi satu kuantitas jika jumlah lebih dari 1
+            if (jumlah > 1) {
+                jumlah--;
+                jumlahBarangElements[index].textContent = jumlah;
 
-// Memanggil fungsi perbaruiTotalHarga() saat halaman dimuat
-perbaruiTotalHarga();
+                // Menghitung harga total dan memperbarui tampilan
+                hargaElements[index].textContent = (harga * jumlah);
+                perbaruiTotalHarga();
+            }
+        });
+    });
 
+    // Fungsi untuk menghitung total harga
+    function hitungTotalHarga() {
+        let total = 0;
+        // Mengambil semua checkbox yang dicentang
+        const checkedCheckboxes = document.querySelectorAll('.checkbox:checked');
+
+        checkedCheckboxes.forEach(function(checkbox) {
+            const item = checkbox.closest('.bg-white');
+            const hargaItem = parseInt(item.querySelector("#harga").textContent.replace(/\D/g, ''));
+            total += hargaItem;
+        });
+
+        return total;
+    }
+
+    // Fungsi untuk memperbarui tampilan total harga
+    function perbaruiTotalHarga() {
+        const totalHarga = hitungTotalHarga();
+        document.getElementById("harga-total").textContent = totalHarga.toLocaleString("id-ID");
+    }
+
+    // Memanggil fungsi perbaruiTotalHarga() saat halaman dimuat
+    perbaruiTotalHarga();
 </script>
 
 </body>
+
 </html>
 @endsection
