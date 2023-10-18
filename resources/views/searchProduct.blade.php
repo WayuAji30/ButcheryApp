@@ -781,42 +781,41 @@
                 </a>
             </div>
 
-            <div class="flex justify-center pt-14">
-                <div class="">
-                    <div class="flex items-center gap-5">
-                        <img src="{{asset('assets/img_index/asset/product/pagination_arrow-left.svg')}}" alt="" />
-                        <div class="w-[75%] flex items-center gap-3">
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <span>1</span>
-                            </div>
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#ffffff] bg-[#D10B05]">
-                                <span>2</span>
-                            </div>
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <span>3</span>
-                            </div>
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <span>4</span>
-                            </div>
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <span>5</span>
-                            </div>
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <span>6</span>
-                            </div>
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <span>...</span>
-                            </div>
-                            <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <span>12</span>
-                            </div>
-                        </div>
-                        <img src="{{asset('assets/img_index/asset/product/pagination_arrow-right.svg')}}" alt="" />
+        </div>
+        <div class="flex justify-center items-center pt-14 mx-auto my-auto">
+            <div class="flex items-center lg:gap-5">
+                <img src="{{asset('assets/img_index/asset/product/pagination_arrow-left.svg')}}" alt="" />
+                <div class="flex items-center lg:gap-3 gap-1">
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                        <span>1</span>
+                    </div>
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#ffffff] bg-[#D10B05]">
+                        <span>2</span>
+                    </div>
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                        <span>3</span>
+                    </div>
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                        <span>4</span>
+                    </div>
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                        <span>5</span>
+                    </div>
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                        <span>6</span>
+                    </div>
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                        <span>...</span>
+                    </div>
+                    <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                        <span>12</span>
                     </div>
                 </div>
+                <img src="{{asset('assets/img_index/asset/product/pagination_arrow-right.svg')}}" alt="" />
             </div>
         </div>
     </div>
-    <!-- PRODUCT -->
+</div>
+<!-- PRODUCT -->
 
-    @endsection
+@endsection

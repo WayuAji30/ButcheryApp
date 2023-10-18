@@ -305,10 +305,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         </div>
         <div class="container lg:mt-9 md:mt-5 sm:mt-3 block md:hidden sm:hidden">
             <div class="grid grid-cols-12 mx-auto items-center">
-                <div class="col-span-3 ">
-                    <div
-                        class="bg-[#FA4742] lg:w-full md:w-[100%] h-[336px] rounded-lg text-white lg:pl-9 md:pl-5 pt-12 relative">
-                        <p class="font-semibold lg:text-[25px] md:text-[20px] leading-none">
+                <div class="col-span-3">
+                    <div class="bg-[#FA4742] lg:w-full md:w-[100%] h-[336px] rounded-lg text-white lg:pl-9 md:pl-5 pt-12 relative"
+                        data-aos="fade-right" data-aos-duration="600" data-aos-easing="ease-in-out"
+                        data-aos-once="true">
+                        <p class=" font-semibold lg:text-[25px] md:text-[20px] leading-none">
                             Diskon Gede <br />
                             Tiap Hari
                         </p>
