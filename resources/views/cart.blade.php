@@ -61,10 +61,10 @@
         </div>
 
         <!-- Right -->
-        <div class="lg:col-span-4 col-span-12 sm:fixed sm:bottom-0 sm:w-full">
+        <div class="lg:col-span-4 col-span-12 sm:fixed md:fixed md:bottom-0 sm:bottom-0 md:w-full sm:w-full">
             <div class="grid justify-items-center">
-                <div class="lg:w-[65%] w-full sm:bg-white lg:border-2 sm:border-t-2 border-[#CCC] lg:rounded-3xl">
-                    <div class="lg:m-7 sm:mb-6 sm:flex sm:justify-around sm:items-center">
+                <div class="lg:w-[65%] w-full sm:bg-white md:bg-white lg:border-2 sm:border-t-2 border-[#CCC] lg:rounded-3xl">
+                    <div class="lg:m-7 md:mb-8 md:mt-3 sm:mb-6 sm:flex md:flex md:justify-around md:items-center sm:justify-around sm:items-center">
                         <p class="text-[18px] font-semibold lg:block hidden">Tinggal Klik Beli</p>
                         <p class="mt-8 text-[#999] font-medium lg:block hidden">Jumlah Produk</p>
                         <p class="mt-1 font-semibold text-[18px] lg:block hidden">
@@ -77,7 +77,7 @@
                         </p>
                         <ul class="lg:hidden block">
                             <li>
-                                <p class="mt-2 text-[#999] ">Total Harga</p>
+                                <p class="mt-2 text-[#999]">Total Harga</p>
                             </li>
                             <li>
                                 <p class="text-[#D10B05] font-semibold text-[20px]">
@@ -85,8 +85,8 @@
                                 </p>
                             </li>
                         </ul>
-                        <form action="/checkOut" class="lg:mt-6 sm:mt-4">
-                            <button class="py-2 lg:px-7 md:px-4 px-16 border-2 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                        <form action="/checkOut" class="lg:mt-6 md:mt-5 sm:mt-4">
+                            <button class="py-2 lg:px-7 md:px-20 px-16 border-2 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
                                 Beli
                             </button>
                         </form>
@@ -244,7 +244,7 @@
                             </li>
                         </ul>
                     </div>
-                    <p class="text-[#B3B3B3] lg:mt-20 my-14">
+                    <p class="text-[#B3B3B3] lg:mt-20 md:my-20 my-14">
                         © Butchery 2023. Hak Cipta Dilindungi
                     </p>
                 </div>

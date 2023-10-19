@@ -1,12 +1,16 @@
-@extends('templates.cart-checkout')
+@extends('templates.checkout')
 @section('content')
 
 <!-- CART -->
-<div class="container lg:pt-[201px] md:pt-32">
+<div class="container lg:pt-[201px] md:pt-20 sm:pt-5">
     <div class="grid grid-cols-12">
         <div class="lg:col-span-8 col-span-12 sm:text-sm sm:px-3">
             <div class="lg:ml-24 md:ml-10">
-                <button class="text-[#D10B05] text-[20px] pb-4 px-12 border-b-4 border-[#D10B05] font-medium cursor-default">
+                <a href="/cart" class="flex items-center gap-3 text-lg font-semibold hidden sm:block"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024">
+                        <path fill="#999" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" />
+                        <path fill="#999" d="m237.248 512l265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z" />
+                    </svg> Keranjang</a>
+                <button class="text-[#D10B05] text-[20px] pb-4 md:pb-2 px-12 md:border-b-2 border-b-4 border-[#D10B05] font-medium cursor-default sm:hidden">
                     Checkout
                 </button>
             </div>
@@ -162,7 +166,7 @@
         <div class="lg:col-span-4 col-span-12 lg:mt-0 md:mt-10 mt-10">
             <div class="grid justify-items-center">
                 <div class="lg:w-[75%] md:w-[80%] w-full lg:border-2 border-t-2 border-[#CCC] lg:rounded-3xl">
-                    <div class="lg:m-7 sm:mx-4 sm:mb-4">
+                    <div class="lg:m-7 md:mb-10 sm:mx-4 sm:mb-4">
                         <div class="collapse collapse-arrow lg:hidden">
                             <input type="checkbox" />
                             <div class="collapse-title text-xl font-medium">
@@ -184,15 +188,15 @@
                             </div>
                         </div>
                         <p class="text-[18px] font-semibold lg:block hidden">Rincian Belanjaan</p>
-                        <div class="flex items-center mt-5 justify-between sm:hidden">
+                        <div class="flex items-center mt-5 justify-between md:hidden sm:hidden">
                             <p class="">Total Harga (1 Produk)</p>
                             <p>Rp<span id="harga-barang">169.500</span></p>
                         </div>
-                        <div class="flex items-center mt-2 justify-between sm:hidden">
+                        <div class="flex items-center mt-2 justify-between md:hidden sm:hidden">
                             <p class="">Total Ongkos Kirim</p>
                             <p>Rp<span id="ongkir">9.900</span></p>
                         </div>
-                        <div class="flex items-center mt-2 justify-between sm:hidden">
+                        <div class="flex items-center mt-2 justify-between md:hidden sm:hidden">
                             <p class="">Biaya Layanan Aplikasi</p>
                             <p>Rp<span id="layanan">1.000</span></p>
                         </div>
