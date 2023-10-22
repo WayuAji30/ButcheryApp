@@ -62,12 +62,12 @@ class MitraController extends Controller
         $image3 = $request->file('foto3');
         $image3->storeAs('img_uploaded', $image3->hashName(), 'public');
 
-        $user_id = $request->input('user_id');
+        $supplier_id = $request->input('supplier_id');
         
-        $data_supplier = SuppliersModel::where('user_id',$user_id)->first();
+        $data_supplier = SuppliersModel::where('_id',$supplier_id)->first();
 
-        $kecamatan = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/district/'.$data_supplier['alamat'][0]['kecamatan'].'.json');
-        $response3 = $kecamatan->json();
+        $provinsi = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/province/'.$data_supplier['alamat'][0]['provinsi'].'.json');
+        $response = $provinsi->json();
 
         $nama_produk = $request->input('nama_produk');
         $kategori = $request->input('kategori');
@@ -80,11 +80,11 @@ class MitraController extends Controller
         $stok2 = $request->input('varian.stok2');
 
         MitraProdukModel::create([
-            'user_id' => $user_id,
+            'supplier_id' => $supplier_id,
             'nama_toko' => $data_supplier->nama_toko,
             'alamat_toko' => [
-                'id_alamat' => $response3['id'],
-                'alamat' => $response3['name']      
+                'id_alamat' => $response['id'],
+                'alamat' => $response['name']      
             ],
             'foto' =>[
                 'foto1'=>$image->hashName(),

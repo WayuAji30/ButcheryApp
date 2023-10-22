@@ -23,17 +23,20 @@
                         </svg>
                         <p class="font-semibold text-[18px]">Produk Pesanan</p>
                     </div>
+                    @foreach ($data_produk as $index => $dp)
+                    <input type="hidden" name="" id = "jumlah_produk" value = "">
+                    <input type="hidden" name="" id = "subtotal" value = "{{$dp->harga_total}}">
                     <div class="flex items-center mt-3">
-                        <img src="{{asset('assets/img_index/asset/cart/produk.png')}}" alt="" class="rounded-md" />
+                        <img src="{{asset('storage/img_uploaded/'. $dp->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
-                                Daging US Beef Slice Premium <br />
-                                Quality -
-                                <span class="text-[#D10B05] font-semibold">1kg</span>
+                                {{$dp->nama_produk}}<br />
+                                <span class="text-[#D10B05] font-semibold">{{$dp->varian}}</span>
                             </li>
-                            <li class="font-semibold mt-4">Rp<span>169.500</span></li>
+                            <li class="font-semibold mt-4">Rp<span>{{$dp->harga}}</span></li>
                         </ul>
                     </div>
+                    @endforeach
                     <div class="mt-10"></div>
                 </div>
                 <!-- Alamat -->
@@ -51,12 +54,10 @@
                     </div>
                     <div class="mt-3">
                         <p id="alamat-user">
-                            Perumahan Satoru Residance, Jl Srimahi 39, Blok E4 No. 13,
-                            <br />
-                            RT 09 RW 02 Jawa Barat, Jawa Barat, Bandung
+                            {{$data_user['alamat'][0]['alamat']}}
                         </p>
                         <p class="font-semibold mt-4" id="phone-user">
-                            (+62)876526765142
+                            {{$data_user['no_hp']}}
                         </p>
                     </div>
                     <div class="mt-10"></div>
@@ -128,9 +129,9 @@
                         <p class="font-semibold text-[18px]">Opsi Pengiriman</p>
                     </div>
                     <div class="mt-3">
-                        <button class="pl-5 py-2 border-l-4 border-[#D10B05]">
+                        <button id="motor" class="pl-5 py-2 border-l-4 border-[#D10B05]">
                             <div class="flex items-center sm:justify-between font-semibold gap-12">
-                                <p class="text-[20px] sm:text-[18px]">Motor (1-2)</p>
+                                <p id="motor_j" class="text-[20px] sm:text-[18px]">Motor</p>
                                 <p class="text-[18px] sm:text-[18px] text-[#D10B05]">
                                     Rp<span>9.900</span>
                                 </p>
@@ -142,9 +143,9 @@
                             <p class="text-start mt-3 text-[#ff4444] hidden">* Tidak memenuhi minimum pemesanan</p>
                             </p>
                         </button>
-                        <button class="pl-5 py-2 border-l-4 border-[#ccc] mt-4">
+                        <button id="mobil" class="pl-5 py-2 border-l-4 border-[#ccc] mt-4">
                             <div class="flex items-center sm:justify-between font-semibold gap-12">
-                                <p class="text-[20px] sm:text-[18px] text-[#999]">Mobil Box (3-5 Hari)</p>
+                                <p id="mobil_j" class="text-[20px] sm:text-[18px] text-[#999]">Mobil Box</p>
                                 <p class="text-[18px] sm:text-[18px] text-[#D10B05]">
                                     Rp<span>18.900</span>
                                 </p>
@@ -154,7 +155,6 @@
                                 <br class="lg:block sm:hidden" />
                                 pengiriman antar kota dan pembelian dalam jumlah tertentu.
                             </p>
-                            <p class="text-start mt-3 text-[#ff4444] ">* Tidak memenuhi minimum pemesanan</p>
                         </button>
                     </div>
                     <div class=""></div>
@@ -167,44 +167,32 @@
             <div class="grid justify-items-center">
                 <div class="lg:w-[75%] md:w-[80%] w-full lg:border-2 border-t-2 border-[#CCC] lg:rounded-3xl">
                     <div class="lg:m-7 md:mb-10 sm:mx-4 sm:mb-4">
-                        <div class="collapse collapse-arrow lg:hidden">
-                            <input type="checkbox" />
-                            <div class="collapse-title text-xl font-medium">
-                                <p class="text-[16px] font-semibold">Rincian Belanjaan</p>
-                            </div>
-                            <div class="collapse-content text-sm">
-                                <div class="flex items-center justify-between">
-                                    <p class="">Total Harga (1 Produk)</p>
-                                    <p>Rp<span id="harga-barang">169.500</span></p>
-                                </div>
-                                <div class="flex items-center mt-2 justify-between">
-                                    <p class="">Total Ongkos Kirim</p>
-                                    <p>Rp<span id="ongkir">9.900</span></p>
-                                </div>
-                                <div class="flex items-center mt-2 justify-between">
-                                    <p class="">Biaya Layanan Aplikasi</p>
-                                    <p>Rp<span id="layanan">1.000</span></p>
-                                </div>
-                            </div>
-                        </div>
                         <p class="text-[18px] font-semibold lg:block hidden">Rincian Belanjaan</p>
                         <div class="flex items-center mt-5 justify-between md:hidden sm:hidden">
-                            <p class="">Total Harga (1 Produk)</p>
-                            <p>Rp<span id="harga-barang">169.500</span></p>
+                            <p class="">Total Harga (0 Produk)</p>
+                            <p>Rp<span id="harga-barang"></span></p>
                         </div>
                         <div class="flex items-center mt-2 justify-between md:hidden sm:hidden">
-                            <p class="">Total Ongkos Kirim</p>
-                            <p>Rp<span id="ongkir">9.900</span></p>
+                            <p class="">Total Ongkos Kirim (Promo)</p>
+                            <p>Rp<span id="ongkir">10.000</span></p>
                         </div>
                         <div class="flex items-center mt-2 justify-between md:hidden sm:hidden">
                             <p class="">Biaya Layanan Aplikasi</p>
                             <p>Rp<span id="layanan">1.000</span></p>
                         </div>
+                        <div class="flex items-center mt-2 justify-between md:hidden sm:hidden">
+                            <p class="">Biaya Asuransi</p>
+                            <p>Rp<span id="asuransi">1.000</span></p>
+                        </div>
+                        <div class="flex items-center mt-2 justify-between md:hidden sm:hidden">
+                            <p class="">Biaya Tambahan</p>
+                            <p>Rp<span id="tambahan">1.000</span></p>
+                        </div>
                         <div class="border-t-2 border-solid border-[#E6E6E6] lg:mt-5 mt-0"></div>
                         <div class="flex items-center justify-between lg:mt-8 mt-3 sm:text-[14px]">
                             <p class="text-[#999] font-medium">Total Belanja</p>
                             <p class="lg:text-[24px] text-[18px] font-semibold">
-                                Rp<span id="harga-total">185.000</span>
+                                Rp<span id="harga-total"></span>
                             </p>
                         </div>
                         <form action="" class="lg:mt-6 mt-3">
@@ -221,5 +209,5 @@
 <!-- CART -->
 <div class="lg:mt-20 sm:mt-5"></div>
 
-@vite('resources/js/app.js')
+@vite(['resources/js/app.js', 'resources/js/checkout.js'])
 @endsection

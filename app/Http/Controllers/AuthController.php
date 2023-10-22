@@ -50,6 +50,10 @@ class AuthController extends Controller
 
         if($idn){
             if(Hash::check($password, $idn->password)){
+                if($idn->role == 'supplier'){
+                    $supplier = SuppliersModel::where('email', $idn->email)->orWhere('no_hp', $idn->no_hp)->first();
+                    session(['login' => true,'id_user' => $idn->_id, 'id_supplier' => $supplier->_id ,'provinsi_id' => $idn['alamat'][0]['provinsi'], 'kota_id' => $idn['alamat'][0]['kota/kab'], 'kecamatan_id' => $idn['alamat'][0]['kecamatan']]);
+                }
                 session(['login' => true,'id_user' => $idn->_id, 'provinsi_id' => $idn['alamat'][0]['provinsi'], 'kota_id' => $idn['alamat'][0]['kota/kab'], 'kecamatan_id' => $idn['alamat'][0]['kecamatan']]);
                 return redirect()->to('/');
             }else{
@@ -337,10 +341,11 @@ class AuthController extends Controller
     public function getSession(Request $request){
         $registrationData = $request->session()->get('registration_data');
         $idData = $request->session()->get('id_user');
+        $idSup = $request->session()->get('id_supplier');
         $prov = $request->session()->get('provinsi_id');
         $kota = $request->session()->get('kota_id');
         $kecamatan = $request->session()->get('kecamatan_id');
-        var_dump([$registrationData,$idData,$prov,$kota,$kecamatan]);
+        var_dump([$registrationData,$idData,$idSup,$prov,$kota,$kecamatan]);
     }
 
     public function logout(){
