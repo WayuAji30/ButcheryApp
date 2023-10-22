@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class MitraProdukModel extends Model
+class CheckOutModel extends Model
 {
     use HasFactory;
 
     protected $connection = 'mongodb';
-    protected $collection = 'tbl_produk';
+    protected $collection = 'tbl_checkout';
     
     /**
      * fillable
@@ -18,16 +18,15 @@ class MitraProdukModel extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
+        'produk_id',
         'supplier_id',
-        'nama_toko',
-        'alamat_toko',
-        'foto', 
+        'foto',
         'nama_produk',
-        'id_kategori',
-        'deskripsi', 
         'varian',
-        'rating',
-        'reviews'
+        'harga',
+        'qty',
+        'harga_total',
+        'note'
     ];
-    
 }

@@ -15,7 +15,7 @@
                     <button
                         class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
                         onclick="changeProduct('{{$detail_produk['foto']['foto1']}}')">
-                        <img src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto1'])}}" alt="" class="w-[61px] rounded-md" id="foto1  "/>
+                        <img src="{{asset('storage/img_uploaded/'.$detail_produk['foto']['foto1'])}}" alt="" class="w-[61px] rounded-md" id="foto1"/>
                     </button>
                     <button
                         class="border-4 border-white rounded-lg focus:border-[#d10b05] transition-all duration-500 ease-in-out"
@@ -36,7 +36,7 @@
                         <img src="{{asset('assets/img_index/asset/product/profile.svg')}}" alt="" class="" />
                         <div class="ml-4">
                             <h1 class="font-semibold">{{$detail_produk->nama_toko}}</h1>
-                            <p class="text-[#999999]">{{$detail_produk->alamat_toko}}</p>
+                            <p class="text-[#999999]">{{$detail_produk['alamat_toko']['alamat']}}</p>
                         </div>
                     </div>
                     <div class="flex pl-16 mt-6 gap-4">
@@ -75,7 +75,7 @@
 
             <!-- Center -->
             <div class="lg:col-span-4 md:col-span-6 lg:mt-0 md:mt-5">
-                <input type="hidden" name="id" id="id_produk" value = "{{$detail_produk->_id}}">
+                <input type="hidden" name="foto_produk" id="foto_produk" value = "{{$detail_produk['foto']['foto1']}}">
                 <h1 class="font-medium text-[24px]" id = "nama_produk">{{$detail_produk->nama_produk}}</h1>
                 <div class="flex">
                     <p>4.7</p>
@@ -109,7 +109,7 @@
                         <img src="{{asset('assets/img_index/asset/product/profile.svg')}}" alt="" class="" />
                         <div class="ml-4">
                             <h1 class="font-semibold">{{$detail_produk->nama_toko}}</h1>
-                            <p class="text-[#999999]">{{$detail_produk->alamat_toko}}</p>
+                            <p class="text-[#999999]">{{$detail_produk['alamat_toko']['alamat']}}</p>
                         </div>
                     </div>
                     <div class="flex mt-6 gap-4">
@@ -150,19 +150,20 @@
                         <p class="flex">
                             <img class="pr-3" src="{{asset('assets/img_index/asset/product/ion_location-sharp.svg')}}"
                                 alt="" />Dikirim dari
-                            <span class="font-semibold pl-1">{{$detail_produk->alamat_toko}}</span>
+                            <span class="font-semibold pl-1" id = "asal">{{$detail_produk['alamat_toko']['alamat']}}</span>
                         </p>
                         <p class="flex mt-4">
                             <img class="pr-3" src="{{asset('assets/img_index/asset/product/mdi_courier-fast.svg')}}"
                                 alt="" />Pengiriman ke
 
-                            <select name="" id="" class="font-medium">
-                                <option value="">Bogor Utara</option>
-                                <option value="">Kota Bogor</option>
-                                <option value="">Cibinong</option>
+                            <select name="kota/kab" id="kota" class="font-medium">
+                                <option value="">Pilih Lokasi Pengiriman</option>
+                                @foreach($kota['kota_indonesia'] as $kota_kab)
+                                 <option value="{{ $kota_kab }}">{{ $kota_kab }}</option>
+                                @endforeach
                             </select>
                         </p>
-                        <p class="ml-8">Ongkos kirim : Rp0 - Rp13.000</p>
+                        <p class="ml-8" id = "ongkir"></p>
                         <p class="mt-5">
                             Butchery dapat melakukan pengiriman antar kota <br />
                             dengan mobil box berpendingin untuk menjaga <br />
@@ -230,7 +231,9 @@
                                     <a
                                         href = "javascript:void(0);"
                                         id = "addToCart"
-                                        data-id = "{{session('id_user')}}"
+                                        data-id_user = "{{session('id_user')}}"
+                                        data-id_produk = "{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
+                                        data-id_supplier = "{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
                                         class="py-2 lg:px-5 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
                                         + Keranjang
                                     </a>

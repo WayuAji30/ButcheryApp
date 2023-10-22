@@ -112,7 +112,7 @@
             <input type="hidden" name="old_foto2" value="{{$produk['foto']['foto2']}}" />
             <input type="hidden" name="old_foto3" value="{{$produk['foto']['foto3']}}" />
             @else
-            <input type="hidden" name="user_id" value="{{session('id_user')}}" />
+            <input type="hidden" name="supplier_id" value="{{session('id_supplier')}}" />
             @endif
 
             <div class="flex ml-11 mt-10 gap-10 items-center">

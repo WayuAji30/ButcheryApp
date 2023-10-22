@@ -13,7 +13,7 @@ class CartModel extends Model
     protected $collection = 'tbl_cart';
 
     protected $fillable = [
-        'user_id', 'nama_produk','varian','harga','subtotal','qty','note'
+        'user_id', 'produk_id','supplier_id','foto','nama_produk','varian','harga','subtotal','qty','note'
     ];
 
 }
