@@ -293,12 +293,12 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     :
                     <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 rounded-lg sm:rounded-sm font-semibold sm:font-normal sm:text-xs countdown-number"
                         id="minute">
-                        00
+                        41
                     </p>
                     :
                     <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 rounded-lg sm:rounded-sm font-semibold sm:font-normal sm:text-xs countdown-number"
                         id="second">
-                        00
+                        29
                     </p>
                 </div>
             </div>
@@ -566,7 +566,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 </div>
             </div>
             <swiper-container class="mySwiper mt-6 mb-6" navigation="true" pagination="false" keyboard="true"
-                mousewheel="true" css-mode="true">
+                mousewheel="true" css-mode="true" loop="true">
                 <swiper-slide>
                     <div class="flex mx-16 gap-8">
                         <!-- 1 -->

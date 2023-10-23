@@ -79,12 +79,5 @@ function startCountdown(targetHour) {
 }
 
 window.onload = function () {
-    let now = new Date();
-    let currentHour = now.getHours();
-
-    if (currentHour >= 0 && currentHour < 12) {
-        startCountdown(12); // Countdown dari 00:00 sampai 12:00 siang
-    } else {
-        startCountdown(0); // Countdown dari 12:00 siang sampai 00:00
-    }
+    startCountdown(24); // Countdown dari saat ini hingga 24:00
 };

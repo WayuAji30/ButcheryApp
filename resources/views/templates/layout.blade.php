@@ -120,7 +120,7 @@ $user = KonsumensModel::find(session('id_user'));
                             Jadi Mitra
                         </a>
                         @endif
-                        <a href="" class="text-white flex"><img
+                        <a href="/checkout_payment" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
                         <a href="" class="text-white flex"><img
@@ -163,7 +163,8 @@ $user = KonsumensModel::find(session('id_user'));
                             </svg>
                         </div>
                     </a>
-                    <a href="" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    <a href="/notification"
+                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
                             <div
                                 class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
