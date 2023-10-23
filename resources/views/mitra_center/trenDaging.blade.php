@@ -126,7 +126,7 @@
         <div class="mt-8 bg-white w-[62%] rounded-lg h-96 shadow-md" data-aos="zoom-in-up" data-aos-easing="ease-in-out"
             data-aos-anchor-placement="top-bottom">
             <p class="mt-4">
-                <a href="" class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Grafik Minat Daging
+                <a class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Grafik Minat Daging
                     Bulan Lalu</a>
             </p>
             <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
@@ -139,7 +139,7 @@
         <div class="mt-8 bg-white w-[30%] rounded-r-lg h-96 shadow-md" data-aos="zoom-in-up"
             data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="mt-4">
-                <a href="" class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Top 5 Daging Bulan
+                <a class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Top 5 Daging Bulan
                     Lalu</a>
             </p>
             <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>

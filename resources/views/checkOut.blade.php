@@ -54,7 +54,78 @@
                             <p class="font-semibold text-[18px]">Alamat Pengiriman</p>
                         </div>
                         <form action="">
-                            <button class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</button>
+                            <!-- <button class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</button> -->
+                            <!-- The button to open modal -->
+                            <label for="my_modal_7"
+                                class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</label>
+
+                            <!-- Put this part before </body> tag -->
+                            <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+                            <div class="modal">
+                                <div class="modal-box">
+                                    <p class="font-semibold text-[20px] text-center">Alamat Pengiriman</p>
+                                    <div class="flex items-center gap-5 mt-2">
+                                        <input type="radio" id="alamat1">
+                                        <label for="alamat1">
+                                            <p id="alamat-user">
+                                                {{$data_user['alamat'][0]['alamat']}}
+                                            </p>
+                                            <p class="font-semibold mt-1" id="phone-user">
+                                                {{$data_user['no_hp']}}
+                                            </p>
+                                        </label>
+                                    </div>
+                                    <!-- <div class="border-t-2 border-[#ccc] mt-4"></div> -->
+                                    <div class="collapse collapse-plus bg-slate-100 mt-4">
+                                        <input type="checkbox" />
+                                        <div class="collapse-title font-medium">
+                                            Tambah Alamat
+                                        </div>
+                                        <div class="collapse-content">
+                                            <form action="">
+                                                <p class="text-[#787878] text-start sm:text-xs">
+                                                    Provinsi
+                                                </p>
+                                                <select name="provinsi" id="provinsi"
+                                                    class="lg:pl-5 sm:pl-2 lg:py-3 sm:py-2 sm:text-xs border-solid border-2 mt-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
+                                                    <option value="">Pilih Provinsi</option>
+                                                </select>
+                                                <br>
+                                                <div class="lg:flex lg:mt-4 sm:mt-2 justify-center gap-6 mb-5">
+                                                    <div class="flex-col text-start sm:text-xs">
+                                                        <label for="kota" class="text-[#787878]">Kota</label> <br>
+                                                        <select name="kota" id="kota"
+                                                            class="lg:pl-5 sm:pl-2 lg:py-3 sm:py-2 lg:mt-3 sm:mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] sm:w-[90%] focus:outline-[#D10B05]">
+                                                            <option value="">Pilih Kota</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="flex-col text-start sm:text-xs sm:mt-3">
+                                                        <label for="kecamatan" class="text-[#787878]">Kecamatan</label>
+                                                        <br>
+                                                        <select name="kecamatan" id="kecamatan"
+                                                            class="lg:pl-5 sm:pl-2 lg:py-3 sm:py-2 lg:mt-3 sm:mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] sm:w-[90%] focus:outline-[#D10B05]">
+                                                            <option value="">Pilih Kecamatan</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <p class="text-[#787878] text-start sm:text-xs">Alamat
+                                                    Detail</p>
+                                                <textarea
+                                                    class="peer block min-h-[auto] sm:text-xs mx-auto my-auto w-full mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
+                                                    id="alamat" name="alamat" rows="4"></textarea>
+
+                                                <div class="flex justify-end">
+                                                    <button type="submit"
+                                                        class="text-white sm:text-xs bg-[#D10B05] lg:py-2 sm:py-1 lg:px-10 md:px-36 sm:px-20 rounded-lg font-semibold  hover:bg-[#9F0804] transition-all duration-200 ease-linear">
+                                                        Tambah
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="modal-backdrop" for="my_modal_7">Close</label>
+                            </div>
                         </form>
                     </div>
                     <div class="mt-3">
