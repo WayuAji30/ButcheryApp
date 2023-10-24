@@ -15,12 +15,13 @@
                 @foreach ($cart_items as $ci )
                 <div class="w-[100%] bg-white border-b-4 border-[#e6e6e6] mt-11 cart-item">
                     <div class="flex items-center">
-                        <input type="checkbox" checked="checked" class="harga-item checkbox checkbox-error mr-6" data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}" data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}"/>
+                        <input type="checkbox" checked="checked" class="harga-item checkbox checkbox-error mr-6" data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}" data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}" />
                         <img src="{{asset('storage/img_uploaded/' . $ci->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
-                                <span id ="nama_produk">{{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}}</span> <br />
-                                <span class="text-[#D10B05] font-semibold" id = "varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span>
+                                <span id="nama_produk">{{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}}</span>
+                                <br />
+                                <span class="text-[#D10B05] font-semibold" id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span><span class="font-semibold ml-3">X2</span>
                             </li>
                             <li class="font-semibold mt-4">
                                 Rp<span id="harga">{{(isset($ci->harga)) ? $ci->harga : ''}}</span>
@@ -84,13 +85,8 @@
                                 </p>
                             </li>
                         </ul>
-              
-                        <button 
-                        id = "btn-beli"
-                        data-id_user = "{{(isset($ci->user_id)) ? $ci->user_id : ''}}"
-                        data-id_supplier = "{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}"
-                        data-id_produk = "{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}"
-                        class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+
+                        <button id="btn-beli" data-id_user="{{(isset($ci->user_id)) ? $ci->user_id : ''}}" data-id_supplier="{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}" data-id_produk="{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}" class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
                             Beli
                         </button>
                     </div>
