@@ -8,20 +8,21 @@
             <div class="lg:ml-24 md:ml-10 mt-8">
                 <img src="{{asset('assets/img_index/asset/checkout/bca.svg')}}" alt="">
                 <div class="border-t-4 border-slate-100 mt-7"></div>
-                <p class="font-semibold text-[18px] mt-11">Kode Pembayaran</p>
-                <button class="text-[#d10b05] text-[36px] font-medium mt-2" id="norek">342546577455</button>
+                <p class="font-semibold text-[18px] sm:text-sm lg:mt-11 sm:mt-5">Kode Pembayaran</p>
+                <button class="text-[#d10b05] text-[36px] sm:text-[25px] font-medium mt-2"
+                    id="norek">342546577455</button>
                 <div class="flex items-center mt-9">
-                    <p class="text-[#999]">Lakukan Pembayaran Sebelum</p>
-                    <span class="countdown px-2  flex items-center font-semibold gap-1">
+                    <p class="text-[#999] sm:text-xs">Lakukan Pembayaran Sebelum</p>
+                    <span class="countdown px-2  flex items-center font-semibold gap-1 sm:text-xs">
                         <span style="--value:00;" class=""></span>:
                         <span style="--value:00;" class=""></span>:
                         <span style="--value:00;" class=""></span>
                     </span>
                 </div>
                 <div class="border-t-4 border-slate-100 mt-7"></div>
-                <p class="font-semibold text-[18px] mt-11">Petunjuk Pembayaran</p>
+                <p class="font-semibold text-[18px] lg:mt-11 sm:mt-5 sm:text-xs">Petunjuk Pembayaran</p>
                 <div class="text-[#999]">
-                    <ul>
+                    <ul class="sm:text-xs">
                         <li class="mt-4">1. Masukkan kartu ATM, lalu PIN.</li>
                         <li class="mt-2">2. Pilih menu “Transaksi Lainnya” – 'Transfer” – “Ke Rek BCA Virtual Account”
                         </li>
@@ -97,14 +98,17 @@
                         </div>
                         <form action="" class="lg:mt-6 mt-3">
                             <!-- The button to open modal -->
-                            <label for="my_modal_7" class="btn py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">Bayar</label>
+                            <label for="my_modal_7"
+                                class="btn lg:py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">Bayar</label>
 
                             <!-- Put this part before </body> tag -->
                             <input type="checkbox" id="my_modal_7" class="modal-toggle" />
                             <div class="modal">
                                 <div class="modal-box text-center">
-                                    <img src="{{asset('assets/img_index/asset/checkout/paymentSuccess.svg')}}" alt="" class="mx-auto my-auto mt-5">
-                                    <p class="py-4 text-[36px] font-semibold">Pembayaran Berhasil</p>
+                                    <img src="{{asset('assets/img_index/asset/checkout/paymentSuccess.svg')}}" alt=""
+                                        class="mx-auto my-auto mt-5 sm:w-20">
+                                    <p class="py-4 lg:text-[36px] md:text-[30px] sm:text-[20px] font-semibold">
+                                        Pembayaran Berhasil</p>
                                 </div>
                                 <label class="modal-backdrop" for="my_modal_7">Close</label>
                             </div>
@@ -119,20 +123,20 @@
 <div class="lg:mt-20 sm:mt-5"></div>
 
 <script>
-    document.getElementById('norek').addEventListener('click', function() {
-        var teks = this.innerText;
-        copyToClipboard(teks);
-    });
+document.getElementById('norek').addEventListener('click', function() {
+    var teks = this.innerText;
+    copyToClipboard(teks);
+});
 
-    function copyToClipboard(text) {
-        var tempInput = document.createElement("input");
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-        alert("Teks berhasil disalin: " + text);
-    }
+function copyToClipboard(text) {
+    var tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("Teks berhasil disalin: " + text);
+}
 </script>
 
 @vite(['resources/js/app.js', 'resources/js/checkout.js', 'resources/js/time.js'])

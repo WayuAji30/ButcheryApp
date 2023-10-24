@@ -50,10 +50,10 @@ $user = KonsumensModel::find(session('id_user'));
             </div>
         </div>
 
-        <div class="bg-white drop-shadow-md lg:block hidden">
+        <div class="bg-white drop-shadow-md sm:hidden">
             <div class="lg:pt-6 lg:pb-7 py-2 items-center justify-between flex lg:px-10 px-2 lg:mr-5">
                 <div class="flex items-center">
-                    <button class="" onclick="my_modal_2.showModal()"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}" alt="LogoButchery" class="mr-5 lg:block hidden" /></button>
+                    <button class="" onclick="my_modal_2.showModal()"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}" alt="LogoButchery" class="mr-5 sm:hidden" /></button>
                     <dialog id="my_modal_2" class="modal">
                         <div class="modal-box text-center">
                             <h1 class="font-semibold text-[26px]">Kembali Ke Keranjang?</h1>

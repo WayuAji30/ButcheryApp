@@ -2,26 +2,32 @@
 @section('content')
 
 <!-- CART -->
-<div class="container lg:pt-[201px] pt-16">
+<div class="container lg:pt-[201px] md:pt-20 pt-16">
     <div class="grid grid-cols-12">
         <div class="lg:col-span-8 col-span-12">
             <div class="lg:ml-24 ml-5">
-                <button class="text-[#D10B05] text-[20px] lg:pb-4 pb-1 lg:px-12 px-5 lg:border-b-4 border-b-2 border-[#D10B05] font-medium cursor-default sm:text-[16px]">
+                <button
+                    class="text-[#D10B05] text-[20px] lg:pb-4 pb-1 lg:px-12 px-5 lg:border-b-4 border-b-2 border-[#D10B05] font-medium cursor-default sm:text-[16px]">
                     Keranjang
                 </button>
             </div>
-            <div class="ml-24">
+            <div class="lg:ml-24 md:ml-5 sm:mx-2">
                 <!--  -->
                 @foreach ($cart_items as $ci )
-                <div class="w-[100%] bg-white border-b-4 border-[#e6e6e6] mt-11 cart-item">
+                <div class="w-[100%] md:w-[95%] bg-white border-b-4 border-[#e6e6e6] mt-11 cart-item">
                     <div class="flex items-center">
-                        <input type="checkbox" checked="checked" class="harga-item checkbox checkbox-error mr-6" data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}" data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}" />
+                        <input type="checkbox" checked="checked" class="harga-item checkbox checkbox-error mr-6"
+                            data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}"
+                            data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}" />
                         <img src="{{asset('storage/img_uploaded/' . $ci->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
-                                <span id="nama_produk">{{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}}</span>
+                                <span id="nama_produk"
+                                    class="sm:text-sm">{{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}}</span>
                                 <br />
-                                <span class="text-[#D10B05] font-semibold" id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span><span class="font-semibold ml-3">X2</span>
+                                <span class="text-[#D10B05] font-semibold sm:text-sm"
+                                    id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span><span
+                                    class="font-semibold ml-3 sm:text-sm">X2</span>
                             </li>
                             <li class="font-semibold mt-4">
                                 Rp<span id="harga">{{(isset($ci->harga)) ? $ci->harga : ''}}</span>
@@ -31,24 +37,30 @@
                     </div>
 
                     <div class="my-10 flex justify-between items-center">
-                        <input type="text" name="note" id="note" placeholder="Tambahkan Catatan" class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none" value="{{$ci->note}}" />
-                        <div class="flex items-center gap-4 mr-20">
+                        <input type="text" name="note" id="note" placeholder="Tambahkan Catatan"
+                            class="border-b-2 border-[#e6e6e6] w-[40%] pr-4 ml-12 focus:border-[#D10B05] focus:outline-none sm:text-sm"
+                            value="{{$ci->note}}" />
+                        <div class="flex items-center lg:gap-4 mr-20">
                             <form action="/deleteCart" method="POST">
                                 @csrf
                                 <input type="hidden" name="id_cart_items" id="id_cart_items" value="{{$ci->_id}}">
                                 <input type="hidden" name="foto_cart_items" id="foto_cart_items" value="{{$ci->foto}}">
                                 <button id="btn-remove" onclick="return confirm('apakah anda yakin?')">
-                                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 512 512">
-                                        <path fill="none" d="M296 64h-80a7.91 7.91 0 0 0-8 8v24h96V72a7.91 7.91 0 0 0-8-8Z" />
-                                        <path fill="#b3b3b3" d="M432 96h-96V72a40 40 0 0 0-40-40h-80a40 40 0 0 0-40 40v24H80a16 16 0 0 0 0 32h17l19 304.92c1.42 26.85 22 47.08 48 47.08h184c26.13 0 46.3-19.78 48-47l19-305h17a16 16 0 0 0 0-32ZM192.57 416H192a16 16 0 0 1-16-15.43l-8-224a16 16 0 1 1 32-1.14l8 224A16 16 0 0 1 192.57 416ZM272 400a16 16 0 0 1-32 0V176a16 16 0 0 1 32 0Zm32-304h-96V72a7.91 7.91 0 0 1 8-8h80a7.91 7.91 0 0 1 8 8Zm32 304.57A16 16 0 0 1 320 416h-.58A16 16 0 0 1 304 399.43l8-224a16 16 0 1 1 32 1.14Z" />
+                                    <svg class="lg:mr-2 sm:ml-2 sm:w-5" xmlns="http://www.w3.org/2000/svg" width="25"
+                                        height="25" viewBox="0 0 512 512">
+                                        <path fill="none"
+                                            d="M296 64h-80a7.91 7.91 0 0 0-8 8v24h96V72a7.91 7.91 0 0 0-8-8Z" />
+                                        <path fill="#b3b3b3"
+                                            d="M432 96h-96V72a40 40 0 0 0-40-40h-80a40 40 0 0 0-40 40v24H80a16 16 0 0 0 0 32h17l19 304.92c1.42 26.85 22 47.08 48 47.08h184c26.13 0 46.3-19.78 48-47l19-305h17a16 16 0 0 0 0-32ZM192.57 416H192a16 16 0 0 1-16-15.43l-8-224a16 16 0 1 1 32-1.14l8 224A16 16 0 0 1 192.57 416ZM272 400a16 16 0 0 1-32 0V176a16 16 0 0 1 32 0Zm32-304h-96V72a7.91 7.91 0 0 1 8-8h80a7.91 7.91 0 0 1 8 8Zm32 304.57A16 16 0 0 1 320 416h-.58A16 16 0 0 1 304 399.43l8-224a16 16 0 1 1 32 1.14Z" />
                                     </svg>
                                 </button>
                             </form>
-                            <button class="btn-action" id="mines">
+                            <button class="btn-action sm:w-8 sm:ml-5" id="mines">
                                 <img src="{{asset('assets/img_index/asset/cart/mines.svg')}}" alt="" />
                             </button>
-                            <span class="font-semibold" id="jumlah-barang" data-harga="{{ (isset($ci->harga)) ? $ci->harga * $ci->qty : 0 }}">{{(isset($ci->qty)) ? $ci->qty : '0'}}</span>
-                            <button class="btn-action" id="plus">
+                            <span class="font-semibold" id="jumlah-barang"
+                                data-harga="{{ (isset($ci->harga)) ? $ci->harga * $ci->qty : 0 }}">{{(isset($ci->qty)) ? $ci->qty : '0'}}</span>
+                            <button class="btn-action sm:w-8 sm:ml-2" id="plus">
                                 <img src="{{asset('assets/img_index/asset/cart/plus.svg')}}" alt="" />
                             </button>
                         </div>
@@ -63,8 +75,10 @@
         <!-- Right -->
         <div class="lg:col-span-4 col-span-12 sm:fixed md:fixed md:bottom-0 sm:bottom-0 md:w-full sm:w-full">
             <div class="grid justify-items-center">
-                <div class="lg:w-[65%] w-full sm:bg-white md:bg-white lg:border-2 sm:border-t-2 border-[#CCC] lg:rounded-3xl">
-                    <div class="lg:m-7 md:mb-8 md:mt-3 sm:mb-6 sm:flex md:flex md:justify-around md:items-center sm:justify-around sm:items-center">
+                <div
+                    class="lg:w-[65%] w-full sm:bg-white md:bg-white lg:border-2 sm:border-t-2 border-[#CCC] lg:rounded-3xl">
+                    <div
+                        class="lg:m-7 md:mb-8 md:mt-3 sm:mb-6 sm:flex md:flex md:justify-around md:items-center sm:justify-around sm:items-center">
                         <p class="text-[18px] font-semibold lg:block hidden">Tinggal Klik Beli</p>
                         <p class="mt-8 text-[#999] font-medium lg:block hidden">Jumlah Produk</p>
                         <p class="mt-1 font-semibold text-[18px] lg:block hidden">
@@ -86,7 +100,10 @@
                             </li>
                         </ul>
 
-                        <button id="btn-beli" data-id_user="{{(isset($ci->user_id)) ? $ci->user_id : ''}}" data-id_supplier="{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}" data-id_produk="{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}" class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                        <button id="btn-beli" data-id_user="{{(isset($ci->user_id)) ? $ci->user_id : ''}}"
+                            data-id_supplier="{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}"
+                            data-id_produk="{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}"
+                            class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
                             Beli
                         </button>
                     </div>
@@ -236,10 +253,12 @@
                         </button>
                         <ul class="ml-5 list-none">
                             <li>
-                                <a href="" class="ml-5"><img src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}" alt="" /></a>
+                                <a href="" class="ml-5"><img
+                                        src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}" alt="" /></a>
                             </li>
                             <li class="mt-3">
-                                <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}" alt="" /></a>
+                                <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
+                                        alt="" /></a>
                             </li>
                         </ul>
                     </div>
