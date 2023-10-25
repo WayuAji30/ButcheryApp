@@ -180,15 +180,6 @@ class AuthController extends Controller
             'kecamatan' => 'required',
             'alamat' => 'required'
         ]);
-        
-        //upload image
-        //$image1 = $request->file('foto.foto1');
-        
-        //upload image2
-        //$image2 = $request->file('foto.foto2');
-
-        //upload image3
-        //$image3 = $request->file('foto.foto3');
 
         $id = $request->input('id');
         $idProv = $request->input('idProv');

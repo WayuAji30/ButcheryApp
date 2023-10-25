@@ -33,10 +33,9 @@ class MitraController extends Controller
         return view('mitra_center.langganan'); // view('folder.file', compact())
     }
 
-    public function daftarProduk()
+    public function daftarProduk($id)
     {
-
-        $daftarProduk = MitraProdukModel::all();
+        $daftarProduk = MitraProdukModel::where('supplier_id',$id)->get();
 
         return view('mitra_center.daftarProduk', ['daftarProduk' => $daftarProduk]);
     }
@@ -72,9 +71,9 @@ class MitraController extends Controller
         $image3 = $request->file('foto3');
         $image3->storeAs('img_uploaded', $image3->hashName(), 'public');
 
-        $supplier_id = $request->input('supplier_id');
+        $user_id = $request->input('user_id');
 
-        $data_supplier = SuppliersModel::where('_id', $supplier_id)->first();
+        $data_supplier = SuppliersModel::where('user_id', $user_id)->first();
 
         $kota = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/regency/' . $data_supplier['alamat'][0]['kota'] . '.json');
         $response2 = $kota->json();
@@ -90,7 +89,7 @@ class MitraController extends Controller
         $stok2 = $request->input('varian.stok2');
 
         MitraProdukModel::create([
-            'supplier_id' => $supplier_id,
+            'supplier_id' => $data_supplier->_id,
             'nama_toko' => $data_supplier->nama_toko,
             'alamat_toko' => [
                 'id_alamat' => $response2['id'],

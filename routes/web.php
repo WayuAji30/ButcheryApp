@@ -21,7 +21,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/searchProduct', [HomeController::class, 'searchProduct']);
 Route::get('/checkout_payment', [HomeController::class, 'checkout_payment']);
 Route::get('/notification', [HomeController::class, 'notification']);
-Route::get('/product', [HomeController::class, 'product']);
+
 
 Route::get('/cart', [HomeController::class, 'cart']);
 Route::get('/store_cart/{id}/{id_produk}/{id_supplier}/{nama_produk}/{varian}/{harga}/{qty}/{subtotal}/{note}/{foto_produk}', [HomeController::class, 'store_cart']);
@@ -59,7 +59,7 @@ Route::get('/forgetPassword', [AuthController::class, 'forgetPassword']);
 Route::post('/ubah_Password', [AuthController::class, 'ubah_password']);
 
 Route::get('/trenDaging', [MitraController::class, 'trenDaging']);
-Route::get('/daftarProduk', [MitraController::class, 'daftarProduk']);
+Route::get('/daftarProduk/{id_supplier}', [MitraController::class, 'daftarProduk']);
 Route::get('/pesanan', [MitraController::class, 'pesanan']);
 Route::get('/langganan', [MitraController::class, 'langganan']);
 Route::get('/tambahProduk', [MitraController::class, 'tambahProduk']);
@@ -70,7 +70,7 @@ Route::post('/edit_produk', [MitraController::class, 'edit_produk']);
 
 Route::post('/hapusProduk', [MitraController::class, 'deleteProduk']);
 
-Route::get('/produk/{name}', [HomeController::class, 'produk']);
+Route::get('/produk/{id}', [HomeController::class, 'produk']);
 
 Route::get('/success_page', [HomeController::class, 'success_page']);
 Route::post('/test_api', [HomeController::class, 'test_api']);

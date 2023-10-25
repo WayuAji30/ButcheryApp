@@ -26,13 +26,27 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        $rekProduk = MitraProdukModel::all();
-        return view('index', ['rekProduk' => $rekProduk]); // view('folder.file', compact())
+
+        $data_produk = MitraProdukModel::all()->toArray();
+        shuffle($data_produk);
+
+        $rekomendasi_produk = array_slice($data_produk,0,29);
+
+        $data_produk2 = MitraProdukModel::all()->toArray();
+        shuffle($data_produk2);
+
+        $produk_laris = array_slice($data_produk2,0,11);
+
+        return view('index', ['rekproduk' => $rekomendasi_produk, 'produk_laris' => $produk_laris]);
     }
 
-    public function searchProduct()
+    public function searchProduct(Request $request)
     {
-        return view('searchProduct'); // view('folder.file', compact())
+        $name = $request->input('cari');
+
+        $data_search = MitraProdukModel::where('nama_produk','regex', new \MongoDB\BSON\Regex($name, 'i'))->get();
+
+        return view('searchProduct',['data_search' => $data_search]); // view('folder.file', compact())
     }
 
     public function checkout_payment()

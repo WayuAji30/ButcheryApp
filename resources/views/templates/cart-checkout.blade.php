@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
 
 ?>
 <!DOCTYPE html>

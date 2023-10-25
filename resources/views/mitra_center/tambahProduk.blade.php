@@ -96,12 +96,12 @@
             @csrf
 
             @if (isset($produk->_id))
-            <input type="hidden" name="id" value="{{$produk->_id}}" />
-            <input type="hidden" name="old_foto1" value="{{$produk['foto']['foto1']}}" />
-            <input type="hidden" name="old_foto2" value="{{$produk['foto']['foto2']}}" />
-            <input type="hidden" name="old_foto3" value="{{$produk['foto']['foto3']}}" />
+                <input type="hidden" name="id" value="{{$produk->_id}}" />
+                <input type="hidden" name="old_foto1" value="{{$produk['foto']['foto1']}}" />
+                <input type="hidden" name="old_foto2" value="{{$produk['foto']['foto2']}}" />
+                <input type="hidden" name="old_foto3" value="{{$produk['foto']['foto3']}}" />
             @else
-            <input type="hidden" name="supplier_id" value="{{session('id_supplier')}}" />
+                <input type="hidden" name="user_id" value="{{session('id_user')}}" />
             @endif
 
             <div class="flex ml-11 mt-10 gap-10 items-center">

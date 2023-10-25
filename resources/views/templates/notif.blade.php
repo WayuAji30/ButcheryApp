@@ -4,9 +4,10 @@ use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
-
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -70,7 +71,7 @@ $user = KonsumensModel::find(session('id_user'));
                 <div class="flex lg:mr-0 sm:mr-1">
                     <form action="/searchProduct">
                         <div class="relative flex items-center">
-                            <input type="text" name="" id="" required placeholder="Cari di Butchery" class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] w-56 lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
+                            <input type="text" name="cari" id="cari" required placeholder="Cari di Butchery" class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] w-56 lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
                             <button class="absolute lg:right-7 right-2">
                                 <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                     <path fill="#999" d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
@@ -125,7 +126,7 @@ $user = KonsumensModel::find(session('id_user'));
                 @elseif(session()->has('login') && $user->role == "supplier")
                 <div class="lg:block hidden">
                     <div class="flex items-center gap-8">
-                        <a href="/daftarProduk" class="flex items-center gap-2"><img src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
+                        <a href="/daftarProduk/{{$supplier->_id}}" class="flex items-center gap-2"><img src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
                             <p class="font-semibold text-lg">Toko Saya</p>
                         </a>
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">

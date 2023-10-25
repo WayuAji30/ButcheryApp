@@ -1,3 +1,12 @@
+<?php
+
+use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
+
+$user = KonsumensModel::find(session('id_user'));
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -133,7 +142,7 @@
                 @elseif(session()->has('login') && $user->role == "supplier")
                 <div class="">
                     <div class="flex items-center gap-8">
-                        <a href="/daftarProduk/{{$user->_id}}" class="flex items-center gap-2"><img
+                        <a href="/daftarProduk/{{$supplier->_id}}" class="flex items-center gap-2"><img
                                 src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
                             <p class="font-semibold text-lg">Toko Saya</p>
                         </a>
