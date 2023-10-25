@@ -517,7 +517,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                         <p class="text-[14px] leading-4 font-medium">
                                             {{$pl['nama_produk']}}
                                         </p>
-                                        <p class="font-bold pt-2">Rp<span>{{number_format($pl['varian'][0]['harga'], 0, ',')}}</span></p>
+                                        <p class="font-bold pt-2">
+                                            Rp<span>{{number_format($pl['varian'][0]['harga'], 0, ',')}}</span></p>
                                         <p class="pt-5 flex text-[#999]">
                                             <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}" alt="" />{{$pl['nama_toko']}}
                                         </p>
@@ -533,7 +534,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             </a>
                         </div>
                         @endforeach
-                    </div>    
+                    </div>
                 </swiper-slide>
             </swiper-container>
         </div>
@@ -692,8 +693,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             @foreach ($rekproduk as $rp )
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="/produk/{{$rp['_id']}}">
-                    <div class="bg-white h-[344px] sm:h-[280px] w-[207px] sm:w-[155px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
-                        <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt="" class="w-[228px] h-[130px] rounded-t-[15px]"/>
+                    <div class="bg-white h-[344px] sm:h-[310px] w-[207px] sm:w-[155px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
+                        <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt="" class="w-[228px] h-[130px] rounded-t-[15px]" />
                         <div class="pt-3 pl-4">
                             <p class="text-[14px] sm:text-[12px] leading-4 font-medium pr-5">
                                 {{$rp['nama_produk']}}

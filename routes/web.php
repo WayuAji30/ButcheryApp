@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
@@ -74,3 +75,7 @@ Route::get('/produk/{id}', [HomeController::class, 'produk']);
 
 Route::get('/success_page', [HomeController::class, 'success_page']);
 Route::post('/test_api', [HomeController::class, 'test_api']);
+
+Route::get('/loginAdmin', [AdminController::class, 'loginAdmin']);
+Route::get('/adminProduk', [AdminController::class, 'adminProduk']);
+Route::get('/adminReviews', [AdminController::class, 'adminReviews']);

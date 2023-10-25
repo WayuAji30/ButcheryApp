@@ -4,15 +4,16 @@
 <!-- PRODUCT -->
 <div class="w-full lg:mt-52 md:mt-60 sm:mt-20">
     <div class="container mx-auto lg:px-[56px] md:px-12 sm:px-5">
-        <p class="font-semibold text-2xl">Bersertifikat (<span>30</span>)</p>
-        <div class="grid grid-cols-12 mt-9 lg:gap-10 sm:gap-2">
+        <p class="font-semibold text-2xl sm:text-[20px]">Bersertifikat (<span>30</span>)</p>
+        <div class="grid grid-cols-12 mt-9 sm:mt-4 lg:gap-10 sm:gap-2">
             <!-- Baris 1 -->
             @foreach ($data_search as $ds)
             <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
                 <a href="/produk/{{$ds->_id}}">
                     <div
-                        class="bg-white lg:h-[344px] sm:h-[285px] lg:w-[207px] sm:w-[160px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
-                        <img src="{{asset('storage/img_uploaded/'.$ds['foto']['foto1'])}}" alt="" />
+                        class="bg-white lg:h-[344px] sm:h-[310px] lg:w-[207px] sm:w-[160px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
+                        <img src="{{asset('storage/img_uploaded/'.$ds['foto']['foto1'])}}" alt=""
+                            class="w-[228px] h-[130px] rounded-t-[15px]" />
                         <div class="pt-3 pl-2">
                             <p class="lg:text-[14px] sm:text-[12px] leading-4 font-medium">
                                 {{$ds->nama_produk}}
@@ -39,9 +40,9 @@
                     </div>
                 </a>
             </div>
-            @endforeach  
+            @endforeach
+        </div>
     </div>
-</div>
-<!-- PRODUCT -->
+    <!-- PRODUCT -->
 
-@endsection
+    @endsection
