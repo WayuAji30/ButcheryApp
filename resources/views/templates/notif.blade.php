@@ -4,7 +4,7 @@ use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 
@@ -31,7 +31,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
 </head>
 
-<body class="bg-[#f3f3f3]">
+<body class="lg:bg-[#f3f3f3]">
     <!-- NAVBAR -->
     <nav class="fixed top-0 w-full z-50">
         <div class="">

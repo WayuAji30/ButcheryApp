@@ -9,8 +9,8 @@
                 <div class="bg-white rounded-md w-[80%] shadow-md">
                     <div class="mt-7" id="logout">
                         <p class="">
-                            <a href="/logout"
-                                class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Profil
+                            <a
+                                class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium cursor-default">Profil
                                 Saya</a>
                         </p>
                     </div>
@@ -18,7 +18,8 @@
                     <div class="grid grid-rows-1 grid-flow-col ml-20 mt-16">
                         <div class="row-span-3">
                             <form action="">
-                                <button class="bg-white p-5 shadow-md rounded-md" id="profile-picture">
+                                <button class="bg-white p-5 shadow-md rounded-md cursor-default" id="profile-picture"
+                                    form="none">
                                     <img src="{{asset('assets/img_index/asset/profile/avatar.svg')}}" alt="" />
                                 </button>
                             </form>
@@ -108,19 +109,23 @@
                                 </div>
                             </form>
 
-                            <form action="/ubah_Password" method = "POST" id="ubahPassword" style="display: none;">
+                            <form action="/ubah_Password" method="POST" id="ubahPassword" style="display: none;">
                                 @csrf
 
                                 <input type="hidden" name="id" id="id" value="{{$user->_id}}">
-                                <input type="hidden" name="idProv" id="idProv" value="{{$user['alamat'][0]['provinsi']}}">
-                                <input type="hidden" name="idKota" id="idKota" value="{{$user['alamat'][0]['kota/kab']}}">
-                                <input type="hidden" name="idKec" id="idKec" value="{{$user['alamat'][0]['kecamatan']}}">
+                                <input type="hidden" name="idProv" id="idProv"
+                                    value="{{$user['alamat'][0]['provinsi']}}">
+                                <input type="hidden" name="idKota" id="idKota"
+                                    value="{{$user['alamat'][0]['kota/kab']}}">
+                                <input type="hidden" name="idKec" id="idKec"
+                                    value="{{$user['alamat'][0]['kecamatan']}}">
 
                                 <p class="font-semibold text-[20px]">Kata Sandi Baru</p>
                                 <p class="mt-3 text-[#999]">Ubah kata sandi anda dengan yang lebih kuat demi <br>
                                     keamanan akun anda dalam menggunakan Butchery.</p>
                                 <div class="relative flex items-center">
-                                    <input type="password" name="password" id="password" placeholder="Konfirmasi Kata Sandi Baru"
+                                    <input type="password" name="password" id="password"
+                                        placeholder="Konfirmasi Kata Sandi Baru"
                                         class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" />
 
                                     <button class="absolute right-[50%] btn-eye-close" form="none">
@@ -138,16 +143,17 @@
                                         </svg>
                                     </button>
                                     @error('password')
-                                       <script>
-                                            alert('{{$message}}');
-                                        </script>
+                                    <script>
+                                    alert('{{$message}}');
+                                    </script>
                                     @enderror
                                 </div>
                                 <!-- <input type="password" name="" id="" placeholder="Masukan Kata Sandi Baru" required
                                     class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" /> -->
                                 <p class="text-[12px] mt-2"><span class="text-[#ff4444]">*</span> Minimum 8 karakter</p>
                                 <div class="relative flex items-center">
-                                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Konfirmasi Kata Sandi Baru"
+                                    <input type="password" name="confirm_password" id="confirm_password"
+                                        placeholder="Konfirmasi Kata Sandi Baru"
                                         class="border-b-2 border-[#e6e6e6] w-[50%] pr-4 mt-8 focus:border-[#D10B05] focus:outline-none" />
 
                                     <button class="absolute right-[50%] btn-eye-close" form="none">
@@ -165,9 +171,9 @@
                                         </svg>
                                     </button>
                                     @error('confirm_password')
-                                       <script>
-                                            alert('{{$message}}');
-                                        </script>
+                                    <script>
+                                    alert('{{$message}}');
+                                    </script>
                                     @enderror
                                 </div>
 
