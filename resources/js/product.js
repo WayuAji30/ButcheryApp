@@ -7,6 +7,7 @@ $(document).ready(function(){
     $('#low').on('click', function(){
         var varian = $(this).data('varian');
         var harga = $(this).data('price');
+        var stok = $(this).data('stok');
 
         if (localStorage.getItem('harga')) {
             localStorage.removeItem('harga'); // Hapus session yang lama
@@ -14,11 +15,14 @@ $(document).ready(function(){
 
         localStorage.setItem('varian', varian);
         localStorage.setItem('harga', harga);
+
+        $('#value-stok').text(stok);
     });
 
     $('#mid').on('click', function(){
         var varian = $(this).data('varian');
         var harga = $(this).data('price');
+        var stok = $(this).data('stok');
 
         // Periksa apakah session yang sebelumnya sudah ada
         if (localStorage.getItem('varian')) {
@@ -31,7 +35,29 @@ $(document).ready(function(){
 
         localStorage.setItem('varian', varian);
         localStorage.setItem('harga', harga);
+        
+       $('#value-stok').text(stok);
     });
+
+    $('#high').on('click', function(){
+      var varian = $(this).data('varian');
+      var harga = $(this).data('price');
+      var stok = $(this).data('stok');
+
+      // Periksa apakah session yang sebelumnya sudah ada
+      if (localStorage.getItem('varian')) {
+          localStorage.removeItem('varian'); // Hapus session yang lama
+      }
+
+      if (localStorage.getItem('harga')) {
+          localStorage.removeItem('harga'); // Hapus session yang lama
+      }
+
+      localStorage.setItem('varian', varian);
+      localStorage.setItem('harga', harga);
+      
+     $('#value-stok').text(stok);
+  });
 
     $('#kota').change(function(){
         var tujuan = $(this).val();
@@ -95,7 +121,7 @@ $(document).ready(function(){
       
           return jarak;
         }
-    });
+});
 
 
     $('#addToCart').on('click', function(){
@@ -123,35 +149,31 @@ $(document).ready(function(){
         var catatan = (localStorage.getItem('note')) ? localStorage.getItem('note') : 'tidak ada catatan' ;
 
         window.location.href='/store_cart/' + id + '/' + id_produk + '/' + id_supplier + '/' + namaProduk + '/' + varian + '/' + harga + '/' + qty+ '/' + subtotal + '/' + catatan + '/' + foto_produk ;
+      });
 
+      $('#btn-beli').click(function(){
+        var id = $(this).data('id_user');
+        var id_produk = $(this).data('id_produk');
+        var id_supplier = $(this).data('id_supplier');
+        var foto_produk = $('#foto_produk').val();
+        var nama_produk = $('#nama_produk').text();
+        var quantity = $("#value-product").text();
+        var totalHarga = $("#total-value").text();
+        var note = $('#catatan').val();
         
+        // Simpan quantity dan totalHarga ke session
+        localStorage.setItem('foto_produk', foto_produk);
+        localStorage.setItem('nama_produk', nama_produk);
+        localStorage.setItem('quantity', quantity);
+        localStorage.setItem('totalHarga', totalHarga);
+        localStorage.setItem('note', note);
 
-        /*
-       
-            
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        var namaProduk = localStorage.getItem('nama_produk');
+        var varian = localStorage.getItem('varian');
+        var harga = localStorage.getItem('harga');
+        var subtotal = localStorage.getItem('totalHarga');
+        var qty = localStorage.getItem('quantity');
+        var catatan = (localStorage.getItem('note')) ? localStorage.getItem('note') : 'tidak ada catatan' ;
 
-        $.ajax({
-            url: '/store_cart',
-            method: 'POST',
-            data: data,
-            success: function (response) {
-                // Handle respons dari server (jika ada)
-                console.log(response);
-
-                localStorage.clear();
-            },
-            error: function (error) {
-                // Handle kesalahan jika terjadi
-                console.error(error);
-
-                localStorage.clear();
-            }
-        });
-        */
-
-    });
+        window.location.href='/store_checkout/' + id + '/' + id_supplier + '/' + id_produk + '/' + foto_produk + '/' + namaProduk + '/' + varian + '/' + harga + '/' + qty+ '/' + subtotal + '/' + catatan  ;
+      });

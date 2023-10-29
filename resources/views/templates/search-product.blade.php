@@ -107,7 +107,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     </form>
                 </div>
                 <div class="lg:gap-3 md:gap-2 sm:gap-1 lg:ml-0 md:ml-10 sm:ml-2 lg:mt-0 mt-1 flex" id="icon-bar">
-                    <a href="/cart"
+                    <a href="/cart/{{session('id_user')}}"
                         class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                             <path fill="#454545"

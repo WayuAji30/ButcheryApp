@@ -35,7 +35,7 @@
                     <div class="flex pl-16 mt-10 items-center">
                         <img src="{{asset('assets/img_index/asset/product/profile.svg')}}" alt="" class="" />
                         <div class="ml-4">
-                            <h1 class="font-semibold">{{$detail_produk->nama_toko}}</h1>
+                            <h1 class="font-semibold">{{(strlen($detail_produk['nama_toko']) > 16 ? substr($detail_produk['nama_toko'],0,15).'...' : $detail_produk['nama_toko'])}}</h1>
                             <p class="text-[#999999]">{{$detail_produk['alamat_toko']['alamat']}}</p>
                         </div>
                     </div>
@@ -61,15 +61,17 @@
                 </div>
                 <div class="pl-16 mt-12 lg:block md:hidden">
                     <p>Produk lainnya dari toko ini</p>
-                    <button class="flex shadow-lg w-[328px] h-24 text-[12px] font-medium text-start mt-5">
-                        <img src="{{asset('assets/img_index/asset/product/lainnya1.svg')}}" alt="" />
-                        <div class="flex-none pl-4 mt-3">
-                            <p>Ikan Dory Fillet Premium Beku <br />Frozen kemasan 1kg</p>
-                            <p class="font-semibold text-[#D10B05] text-[16px] mt-2">
-                                Rp<span>54.500</span>
-                            </p>
-                        </div>
-                    </button>
+                    @foreach ($product_related as $pr)
+                        <button class="flex shadow-lg w-[328px] h-24 text-[12px] font-medium text-start mt-5">
+                            <img src="{{asset('storage/img_uploaded/'.$pr['foto']['foto1'])}}" alt="" class = "w-[115px] h-[96px] h-24" />
+                            <div class="flex-none pl-4 mt-3">
+                                <p class= "w-[200px]">{{$pr->nama_produk}}</p>
+                                <p class="font-semibold text-[#D10B05] text-[16px] mt-2">
+                                    Rp<span>{{$pr['varian'][0]['harga']}}</span>
+                                </p>
+                            </div>
+                        </button>
+                    @endforeach
                 </div>
             </div>
 
@@ -89,18 +91,18 @@
                 <section class="mt-9">
                     <p class="font-semibold text-[18px]">Pilih varian:</p>
                     <div class="flex gap-3 mt-4">
-                        <button id="low" data-varian="{{$detail_produk['varian'][0]['varian1']}}" data-price = "{{$detail_produk['varian'][0]['harga']}}"
+                        <button id="low" data-varian="{{$detail_produk['varian'][0]['varian1']}}" data-price = "{{$detail_produk['varian'][0]['harga']}}" data-stok = "{{$detail_produk['varian'][0]['stok']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 active transition-all duration-500 ease-in-out">
                             {{$detail_produk['varian'][0]['varian1']}} 
                         </button>
-                        <button id="mid" data-varian="{{$detail_produk['varian'][1]['varian2']}}" data-price = "{{$detail_produk['varian'][1]['harga']}}"
+                        <button id="mid" data-varian="{{$detail_produk['varian'][1]['varian2']}}" data-price = "{{$detail_produk['varian'][1]['harga']}}" data-stok = "{{$detail_produk['varian'][1]['stok']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
                             {{$detail_produk['varian'][1]['varian2']}}
                         </button>
-                        <button id="high"
-                            class="py-2 px-6 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
-                            1kg
-                        </button>
+                        <button id="high" data-varian="{{$detail_produk['varian'][2]['varian3']}}" data-price = "{{$detail_produk['varian'][2]['harga']}}" data-stok = "{{$detail_produk['varian'][2]['stok']}}"
+                        class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
+                        {{$detail_produk['varian'][2]['varian3']}}
+                    </button>
                     </div>
                 </section>
                 <div class="border-t-2 border-solid border-[#E6E6E6] mt-11"></div>
@@ -108,7 +110,7 @@
                     <div class="flex mt-5 items-center">
                         <img src="{{asset('assets/img_index/asset/product/profile.svg')}}" alt="" class="" />
                         <div class="ml-4">
-                            <h1 class="font-semibold">{{$detail_produk->nama_toko}}</h1>
+                            <h1 class="font-semibold">{{(strlen($detail_produk['nama_toko']) > 16 ? substr($detail_produk['nama_toko'],0,15).'...' : $detail_produk['nama_toko'])}}</h1>
                             <p class="text-[#999999]">{{$detail_produk['alamat_toko']['alamat']}}</p>
                         </div>
                     </div>
@@ -204,7 +206,7 @@
                                     </div>
                                     <p class="">
                                         Sisa Stok:
-                                        <span class="font-semibold" id="value-stok">{{$detail_produk['varian'][0]['stok']}} / {{$detail_produk['varian'][1]['stok']}}</span>
+                                        <span class="font-semibold" id="value-stok">{{$detail_produk['varian'][0]['stok']}}</span>
                                     </p>
                                 </div>
                                 <p class="mt-7">
@@ -224,10 +226,15 @@
                                     </p>
                                 </div>
                                 <div class="flex items-center justify-between mt-6">
-                                    <button
+                                    <a
+                                        href = "javascript:void(0);"
+                                        id = "btn-beli"
+                                        data-id_user = "{{session('id_user')}}"
+                                        data-id_produk = "{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
+                                        data-id_supplier = "{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
                                         class="text-[#D10B05] py-2 px-8 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                                         Beli
-                                    </button>
+                                    </a>
                                     <a
                                         href = "javascript:void(0);"
                                         id = "addToCart"
@@ -402,7 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     highButton.addEventListener(
         "click",
-        handleWeightButtonClick("1kg", 200000)
+        handleWeightButtonClick("{{$detail_produk['varian'][2]['varian3']}}", parseInt("{{$detail_produk['varian'][2]['harga']}}"))
     );
 
     // Menangani klik pada tombol plus

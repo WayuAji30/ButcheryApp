@@ -141,7 +141,7 @@ class AuthController extends Controller
         echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/updateUser/'.$user_id.'/'.$no_telp.'/'.$email.'";}); </script>';
     }
 
-    public function updateUser($id, $no_telp, $email){
+    public function updateUserByRegisterMitra($id, $no_telp, $email){
        $user = KonsumensModel::find($id);
 
        KonsumensModel::where('_id',$user->_id)->update([
@@ -327,6 +327,29 @@ class AuthController extends Controller
             $request->session()->flush(); // Hapus seluruh sesi jika gagal
             echo $e;
         }
+    }
+
+    public function updateUserByCheckout(Request $request){
+        $id_user = $request->input('id'); 
+
+        $provinsi = $request->input('provinsi'); 
+        $kota = $request->input('kota'); 
+        $kecamatan = $request->input('kecamatan');
+        $alamat = $request->input('alamat');
+
+        $user = KonsumensModel::find($id_user);
+        
+        $alamatBaru = [
+            'provinsi' => $provinsi,
+            'kota' => $kota,
+            'kecamatan' => $kecamatan,
+            'alamat' => $alamat
+        ];
+
+        // Gunakan metode push untuk menambahkan alamat baru ke dalam array alamat
+        $user->push('alamat', $alamatBaru);
+        
+        return redirect()->to('/checkOut' . '/' . $id_user);
     }
 
     public function getSession(Request $request){

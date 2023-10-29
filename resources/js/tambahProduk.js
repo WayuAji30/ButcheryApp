@@ -1,54 +1,43 @@
-document
-    .getElementById("btn-tambah-produk")
-    .addEventListener("click", function () {
-        // Menghilangkan elemen flex dan items-center di bagian form
-        var formElement = document
-            .getElementById("varian-plus")
-            .querySelector("div");
-        formElement.style.display = "block";
-        formElement.style.alignItems = "initial";
+$(document).ready(function () {
+    $('#btn-tambah-varian').click(function(){
+        $('#btn-tambah-varian').toggle();
+        $('.pembungkus-page').css('display','flex');
+        $('.pembungkus-page').css('display','block');
 
-        // Menghilangkan button tambah varian
-        this.style.display = "none";
+        var inputs = $("#varian-plus input");
+        var labels = $("#varian-plus label");
 
-        // Membuka elemen input dan label yang tersembunyi
-        var hiddenInputs = formElement.querySelectorAll(
-            "input[hidden], label[hidden]",
-        );
-        hiddenInputs.forEach(function (element) {
-            element.removeAttribute("hidden");
+        inputs.each(function () {
+            $(this).removeAttr("hidden");
         });
+
+        labels.each(function () {
+            $(this).removeAttr("hidden");
+        });
+    
     });
 
-// FUCTION UNTUK MENGARAHKAN BUTTON SIMPAN KE LOGIN.HTML TANPA PERLU REQUIRED DULU
-document.addEventListener("DOMContentLoaded", function () {
-    const cancelButton = document.getElementById("cancelButton");
+    $('#btn-tambah-varian3').click(function(){
+        $('#btn-tambah-varian3').toggle();
+        $('.pembungkus-page-3').css('display','flex');
+        $('.pembungkus-page-3').css('display','block');
 
-    cancelButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Mencegah formulir dikirim
+        var inputs = $("#varian-plus-3 input");
+        var labels = $("#varian-plus-3 label");
 
-        // Mengarahkan ke ../index.html
-        window.location.href = "/daftarProduk";
+        inputs.each(function () {
+            $(this).removeAttr("hidden");
+        });
+
+        labels.each(function () {
+            $(this).removeAttr("hidden");
+        });
+    
+    });
+  
+    // Ketika tombol "Batal" ditekan
+    $("#cancelButton").on("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/tambahProduk";
     });
 });
-
-// FUNCTION UNTUK MENAMBAH VARIAN 2
-document
-    .getElementById("btn-tambah-produk")
-    .addEventListener("click", function () {
-        // Menghapus gaya dari elemen dengan kelas pembungkus-page
-        document.querySelector(".pembungkus-page").style.display = "block";
-
-        // Mengambil elemen input dan label
-        var inputs = document.querySelectorAll("#varian-plus input");
-        var labels = document.querySelectorAll("#varian-plus label");
-
-        // Menghapus atribut hidden dari elemen input dan label
-        inputs.forEach(function (input) {
-            input.removeAttribute("hidden");
-        });
-
-        labels.forEach(function (label) {
-            label.removeAttribute("hidden");
-        });
-    });

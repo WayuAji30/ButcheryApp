@@ -108,6 +108,7 @@
 
             @if (isset($produk->_id))
             <input type="hidden" name="id" value="{{$produk->_id}}" />
+            <input type="hidden" name="supplier_id" value="{{$produk->supplier_id}}" />
             <input type="hidden" name="old_foto1" value="{{$produk['foto']['foto1']}}" />
             <input type="hidden" name="old_foto2" value="{{$produk['foto']['foto2']}}" />
             <input type="hidden" name="old_foto3" value="{{$produk['foto']['foto3']}}" />
@@ -218,7 +219,7 @@
                     <div class="bg-[#eeeeee] w-[547px] rounded-md">
                         <div class="px-10 py-5 pembungkus-page" style="display: flex; align-items: center">
                             <label for="" class="font-semibold mr-4">Varian 2</label>
-                            <button id="btn-tambah-produk" form="none"
+                            <button id="btn-tambah-varian" form="none"
                                 class="btn-tambah-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
                                 <span><img src="{{asset('assets/img_mitra_center/asset/tambahProduk/buttonPlus.svg')}}"
                                         alt="" /></span>
@@ -240,22 +241,28 @@
                 </div>
                 <div class="col-span-2 mt-5" id="varian-plus-3">
                     <div class="bg-[#eeeeee] w-[547px] rounded-md">
-                        <div class="px-10 py-5" style="display: flex; align-items: center">
+                        <div class="px-10 py-5 pembungkus-page-3" style="display: flex; align-items: center">
                             <label for="" class="font-semibold mr-4">Varian 3</label>
-                            <button form="none"
-                                class="btn-tambah-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
+                            <button form="none" id ="btn-tambah-varian3"
+                                class="btn-tambah-varian-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
                                 <span><img src="{{asset('assets/img_mitra_center/asset/tambahProduk/buttonPlus.svg')}}"
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input hidden type="text" placeholder="Contoh: 250gr"
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
+                            <input hidden type="text" placeholder="Contoh: 250gr" name = "varian[varian3]" id = ""
+                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" 
+                                value="{{( isset($produk['varian'][2]['varian3']) ) ? $produk['varian'][2]['varian3'] : '' }}"
+                            />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input hidden type="text" placeholder="Masukan dalam Rupiah"
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
+                            <input hidden type="text" placeholder="Masukan dalam Rupiah" name = "varian[harga3]" id = ""
+                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" 
+                                value="{{( isset($produk['varian'][2]['harga']) ) ? $produk['varian'][2]['harga'] : '' }}"
+                                />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input hidden type="text" placeholder="Contoh: 17"
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" />
+                            <input hidden type="text" placeholder="Contoh: 17" name = "varian[stok3]" id = ""
+                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" 
+                                value="{{( isset($produk['varian'][2]['stok']) ) ? $produk['varian'][2]['stok'] : '' }}"
+                                />
                         </div>
                     </div>
                 </div>

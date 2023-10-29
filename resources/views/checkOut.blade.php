@@ -23,17 +23,19 @@
                         </svg>
                         <p class="font-semibold text-[18px]">Produk Pesanan</p>
                     </div>
-                    @foreach ($data_produk as $index => $dp)
-                    <input type="hidden" name="" id="jumlah_produk" value="">
+                    @foreach ($data_produk as $dp)
                     <input type="hidden" name="" id="subtotal" value="{{$dp->harga_total}}">
-                    <div class="flex items-center mt-3">
+                    <div class="list_produk flex items-center mt-3">
+                        <input type="hidden" name="" id="id_user" class = "" value="{{session('id_user')}}">
+                        <input type="hidden" name="" id="id_produk" class = "" value="{{$dp->_id}}">
+                        <input type="hidden" name="" id="id_supplier" class = "" value="{{$dp->supplier_id}}">
                         <img src="{{asset('storage/img_uploaded/'. $dp->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
-                                {{$dp->nama_produk}}<br />
-                                <span class="text-[#D10B05] font-semibold">{{$dp->varian}}</span>
+                                <span class = "nama_produk" id = "nama_produk">{{$dp->nama_produk}}</span><br />
+                                <span class="text-[#D10B05] font-semibold" id = "varian">{{$dp->varian}}</span>
                             </li>
-                            <li class="font-semibold mt-4">Rp<span>{{$dp->harga}}</span></li>
+                            <li class="font-semibold mt-4">Rp<span class = "harga_barang" id = "harga_barang">{{$dp->harga}}</span><span class="qty font-semibold ml-3 sm:text-sm" id= "qty">x{{$dp->qty}}</span></li>
                         </ul>
                     </div>
                     @endforeach
@@ -48,35 +50,74 @@
                             </svg>
                             <p class="font-semibold text-[18px]">Alamat Pengiriman</p>
                         </div>
-                        <form action="">
                             <!-- <button class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</button> -->
                             <!-- The button to open modal -->
+<<<<<<< HEAD
                             <label for="my_modal_7" class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</label>
+=======
+                            <label for="my_modal_7" id="ubah_alamat" class="text-[#D10B05] font-semibold hover:text-[#9F0804]" 
+                            data-alamat1 = "{{(isset($data_user['alamat'][0]['alamat']) ? $data_user['alamat'][0]['alamat'] : 'Tidak ada alamat tambahan')}}" 
+                            data-alamat2 = "{{(isset($data_user['alamat'][1]['alamat']) ? $data_user['alamat'][1]['alamat'] : 'Tidak ada alamat tambahan')}}"
+                            data-alamat3 = "{{(isset($data_user['alamat'][2]['alamat']) ? $data_user['alamat'][2]['alamat'] : 'Tidak ada alamat tambahan')}}">Ubah</label>
+>>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
 
                             <!-- Put this part before </body> tag -->
                             <input type="checkbox" id="my_modal_7" class="modal-toggle" />
                             <div class="modal">
                                 <div class="modal-box">
                                     <p class="font-semibold text-[20px] text-center">Alamat Pengiriman</p>
+<<<<<<< HEAD
                                     <div class="flex items-center gap-5 mt-2">
                                         <input type="radio" id="alamat1" checked>
+=======
+                                    <div class="alamat flex items-center gap-5 mt-2">
+                                        <input type="radio" id="alamat1" value = "">
+>>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                                         <label for="alamat1">
-                                            <p id="alamat-user">
+                                            <p id="alamat-user-modal">
                                                 {{$data_user['alamat'][0]['alamat']}}
                                             </p>
-                                            <p class="font-semibold mt-1" id="phone-user">
-                                                {{$data_user['no_hp']}}
+                                            <p class="font-semibold mt-1" id="phone-user-modal">
+                                                {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
                                             </p>
                                         </label>
                                     </div>
+                                    @if(isset($data_user['alamat'][1]['alamat']))
+                                    <div class="alamat flex items-center gap-5 mt-2">
+                                        <input type="radio" id="alamat2" value = "">
+                                        <label for="alamat2">
+                                            <p id="alamat-user-modal">
+                                                {{(isset($data_user['alamat'][1]['alamat']) ? $data_user['alamat'][1]['alamat'] : 'Tidak ada alamat tambahan')}}
+                                            </p>
+                                            <p class="font-semibold mt-1" id="phone-user-modal">
+                                                {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
+                                            </p>
+                                        </label>
+                                    </div>
+                                    @endif
+                                    @if (isset($data_user['alamat'][2]['alamat']))
+                                    <div class="alamat flex items-center gap-5 mt-2">
+                                        <input type="radio" id="alamat3" value = "">
+                                        <label for="alamat3">
+                                            <p id="alamat-user-modal">
+                                                {{(isset($data_user['alamat'][2]['alamat']) ? $data_user['alamat'][2]['alamat'] : 'Tidak ada alamat tambahan')}}
+                                            </p>
+                                            <p class="font-semibold mt-1" id="phone-user-modal">
+                                                {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
+                                            </p>
+                                        </label>
+                                    </div>
+                                    @endif
                                     <!-- <div class="border-t-2 border-[#ccc] mt-4"></div> -->
-                                    <div class="collapse collapse-plus bg-slate-100 mt-4">
+                                    <div class="tambah_alamat collapse collapse-plus bg-slate-100 mt-4">
                                         <input type="checkbox" />
                                         <div class="collapse-title font-medium">
                                             Tambah Alamat
                                         </div>
                                         <div class="collapse-content">
-                                            <form action="">
+                                            <form action="/updateUserByCheckout" method = "post">
+                                                @csrf
+                                                <input type="hidden" name="id" value = "{{$data_user->_id}}">
                                                 <p class="text-[#787878] text-start sm:text-xs">
                                                     Provinsi
                                                 </p>
@@ -114,14 +155,13 @@
                                 </div>
                                 <label class="modal-backdrop" for="my_modal_7">Close</label>
                             </div>
-                        </form>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 ms-2">
                         <p id="alamat-user">
                             {{$data_user['alamat'][0]['alamat']}}
                         </p>
                         <p class="font-semibold mt-4" id="phone-user">
-                            {{$data_user['no_hp']}}
+                            {{($data_user['no_hp'] === '') ?  '(+62) Tidak Tersedia' : $data_user['no_hp']}}
                         </p>
                     </div>
                     <div class="mt-10"></div>
@@ -137,6 +177,7 @@
                         </div>
                     </div>
                     <div class="mt-3">
+<<<<<<< HEAD
                         <form action="">
                             <div class="flex mt-5 gap-5">
                                 <button class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
@@ -181,6 +222,21 @@
                                 </button>
                             </div>
                         </form>
+=======
+                        
+                        <div class="flex mt-5 gap-5">
+                            @foreach ($metode_pembayaran as $mp)
+                                <button 
+                                id = ""
+                                data-slug = "{{$mp->slug}}"
+                                class="btn-mp bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 "
+                                form="none">
+                                    <img src="{{asset('assets/img_index/asset/footer/'.$mp->foto)}}" alt="" class = "" />
+                                </button>
+                            @endforeach
+                        </div>
+                       
+>>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                     </div>
                     <div class="mt-10"></div>
                 </div>
@@ -233,8 +289,8 @@
                     <div class="lg:m-7 md:mb-10 sm:mx-4 sm:mb-4">
                         <p class="text-[18px] font-semibold lg:block hidden">Rincian Belanjaan</p>
                         <div class="flex items-center mt-5 justify-between md:hidden sm:hidden">
-                            <p class="">Total Harga (0 Produk)</p>
-                            <p>Rp<span id="harga-barang"></span></p>
+                            <p class="" id ="j-subtotal"></p>
+                            <p>Rp<span id="rincian_subtotal"></span></p>
                         </div>
                         <div class="flex items-center mt-2 justify-between md:hidden sm:hidden">
                             <p class="">Total Ongkos Kirim (Promo)</p>
@@ -287,11 +343,16 @@
                                 Rp<span id="harga-total"></span>
                             </p>
                         </div>
+<<<<<<< HEAD
                         <form action="/checkout_payment" class="lg:mt-6 mt-3">
                             <button class="py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+=======
+                            <button
+                                id = "buat-pesanan"
+                                class="lg:mt-6 mt-3 py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+>>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                                 Buat Pesanan
                             </button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -301,5 +362,5 @@
 <!-- CART -->
 <div class="lg:mt-20 sm:mt-5"></div>
 
-@vite(['resources/js/app.js', 'resources/js/checkout.js'])
+@vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js','resources/js/checkout.js', 'resources/js/selectIndonesia.js', 'resources/js/tambahAlamat.js'])
 @endsection

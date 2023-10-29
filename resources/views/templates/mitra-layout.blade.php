@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
 
 ?>
 <!DOCTYPE html>
@@ -68,7 +70,7 @@ $user = KonsumensModel::find(session('id_user'));
     <!-- NAVBAR -->
     @yield('content')
 
-    @vite(['resources/js/tambahProduk.js', 'resources/js/app.js',
+    @vite(['resources/js/tambahProduk.js','resources/js/hapusProduk.js','resources/js/search.js','resources/js/app.js',
     'resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
     <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

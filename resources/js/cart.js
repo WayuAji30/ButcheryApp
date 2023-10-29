@@ -10,8 +10,8 @@ $(document).ready(function(){
 
    // Fungsi untuk menghitung jumlah produk yang dicentang
    function perbaruiJumlahProduk() {
-       const jumlahProduk = $('.checkbox:checked').length;
-       $('#jumlah-produk').text(jumlahProduk);
+    const jumlahProduk = $('.checkbox:checked').length;
+    $('#jumlah-produk').text(jumlahProduk);
    }
 
    // Fungsi untuk menghitung total harga
@@ -66,35 +66,45 @@ $(document).ready(function(){
     });
 
    // Tombol beli
-   $('#btn-beli').click(function () {
-    var id_user = $(this).data('id_user');
-    var id_produk = $(this).data('id_produk');
-    var id_supplier = $(this).data('id_supplier');
+   $('#btn-beli-cart').on('click',function () {
+    var id_user = $('#id_user').val();
     var harga_total = $('#harga-total').text();
-    var foto = $('#foto_cart_items').val();
-
-
+    
     var selectedItems = [];
     $('.checkbox:checked').each(function () {
         var cartItem = $(this).closest('.cart-item');
+        var id_user = cartItem.find('#id_user').val();
+        var id_supplier = cartItem.find('#id_supplier').val();
+        var id_produk = cartItem.find('#id_produk').val();
+        var foto = cartItem.find('#foto').val();
         var nama_produk = cartItem.find('#nama_produk').text();
         var varian = cartItem.find('#varian').text();
         var harga = cartItem.find('#harga').text();
         var qty = cartItem.find('#jumlah-barang').text();
         var note = cartItem.find('#note').val();
         selectedItems.push({
+            id_user : id_user,
+            id_supplier : id_supplier,
+            id_produk : id_produk,
+            foto_produk : foto,
             nama_produk: nama_produk,
             varian: varian,
             harga: harga,
             qty: qty,
-            note: note,
+            note: note
         });
     });
 
     // Mengubah array menjadi JSON string
     var selectedItemsJson = JSON.stringify(selectedItems);
 
-    window.location.href = '/store_checkout/' + id_user + '/' + id_produk + '/' + id_supplier + '/' + encodeURIComponent(selectedItemsJson) + '/' + harga_total + '/' + foto;
+    if( $('.checkbox:checked').length === 0 ){
+        alert("Tolong pilih salah satu produk yang ingin anda beli :)");
+        window.location.href = "/cart/" + id_user; 
+    }
+
+    window.location.href = '/store_cartcheckout/' + id_user + '/' + encodeURIComponent(selectedItemsJson) + '/' + harga_total + '/' + foto;
+    
 });
 
 
