@@ -38,8 +38,36 @@
                                 <td class="text-center">250gr</td>
                                 <td class="text-center">Kurir menuju toko anda</td>
                                 <td class="text-center">
-                                    <button class="border-2 border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Nilai</button>
-                                    <button class="border-2 border-[#D10B05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Dikirim</button>
+                                    <!-- The button to open modal -->
+                                    <label for="my_modal_7" class="border-2 border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 hover:bg-[#D10B05] hover:border-[#d10b05] hover:text-white transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+
+                                    <!-- Put this part before </body> tag -->
+                                    <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+                                    <div class="modal">
+                                        <div class="modal-box">
+                                            <p class="font-semibold text-[20px] text-[#787878] mt-3">Beri Riview Produk
+                                            </p>
+                                            <div class="border-t-2 border-[#e6e6e6] mt-7"></div>
+                                            <img src="{{asset('assets/img_index/asset/notification/profile.svg')}}" alt="" class="mx-auto my-auto border-2 border-[#d10b05] rounded-full mt-7">
+                                            <div class="text-center mt-5">
+                                                <p class="font-semibold text-[18px]">Rahmattahalurimek</p>
+                                                <p class="text-[#787878]">Udang Vaname Segar - 1kg</p>
+                                                <form action="">
+                                                    <div class="rating mt-5 gap-3">
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" checked />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                    </div>
+                                            </div>
+                                            <textarea name="" id="" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
+                                            <button for="my_modal_7" class="bg-[#d10b05] mt-8 mb-4 py-2 w-[80%] rounded-md font-semibold text-white hover:bg-[#9F0804] transition-all duration-200 ease-linear">Kirim</button>
+                                            </form>
+                                        </div>
+                                        <label class="modal-backdrop" for="my_modal_7">Close</label>
+                                    </div>
+                                    <button class="bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear">Sampai</button>
                                 </td>
                             </tr>
 
@@ -57,8 +85,36 @@
                                 <td class="text-center">250gr</td>
                                 <td class="text-center">Kurir menuju toko anda</td>
                                 <td class="text-center">
-                                    <button class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Nilai</button>
-                                    <button class="border-2 border-[#ccc] bg-[#ccc] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Dikirim</button>
+                                    <!-- The button to open modal -->
+                                    <label for="my_modal_7" class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+
+                                    <!-- Put this part before </body> tag -->
+                                    <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+                                    <div class="modal">
+                                        <div class="modal-box">
+                                            <p class="font-semibold text-[20px] text-[#787878] mt-3">Beri Riview Produk
+                                            </p>
+                                            <div class="border-t-2 border-[#e6e6e6] mt-7"></div>
+                                            <img src="{{asset('assets/img_index/asset/notification/profile.svg')}}" alt="" class="mx-auto my-auto border-2 border-[#d10b05] rounded-full mt-7">
+                                            <div class="text-center mt-5">
+                                                <p class="font-semibold text-[18px]">Rahmattahalurimek</p>
+                                                <p class="text-[#787878]">Udang Vaname Segar - 1kg</p>
+                                                <form action="">
+                                                    <div class="rating mt-5 gap-3">
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" checked />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                    </div>
+                                            </div>
+                                            <textarea name="" id="" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
+                                            <button for="my_modal_7" class="bg-[#d10b05] mt-8 mb-4 py-2 w-[80%] rounded-md font-semibold text-white hover:bg-[#9F0804] transition-all duration-200 ease-linear">Kirim</button>
+                                            </form>
+                                        </div>
+                                        <label class="modal-backdrop" for="my_modal_7">Close</label>
+                                    </div>
+                                    <button class="border-2 border-[#ccc] bg-[#ccc] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Sampai</button>
                                 </td>
                             </tr>
 
@@ -74,10 +130,39 @@
                                 </td>
                                 <td class="text-center">Rp169.500</td>
                                 <td class="text-center">250gr</td>
-                                <td class="text-center">Kurir menuju toko anda</td>
+                                <td class="text-center">Dikemas</td>
                                 <td class="text-center">
-                                    <button class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Nilai</button>
-                                    <button class="border-2 border-[#ccc] bg-[#ccc] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Dikirim</button>
+                                    <!-- The button to open modal -->
+                                    <label for="my_modal_7" class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+
+                                    <!-- Put this part before </body> tag -->
+                                    <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+                                    <div class="modal">
+                                        <div class="modal-box">
+                                            <p class="font-semibold text-[20px] text-[#787878] mt-3">Beri Riview Produk
+                                            </p>
+                                            <div class="border-t-2 border-[#e6e6e6] mt-7"></div>
+                                            <img src="{{asset('assets/img_index/asset/notification/profile.svg')}}" alt="" class="mx-auto my-auto border-2 border-[#d10b05] rounded-full mt-7">
+                                            <div class="text-center mt-5">
+                                                <p class="font-semibold text-[18px]">Rahmattahalurimek</p>
+                                                <p class="text-[#787878]">Udang Vaname Segar - 1kg</p>
+                                                <form action="">
+                                                    <div class="rating mt-5 gap-3">
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" checked />
+                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                    </div>
+                                            </div>
+                                            <textarea name="" id="" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
+
+                                            <button for="my_modal_7" class="bg-[#d10b05] mt-8 mb-4 py-2 w-[80%] rounded-md font-semibold text-white hover:bg-[#9F0804] transition-all duration-200 ease-linear">Kirim</button>
+                                            </form>
+                                        </div>
+                                        <label class="modal-backdrop" for="my_modal_7">Close</label>
+                                    </div>
+                                    <button class="border-2 border-[#ccc] bg-[#ccc] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Sampai</button>
                                 </td>
                             </tr>
                         </tbody>
