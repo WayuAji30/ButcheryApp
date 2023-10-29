@@ -9,6 +9,8 @@ use App\Models\SuppliersModel;
 use App\Models\CartModel;
 use App\Models\KotaIndonesiaModel;
 use App\Models\CheckOutModel;
+use App\Models\MetodePembayaranModel;
+use App\Models\PurchaseModel;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -35,7 +37,7 @@ class HomeController extends Controller
         $data_produk2 = MitraProdukModel::all()->toArray();
         shuffle($data_produk2);
 
-        $produk_laris = array_slice($data_produk2,0,11);
+        $produk_laris = array_slice($data_produk2,0,5);
 
         return view('index', ['rekproduk' => $rekomendasi_produk, 'produk_laris' => $produk_laris]);
     }
@@ -46,12 +48,18 @@ class HomeController extends Controller
 
         $data_search = MitraProdukModel::where('nama_produk','regex', new \MongoDB\BSON\Regex($name, 'i'))->get();
 
-        return view('searchProduct',['data_search' => $data_search]); // view('folder.file', compact())
+        $total_data = count($data_search);
+
+        return view('searchProduct',['data_search' => $data_search, 'kata_kunci' => $name, 'total_data' => $total_data]); // view('folder.file', compact())
     }
 
-    public function checkout_payment()
+    public function searchProductByKategori($slug)
     {
-        return view('checkout_payment'); // view('folder.file', compact())
+        $data_search = MitraProdukModel::where('id_kategori',$slug)->get();
+
+        $total_data = count($data_search);
+
+        return view('searchProduct',['data_search' => $data_search, 'slug'=>$slug, 'total_data' => $total_data]); // view('folder.file', compact())
     }
 
     public function notification()
@@ -62,14 +70,20 @@ class HomeController extends Controller
     public function produk($id)
     {
         $detail_produk = MitraProdukModel::find($id);
+        
+        // Dapatkan kategori produk saat ini
+        $kategori_produk_saat_ini = $detail_produk->id_kategori;
+
+        $produk_terkait = MitraProdukModel::where('id_kategori', $kategori_produk_saat_ini)->where('_id', '!=', $id)->take(3)->get();
+        
         $kota = KotaindonesiaModel::first();
 
-        return view('product', ['kota' => $kota, 'detail_produk' => $detail_produk]); // view('folder.file', compact())
+        return view('product', ['kota' => $kota, 'detail_produk' => $detail_produk, 'product_related' => $produk_terkait]); // view('folder.file', compact())
     }
 
-    public function cart()
+    public function cart($id_user)
     {
-        $cart_items = CartModel::all();
+        $cart_items = CartModel::where('user_id',$id_user)->get();
 
         return view('/cart', ['cart_items' => $cart_items]);
     }
@@ -95,12 +109,13 @@ class HomeController extends Controller
     public function deleteCart(Request $request)
     {
         $id = $request->input('id_cart_items');
+        $id_user = $request->input('id_user');
 
         $data =  CartModel::find($id);
 
         $data->delete();
 
-        return redirect()->to('/cart');
+        return redirect()->to('/cart'. '/' . $id_user);
     }
 
     public function checkOut($id_user)
@@ -120,21 +135,22 @@ class HomeController extends Controller
         }
 
         $data_user = KonsumensModel::where('_id', $id_user)->first();
+        $metode_pembayaran = MetodePembayaranModel::all();
 
-        return view('/checkout', ['data_produk' => $data_produk, 'produk' => $produk, 'data_supplier' => $data_supplier, 'data_user' => $data_user]);
+        return view('/checkout', ['data_produk' => $data_produk, 'produk' => $produk, 'data_supplier' => $data_supplier, 'data_user' => $data_user, 'metode_pembayaran' => $metode_pembayaran]);
     }
 
 
-    public function store_checkout($id_user, $id_supplier, $id_produk, $data_keranjang, $harga_total, $foto)
+    public function store_cartcheckout($id_user, $data_keranjang, $harga_total, $foto)
     {
         $data = json_decode(urldecode($data_keranjang), true);
 
         foreach ($data as $d) {
             CheckOutModel::create([
-                'user_id' => $id_user,
-                'supplier_id' => $id_supplier,
-                'produk_id' => $id_produk,
-                'foto' => $foto,
+                'user_id' => $d['id_user'],
+                'supplier_id' => $d['id_supplier'],
+                'produk_id' => $d['id_produk'],
+                'foto' => $d['foto_produk'],
                 'nama_produk' => $d['nama_produk'],
                 'varian' => $d['varian'],
                 'harga' => $d['harga'],
@@ -146,6 +162,61 @@ class HomeController extends Controller
 
         return redirect()->to('/checkOut' . '/' . $id_user);
     }
+
+    public function store_checkout($id_user, $id_supplier, $id_produk, $foto,$nama_produk,$varian,$harga,$qty,$harga_total, $note)
+    {
+        CheckOutModel::create([
+            'user_id' => $id_user,
+            'supplier_id' => $id_supplier,
+            'produk_id' => $id_produk,
+            'foto' => $foto,
+            'nama_produk' => $nama_produk,
+            'varian' => $varian,
+            'harga' => $harga,
+            'qty' => $qty,
+            'harga_total' => $harga_total,
+            'note' => $note
+        ]);
+        
+
+        return redirect()->to('/checkOut' . '/' . $id_user);
+    }
+
+    public function store_orders($data_orders, $alamat_pengiriman, $metode_pembayaran, $opsi_pengiriman, $biaya_ongkir, $biaya_layanan, $biaya_asuransi, $biaya_tambahan, $subtotal, $total_harga, $status){
+        $data = json_decode(urldecode($data_orders), true);
+        
+        foreach($data as $do){
+            PurchaseModel::create([
+                'id_user' => $do['id_user'],
+                'id_supplier' => $do['id_supplier'],
+                'id_produk' => $do['id_produk'],
+                'nama_produk'=> $do['nama_produk'],
+                'varian' => $do['varian'],
+                'harga' => $do['harga'],
+                'qty' => $do['qty'],
+                'alamat_pengiriman' => $alamat_pengiriman,
+                'metode_pembayaran' => $metode_pembayaran,
+                'opsi_pengiriman' => $opsi_pengiriman,
+                'biaya_ongkir' => $biaya_ongkir,
+                'biaya_layanan' => $biaya_layanan,
+                'biaya_asuransi' => $biaya_asuransi,
+                'biaya_tambahan' => $biaya_tambahan,
+                'subtotal' => $subtotal,
+                'total_harga' => $total_harga,
+                'status' => $status
+            ]);
+        }
+
+        return redirect()->to('/checkout_payment' . '/' . $metode_pembayaran);
+    }
+
+    public function checkout_payment($slug)
+    {
+        $metode_pembayaran = MetodePembayaranModel::where('slug',$slug)->first();
+
+        return view('checkout_payment'); // view('folder.file', compact())
+    }
+
 
     public function test_api(Request $request)
     {

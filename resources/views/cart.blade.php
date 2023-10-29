@@ -16,9 +16,12 @@
                 @foreach ($cart_items as $ci )
                 <div class="w-[100%] md:w-[95%] bg-white border-b-4 border-[#e6e6e6] mt-11 cart-item">
                     <div class="flex items-center">
-                        <input type="checkbox" checked="checked" class="harga-item checkbox checkbox-error mr-6"
-                            data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}"
-                            data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}" />
+                        <input type="checkbox" class="harga-item checkbox checkbox-error mr-6" data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}" data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}" />
+                        <input type="hidden" name="" id = "foto" value = "{{(isset($ci->foto) ? $ci->foto : '')}}">
+                        <input type="hidden" name="" id = "id_user" value = "{{(isset($ci->user_id)) ? $ci->user_id : ''}}">
+                        <input type="hidden" name="" id = "id_supplier" value = "{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}">
+                        <input type="hidden" name="" id = "id_produk" value ="{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}">
+
                         <img src="{{asset('storage/img_uploaded/' . $ci->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
@@ -26,8 +29,7 @@
                                     class="sm:text-sm">{{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}}</span>
                                 <br />
                                 <span class="text-[#D10B05] font-semibold sm:text-sm"
-                                    id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span><span
-                                    class="font-semibold ml-3 sm:text-sm">X2</span>
+                                    id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span>
                             </li>
                             <li class="font-semibold mt-4">
                                 Rp<span id="harga">{{(isset($ci->harga)) ? $ci->harga : ''}}</span>
@@ -43,8 +45,8 @@
                         <div class="flex items-center lg:gap-4 mr-20">
                             <form action="/deleteCart" method="POST">
                                 @csrf
+                                <input type="hidden" name="id_user" id="id_user" value="{{$ci->user_id}}">
                                 <input type="hidden" name="id_cart_items" id="id_cart_items" value="{{$ci->_id}}">
-                                <input type="hidden" name="foto_cart_items" id="foto_cart_items" value="{{$ci->foto}}">
                                 <button id="btn-remove" onclick="return confirm('apakah anda yakin?')">
                                     <svg class="lg:mr-2 sm:ml-2 sm:w-5" xmlns="http://www.w3.org/2000/svg" width="25"
                                         height="25" viewBox="0 0 512 512">
@@ -66,7 +68,6 @@
                         </div>
                     </div>
                 </div>
-
                 @endforeach
                 <!--  -->
             </div>
@@ -82,7 +83,7 @@
                         <p class="text-[18px] font-semibold lg:block hidden">Tinggal Klik Beli</p>
                         <p class="mt-8 text-[#999] font-medium lg:block hidden">Jumlah Produk</p>
                         <p class="mt-1 font-semibold text-[18px] lg:block hidden">
-                            <span id="jumlah-produk"></span> Produk
+                            <span id="jumlah-produk">0</span> Produk
                         </p>
                         <div class="border-t-2 border-solid border-[#E6E6E6] mt-5 lg:block hidden"></div>
                         <p class="lg:mt-8 sm:mt-2 text-[#999] font-medium lg:block hidden">Total Harga</p>
@@ -99,11 +100,7 @@
                                 </p>
                             </li>
                         </ul>
-
-                        <button id="btn-beli" data-id_user="{{(isset($ci->user_id)) ? $ci->user_id : ''}}"
-                            data-id_supplier="{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}"
-                            data-id_produk="{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}"
-                            class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                        <button id="btn-beli-cart" class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
                             Beli
                         </button>
                     </div>
@@ -272,7 +269,7 @@
 </footer>
 <!-- FOOTER -->
 
-@vite(['resources/js/app.js', 'resources/js/product.js' ,'resources/js/cart.js'])
+@vite(['resources/js/app.js', 'resources/js/cart.js'])
 
 </body>
 

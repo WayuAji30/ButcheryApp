@@ -33,13 +33,27 @@ class MitraController extends Controller
         return view('mitra_center.langganan'); // view('folder.file', compact())
     }
 
-    public function daftarProduk($id)
+    public function daftarProduk(Request $request, $id)
     {
-        $daftarProduk = MitraProdukModel::where('supplier_id',$id)->get();
+        $keyword = $request->input('cari_daftarproduk');
+        $kategori = $request->input('cari_daftarproduk');
+        $filter = $request->input('cari_daftarproduk');
+         
+        if($keyword){
+            $daftarProduk = MitraProdukModel::where('supplier_id',$id)->where('nama_produk','regex', new \MongoDB\BSON\Regex($keyword, 'i'))->orWhere('id_kategori',$kategori)->get();
+        }else if($kategori){
+            $daftarProduk = MitraProdukModel::where('supplier_id',$id)->where('id_kategori',$kategori)->get();
 
-        return view('mitra_center.daftarProduk', ['daftarProduk' => $daftarProduk]);
+        }
+        else{
+            $daftarProduk = MitraProdukModel::where('supplier_id',$id)->get();
+        }
+        
+        $kategori = KategoriModel::all();
+
+        return view('mitra_center.daftarProduk', ['daftarProduk' => $daftarProduk, 'kategori' => $kategori]);
     }
-
+    
     public function tambahProduk()
     {
         $kategori = KategoriModel::all();
@@ -81,13 +95,20 @@ class MitraController extends Controller
         $nama_produk = $request->input('nama_produk');
         $kategori = $request->input('kategori');
         $deskripsi = $request->input('deskripsi');
+        
         $varian1 = $request->input('varian.varian1');
         $harga1 = $request->input('varian.harga1');
         $stok1 = $request->input('varian.stok1');
+        
         $varian2 = $request->input('varian.varian2');
         $harga2 = $request->input('varian.harga2');
         $stok2 = $request->input('varian.stok2');
+        
+        $varian3 = $request->input('varian.varian3');
+        $harga3 = $request->input('varian.harga3');
+        $stok3 = $request->input('varian.stok3');
 
+        
         MitraProdukModel::create([
             'supplier_id' => $data_supplier->_id,
             'nama_toko' => $data_supplier->nama_toko,
@@ -96,9 +117,9 @@ class MitraController extends Controller
                 'alamat' => $response2['name']
             ],
             'foto' => [
-                'foto1' => $image->hashName(),
-                'foto2' => $image2->hashName(),
-                'foto3' => $image3->hashName(),
+                'foto1' => (empty($image) ? '' : $image->hashName()),
+                'foto2' => (empty($image2) ? '' : $image2->hashName()),
+                'foto3' => (empty($image3) ? '' : $image3->hashName()),
             ],
             'nama_produk' => $nama_produk,
             'id_kategori' => $kategori,
@@ -113,24 +134,30 @@ class MitraController extends Controller
                     'varian2' => $varian2,
                     'harga' => $harga2,
                     'stok' => $stok2,
-                ]
+                ],
+                [
+                    'varian3' => $varian3,
+                    'harga' => $harga3,
+                    'stok' => $stok3,
+                ],
             ],
             'rating' => null,
             'reviews' => null
         ]);
 
-        return redirect()->to('/daftarProduk');
+        return redirect()->to('/daftarProduk'. '/' . $data_supplier->_id);
     }
 
     public function deleteProduk(Request $request)
     {
-        $id = $request->input('id');
+        $produk_id = $request->input('id_produk');
+        $supplier_id = $request->input('supplier_id');
 
-        $produk = MitraProdukModel::find($id);
+        $produk = MitraProdukModel::find($produk_id); 
 
         $produk->delete();
 
-        return redirect()->to('/daftarProduk');
+        return redirect()->to('/daftarProduk'. '/' . $supplier_id);
     }
 
     public function updateProduk($id)
@@ -181,15 +208,22 @@ class MitraController extends Controller
         }
 
         $id = $request->input('id');
+        $supplier_id = $request->input('supplier_id');
         $nama_produk = $request->input('nama_produk');
         $kategori = $request->input('kategori');
         $deskripsi = $request->input('deskripsi');
+        
         $varian1 = $request->input('varian.varian1');
         $harga1 = $request->input('varian.harga1');
         $stok1 = $request->input('varian.stok1');
+        
         $varian2 = $request->input('varian.varian2');
         $harga2 = $request->input('varian.harga2');
         $stok2 = $request->input('varian.stok2');
+
+        $varian3 = $request->input('varian.varian3');
+        $harga3 = $request->input('varian.harga3');
+        $stok3 = $request->input('varian.stok3');
 
         MitraProdukModel::where('_id', $id)->update([
             'foto' => [
@@ -210,10 +244,15 @@ class MitraController extends Controller
                     'varian2' => $varian2,
                     'harga' => $harga2,
                     'stok' => $stok2,
+                ],
+                [
+                    'varian3' => $varian3,
+                    'harga' => $harga3,
+                    'stok' => $stok3,
                 ]
             ]
         ]);
 
-        return redirect()->to('/daftarProduk');
+        return redirect()->to('/daftarProduk' . '/' . $supplier_id);
     }
 }

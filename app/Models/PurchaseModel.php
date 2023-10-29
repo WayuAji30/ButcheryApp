@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class PurchaseModel extends Model
 {
@@ -18,7 +18,7 @@ class PurchaseModel extends Model
      * @var array
      */
     protected $fillable = [
-        
+        'id_user','id_produk','id_supplier', 'nama_produk', 'varian', 'harga', 'qty', 'alamat_pengiriman', 'metode_pembayaran', 'opsi_pengiriman', 'biaya_ongkir', 'biaya_layanan', 'biaya_asuransi', 'biaya_tambahan', 'subtotal', 'total_harga', 'status'   
     ];
 
 }

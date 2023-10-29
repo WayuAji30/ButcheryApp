@@ -141,7 +141,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     </form>
                 </div>
                 <div class="lg:gap-3 md:gap-2 sm:gap-1 lg:ml-0 md:ml-10 sm:ml-2 lg:mt-0 mt-1 flex" id="icon-bar">
-                    <a href="/cart" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    <a href="/cart/{{session('id_user')}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
                             <div class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
                             </div>
@@ -437,9 +437,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
         AOS.init();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-    @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/loader.js',
-    'resources/js/time.js', 'resources/js/hamburgerToggle.js', 'resources/js/cart.js',
-    'resources/js/product.js','resources/js/selectIndonesia.js', 'resources/js/drawer.js'])
+    @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/loader.js', 'resources/js/time.js', 'resources/js/hamburgerToggle.js', 'resources/js/cart.js', 'resources/js/product.js','resources/js/selectIndonesia.js', 'resources/js/drawer.js'])
 </body>
 
 </html>

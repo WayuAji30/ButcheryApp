@@ -24,12 +24,16 @@
                 <div class="text-[#999]">
                     <ul class="sm:text-xs">
                         <li class="mt-4">1. Masukkan kartu ATM, lalu PIN.</li>
-                        <li class="mt-2">2. Pilih menu “Transaksi Lainnya” – 'Transfer” – “Ke Rek BCA Virtual Account”
-                        </li>
-                        <li class="mt-2">3. Masukkan nomor BCA Virtual Account: 39107+20+NRP. Contoh: ...</li>
-                        <li class="mt-2">4. Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk menyelesaikan
-                            transaksi.</li>
-                        <li class="mt-2">5. Ambil dan simpanlah bukti transaksi tersebut.</li>
+                        <li class="mt-2">2. Pilih "Menu Lainnya".</li>
+                        <li class="mt-2">3. Pilih "Transfer".</li>
+                        <li class="mt-2">4. Pilih Jenis rekening yang akan Anda gunakan (Contoh; "Dari Rekening Tabungan").</li>
+                        <li class="mt-2">5. Pilih "Virtual Account Billing".</li>
+                        <li class="mt-2">6. Masukkan nomor Virtual Account Anda (contoh: 9880066710000001).</li>
+                        <li class="mt-2">7. Tagihan yang harus dibayarkan akan muncul pada layar konfirmasi.</li>
+                        <li class="mt-2">8. Pilih Benar</li>
+                        <li class="mt-2">9. Pilih jenis tagihan dan konfirmasi.</li>
+                        <li class="mt-2">10. Konfirmasi, apabila telah sesuai, lanjutkan transaksi.</li>
+                        <li class="mt-2">11. Transaksi Anda telah selesai.</li>
                     </ul>
                 </div>
             </div>

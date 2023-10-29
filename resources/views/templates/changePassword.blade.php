@@ -89,7 +89,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     </form>
                 </div>
                 <div class="gap-3 flex" id="icon-bar">
-                    <a href="/cart"
+                    <a href="/cart/{{session('id_user')}}"
                         class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
                             <div

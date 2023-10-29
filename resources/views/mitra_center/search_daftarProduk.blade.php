@@ -1,14 +1,5 @@
 @extends('../templates/mitra-layout')
 @section('content')
-<?php
-
-use App\Models\KonsumensModel;
-use App\Models\SuppliersModel;
-
-$user = KonsumensModel::find(session('id_user'));
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
-
-?>
 
 @if (!session()->has('login'))
 <script>
@@ -109,9 +100,9 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
         <!-- SEARCH BAR -->
         <div class="flex mx-11 mt-10 justify-between">
             <div class="flex gap-5">
-                <form action="/daftarProduk/{{$supplier->_id}}" method="GET">
+                <form action="">
                     <div class="relative flex items-center">
-                        <input type="text" name="cari_daftarproduk" id="cari_daftarproduk" placeholder="Cari Nama Produk" class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
+                        <input type="text" name="cari_daftarproduk" id="cari_daftarproduk" placeholder="Cari Nama Produk" required class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
                         <button class="absolute right-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                                 <path fill="#999" d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
@@ -127,11 +118,10 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                 </select>
                 <select name="filter" id="filter" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
                     <option value="">Filter</option>
-                    <option value="ASC">ASC</option>
-                    <option value="DESC">DESC</option>
+                    <option value="">ASC</option>
+                    <option value="">DESC</option>
                 </select>
             </div>
-            
             <a href="/tambahProduk">
                 <button class="bg-[#D10B05] px-3 py-2 rounded-md text-white font-semibold hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                     + Tambah Produk
@@ -141,7 +131,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
         <!-- SEARCH BAR -->
 
         <!-- TABLE -->
-        <table id="produk-table" class="table-auto w-full mt-5 mb-5" data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-out">
+        <table class="table-auto w-full mt-5 mb-5" data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-out">
             <thead>
                 <tr class="text-[#787878] font-semibold border-y-2 border-[#e6e6e6] w-full">
                     <th colspan="2" class="py-4">Info Produk</th>
@@ -153,7 +143,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
             </thead>
             <tbody>
                 @foreach ($daftarProduk as $dp )
-                <tr class="border-b-2 border-slate-200" data-kategori = "{{(isset($dp['id_kategori']) ? $dp['id_kategori'] : '')}}" data-filter = "ASC" data-filter2 = "DESC">
+                <tr class="border-b-2 border-slate-200">
                     <td>
                         <img src="{{asset('storage/img_uploaded/'.(isset($dp['foto']['foto1']) ? $dp['foto']['foto1'] : ''))}}" alt="" class="w-[84px] rounded-lg ml-5 py-5" />
                     </td>
@@ -165,18 +155,18 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
                         Rp<span id="harga">{{(isset($dp['varian'][0]['harga']) ? $dp['varian'][0]['harga'] : '')}}</span>
-                        <span id="harga">{{(isset($dp['varian'][1]['harga']) ? '/ Rp'.$dp['varian'][1]['harga'] : '')}}</span>
-                        <span id="harga">{{(isset($dp['varian'][2]['harga']) ? '/ Rp'.$dp['varian'][2]['harga'] : '')}}</span>
+                        <span id="harga">{{(isset($dp['varian'][1]['harga']) ? '|Rp'.$dp['varian'][1]['harga'] : '')}}</span>
+                        <span id="harga">{{(isset($dp['varian'][2]['harga']) ? '|Rp'.$dp['varian'][2]['harga'] : '')}}</span>
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
                         {{(isset($dp['varian'][0]['varian1']) ? $dp['varian'][0]['varian1'] : '')}}
-                        {{(isset($dp['varian'][1]['varian2']) ? '/ '.$dp['varian'][1]['varian2'] : '')}}
-                        {{(isset($dp['varian'][2]['varian3']) ? '/ '.$dp['varian'][2]['varian3'] : '')}}
+                        {{(isset($dp['varian'][1]['varian2']) ? '| '.$dp['varian'][1]['varian2'] : '')}}
+                        {{(isset($dp['varian'][2]['varian3']) ? '| '.$dp['varian'][2]['varian3'] : '')}}
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
                         {{(isset($dp['varian'][0]['stok']) ? $dp['varian'][0]['stok'] : '')}}
-                        {{(isset($dp['varian'][1]['stok']) ? '/ '.$dp['varian'][1]['stok'] : '')}}
-                        {{(isset($dp['varian'][2]['stok']) ? '/ '.$dp['varian'][2]['stok'] : '')}}
+                        {{(isset($dp['varian'][1]['stok']) ? '| '.$dp['varian'][1]['stok'] : '')}}
+                        {{(isset($dp['varian'][2]['stok']) ? '| '.$dp['varian'][2]['stok'] : '')}}
                     </td>
                     <td class="text-center">
                         <a href="/tambahProduk/{{$dp->_id}}" class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">

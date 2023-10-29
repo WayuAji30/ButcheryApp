@@ -4,7 +4,7 @@
 <!-- PRODUCT -->
 <div class="w-full lg:mt-52 md:mt-60 sm:mt-20">
     <div class="container mx-auto lg:px-[56px] md:px-12 sm:px-5">
-        <p class="font-semibold text-2xl sm:text-[20px]">Bersertifikat (<span>30</span>)</p>
+        <p class="font-semibold text-2xl sm:text-[20px]">{{(isset($slug)) ? $slug : $kata_kunci }} (<span>{{$total_data}}</span>)</p>
         <div class="grid grid-cols-12 mt-9 sm:mt-4 lg:gap-10 sm:gap-2">
             <!-- Baris 1 -->
             @foreach ($data_search as $ds)
@@ -23,7 +23,7 @@
                             <p class="lg:pt-5 sm:pt-2 flex text-[#999] sm:text-xs">
                                 <img class="pr-2 sm:w-6"
                                     src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
-                                    alt="" />{{$ds->nama_toko}}
+                                    alt="" />{{(strlen($ds['nama_toko']) > 16 ? substr($ds['nama_toko'],0,15).'...' : $ds['nama_toko'])}}
                             </p>
                             <p class="text-[#D10B05] font-medium flex sm:text-xs sm:mt-1">
                                 <img class="pr-2 sm:w-6"

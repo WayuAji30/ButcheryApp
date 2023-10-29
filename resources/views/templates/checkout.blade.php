@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
 
 ?>
 <!DOCTYPE html>
@@ -63,7 +65,7 @@ $user = KonsumensModel::find(session('id_user'));
                                     Di Halaman
                                     Ini</button>
                             </form>
-                            <form action="/cart">
+                            <form action="/cart/{{session('id_user')}}">
                                 <button class="border-2 py-2 w-full border-[#D10B05] text-[#D10B05] font-semibold rounded-md mt-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">Kembali
                                     & Hapus
                                     Perubahan</button>
