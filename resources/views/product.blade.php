@@ -80,10 +80,10 @@
                 <input type="hidden" name="foto_produk" id="foto_produk" value = "{{$detail_produk['foto']['foto1']}}">
                 <h1 class="font-medium text-[24px]" id = "nama_produk">{{$detail_produk->nama_produk}}</h1>
                 <div class="flex">
-                    <p>4.7</p>
+                    <p>{{$rating}}</p>
                     <button><img src="asset/product/star.svg" alt="" /></button>
-                    <p class="text-[#B3B3B3] ml-3">(<span>387</span> Penilaian) |</p>
-                    <p class="ml-2"><span>672 </span>Terjual</p>
+                    <p class="text-[#B3B3B3] ml-3">(<span>{{$jumlah_reviews}}</span> Penilaian) |</p>
+                    <p class="ml-2"><span>{{$terjual}}</span> Terjual</p>
                 </div>
                 <p class="font-semibold text-[36px] mt-6">
                     Rp <span id="value-view"></span>
@@ -91,17 +91,17 @@
                 <section class="mt-9">
                     <p class="font-semibold text-[18px]">Pilih varian:</p>
                     <div class="flex gap-3 mt-4">
-                        <button id="low" data-varian="{{$detail_produk['varian'][0]['varian1']}}" data-price = "{{$detail_produk['varian'][0]['harga']}}" data-stok = "{{$detail_produk['varian'][0]['stok']}}"
+                        <button id="low" data-varian="{{$detail_produk['varian'][0]['varian']}}" data-price = "{{$detail_produk['varian'][0]['harga']}}" data-stok = "{{$detail_produk['varian'][0]['stok']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 active transition-all duration-500 ease-in-out">
-                            {{$detail_produk['varian'][0]['varian1']}} 
+                            {{$detail_produk['varian'][0]['varian']}} 
                         </button>
-                        <button id="mid" data-varian="{{$detail_produk['varian'][1]['varian2']}}" data-price = "{{$detail_produk['varian'][1]['harga']}}" data-stok = "{{$detail_produk['varian'][1]['stok']}}"
+                        <button id="mid" data-varian="{{$detail_produk['varian'][1]['varian']}}" data-price = "{{$detail_produk['varian'][1]['harga']}}" data-stok = "{{$detail_produk['varian'][1]['stok']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
-                            {{$detail_produk['varian'][1]['varian2']}}
+                            {{$detail_produk['varian'][1]['varian']}}
                         </button>
-                        <button id="high" data-varian="{{$detail_produk['varian'][2]['varian3']}}" data-price = "{{$detail_produk['varian'][2]['harga']}}" data-stok = "{{$detail_produk['varian'][2]['stok']}}"
+                        <button id="high" data-varian="{{$detail_produk['varian'][2]['varian']}}" data-price = "{{$detail_produk['varian'][2]['harga']}}" data-stok = "{{$detail_produk['varian'][2]['stok']}}"
                         class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
-                        {{$detail_produk['varian'][2]['varian3']}}
+                        {{$detail_produk['varian'][2]['varian']}}
                     </button>
                     </div>
                 </section>
@@ -253,79 +253,41 @@
                     <p class="text-[#D10B05] font-semibold">Ulasan Pembeli</p>
                     <div class="flex items-center gap-2 mt-3">
                         <img src="{{asset('assets/img_index/asset/product/ic_round-star.svg')}}" alt="" />
-                        <p class="text-[60px] font-medium" id="value-rating">4.7</p>
+                        <p class="text-[60px] font-medium" id="value-rating">{{$rating}}</p>
                         <p class="text-[#CCC] mt-9">
-                            <span>672</span> Terjual | <span>328</span> Penilaian
+                            <span>{{$terjual}}</span> Terjual | <span>{{$jumlah_reviews}}</span> Penilaian
                         </p>
                     </div>
                 </div>
                 <div class="ml-14 mt-9">
                     <!-- Review 1 -->
-                    <div class="flex items-start gap-5">
-                        <img src="{{asset('assets/img_index/asset/product/Reviewer001.svg')}}" alt="" />
-                        <ul>
-                            <li class="flex">
-                                <p class="font-semibold mr-3">Freya Jayawardana</p>
-                                <p class="text-[#b3b3b3]">4 hari lalu</p>
-                            </li>
-                            <li>
-                                <img src="{{asset('assets/img_index/asset/product/starReview.svg')}}" alt=""
-                                    class="mt-1" />
-                            </li>
-                            <li>
-                                <p class="mt-2">
-                                    Pesanan semua lengkap & datang sesuai jadwal,terima kasih.
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
+                    @foreach ($reviews as $r)
+                        @foreach ($data_user as $ds)    
+                        <div class="flex items-start gap-5">
+                            <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" />
+                            <ul>
+                                <li class="flex">
+                                    <p class="font-semibold mr-3">{{$ds[0]['username']}}</p>
+                                    <p class="text-[#b3b3b3]">4 hari lalu</p>
+                                </li>
+                                <li>
+                                    <img src="{{asset('assets/img_index/asset/product/starReview.svg')}}" alt=""
+                                        class="mt-1" />
+                                </li>
+                                <li>
+                                    <p class="mt-2">
+                                        {{$r['reviews']}}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        @endforeach
+                    @endforeach
                     <div class="border-t-2 border-solid border-[#E6E6E6] mt-8 mx-3"></div>
                     <!-- Review 1 -->
 
-                    <!-- Review 2 -->
-                    <div class="flex items-start gap-5 mt-5">
-                        <img src="{{asset('assets/img_index/asset/product/Reviewer002.svg')}}" alt="" />
-                        <ul>
-                            <li class="flex">
-                                <p class="font-semibold mr-3">Fiony Alveria Tantri</p>
-                                <p class="text-[#b3b3b3]">4 hari lalu</p>
-                            </li>
-                            <li>
-                                <img src="{{asset('assets/img_index/asset/product/starReview.svg')}}" alt=""
-                                    class="mt-1" />
-                            </li>
-                            <li>
-                                <p class="mt-2">
-                                    harganya murah kwalitas dagingnya bagus sll puas belanja
-                                    disini.
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="border-t-2 border-solid border-[#E6E6E6] mt-8 mx-3"></div>
-                    <!-- Review 2 -->
-
-                    <!-- Review 3 -->
-                    <div class="flex items-start gap-5 mt-5">
-                        <img src="{{asset('assets/img_index/asset/product/Reviewer003.svg')}}" alt="" />
-                        <ul>
-                            <li class="flex">
-                                <p class="font-semibold mr-3">Gita Sekar Andarini</p>
-                                <p class="text-[#b3b3b3]">4 hari lalu</p>
-                            </li>
-                            <li>
-                                <img src="{{asset('assets/img_index/asset/product/starReview.svg')}}" alt=""
-                                    class="mt-1" />
-                            </li>
-                            <li>
-                                <p class="mt-2">
-                                    Sdh sampai dan dalam keadaan beku, packing bagus dan aman.
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="mt-8 mx-3"></div>
-                    <!-- Review 3 -->
+                    <!-- pagination -->
                     <div class="w-full">
                         <div class="flex justify-between">
                             <img src="{{asset('assets/img_index/asset/product/pagination_arrow-left.svg')}}" alt="" />
@@ -379,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Mendefinisikan harga awal
     var currentPrice = parseInt("{{$detail_produk['varian'][0]['harga']}}");
-    var currentWeight = "{{$detail_produk['varian'][0]['varian1']}}";
+    var currentWeight = "{{$detail_produk['varian'][0]['varian']}}";
 
     // Menetapkan nilai awal pada elemen-elemen HTML
     valueProduct.innerText = "1";
@@ -401,15 +363,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     lowButton.addEventListener(
         "click",
-        handleWeightButtonClick("{{$detail_produk['varian'][0]['varian1']}}", parseInt("{{$detail_produk['varian'][0]['harga']}}"))
+        handleWeightButtonClick("{{$detail_produk['varian'][0]['varian']}}", parseInt("{{$detail_produk['varian'][0]['harga']}}"))
     );
     midButton.addEventListener(
         "click",
-        handleWeightButtonClick("{{$detail_produk['varian'][1]['varian2']}}", parseInt("{{$detail_produk['varian'][1]['harga']}}"))
+        handleWeightButtonClick("{{$detail_produk['varian'][1]['varian']}}", parseInt("{{$detail_produk['varian'][1]['harga']}}"))
     );
     highButton.addEventListener(
         "click",
-        handleWeightButtonClick("{{$detail_produk['varian'][2]['varian3']}}", parseInt("{{$detail_produk['varian'][2]['harga']}}"))
+        handleWeightButtonClick("{{$detail_produk['varian'][2]['varian']}}", parseInt("{{$detail_produk['varian'][2]['harga']}}"))
     );
 
     // Menangani klik pada tombol plus

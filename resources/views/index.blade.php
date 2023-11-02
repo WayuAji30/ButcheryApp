@@ -463,37 +463,48 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 <swiper-slide>
                     <div class="flex mx-16 gap-8">
                         @foreach ($produk_laris as $pl )
-                        <div class="col-span-2">
-                            <a href="">
-                                <div class="bg-white h-[335px] w-[228px] rounded-2xl drop-shadow-lg mb-2">
-                                    <img src="{{asset('storage/img_uploaded/'.$pl['foto']['foto1'])}}" alt=""
-                                        class="w-[228px] h-[152px] rounded-t-[15px]" />
-                                    <div class="pt-3 pl-3">
-                                        <p class="text-[14px] leading-4 font-medium">
-                                            {{$pl['nama_produk']}}
-                                        </p>
-                                        <p class="font-bold pt-2">
-                                            Rp<span>{{number_format($pl['varian'][0]['harga'], 0, ',')}}</span></p>
-                                        <p class="pt-5 flex text-[#999]">
-                                            <img class="pr-2"
-                                                src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
-                                                alt="" />{{(strlen($pl['nama_toko']) > 16 ? substr($pl['nama_toko'],0,15).'...' : $pl['nama_toko'])}}
-                                        </p>
-                                        <p class="text-[#D10B05] font-medium flex">
-                                            <img class="pr-2"
-                                                src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
-                                                alt="" />{{$pl['alamat_toko']['alamat']}}
-                                        </p>
-                                        <p class="flex text-[#999]">
-                                            <img class="pr-2"
-                                                src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}"
-                                                alt="" /><span class="pr-1">4.9</span> |
-                                            <span class="pl-1">1</span>rb+ terjual
-                                        </p>
+                                @php
+                                $pd = null;
+                                foreach ($produk_data as $product) {
+                                    if ($product['id_produk'] === $pl['_id']) {
+                                        $pd = $product;
+                                        break;
+                                    }
+                                }
+                            @endphp
+                        @if ($pd)
+                            <div class="col-span-2">
+                                <a href="/produk/{{$pl['_id']}}">
+                                    <div class="bg-white h-[335px] w-[228px] rounded-2xl drop-shadow-lg mb-2">
+                                        <img src="{{asset('storage/img_uploaded/'.$pl['foto']['foto1'])}}" alt=""
+                                            class="w-[228px] h-[152px] rounded-t-[15px]" />
+                                        <div class="pt-3 pl-3">
+                                            <p class="text-[14px] leading-4 font-medium">
+                                                {{$pl['nama_produk']}}
+                                            </p>
+                                            <p class="font-bold pt-2">
+                                                Rp<span>{{number_format($pl['varian'][0]['harga'], 0, ',')}}</span></p>
+                                            <p class="pt-5 flex text-[#999]">
+                                                <img class="pr-2"
+                                                    src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
+                                                    alt="" />{{(strlen($pl['nama_toko']) > 16 ? substr($pl['nama_toko'],0,15).'...' : $pl['nama_toko'])}}
+                                            </p>
+                                            <p class="text-[#D10B05] font-medium flex">
+                                                <img class="pr-2"
+                                                    src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
+                                                    alt="" />{{$pl['alamat_toko']['alamat']}}
+                                            </p>
+                                            <p class="flex text-[#999]">
+                                                <img class="pr-2"
+                                                    src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}"
+                                                    alt="" /><span class="pr-1">{{$pd['avgRating']}}</span> |
+                                                <span class="pl-1"> {{(isset($pd['jumlah_terjual']) ? $pd['jumlah_terjual'] : 0 )}} terjual</span> 
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        @endif
                         @endforeach
                     </div>
                 </swiper-slide>
@@ -510,7 +521,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         <div class="grid grid-cols-12 lg:gap-10 sm:gap-2">
             <!-- 1 -->
             <div class="lg:col-span-3 col-span-6 ">
-                <a href="" class="items-center flex lg:mt-5 md:mt-20 group">
+                <a href="/searchProduct/daging-ikan" class="items-center flex lg:mt-5 md:mt-20 group">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ikan.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -524,7 +535,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 2 -->
             <div class="lg:col-span-3 col-span-6 ">
-                <a href="" class="items-center flex group lg:mt-5 md:mt-20">
+                <a href="/searchProduct/daging-bebek" class="items-center flex group lg:mt-5 md:mt-20">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/bebek.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -538,7 +549,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 3 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-kerbau" class="items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerbau.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -552,7 +563,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 4 -->
             <div class="lg:col-span-3 col-span-6 ">
-                <a href="" class="items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-kelinci" class="items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kelinci.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -566,7 +577,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 5 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-ayam" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ayam.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -580,7 +591,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 6 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-kambing" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kambing.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -594,7 +605,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 7 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-domba" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/domba.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -608,7 +619,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 8 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-udang" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/udang.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -622,7 +633,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 9 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-sapi" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/sapi.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -636,7 +647,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 10 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-puyuh" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/puyuh.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -650,7 +661,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 11 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/kerang-dan-tiram" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerang.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -664,7 +675,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 12 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/cumi-cumi" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/cumi.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -688,39 +699,50 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         <h1 class="text-[24px] font-semibold sm:text-[16px]">Rekomendasi Buat Kamu</h1>
         <div class="grid grid-cols-12 lg:mt-9 mt-2 lg:gap-10 sm:gap-2">
             <!-- Baris 1 -->
-            @foreach ($rekproduk as $rp )
-            <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
-                <a href="/produk/{{$rp['_id']}}">
-                    <div
-                        class="bg-white h-[344px] sm:h-[310px] w-[207px] sm:w-[155px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
-                        <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt=""
-                            class="w-[300px] h-[152px] rounded-t-[15px] " />
-                        <div class="pt-3 pl-4">
-                            <p class="text-[14px] sm:text-[12px] leading-4 font-medium lg:pr-5">
-                                {{$rp['nama_produk']}}
-                            </p>
-                            <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
-                                Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
-                            <p class="pt-5 flex text-[#999] sm:text-xs leading-4">
-                                <img class="pr-2 sm:w-6"
-                                    src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
-                                    alt="" />{{(strlen($rp['nama_toko']) > 16 ? substr($rp['nama_toko'],0,15).'...' : $rp['nama_toko'])}}
-                            </p>
-                            <p class="text-[#D10B05] font-medium flex sm:text-xs sm:mt-1 text-[14px]">
-                                <img class="pr-2 sm:w-6"
-                                    src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
-                                    alt="" />{{$rp['alamat_toko']['alamat']}}
-                            </p>
-                            <p class="flex text-[#999] sm:text-xs sm:mt-1">
-                                <img class="pr-2 sm:w-6"
-                                    src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}" alt="" /><span
-                                    class="pr-1">4.7</span> |
-                                <span class="pl-1 pr-1">672</span>terjual
-                            </p>
+            @foreach ($rekproduk as $rp)
+                @php
+                    $pd = null;
+                    foreach ($produk_data as $product) {
+                        if ($product['id_produk'] === $rp['_id']) {
+                            $pd = $product;
+                            break;
+                        }
+                    }
+                @endphp
+            @if ($pd)
+                <div class="lg:col-span-2 md:col-span-4 sm:col-span-6">
+                    <a href="/produk/{{$rp['_id']}}">
+                        <div
+                            class="bg-white h-[344px] sm:h-[310px] w-[207px] sm:w-[155px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
+                            <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt=""
+                                class="w-[300px] h-[152px] rounded-t-[15px] " />
+                            <div class="pt-3 pl-4">
+                                <p class="text-[14px] sm:text-[12px] leading-4 font-medium lg:pr-5">
+                                    {{(strlen($rp['nama_produk']) > 44 ? substr($rp['nama_produk'],0,43) .'...' : $rp['nama_produk'])}}
+                                </p>
+                                <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
+                                    Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
+                                <p class="pt-5 flex text-[#999] sm:text-xs leading-4">
+                                    <img class="pr-2 sm:w-6"
+                                        src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}"
+                                        alt="" />{{(strlen($rp['nama_toko']) > 16 ? substr($rp['nama_toko'],0,15).'...' : $rp['nama_toko'])}}
+                                </p>
+                                <p class="text-[#D10B05] font-medium flex sm:text-xs sm:mt-1 text-[14px]">
+                                    <img class="pr-2 sm:w-6"
+                                        src="{{asset('assets/img_index/asset/card/solar_point-on-map-bold.svg')}}"
+                                        alt="" />{{$rp['alamat_toko']['alamat']}}
+                                </p>
+                                <p class="flex text-[#999] sm:text-xs sm:mt-1">
+                                    <img class="pr-2 sm:w-6"
+                                        src="{{asset('assets/img_index/asset/card/ic_round-star.svg')}}" alt="" /><span
+                                        class="pr-1">{{$pd['avgRating']}}</span> |
+                                    <span class="pl-1 pr-1">{{(isset($pd['jumlah_terjual']) ? $pd['jumlah_terjual'] : 0)}}</span>terjual
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+                @endif
             @endforeach
         </div>
         <div class="flex justify-center pt-12 lg:pb-32 md:pb-14 sm:pb-10">

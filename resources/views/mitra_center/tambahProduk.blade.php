@@ -1,6 +1,22 @@
 @extends('../templates/mitra-layout')
 @section('content')
 
+<?php
+
+use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
+
+$user = KonsumensModel::find(session('id_user'));
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+
+?>
+
+@if (!session()->has('login'))
+<script>
+document.location.href = "/login";
+</script>
+@endif
+
 <!-- Navbar kiri -->
 <aside class="relative pt-20 h-screen w-64 hidden lg:block md:block shadow-xl bg-white">
     <nav class="">
@@ -39,7 +55,7 @@
                     Produk</a>
             </p>
             <p class="mt-4">
-                <a href="/daftarProduk"
+                <a href="/daftarProduk/{{$supplier->_id}}"
                     class="text-[#999] hover:text-[#D10B05] border-l-4 py-2 border-white pl-[58px]">Daftar
                     Produk</a>
             </p>
@@ -48,7 +64,7 @@
                     Produk</a>
             </p>
         </div>
-        <a href="/pesanan" class="flex items-center active-nav-link cta-btn py-4 pl-6 nav-item">
+        <a href="/pesanan/{{$supplier->_id}}" class="flex items-center active-nav-link cta-btn py-4 pl-6 nav-item">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                 <path fill="#2b2b2b"
                     d="m17.275 20.25l3.475-3.45l-1.05-1.05l-2.425 2.375l-.975-.975l-1.05 1.075l2.025 2.025ZM6 9h12V7H6v2Zm12 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23ZM3 22V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v6.675q-.475-.225-.975-.375T19 11.075V5H5v14.05h6.075q.125.775.388 1.475t.687 1.325L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5L3 22Zm3-5h5.075q.075-.525.225-1.025t.375-.975H6v2Zm0-4h7.1q.95-.925 2.213-1.463T18 11H6v2Zm-1 6.05V5v14.05Z" />
@@ -96,7 +112,7 @@
 
 
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
-    <div class="mt-32 bg-white rounded-tl-2xl w-full ml-4 shadow-md">
+    <div class="mt-32 bg-white rounded-2xl w-[97%] ml-4 shadow-md mb-5">
         <p class="mt-7">
             <a class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium cursor-default">Informasi
                 Produk</a>
@@ -128,15 +144,59 @@
                         perhatian pembeli.
                     </p>
                 </div>
+                <div class="flex items-center gap-9 ml-28">
+                    <label for="foto1" class="cursor-pointer group">
+                        <div
+                            class="foto-utama border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
+                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
+                                    <path
+                                        d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z"
+                                        fill="#CCCCCC" />
+                                </svg>
+                            </div>
+                            <p class="text-[#ccc] mt-4 mb-6 group-hover:text-[#d10b05]">Foto Utama</p>
+                        </div>
+                        <img id = "uploadedImage" src="" alt="" class = "w-40 rounded-lg hidden"/>
+                    </label>
+                    <label for="foto2" class="cursor-pointer group">
+                        <div
+                            class="foto-kedua border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
+                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
+                                    <path
+                                        d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z"
+                                        fill="#CCCCCC" />
+                                </svg>
+                            </div>
+                            <p class="text-[#ccc] mt-4 mb-6 group-hover:text-[#d10b05]">Foto Kedua</p>
+                        </div>
+                        <img id = "uploadedImage2" src="" alt="" class = "w-40 rounded-lg hidden"/>
+                    </label>
+                    <label for="foto3" class="cursor-pointer group">
+                        <div
+                            class="foto-ketiga border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
+                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
+                                    <path
+                                        d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z"
+                                        fill="#CCCCCC" />
+                                </svg>
+                            </div>
+                            <p class="text-[#ccc] mt-4 mb-6 group-hover:text-[#d10b05]">Foto Ketiga</p>
+                        </div>
+                        <img id = "uploadedImage3" src="" alt="" class = "w-40 rounded-lg hidden"/>
+                    </label>
+                </div>
                 <input type="file" name="foto1" id="foto1"
                     value="{{(isset($produk['foto']['foto1']) ? $produk['foto']['foto1'] : '')}}"
-                    accept=".jpg,.jpeg,.png,.gif,.svg" />
+                    accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
                 <input type="file" name="foto2" id="foto2"
                     value="{{(isset($produk['foto']['foto2']) ? $produk['foto']['foto2'] : '')}}"
-                    accept=".jpg,.jpeg,.png,.gif,.svg" />
+                    accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
                 <input type="file" name="foto3" id="foto3"
                     value="{{(isset($produk['foto']['foto3']) ? $produk['foto']['foto3'] : '')}}"
-                    accept=".jpg,.jpeg,.png,.gif,.svg" />
+                    accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
             </div>
             <div class="flex ml-11 mt-16 items-center">
                 <p class="font-semibold text-[18px] mr-64">Nama Produk</p>
@@ -243,26 +303,23 @@
                     <div class="bg-[#eeeeee] w-[547px] rounded-md">
                         <div class="px-10 py-5 pembungkus-page-3" style="display: flex; align-items: center">
                             <label for="" class="font-semibold mr-4">Varian 3</label>
-                            <button form="none" id ="btn-tambah-varian3"
+                            <button form="none" id="btn-tambah-varian3"
                                 class="btn-tambah-varian-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
                                 <span><img src="{{asset('assets/img_mitra_center/asset/tambahProduk/buttonPlus.svg')}}"
                                         alt="" /></span>
                                 Tambah Varian
                             </button>
-                            <input hidden type="text" placeholder="Contoh: 250gr" name = "varian[varian3]" id = ""
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" 
-                                value="{{( isset($produk['varian'][2]['varian3']) ) ? $produk['varian'][2]['varian3'] : '' }}"
-                            />
+                            <input hidden type="text" placeholder="Contoh: 250gr" name="varian[varian3]" id=""
+                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]"
+                                value="{{( isset($produk['varian'][2]['varian3']) ) ? $produk['varian'][2]['varian3'] : '' }}" />
                             <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input hidden type="text" placeholder="Masukan dalam Rupiah" name = "varian[harga3]" id = ""
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" 
-                                value="{{( isset($produk['varian'][2]['harga']) ) ? $produk['varian'][2]['harga'] : '' }}"
-                                />
+                            <input hidden type="text" placeholder="Masukan dalam Rupiah" name="varian[harga3]" id=""
+                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]"
+                                value="{{( isset($produk['varian'][2]['harga']) ) ? $produk['varian'][2]['harga'] : '' }}" />
                             <label for="" class="mr-10" hidden>Stok</label>
-                            <input hidden type="text" placeholder="Contoh: 17" name = "varian[stok3]" id = ""
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" 
-                                value="{{( isset($produk['varian'][2]['stok']) ) ? $produk['varian'][2]['stok'] : '' }}"
-                                />
+                            <input hidden type="text" placeholder="Contoh: 17" name="varian[stok3]" id=""
+                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]"
+                                value="{{( isset($produk['varian'][2]['stok']) ) ? $produk['varian'][2]['stok'] : '' }}" />
                         </div>
                     </div>
                 </div>

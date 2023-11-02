@@ -359,7 +359,9 @@ class AuthController extends Controller
         $prov = $request->session()->get('provinsi_id');
         $kota = $request->session()->get('kota_id');
         $kecamatan = $request->session()->get('kecamatan_id');
-        var_dump([$registrationData,$idData,$idSup,$prov,$kota,$kecamatan]);
+        $newDataCart = $request->session()->get('NewDataCart');
+        $newDataPesanan = $request->session()->get('NewDataPesanan');
+        var_dump([$registrationData,$idData,$idSup,$prov,$kota,$kecamatan,$newDataCart,$newDataPesanan]);
     }
 
     public function logout(){

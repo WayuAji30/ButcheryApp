@@ -23,22 +23,25 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/searchProduct', [HomeController::class, 'searchProduct']);
 Route::get('/searchProduct/{slug}', [HomeController::class, 'searchProductByKategori']);
 
-Route::get('/notification', [HomeController::class, 'notification']);
-
+Route::get('/notification/{id}', [HomeController::class, 'notification']);
 
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
 Route::get('/store_cart/{id}/{id_produk}/{id_supplier}/{nama_produk}/{varian}/{harga}/{qty}/{subtotal}/{note}/{foto_produk}', [HomeController::class, 'store_cart']);
 
 Route::post('/deleteCart', [HomeController::class, 'deleteCart']);
+Route::post('/hapusCheckOut',[HomeController::class,'hapusCheckOut']);
 
 Route::get('/checkOut/{id}', [HomeController::class, 'checkOut']);
 Route::get('/store_cartcheckout/{id_user}/{data_keranjang}/{harga_total}/{foto}', [HomeController::class, 'store_cartcheckout']);
 Route::get('/store_checkout/{id_user}/{id_supplier}/{id_produk}/{foto}/{nama_produk}/{varian}/{harga}/{qty}/{harga_total}/{note}', [HomeController::class, 'store_checkout']);
 Route::post('/updateUserByCheckout', [AuthController::class, 'updateUserByCheckout']);
-Route::get('/checkout_payment/{slug}', [HomeController::class, 'checkout_payment']);
+Route::get('/checkout_payment/{id_user}', [HomeController::class, 'checkout_payment']);
 
+Route::get('/store_orders/{data_orders}/{opsiPengiriman}/{biayaOngkir}/{biayaLayanan}/{biayaAsuransi}/{biayaTambahan}/{subtotal}/{total_harga}/{status}/{alamatPengiriman}',[HomeController::class,'store_orders']);
 
-Route::get('/store_orders/{data_orders}/{alamatPengiriman}/{metodePembayaran}/{opsiPengiriman}/{biayaOngkir}/{biayaLayanan}/{biayaAsuransi}/{biayaTambahan}/{subtotal}/{total_harga}/{status}',[HomeController::class,'store_orders']);
+Route::get('/after_payment/{id_user}/{id_cart}/{id_checkout}/{varian}',[HomeController::class,'after_payment']);  
+
+Route::post('/store_rreviews',[HomeController::class,'store_rrviews']);
 
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/auth_system', [AuthController::class, 'auth_system']);
@@ -68,7 +71,7 @@ Route::post('/ubah_Password', [AuthController::class, 'ubah_password']);
 
 Route::get('/trenDaging', [MitraController::class, 'trenDaging']);
 Route::get('/daftarProduk/{id_supplier}', [MitraController::class, 'daftarProduk']);
-Route::get('/pesanan', [MitraController::class, 'pesanan']);
+Route::get('/pesanan/{id_supplier}', [MitraController::class, 'pesanan']);
 Route::get('/langganan', [MitraController::class, 'langganan']);
 Route::get('/tambahProduk', [MitraController::class, 'tambahProduk']);
 Route::get('/tambahProduk/{id}', [MitraController::class, 'updateProduk']);
@@ -80,9 +83,18 @@ Route::post('/hapusProduk', [MitraController::class, 'deleteProduk']);
 
 Route::get('/produk/{id}', [HomeController::class, 'produk']);
 
+Route::get('/changeStatusBySupplier/{id_supplier}/{id_produk}/{status}',[MitraController::class,'change_status']);
+Route::get('/changeStatusByKonsumen/{id_user}/{id_produk}/{status}',[HomeController::class,'changeStatusByKonsumen']);
+
 Route::get('/success_page', [HomeController::class, 'success_page']);
 Route::post('/test_api', [HomeController::class, 'test_api']);
 
 Route::get('/loginAdmin', [AdminController::class, 'loginAdmin']);
+Route::post('/auth_admin', [AdminController::class, 'authAdmin']);
+//Route::get('/daftarAdmin', [AdminController::class, 'daftarAdmin']);
+//Route::post('/auth_daftar_admin', [AdminController::class, 'authDaftarAdmin']);
 Route::get('/adminProduk', [AdminController::class, 'adminProduk']);
 Route::get('/adminReviews', [AdminController::class, 'adminReviews']);
+
+Route::post('/hapusProdukAdmin', [AdminController::class, 'deleteProdukByAdmin']);
+Route::post('/hapusRReviews', [AdminController::class, 'deleteRReviews']);

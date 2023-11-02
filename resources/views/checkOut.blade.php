@@ -27,8 +27,9 @@
                     <input type="hidden" name="" id="subtotal" value="{{$dp->harga_total}}">
                     <div class="list_produk flex items-center mt-3">
                         <input type="hidden" name="" id="id_user" class = "" value="{{session('id_user')}}">
-                        <input type="hidden" name="" id="id_produk" class = "" value="{{$dp->_id}}">
+                        <input type="hidden" name="" id="id_produk" class = "" value="{{$dp->produk_id}}">
                         <input type="hidden" name="" id="id_supplier" class = "" value="{{$dp->supplier_id}}">
+                        <input type="hidden" name="" id="foto_produk" class = "" value="{{$dp->foto}}">
                         <img src="{{asset('storage/img_uploaded/'. $dp->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
@@ -52,27 +53,18 @@
                         </div>
                             <!-- <button class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</button> -->
                             <!-- The button to open modal -->
-<<<<<<< HEAD
-                            <label for="my_modal_7" class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</label>
-=======
                             <label for="my_modal_7" id="ubah_alamat" class="text-[#D10B05] font-semibold hover:text-[#9F0804]" 
                             data-alamat1 = "{{(isset($data_user['alamat'][0]['alamat']) ? $data_user['alamat'][0]['alamat'] : 'Tidak ada alamat tambahan')}}" 
                             data-alamat2 = "{{(isset($data_user['alamat'][1]['alamat']) ? $data_user['alamat'][1]['alamat'] : 'Tidak ada alamat tambahan')}}"
                             data-alamat3 = "{{(isset($data_user['alamat'][2]['alamat']) ? $data_user['alamat'][2]['alamat'] : 'Tidak ada alamat tambahan')}}">Ubah</label>
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
 
                             <!-- Put this part before </body> tag -->
                             <input type="checkbox" id="my_modal_7" class="modal-toggle" />
                             <div class="modal">
                                 <div class="modal-box">
                                     <p class="font-semibold text-[20px] text-center">Alamat Pengiriman</p>
-<<<<<<< HEAD
-                                    <div class="flex items-center gap-5 mt-2">
-                                        <input type="radio" id="alamat1" checked>
-=======
                                     <div class="alamat flex items-center gap-5 mt-2">
                                         <input type="radio" id="alamat1" value = "">
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                                         <label for="alamat1">
                                             <p id="alamat-user-modal">
                                                 {{$data_user['alamat'][0]['alamat']}}
@@ -157,15 +149,12 @@
                             </div>
                     </div>
                     <div class="mt-3 ms-2">
-                        <p id="alamat-user">
-                            {{$data_user['alamat'][0]['alamat']}}
-                        </p>
-                        <p class="font-semibold mt-4" id="phone-user">
-                            {{($data_user['no_hp'] === '') ?  '(+62) Tidak Tersedia' : $data_user['no_hp']}}
-                        </p>
+                        <p id="alamat-user">{{$data_user['alamat'][0]['alamat']}}</p>
+                        <p class="font-semibold mt-4" id="phone-user">{{($data_user['no_hp'] === '') ?  '(+62) Tidak Tersedia' : $data_user['no_hp']}}</p>
                     </div>
                     <div class="mt-10"></div>
                 </div>
+                
                 <!-- Payment -->
                 <div class="w-[100%] bg-white border-b-4 border-[#e6e6e6] mt-8">
                     <div class="flex items-center justify-between mr-8">
@@ -177,52 +166,6 @@
                         </div>
                     </div>
                     <div class="mt-3">
-<<<<<<< HEAD
-                        <form action="">
-                            <div class="flex mt-5 gap-5">
-                                <button class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/BCA.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/BNI.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/BRI.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/Mandiri.svg')}}" alt="" />
-                                </button>
-                            </div>
-                            <div class="flex mt-5 gap-5">
-                                <button class="bg-white px-2 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/BSI.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-3 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/Permata.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-3 py-3 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/CimbNiaga.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-4 py-2 shadow-md rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/SeaBank.svg')}}" alt="" />
-                                </button>
-                            </div>
-                            <div class="flex mt-5 gap-5">
-                                <button class="bg-white px-4 py-2 shadow-lg rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/ovo.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-3 py-2 shadow-lg rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/dana.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-4 py-2 shadow-lg rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/gopay.svg')}}" alt="" />
-                                </button>
-                                <button class="bg-white px-5 py-2 shadow-lg rounded-lg border-2 border-slate-100 " form="none">
-                                    <img src="{{asset('assets/img_index/asset/footer/spay.svg')}}" alt="" />
-                                </button>
-                            </div>
-                        </form>
-=======
                         
                         <div class="flex mt-5 gap-5">
                             @foreach ($metode_pembayaran as $mp)
@@ -236,7 +179,6 @@
                             @endforeach
                         </div>
                        
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                     </div>
                     <div class="mt-10"></div>
                 </div>
@@ -343,14 +285,9 @@
                                 Rp<span id="harga-total"></span>
                             </p>
                         </div>
-<<<<<<< HEAD
-                        <form action="/checkout_payment" class="lg:mt-6 mt-3">
-                            <button class="py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
-=======
                             <button
                                 id = "buat-pesanan"
                                 class="lg:mt-6 mt-3 py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                                 Buat Pesanan
                             </button>
                     </div>

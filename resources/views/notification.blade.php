@@ -24,148 +24,69 @@
                             </tr>
                         </thead>
                         <tbody data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-out">
+                            @foreach ($pesanan as $p)
                             <tr class="border-b-2 border-[#E6E6E6]">
                                 <td class="lg:pl-10 py-5 mx-auto my-auto">
-                                    <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt="" class="rounded-md">
+                                    <img src="{{asset('storage/img_uploaded/'. $p->foto)}}" alt="" class="w-24 rounded-md">
                                 </td>
                                 <td>
                                     <ul>
-                                        <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                                        <li class="text-[#999] mt-1">YusupAnjayMabar</li>
+                                        <li class="font-semibold">{{$p->nama_produk}}</li>
+                                        <li class="text-[#999] mt-1">{{$data_user->username}}</li>
                                     </ul>
                                 </td>
-                                <td class="text-center">Rp169.500</td>
-                                <td class="text-center">250gr</td>
-                                <td class="text-center">Kurir menuju toko anda</td>
+                                <td class="text-center">Rp{{number_format($p->harga,0,',')}}</td>
+                                <td class="text-center">{{$p->varian}}</td>
+                                <td class="text-center">{{$p->status}}</td>
                                 <td class="text-center">
-                                    <!-- The button to open modal -->
-                                    <label for="my_modal_7" class="border-2 border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 hover:bg-[#D10B05] hover:border-[#d10b05] hover:text-white transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+                                    @if($p->status === "Sampai")
+                                        <!-- The button to open modal -->
+                                        <label for="my_modal_7" class="btn-nilai border-2 bg-[#d10b05] py-2 px-10 rounded-md font-semibold text-white mr-2 hover:hover:bg-[#9F0804] border-[#d10b05] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear cursor-pointer" data-id_user = "{{$p->id_user}}" data-id_produk = "{{$p->id_produk}}" data-id_pesanan = {{$p->_id}}>Nilai</label>
+                                    @elseif($p->status === "Sudah dinilai")
+                                        <label for="" class="border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+                                    @else
+                                        <label for="" class="border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+                                    @endif
 
                                     <!-- Put this part before </body> tag -->
                                     <input type="checkbox" id="my_modal_7" class="modal-toggle" />
                                     <div class="modal">
                                         <div class="modal-box">
-                                            <p class="font-semibold text-[20px] text-[#787878] mt-3">Beri Riview Produk
+                                            <p class="font-semibold text-[20px] text-[#787878] mt-3">Beri Review Produk
                                             </p>
                                             <div class="border-t-2 border-[#e6e6e6] mt-7"></div>
                                             <img src="{{asset('assets/img_index/asset/notification/profile.svg')}}" alt="" class="mx-auto my-auto border-2 border-[#d10b05] rounded-full mt-7">
                                             <div class="text-center mt-5">
-                                                <p class="font-semibold text-[18px]">Rahmattahalurimek</p>
-                                                <p class="text-[#787878]">Udang Vaname Segar - 1kg</p>
-                                                <form action="">
+                                                <p class="font-semibold text-[18px]">{{$data_user->username}}</p>
+                                                <p class="text-[#787878]">{{$p->nama_produk}}</p>
+                                                <form action="/store_rreviews" method = "post">
+                                                    @csrf
+                                                    <input type="hidden" name = "id_pesanan" id = "id_pesanan" value = "">
+                                                    <input type="hidden" name = "id_user" id = "id_user" value = "">
+                                                    <input type="hidden" name = "id_produk" id = "id_produk" value = "">
                                                     <div class="rating mt-5 gap-3">
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" checked />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "1"/>
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "2"/>
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "3"/>
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "4" checked />
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "5"/>
                                                     </div>
                                             </div>
-                                            <textarea name="" id="" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
+                                            <textarea name="reviews" id="reviews" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
                                             <button for="my_modal_7" class="bg-[#d10b05] mt-8 mb-4 py-2 w-[80%] rounded-md font-semibold text-white hover:bg-[#9F0804] transition-all duration-200 ease-linear">Kirim</button>
                                             </form>
                                         </div>
                                         <label class="modal-backdrop" for="my_modal_7">Close</label>
                                     </div>
-                                    <button class="bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear">Sampai</button>
+                                    @if($p->status === "sudah bayar" || $p->status === "Kurir menuju toko anda" || $p->status == "Sampai" || $p->status == "Sudah dinilai")
+                                        <button disabled class="btn-sampai border-[#ccc] py-2 px-8 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear" data-id_user = "{{$p->id_user}}" data-id_pesanan = "{{$p->_id}}">Sampai</button>
+                                    @else
+                                        <button class="btn-sampai bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear" data-id_user = "{{$p->id_user}}" data-id_pesanan = "{{$p->_id}}">Sampai</button>
+                                    @endif
                                 </td>
                             </tr>
-
-                            <tr class="border-b-2 border-[#E6E6E6]">
-                                <td class="lg:pl-10 py-5 mx-auto my-auto">
-                                    <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt="" class="rounded-md">
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                                        <li class="text-[#999] mt-1">YusupAnjayMabar</li>
-                                    </ul>
-                                </td>
-                                <td class="text-center">Rp169.500</td>
-                                <td class="text-center">250gr</td>
-                                <td class="text-center">Kurir menuju toko anda</td>
-                                <td class="text-center">
-                                    <!-- The button to open modal -->
-                                    <label for="my_modal_7" class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
-
-                                    <!-- Put this part before </body> tag -->
-                                    <input type="checkbox" id="my_modal_7" class="modal-toggle" />
-                                    <div class="modal">
-                                        <div class="modal-box">
-                                            <p class="font-semibold text-[20px] text-[#787878] mt-3">Beri Riview Produk
-                                            </p>
-                                            <div class="border-t-2 border-[#e6e6e6] mt-7"></div>
-                                            <img src="{{asset('assets/img_index/asset/notification/profile.svg')}}" alt="" class="mx-auto my-auto border-2 border-[#d10b05] rounded-full mt-7">
-                                            <div class="text-center mt-5">
-                                                <p class="font-semibold text-[18px]">Rahmattahalurimek</p>
-                                                <p class="text-[#787878]">Udang Vaname Segar - 1kg</p>
-                                                <form action="">
-                                                    <div class="rating mt-5 gap-3">
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" checked />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                    </div>
-                                            </div>
-                                            <textarea name="" id="" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
-                                            <button for="my_modal_7" class="bg-[#d10b05] mt-8 mb-4 py-2 w-[80%] rounded-md font-semibold text-white hover:bg-[#9F0804] transition-all duration-200 ease-linear">Kirim</button>
-                                            </form>
-                                        </div>
-                                        <label class="modal-backdrop" for="my_modal_7">Close</label>
-                                    </div>
-                                    <button class="border-2 border-[#ccc] bg-[#ccc] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Sampai</button>
-                                </td>
-                            </tr>
-
-                            <tr class="border-b-2 border-[#E6E6E6]">
-                                <td class="lg:pl-10 py-5 mx-auto my-auto">
-                                    <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt="" class="rounded-md">
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                                        <li class="text-[#999] mt-1">YusupAnjayMabar</li>
-                                    </ul>
-                                </td>
-                                <td class="text-center">Rp169.500</td>
-                                <td class="text-center">250gr</td>
-                                <td class="text-center">Dikemas</td>
-                                <td class="text-center">
-                                    <!-- The button to open modal -->
-                                    <label for="my_modal_7" class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
-
-                                    <!-- Put this part before </body> tag -->
-                                    <input type="checkbox" id="my_modal_7" class="modal-toggle" />
-                                    <div class="modal">
-                                        <div class="modal-box">
-                                            <p class="font-semibold text-[20px] text-[#787878] mt-3">Beri Riview Produk
-                                            </p>
-                                            <div class="border-t-2 border-[#e6e6e6] mt-7"></div>
-                                            <img src="{{asset('assets/img_index/asset/notification/profile.svg')}}" alt="" class="mx-auto my-auto border-2 border-[#d10b05] rounded-full mt-7">
-                                            <div class="text-center mt-5">
-                                                <p class="font-semibold text-[18px]">Rahmattahalurimek</p>
-                                                <p class="text-[#787878]">Udang Vaname Segar - 1kg</p>
-                                                <form action="">
-                                                    <div class="rating mt-5 gap-3">
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" checked />
-                                                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-[#d10b05]" />
-                                                    </div>
-                                            </div>
-                                            <textarea name="" id="" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
-
-                                            <button for="my_modal_7" class="bg-[#d10b05] mt-8 mb-4 py-2 w-[80%] rounded-md font-semibold text-white hover:bg-[#9F0804] transition-all duration-200 ease-linear">Kirim</button>
-                                            </form>
-                                        </div>
-                                        <label class="modal-backdrop" for="my_modal_7">Close</label>
-                                    </div>
-                                    <button class="border-2 border-[#ccc] bg-[#ccc] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Sampai</button>
-                                </td>
-                            </tr>
-                        </tbody>
+                            @endforeach
+                         </tbody>
                     </table>
                     <!-- TABLE -->
                 </div>

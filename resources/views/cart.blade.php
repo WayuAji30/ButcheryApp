@@ -1,6 +1,13 @@
 @extends('templates.cart-checkout')
 @section('content')
 
+@php
+if(session()->has('NewDataCart')){
+    session()->forget('NewDataCart');
+}    
+@endphp
+
+
 <!-- CART -->
 <div class="container lg:pt-[201px] md:pt-20 pt-16">
     <div class="grid grid-cols-12">
@@ -15,39 +22,19 @@
                 @foreach ($cart_items as $ci )
                 <div class="w-[100%] md:w-[95%] bg-white border-b-4 border-[#e6e6e6] mt-11 cart-item">
                     <div class="flex items-center">
-<<<<<<< HEAD
-                        <div class="inline-flex items-center">
-                            <label class="relative flex items-center p-3 rounded-full cursor-pointer" for="checkbox" data-ripple-dark="true">
-                                <input type="checkbox" class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-[#d10b05] checked:bg-[#d10b05] checked:before:bg-[#d10b05] " id="checkbox" checked />
-                                <div class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                            </label>
-                        </div>
-                        <!-- <input type="checkbox" checked="checked" class="harga-item checkbox checkbox-error mr-6"
-                            data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}"
-                            data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}" /> -->
-=======
                         <input type="checkbox" class="harga-item checkbox checkbox-error mr-6" data-harga="{{(isset($ci->harga)) ? $ci->harga * $ci->qty : ''}}" data-qty="{{ (isset($ci->qty)) ? $ci->qty : 1 }}" />
                         <input type="hidden" name="" id = "foto" value = "{{(isset($ci->foto) ? $ci->foto : '')}}">
                         <input type="hidden" name="" id = "id_user" value = "{{(isset($ci->user_id)) ? $ci->user_id : ''}}">
                         <input type="hidden" name="" id = "id_supplier" value = "{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}">
                         <input type="hidden" name="" id = "id_produk" value ="{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}">
 
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                         <img src="{{asset('storage/img_uploaded/' . $ci->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
                                 <span id="nama_produk" class="sm:text-sm">{{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}}</span>
                                 <br />
-<<<<<<< HEAD
-                                <span class="text-[#D10B05] font-semibold sm:text-sm" id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span><span class="font-semibold ml-3 sm:text-sm">X2</span>
-=======
                                 <span class="text-[#D10B05] font-semibold sm:text-sm"
                                     id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span>
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                             </li>
                             <li class="font-semibold mt-4">
                                 Rp<span id="harga">{{(isset($ci->harga)) ? $ci->harga : ''}}</span>
@@ -110,12 +97,7 @@
                                 </p>
                             </li>
                         </ul>
-<<<<<<< HEAD
-
-                        <button id="btn-beli" data-id_user="{{(isset($ci->user_id)) ? $ci->user_id : ''}}" data-id_supplier="{{(isset($ci->supplier_id)) ? $ci->supplier_id : ''}}" data-id_produk="{{(isset($ci->produk_id)) ? $ci->produk_id : ''}}" class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
-=======
                         <button id="btn-beli-cart" class="py-2 lg:px-7 md:px-20 px-16 border-2 lg:mt-6 md:mt-5 sm:mt-4 border-[#D10B05] bg-[#D10B05] lg:w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                             Beli
                         </button>
                     </div>

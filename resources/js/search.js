@@ -1,6 +1,6 @@
 // Fungsi untuk melakukan live search dan filter
 function cariProduk() {
-    var kataKunci = $("#cari_daftarproduk").val().toLowerCase();
+    var kataKunci = $("#cari_daftarproduk").val();
     var kategori = $("#kategori").val();
     var filter = $("#filter").val();
 
@@ -10,23 +10,23 @@ function cariProduk() {
     // Urutkan produk berdasarkan filter (ASC atau DESC)
     if (filter === "ASC") {
         produkArray.sort(function(a, b) {
-            var textA = $(a).find("td:eq(1)").text().toLowerCase(); // Nama Produk
-            var textB = $(b).find("td:eq(1)").text().toLowerCase(); // Nama Produk
+            var textA = $(a).find("td:eq(1)").text(); // Nama Produk
+            var textB = $(b).find("td:eq(1)").text(); // Nama Produk
             return textA.localeCompare(textB);
         });
     } else if (filter === "DESC") {
         produkArray.sort(function(a, b) {
-            var textA = $(a).find("td:eq(1)").text().toLowerCase(); // Nama Produk
-            var textB = $(b).find("td:eq(1)").text().toLowerCase(); // Nama Produk
+            var textA = $(a).find("td:eq(1)").text(); // Nama Produk
+            var textB = $(b).find("td:eq(1)").text(); // Nama Produk
             return textB.localeCompare(textA);
         });
     }
 
     // Loop melalui setiap baris produk dalam tabel
     produkArray.each(function() {
-        var namaProduk = $(this).find("td:eq(1)").text().toLowerCase(); // Mengambil teks dari kolom nama produk
+        var namaProduk = $(this).find("td:eq(1)").text(); // Mengambil teks dari kolom nama produk
         //dalam baris tersebut dan memilih elemen dengan indeks 1. Indeks 1 mengacu pada kolom info produk/nama produk 
-        var kategoriProduk = $(this).data("kategori").toLowerCase();
+        var kategoriProduk = $(this).data("kategori");
 
        //var filterProduk = $(this).data("filter").toLowerCase(); // Mengambil data filter dari baris
        //var filterProduk2 = $(this).data("filter2").toLowerCase(); 

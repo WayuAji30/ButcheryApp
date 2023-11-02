@@ -55,7 +55,7 @@ document.location.href = "/login";
                     Produk</a>
             </p>
             <p class="mt-4">
-                <a href="/daftarProduk" class="text-[#D10B05] border-l-4 py-2 border-[#D10B05] pl-[58px]">Daftar
+                <a href="/daftarProduk/{{$supplier->_id}}" class="text-[#D10B05] border-l-4 py-2 border-[#D10B05] pl-[58px]">Daftar
                     Produk</a>
             </p>
             <p class="mt-4">
@@ -63,7 +63,7 @@ document.location.href = "/login";
                     Produk</a>
             </p>
         </div>
-        <a href="/pesanan" class="flex items-center active-nav-link cta-btn py-4 pl-6 nav-item">
+        <a href="/pesanan/{{$supplier->_id}}" class="flex items-center active-nav-link cta-btn py-4 pl-6 nav-item">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                 <path fill="#2b2b2b"
                     d="m17.275 20.25l3.475-3.45l-1.05-1.05l-2.425 2.375l-.975-.975l-1.05 1.075l2.025 2.025ZM6 9h12V7H6v2Zm12 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23ZM3 22V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v6.675q-.475-.225-.975-.375T19 11.075V5H5v14.05h6.075q.125.775.388 1.475t.687 1.325L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5L3 22Zm3-5h5.075q.075-.525.225-1.025t.375-.975H6v2Zm0-4h7.1q.95-.925 2.213-1.463T18 11H6v2Zm-1 6.05V5v14.05Z" />
@@ -121,12 +121,7 @@ document.location.href = "/login";
             <div class="flex gap-5">
                 <form action="/daftarProduk/{{$supplier->_id}}" method="GET">
                     <div class="relative flex items-center">
-<<<<<<< HEAD
-                        <input type="text" name="" id="" placeholder="Cari Nama Produk" required
-                            class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
-=======
                         <input type="text" name="cari_daftarproduk" id="cari_daftarproduk" placeholder="Cari Nama Produk" class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                         <button class="absolute right-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                                 <path fill="#999"
@@ -135,26 +130,16 @@ document.location.href = "/login";
                         </button>
                     </div>
                 </form>
-<<<<<<< HEAD
-                <select name="" id="Kategori"
-                    class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
-=======
                 <select name="kategori" id="kategori" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                     <option value="">Kategori</option>
                     @foreach ($kategori as $k)
                     <option value="{{$k['nama_kategori']['slug']}}">{{$k['nama_kategori']['nama']}}</option>
                     @endforeach
                 </select>
-<<<<<<< HEAD
-                <select name="" id="Kategori"
-                    class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
-=======
                 <select name="filter" id="filter" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                     <option value="">Filter</option>
-                    <option value="ASC">ASC</option>
-                    <option value="DESC">DESC</option>
+                    <option value="ASC">A - Z</option>
+                    <option value="DESC">Z - A</option>
                 </select>
             </div>
             
@@ -168,12 +153,7 @@ document.location.href = "/login";
         <!-- SEARCH BAR -->
 
         <!-- TABLE -->
-<<<<<<< HEAD
-        <table class="table-auto w-full mt-5 mb-5" data-aos="fade-right" data-aos-duration="400"
-            data-aos-easing="ease-in-out">
-=======
         <table id="produk-table" class="table-auto w-full mt-5 mb-5" data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-out">
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
             <thead>
                 <tr class="text-[#787878] font-semibold border-y-2 border-[#e6e6e6] w-full">
                     <th colspan="2" class="py-4">Info Produk</th>
@@ -197,21 +177,14 @@ document.location.href = "/login";
                         </p>
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
-<<<<<<< HEAD
-                        Rp<span
-                            id="harga">{{(isset($dp['varian'][0]['harga']) ? $dp['varian'][0]['harga'] : '')}}</span>
-                        <span
-                            id="harga">{{(isset($dp['varian'][1]['harga']) ? '|Rp'.$dp['varian'][1]['harga'] : '')}}</span>
-=======
                         Rp<span id="harga">{{(isset($dp['varian'][0]['harga']) ? $dp['varian'][0]['harga'] : '')}}</span>
                         <span id="harga">{{(isset($dp['varian'][1]['harga']) ? '/ Rp'.$dp['varian'][1]['harga'] : '')}}</span>
                         <span id="harga">{{(isset($dp['varian'][2]['harga']) ? '/ Rp'.$dp['varian'][2]['harga'] : '')}}</span>
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
-                        {{(isset($dp['varian'][0]['varian1']) ? $dp['varian'][0]['varian1'] : '')}}
-                        {{(isset($dp['varian'][1]['varian2']) ? '/ '.$dp['varian'][1]['varian2'] : '')}}
-                        {{(isset($dp['varian'][2]['varian3']) ? '/ '.$dp['varian'][2]['varian3'] : '')}}
+                        {{(isset($dp['varian'][0]['varian']) ? $dp['varian'][0]['varian'] : '')}}
+                        {{(isset($dp['varian'][1]['varian']) ? '/ '.$dp['varian'][1]['varian'] : '')}}
+                        {{(isset($dp['varian'][2]['varian']) ? '/ '.$dp['varian'][2]['varian'] : '')}}
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
                         {{(isset($dp['varian'][0]['stok']) ? $dp['varian'][0]['stok'] : '')}}
@@ -219,22 +192,12 @@ document.location.href = "/login";
                         {{(isset($dp['varian'][2]['stok']) ? '/ '.$dp['varian'][2]['stok'] : '')}}
                     </td>
                     <td class="text-center">
-<<<<<<< HEAD
-                        <a href="/tambahProduk/{{(isset($dp['_id']) ? $dp['_id'] : '')}}"
-                            class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
-=======
                         <a href="/tambahProduk/{{$dp->_id}}" class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                             Edit
                         </a>
 
                         <!-- The button to open modal -->
-<<<<<<< HEAD
-                        <label for="my_modal_6"
-                            class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</label>
-=======
                         <label for="my_modal_6" class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear btn-hapus" data-id_produk = "{{(isset($dp->_id) ? $dp->_id : '')}}">Hapus</label>
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
 
                         <!-- Put this part before </body> tag -->
                         <input type="checkbox" id="my_modal_6" class="modal-toggle" />
@@ -258,17 +221,10 @@ document.location.href = "/login";
                                             </div>
                                             <form action="/hapusProduk" method="POST">
                                                 @csrf
-<<<<<<< HEAD
-                                                <input type="hidden" name="id" id="id"
-                                                    value="{{(isset($dp['_id']) ? $dp['_id'] : '')}}">
-                                                <button
-                                                    class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 mt-6 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus
-=======
                                                 <input type = "hidden" name = "id_produk" id = "id_produk" value = "">
                                                 <input type= "hidden" name= "supplier_id" id="supplier_id" value="{{(isset($dp->supplier_id) ? $dp->supplier_id : '')}}">
                                             
                                                 <button class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 mt-6 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                                                 </button>
                                             </form>
                                         </div>

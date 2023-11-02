@@ -1,6 +1,10 @@
 @extends('../templates/adminLayout')
 @section('content')
 
+@if(!session()->has('loginAdmin'))
+    <script>window.location.href='/loginAdmin'</script>
+@endif
+
 <!-- Navbar kiri -->
 <aside class="relative pt-28 h-screen w-64 hidden lg:block md:block shadow-xl bg-white">
     <nav class="">
@@ -34,10 +38,9 @@
         <!-- SEARCH BAR -->
         <div class="flex mx-11 mt-5">
             <div class="flex gap-5">
-                <form action="">
+                <form action="/adminProduk" method="GET">
                     <div class="relative flex items-center">
-                        <input type="text" name="" id="" placeholder="Cari Nama Produk" required
-                            class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
+                        <input type="text" name="cari_daftarproduk" id="cari_daftarproduk" placeholder="Cari Nama Produk" class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
                         <button class="absolute right-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                                 <path fill="#999"
@@ -46,26 +49,25 @@
                         </button>
                     </div>
                 </form>
-                <select name="" id="Kategori"
-                    class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
+                <select name="kategori" id="kategori" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
                     <option value="">Kategori</option>
-                    <option value="">Ayam</option>
-                    <option value="">Sapi</option>
+                    @foreach ($kategori as $k)
+                    <option value="{{$k['nama_kategori']['slug']}}">{{$k['nama_kategori']['nama']}}</option>
+                    @endforeach
                 </select>
-                <select name="" id="Kategori"
-                    class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
+                <select name="filter" id="filter" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
                     <option value="">Filter</option>
-                    <option value="">Ayam</option>
-                    <option value="">Sapi</option>
+                    <option value="ASC">A - Z</option>
+                    <option value="DESC">Z - A</option>
                 </select>
             </div>
         </div>
         <!-- SEARCH BAR -->
 
         <!-- TABLE -->
-        <table class=" w-full mt-5 mb-5">
+        <table id="produk-table" class="table-auto w-full mt-5 mb-5">
             <thead>
-                <tr class="text-[#787878] font-semibold border-2 border-[#e6e6e6] w-full text-center  ">
+                <tr class="text-[#787878] font-semibold border-2 border-[#e6e6e6] w-full text-center">
                     <th colspan="2" class="py-4">Info Produk</th>
                     <th class="py-4">Harga</th>
                     <th class="py-4">Varian</th>
@@ -74,24 +76,35 @@
                 </tr>
             </thead>
             <tbody data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-out">
-                <tr class="border-b-2 border-[#E6E6E6]">
-                    <td class="pl-10 py-5 mx-auto my-auto">
-                        <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt=""
-                            class="rounded-md">
-                    </td>
+                @foreach ($produk as $p)
+                <tr class="border-b-2 border-slate-200" data-kategori = "{{(isset($p['id_kategori']) ? $p['id_kategori'] : '')}}" data-filter = "ASC" data-filter2 = "DESC">
                     <td>
-                        <ul>
-                            <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                            <li class="text-[#999] mt-1">YusupAnjayMabar</li>
-                        </ul>
+                        <img src="{{asset('storage/img_uploaded/'.(isset($p['foto']['foto1']) ? $p['foto']['foto1'] : ''))}}"
+                            alt="" class="w-[84px] rounded-lg ml-5 py-5" />
                     </td>
-                    <td class="text-center">Rp169.500</td>
-                    <td class="text-center">250gr</td>
-                    <td class="text-center">Ayam</td>
+                    <td class="font-semibold">
+                       {{$p->nama_produk}}<br />
+                        <p class="font-normal text-[#999]">
+                            ID: <span id="id-barang">{{$p->_id}}</span>
+                        </p>
+                    </td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">
+                        Rp<span id="harga">{{(isset($p['varian'][0]['harga']) ? $p['varian'][0]['harga'] : '')}}</span>
+                        <span id="harga">{{(isset($p['varian'][1]['harga']) ? '/ Rp'.$p['varian'][1]['harga'] : '')}}</span>
+                        <span id="harga">{{(isset($p['varian'][2]['harga']) ? '/ Rp'.$p['varian'][2]['harga'] : '')}}</span>
+                    </td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">
+                        {{(isset($p['varian'][0]['varian']) ? $p['varian'][0]['varian'] : '')}}
+                        {{(isset($p['varian'][1]['varian']) ? '/ '.$p['varian'][1]['varian'] : '')}}
+                        {{(isset($p['varian'][2]['varian']) ? '/ '.$p['varian'][2]['varian'] : '')}}
+                    </td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">
+                        {{(isset($p->id_kategori) ? $p->id_kategori : '')}}
+                    </td>    
                     <td class="text-center">
                         <!-- The button to open modal -->
                         <label for="my_modal_6"
-                            class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</label>
+                            class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear btn-hapus" data-id_produk = "{{(isset($p->_id) ? $p->_id : '')}}">Hapus</label>
 
                         <!-- Put this part before </body> tag -->
                         <input type="checkbox" id="my_modal_6" class="modal-toggle" />
@@ -113,10 +126,9 @@
                                                 <label for="my_modal_6"
                                                     class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Batal</label>
                                             </div>
-                                            <form action="/hapusProduk" method="POST">
+                                            <form action="/hapusProdukAdmin" method="POST">
                                                 @csrf
-                                                <input type="hidden" name="id" id="id"
-                                                    value="{{(isset($dp['_id']) ? $dp['_id'] : '')}}">
+                                                <input type="hidden" class = "" name="id_produk" id="id_produk" value="">
                                                 <button
                                                     class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 mt-6 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus
                                                 </button>
@@ -127,60 +139,7 @@
                             </div>
                     </td>
                 </tr>
-
-                <tr class="border-b-2 border-[#E6E6E6]">
-                    <td class="pl-10 py-5 mx-auto my-auto">
-                        <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt=""
-                            class="rounded-md">
-                    </td>
-                    <td>
-                        <ul>
-                            <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                            <li class="text-[#999] mt-1">YusupAnjayMabar</li>
-                        </ul>
-                    </td>
-                    <td class="text-center">Rp169.500</td>
-                    <td class="text-center">250gr</td>
-                    <td class="text-center">Sapi</td>
-                    <td class="text-center">
-                        <!-- The button to open modal -->
-                        <label for="my_modal_6"
-                            class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</label>
-
-                        <!-- Put this part before </body> tag -->
-                        <input type="checkbox" id="my_modal_6" class="modal-toggle" />
-                        <div class="modal">
-                            <div class="modal-box">
-                                <div class="flex justify-center items-center">
-                                    <div class="text-center">
-                                        <svg class="mt-3 mx-auto my-auto" xmlns="http://www.w3.org/2000/svg" width="100"
-                                            height="100" viewBox="0 0 40 40">
-                                            <path fill="#d10b05"
-                                                d="M35.765 35.729H4.24a2.101 2.101 0 0 1-1.806-1.039a2.07 2.07 0 0 1-.006-2.085L18.2 5.312a2.074 2.074 0 0 1 1.801-1.041c.743 0 1.435.399 1.805 1.042l15.729 27.224a2.087 2.087 0 0 1-1.77 3.192zM19.948 6.312h-.017L4.162 33.601l.078.129h31.525c.044 0 .087-.043.087-.086c-.007-.011-.042-.096-.049-.107L20.073 6.312h-.125z" />
-                                            <path fill="#d10b05"
-                                                d="M19.029 15.549v8.701a1.136 1.136 0 0 0 2.27 0v-8.701a1.14 1.14 0 0 0-1.135-1.139c-.623 0-1.135.513-1.135 1.139zm1.136 11.35c-.624 0-1.135.506-1.135 1.132v.761a1.14 1.14 0 0 0 1.135 1.132c.626 0 1.135-.513 1.135-1.132v-.761c0-.626-.51-1.132-1.135-1.132zm0 0" />
-                                        </svg>
-                                        <p class="font-semibold text-[20px] mt-2">Apakah anda yakin
-                                            ingin menghapus data ini?</p>
-                                        <div class="flex justify-center gap-10">
-                                            <div class="modal-action">
-                                                <label for="my_modal_6"
-                                                    class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Batal</label>
-                                            </div>
-                                            <form action="/hapusProduk" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="id" id="id"
-                                                    value="{{(isset($dp['_id']) ? $dp['_id'] : '')}}">
-                                                <button
-                                                    class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 mt-6 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
         <!-- TABLE -->

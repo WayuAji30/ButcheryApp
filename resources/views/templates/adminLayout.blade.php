@@ -32,10 +32,10 @@
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=""><a class="flex items-center gap-2" id="profile" data-id="">
                                     <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium mr-8 text-lg cursor-default">Admin</p>
+                                    <p class="font-medium mr-8 text-lg cursor-default">Admin Service Butchery</p>
                                 </a></label>
                             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a href="" class="font-semibold flex justify-between">Logout <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                <li><a href="/logout" class="font-semibold flex justify-between">Logout <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                                             <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
                                         </svg></a></li>
                             </ul>
@@ -48,6 +48,9 @@
     <!-- NAVBAR -->
 
     @yield('content')
+
+
+    @vite(['resources/js/hapusProduk.js','resources/js/search.js','resources/js/app.js', 'resources/js/hapusRReviews.js', 'resources/js/live_search.js'])
 
     <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

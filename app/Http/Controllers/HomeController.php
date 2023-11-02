@@ -11,12 +11,17 @@ use App\Models\KotaIndonesiaModel;
 use App\Models\CheckOutModel;
 use App\Models\MetodePembayaranModel;
 use App\Models\PurchaseModel;
+use App\Models\RReviewsModel;
+use App\Models\NotificationModel;
+use App\Notifications\ProductNotification;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Notification;
+
 
 class HomeController extends Controller
 {
@@ -29,17 +34,48 @@ class HomeController extends Controller
     public function index(): View
     {
 
+        $data_produk = MitraProdukModel::all();
+
+        $produk_data = [];
+        
+        foreach ($data_produk as $dp) {
+            $id_produk = $dp->_id;
+            $jumlah_allrating = RReviewsModel::where('id_produk', $id_produk)->sum('ratings');
+            $jumlah_reviews = RReviewsModel::where('id_produk', $id_produk)->count();
+            $jumlah_terjual = PurchaseModel::where('id_produk', $id_produk)->count();
+        
+            $avgRating = ($jumlah_reviews != 0) ? doubleval($jumlah_allrating / $jumlah_reviews) : "0";
+        
+            $produk_data[] = [
+                'id_produk' => $id_produk,
+                'jumlah_allrating' => $jumlah_allrating,
+                'jumlah_reviews' => $jumlah_reviews,
+                'jumlah_terjual' => $jumlah_terjual,
+                'avgRating' => $avgRating,
+            ];
+        }
+
+        // Urutkan produk berdasarkan jumlah terjual secara descending
+        usort($produk_data, function ($a, $b) {
+            return $b['jumlah_terjual'] - $a['jumlah_terjual'];
+        });
+
+        // Inisialisasi array untuk menyimpan produk terlaris
+        $data_produk_laris = [];
+
+        // Ambil 5 produk terlaris
+        for ($i = 0; $i < 5; $i++) {
+            if (isset($produk_data[$i])) {
+                $data_produk_laris[] = MitraProdukModel::find($produk_data[$i]['id_produk']);
+            }
+        }
+
         $data_produk = MitraProdukModel::all()->toArray();
         shuffle($data_produk);
 
         $rekomendasi_produk = array_slice($data_produk,0,29);
 
-        $data_produk2 = MitraProdukModel::all()->toArray();
-        shuffle($data_produk2);
-
-        $produk_laris = array_slice($data_produk2,0,5);
-
-        return view('index', ['rekproduk' => $rekomendasi_produk, 'produk_laris' => $produk_laris]);
+        return view('index', ['rekproduk' => $rekomendasi_produk, 'produk_laris' => $data_produk_laris, 'produk_data' => $produk_data]);
     }
 
     public function searchProduct(Request $request)
@@ -62,15 +98,47 @@ class HomeController extends Controller
         return view('searchProduct',['data_search' => $data_search, 'slug'=>$slug, 'total_data' => $total_data]); // view('folder.file', compact())
     }
 
-    public function notification()
+    public function notification($id)
     {
-        return view('notification'); // view('folder.file', compact())
+        $pesanan = PurchaseModel::where('id_user',$id)->get();
+        
+        $produks =  [];
+        foreach($pesanan as $pe){
+            $produk = MitraProdukModel::find($pe->id_produk);
+            $produks[]=$produk;
+        }
+        
+        $data_user = KonsumensModel::find($id);
+
+        if(!session()->has('login')){
+            return redirect()->to('/login');
+        }
+
+        return view('notification',['pesanan' => $pesanan, 'data_user' => $data_user, 'produk' => $produks[0]]); // view('folder.file', compact())
     }
 
     public function produk($id)
     {
         $detail_produk = MitraProdukModel::find($id);
-        
+        $jumlah_allrating = RReviewsModel::where('id_produk',$id)->sum('ratings');   
+        $jumlah_reviews = RReviewsModel::where('id_produk',$id)->count('reviews');
+        $jumlah_terjual = PurchaseModel::where('id_produk',$id)->count();
+
+        if($jumlah_reviews != 0){
+            $avgRating = doubleval($jumlah_allrating / $jumlah_reviews);
+        }else{
+            $avgRating = "";
+        }
+
+        $data_reviews = RReviewsModel::where('id_produk',$id)->get();
+
+        $data_user = [];
+
+        foreach($data_reviews as $dr){
+            $users = KonsumensModel::where('_id', $dr->id_user)->get();
+            $data_user[]=$users;
+        }
+
         // Dapatkan kategori produk saat ini
         $kategori_produk_saat_ini = $detail_produk->id_kategori;
 
@@ -78,7 +146,7 @@ class HomeController extends Controller
         
         $kota = KotaindonesiaModel::first();
 
-        return view('product', ['kota' => $kota, 'detail_produk' => $detail_produk, 'product_related' => $produk_terkait]); // view('folder.file', compact())
+        return view('product', ['kota' => $kota, 'detail_produk' => $detail_produk, 'product_related' => $produk_terkait, 'rating' => $avgRating, 'terjual' => $jumlah_terjual ,'jumlah_reviews' => $jumlah_reviews ,'reviews' => $data_reviews, 'data_user' => $data_user]); // view('folder.file', compact())
     }
 
     public function cart($id_user)
@@ -90,6 +158,8 @@ class HomeController extends Controller
 
     public function store_cart($id, $id_produk, $id_supplier, $nama_produk, $varian, $harga, $qty, $subtotal, $note, $foto_produk)
     {
+        $dataLama = CartModel::all()->count();
+
         CartModel::create([
             'user_id' => $id,
             'produk_id' => $id_produk,
@@ -102,6 +172,12 @@ class HomeController extends Controller
             'note' => $note,
             'foto' => $foto_produk
         ]);
+
+        $dataBaru =CartModel::all()->count();
+
+        if($dataBaru > $dataLama){
+            session(['NewDataCart' => true]);
+        }
 
         return redirect()->to('/produk' . '/' . $id_produk);
     }
@@ -118,26 +194,25 @@ class HomeController extends Controller
         return redirect()->to('/cart'. '/' . $id_user);
     }
 
+    public function hapusCheckout(Request $request)
+    {
+        $id_purchase = $request->input('id_purchase');
+        $id_checkout = $request->input('id_checkout');
+        $id_user = $request->input('id_user');
+
+        CheckOutModel::find($id_checkout)->delete();
+        PurchaseModel::find($id_purchase)->delete();
+
+        return redirect()->to('/cart'. '/' . $id_user);
+    }
+
     public function checkOut($id_user)
     {
-        // Mengambil semua data dari CheckOutModel berdasarkan user_id
         $data_produk = CheckOutModel::where('user_id', $id_user)->get();
-
-        $produk = [];
-        $data_supplier = [];
-
-        foreach ($data_produk as $item) {
-            // Mengambil satu data MitraProdukModel berdasarkan produk_id di setiap item data produk
-            $produk[] = MitraProdukModel::where('_id', $item->produk_id)->first();
-
-            // Mengambil satu data SuppliersModel berdasarkan supplier_id di setiap item data produk
-            $data_supplier[] = SuppliersModel::where('_id', $item->supplier_id)->first();
-        }
-
         $data_user = KonsumensModel::where('_id', $id_user)->first();
         $metode_pembayaran = MetodePembayaranModel::all();
 
-        return view('/checkout', ['data_produk' => $data_produk, 'produk' => $produk, 'data_supplier' => $data_supplier, 'data_user' => $data_user, 'metode_pembayaran' => $metode_pembayaran]);
+        return view('/checkout', ['data_produk' => $data_produk,'data_user' => $data_user, 'metode_pembayaran' => $metode_pembayaran]);
     }
 
 
@@ -182,20 +257,32 @@ class HomeController extends Controller
         return redirect()->to('/checkOut' . '/' . $id_user);
     }
 
-    public function store_orders($data_orders, $alamat_pengiriman, $metode_pembayaran, $opsi_pengiriman, $biaya_ongkir, $biaya_layanan, $biaya_asuransi, $biaya_tambahan, $subtotal, $total_harga, $status){
+    public function store_orders($data_orders, $opsi_pengiriman, $biaya_ongkir, $biaya_layanan, $biaya_asuransi, $biaya_tambahan, $subtotal, $total_harga, $status, $alamatPengiriman){
+
+         // Set your Merchant Server Key
+         \Midtrans\Config::$serverKey = config('midtrans.server_key');
+         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+         \Midtrans\Config::$isProduction = false;
+         // Set sanitization on (default)
+         \Midtrans\Config::$isSanitized = true;
+         // Set 3DS transaction for credit card to true
+         \Midtrans\Config::$is3ds = true;
+
         $data = json_decode(urldecode($data_orders), true);
-        
+
+        $dataLama = PurchaseModel::all()->count();
+
         foreach($data as $do){
-            PurchaseModel::create([
+           $order = PurchaseModel::create([
                 'id_user' => $do['id_user'],
                 'id_supplier' => $do['id_supplier'],
                 'id_produk' => $do['id_produk'],
+                'foto' => $do['foto'],
                 'nama_produk'=> $do['nama_produk'],
                 'varian' => $do['varian'],
                 'harga' => $do['harga'],
                 'qty' => $do['qty'],
-                'alamat_pengiriman' => $alamat_pengiriman,
-                'metode_pembayaran' => $metode_pembayaran,
+                'alamat_pengiriman' => $alamatPengiriman,
                 'opsi_pengiriman' => $opsi_pengiriman,
                 'biaya_ongkir' => $biaya_ongkir,
                 'biaya_layanan' => $biaya_layanan,
@@ -205,18 +292,82 @@ class HomeController extends Controller
                 'total_harga' => $total_harga,
                 'status' => $status
             ]);
+
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => $order->_id,
+                    'gross_amount' => $order->total_harga,
+                ),
+                'customer_details' => array(
+                   'id_user' => $order->id_user
+                ),
+            );
+
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
         }
 
-        return redirect()->to('/checkout_payment' . '/' . $metode_pembayaran);
+        $dataBaru = PurchaseModel::all()->count();
+
+        if($dataBaru > $dataLama){
+            session(['NewDataPesanan' => true]);
+        }
+
+        return redirect()->to('/checkout_payment' .'/' . $order->id_user . '?snapToken=' . $snapToken);
     }
 
-    public function checkout_payment($slug)
+    public function checkout_payment(Request $request,$id_user)
     {
-        $metode_pembayaran = MetodePembayaranModel::where('slug',$slug)->first();
+        $snapToken = $request->get('snapToken');
 
-        return view('checkout_payment'); // view('folder.file', compact())
+        $order = PurchaseModel::where('id_user',$id_user)->get();
+        $total_produk = count($order);
+        
+        $data_order = PurchaseModel::where('id_user',$id_user)->first();
+
+        return view('checkout_payment',['data_order' => $data_order,'total_produk' => $total_produk, 'snapToken' => $snapToken ]); // view('folder.file', compact())
     }
 
+    public function after_payment($id,$id_cart,$id_checkout,$varian){
+        CartModel::find($id_cart)->delete();
+        CheckOutModel::find($id_checkout)->delete();
+        PurchaseModel::where('id_user',$id)->update(['status' => 'sudah bayar']);
+
+        $stok = MitraProdukModel::where('varian',$varian)->first();
+
+        $jmlh_stok = $stok['varian'][0]['stok'] - 1;
+
+        MitraProdukModel::where('varian',$varian)->update(['stok' => $jmlh_stok]);
+
+        return redirect()->to('/');
+    }
+
+    public function changeStatusByKonsumen($id_user,$id_pesanan,$status)
+    {
+        PurchaseModel::where('_id',$id_pesanan)->update(['status' => $status]);
+
+        return redirect()->to('/'); // view('folder.file', compact())
+    }
+
+    public function store_rrviews(Request $request){
+        $id_pesanan = $request->input('id_pesanan');
+        $id_user = $request->input('id_user');
+        $id_produk = $request->input('id_produk');
+        $reviews = $request->input('reviews');
+        $rating = $request->input('rating');
+
+        $data_pesanan = PurchaseModel::where('_id',$id_pesanan)->update(['status' => 'Sudah dinilai']);
+
+        var_dump($id_pesanan);exit;
+       
+        RReviewsModel::create([
+            'id_user' => $id_user,
+            'id_produk' => $id_produk,
+            'reviews' => $reviews,
+            'ratings' => $rating
+        ]);
+
+        return redirect()->to('/notification' . '/' . $id_user);
+    }
 
     public function test_api(Request $request)
     {

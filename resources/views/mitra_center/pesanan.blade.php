@@ -1,5 +1,16 @@
 @extends('../templates/mitra-layout')
 @section('content')
+<?php
+
+use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
+use App\Models\PurchaseModel;
+
+$user = KonsumensModel::find(session('id_user'));
+$order = PurchaseModel::where('id_user')->get();
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+
+?>
 
 @if (!session()->has('login'))
 <script>
@@ -42,7 +53,7 @@
                     Produk</a>
             </p>
             <p class="mt-4">
-                <a href="/daftarProduk" class="hover:text-[#D10B05] text-[#999] border-l-4 py-2 border-white pl-[58px]">Daftar
+                <a href="/daftarProduk/{{$supplier->_id}}" class="hover:text-[#D10B05] text-[#999] border-l-4 py-2 border-white pl-[58px]">Daftar
                     Produk</a>
             </p>
             <p class="mt-4">
@@ -50,7 +61,7 @@
                     Produk</a>
             </p>
         </div>
-        <a href="" class="flex items-center active-nav-link cta-btn py-2 my-2 pl-5 nav-item border-l-4 border-[#d10b05]">
+        <a href="/pesanan/{{$supplier->_id}}" class="flex items-center active-nav-link cta-btn py-2 my-2 pl-5 nav-item border-l-4 border-[#d10b05]">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                 <path fill="#d10b05" d="m17.275 20.25l3.475-3.45l-1.05-1.05l-2.425 2.375l-.975-.975l-1.05 1.075l2.025 2.025ZM6 9h12V7H6v2Zm12 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23ZM3 22V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v6.675q-.475-.225-.975-.375T19 11.075V5H5v14.05h6.075q.125.775.388 1.475t.687 1.325L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5L3 22Zm3-5h5.075q.075-.525.225-1.025t.375-.975H6v2Zm0-4h7.1q.95-.925 2.213-1.463T18 11H6v2Zm-1 6.05V5v14.05Z" />
             </svg>
@@ -91,7 +102,7 @@
 <!-- Navbar kiri -->
 
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
-    <div class="mt-32 bg-white rounded-tl-2xl w-full ml-4 shadow-md">
+    <div class="mt-32 bg-white rounded-2xl w-[97%] ml-4 shadow-md">
         <p class="mt-7">
             <a class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium cursor-default">Daftar
                 Pesanan</a>
@@ -109,43 +120,41 @@
                 </tr>
             </thead>
             <tbody data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-out">
+                @foreach ($pesanan as $p)
                 <tr class="border-b-2 border-[#E6E6E6]">
                     <td class="pl-10 py-5 mx-auto my-auto">
-                        <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt="" class="rounded-md">
+                        <img src="{{asset('storage/img_uploaded/'. $p->foto)}}" alt="" class="w-24 rounded-md">
                     </td>
                     <td>
                         <ul>
-                            <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                            <li class="text-[#999] mt-1">YusupAnjayMabar</li>
+                            <li class="font-semibold">{{$p->nama_produk}}</li>
+                            <li class="text-[#999] mt-1">ID COSTUMER: {{$p->id_user}}</li>
                         </ul>
                     </td>
-                    <td class="text-center">Rp169.500</td>
-                    <td class="text-center">250gr</td>
-                    <td class="text-center">Kurir menuju toko anda</td>
+                    <td class="text-center">Rp{{number_format($p->harga,0,',')}}</td>
+                    <td class="text-center">{{$p->varian}}</td>
+                    <td class="text-center">{{$p->status}}</td>
                     <td class="text-center">
-                        <button class="border-2 border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Siap</button>
-                        <button class="border-2 border-[#D10B05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Dikirim</button>
-                    </td>
-                </tr>
+                        @if($p->status === "Kurir menuju toko anda")
+                            <button id = "" name = "btn-siap" disabled class="btn-siap border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear" data-id_supplier = "{{$p->id_supplier}}" data-id_pesanan = "{{$p->_id}}">Siap</button>
+                        @elseif($p->status === "Dikirim oleh Kurir")
+                            <button id = "" name = "btn-siap" disabled class="btn-siap border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear" data-id_supplier = "{{$p->id_supplier}}" data-id_pesanan = "{{$p->_id}}">Siap</button>
+                        @elseif($p->status === "Sampai")
+                            <button id = "" name = "btn-siap" disabled class="btn-siap border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear" data-id_supplier = "{{$p->id_supplier}}" data-id_pesanan = "{{$p->_id}}">Siap</button>
+                        @else
+                            <button id = "" name = "btn-siap" class="btn-siap border-2 border-[#D10B05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear" data-id_supplier = "{{$p->id_supplier}}" data-id_pesanan = "{{$p->_id}}">Siap</button>
+                        @endif
 
-                <tr class="border-b-2 border-[#E6E6E6]">
-                    <td class="pl-10 py-5 mx-auto my-auto">
-                        <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt="" class="rounded-md">
-                    </td>
-                    <td>
-                        <ul>
-                            <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                            <li class="text-[#999] mt-1">YusupAnjayMabar</li>
-                        </ul>
-                    </td>
-                    <td class="text-center">Rp169.500</td>
-                    <td class="text-center">250gr</td>
-                    <td class="text-center">Kurir menuju toko anda</td>
-                    <td class="text-center">
-                        <button class="border-2 border-[#D10B05] py-2 px-10 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Siap</button>
-                        <button class="border-2 border-[#ccc] bg-[#ccc] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Dikirim</button>
+                        @if($p->status === "Dikirim oleh Kurir")
+                            <button id = "" name = "btn-kirim" disabled class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear" data-id_supplier = "{{$p->id_supplier}}" data-id_pesanan = "{{$p->_id}}">Dikirim</button>
+                        @elseif($p->status === "Sampai")
+                            <button id = "" name = "btn-kirim" disabled class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear" data-id_supplier = "{{$p->id_supplier}}" data-id_pesanan = "{{$p->_id}}">Dikirim</button>
+                        @else
+                        <button id = "" name = "btn-kirim" class="btn-kirim border-2 border-[#D10B05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear" data-id_supplier = "{{$p->id_supplier}}" data-id_pesanan = "{{$p->_id}}">Dikirim</button>
+                        @endif
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
         <!-- TABLE -->
