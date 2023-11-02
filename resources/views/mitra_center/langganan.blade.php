@@ -6,7 +6,7 @@ use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 
@@ -126,112 +126,118 @@ document.location.href = "/login";
                 Usaha Anda. Ayo Gabung Dan <br> Dapatkan Semua Benefitnya!</p>
         </div>
         <div class="flex items-center ml-11 mt-8 gap-20 mb-5">
-            <div
-                class="bg-white border-2 border-[#d10b05] rounded-2xl pt-5 px-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
-                <p class="font-medium text-[18px]">Bronze</p>
-                <p class="text-[28px] text-[#d10b05] font-bold">Rp120.000</p>
-                <ul class="mt-5">
-                    <li class="flex items-center gap-3 font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                            height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Lihat tren daging</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Durasi langganan 1 bulan</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Posisi produk prioritas</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Iklankan produkmu</li>
-                </ul>
+            <div data-aos="flip-left" data-aos-duration="600">
+                <div
+                    class="bg-white border-2 border-[#d10b05] rounded-2xl pt-5 px-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
+                    <p class="font-medium text-[18px]">Bronze</p>
+                    <p class="text-[28px] text-[#d10b05] font-bold">Rp120.000</p>
+                    <ul class="mt-5">
+                        <li class="flex items-center gap-3 font-semibold"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Lihat tren daging</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Durasi langganan 1 bulan</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Posisi produk prioritas</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Iklankan produkmu</li>
+                    </ul>
 
-                <button
-                    class="mt-16 mb-8 border-2 border-[#d10b05] bg-[#d10b05] text-white w-full py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Beli
-                    Paket</button>
+                    <button
+                        class="mt-16 mb-8 border-2 border-[#d10b05] bg-[#d10b05] text-white w-full py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Beli
+                        Paket</button>
+                </div>
             </div>
 
-            <div
-                class="bg-white border-2 border-[#d10b05] rounded-2xl pt-5 px-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
-                <p class="font-medium text-[18px]">Silver</p>
-                <p class="text-[28px] text-[#d10b05] font-bold">Rp250.000</p>
-                <ul class="mt-5">
-                    <li class="flex items-center gap-3 font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                            height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Lihat tren daging</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Durasi langganan 2 bulan</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Posisi produk prioritas</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Iklankan produkmu</li>
-                </ul>
+            <div data-aos="flip-left" data-aos-duration="800">
+                <div
+                    class="bg-white border-2 border-[#d10b05] rounded-2xl pt-5 px-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
+                    <p class="font-medium text-[18px]">Silver</p>
+                    <p class="text-[28px] text-[#d10b05] font-bold">Rp250.000</p>
+                    <ul class="mt-5">
+                        <li class="flex items-center gap-3 font-semibold"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Lihat tren daging</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Durasi langganan 2 bulan</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Posisi produk prioritas</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Iklankan produkmu</li>
+                    </ul>
 
-                <button
-                    class="mt-16 mb-8 border-2 border-[#d10b05] bg-[#d10b05] text-white w-full py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Beli
-                    Paket</button>
+                    <button
+                        class="mt-16 mb-8 border-2 border-[#d10b05] bg-[#d10b05] text-white w-full py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Beli
+                        Paket</button>
+                </div>
             </div>
 
-            <div
-                class="bg-white border-2 border-[#d10b05] rounded-2xl pt-5 px-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
-                <p class="font-medium text-[18px]">Gold</p>
-                <p class="text-[28px] text-[#d10b05] font-bold">Rp350.000</p>
-                <ul class="mt-5">
-                    <li class="flex items-center gap-3 font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                            height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Lihat tren daging</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Durasi langganan 3 bulan</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Posisi produk prioritas</li>
-                    <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
-                            width="20" height="20" viewBox="0 0 15 15">
-                            <path fill="#ccc" fill-rule="evenodd"
-                                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
-                                clip-rule="evenodd" />
-                        </svg> Iklankan produkmu</li>
-                </ul>
+            <div data-aos="flip-left" data-aos-duration="1000">
+                <div
+                    class="bg-white border-2 border-[#d10b05] rounded-2xl pt-5 px-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
+                    <p class="font-medium text-[18px]">Gold</p>
+                    <p class="text-[28px] text-[#d10b05] font-bold">Rp350.000</p>
+                    <ul class="mt-5">
+                        <li class="flex items-center gap-3 font-semibold"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Lihat tren daging</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Durasi langganan 3 bulan</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Posisi produk prioritas</li>
+                        <li class="flex items-center gap-3 font-semibold mt-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#ccc" fill-rule="evenodd"
+                                    d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                                    clip-rule="evenodd" />
+                            </svg> Iklankan produkmu</li>
+                    </ul>
 
-                <button
-                    class="mt-16 mb-8 border-2 border-[#d10b05] bg-[#d10b05] text-white w-full py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Beli
-                    Paket</button>
+                    <button
+                        class="mt-16 mb-8 border-2 border-[#d10b05] bg-[#d10b05] text-white w-full py-2 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Beli
+                        Paket</button>
+                </div>
             </div>
         </div>
     </div>
