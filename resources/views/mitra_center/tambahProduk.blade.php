@@ -7,13 +7,13 @@ use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 
 @if (!session()->has('login'))
 <script>
-document.location.href = "/login";
+    document.location.href = "/login";
 </script>
 @endif
 
@@ -52,12 +52,7 @@ document.location.href = "/login";
                     Produk</a>
             </p>
             <p class="mt-4">
-<<<<<<< HEAD
-                <a href="/daftarProduk" class="text-[#999] hover:text-[#D10B05] border-l-4 py-2 border-white pl-[58px]">Daftar
-=======
-                <a href="/daftarProduk/{{$supplier->_id}}"
-                    class="text-[#999] hover:text-[#D10B05] border-l-4 py-2 border-white pl-[58px]">Daftar
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
+                <a href="/daftarProduk/{{$supplier->_id}}" class="text-[#999] hover:text-[#D10B05] border-l-4 py-2 border-white pl-[58px]">Daftar
                     Produk</a>
             </p>
             <p class="mt-4">
@@ -140,87 +135,39 @@ document.location.href = "/login";
                 </div>
                 <div class="flex items-center gap-9 ml-28">
                     <label for="foto1" class="cursor-pointer group">
-<<<<<<< HEAD
-                        <div class="border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
+                        <div class="foto-utama border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
                             <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
                                     <path d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z" fill="#CCCCCC" />
-=======
-                        <div
-                            class="foto-utama border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
-                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50"
-                                    height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
-                                    <path
-                                        d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z"
-                                        fill="#CCCCCC" />
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                                 </svg>
                             </div>
                             <p class="text-[#ccc] mt-4 mb-6 group-hover:text-[#d10b05]">Foto Utama</p>
                         </div>
-<<<<<<< HEAD
+                        <img id="uploadedImage" src="" alt="" class="w-40 rounded-lg hidden" />
                     </label>
                     <label for="foto2" class="cursor-pointer group">
-                        <div class="border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
+                        <div class="foto-kedua border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
                             <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
                                     <path d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z" fill="#CCCCCC" />
-=======
-                        <img id = "uploadedImage" src="" alt="" class = "w-40 rounded-lg hidden"/>
-                    </label>
-                    <label for="foto2" class="cursor-pointer group">
-                        <div
-                            class="foto-kedua border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
-                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50"
-                                    height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
-                                    <path
-                                        d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z"
-                                        fill="#CCCCCC" />
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                                 </svg>
                             </div>
                             <p class="text-[#ccc] mt-4 mb-6 group-hover:text-[#d10b05]">Foto Kedua</p>
                         </div>
-<<<<<<< HEAD
+                        <img id="uploadedImage2" src="" alt="" class="w-40 rounded-lg hidden" />
                     </label>
                     <label for="foto3" class="cursor-pointer group">
-                        <div class="border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
+                        <div class="foto-ketiga border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
                             <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
                                     <path d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z" fill="#CCCCCC" />
-=======
-                        <img id = "uploadedImage2" src="" alt="" class = "w-40 rounded-lg hidden"/>
-                    </label>
-                    <label for="foto3" class="cursor-pointer group">
-                        <div
-                            class="foto-ketiga border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
-                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="50"
-                                    height="50" viewBox="0 0 50 50" fill="none" class="mt-7">
-                                    <path
-                                        d="M37.5 31.25V37.5H31.25V41.6667H37.5V47.9167H41.6667V41.6667H47.9167V37.5H41.6667V31.25H37.5ZM27.7083 43.75H10.4167C8.125 43.75 6.25 41.875 6.25 39.5833V10.4167C6.25 8.125 8.125 6.25 10.4167 6.25H39.5833C41.875 6.25 43.75 8.125 43.75 10.4167V27.7083C42.5 27.2917 41.0417 27.0833 39.5833 27.0833C37.2917 27.0833 35 27.7083 33.125 28.9583L30.2083 25L22.9167 34.375L17.7083 28.125L10.4167 37.5H27.2917C27.0833 38.125 27.0833 38.9583 27.0833 39.5833C27.0833 41.0417 27.2917 42.5 27.7083 43.75Z"
-                                        fill="#CCCCCC" />
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                                 </svg>
                             </div>
                             <p class="text-[#ccc] mt-4 mb-6 group-hover:text-[#d10b05]">Foto Ketiga</p>
                         </div>
-<<<<<<< HEAD
+                        <img id="uploadedImage3" src="" alt="" class="w-40 rounded-lg hidden" />
                     </label>
                 </div>
                 <input type="file" name="foto1" id="foto1" value="{{(isset($produk['foto']['foto1']) ? $produk['foto']['foto1'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
                 <input type="file" name="foto2" id="foto2" value="{{(isset($produk['foto']['foto2']) ? $produk['foto']['foto2'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
                 <input type="file" name="foto3" id="foto3" value="{{(isset($produk['foto']['foto3']) ? $produk['foto']['foto3'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
-=======
-                        <img id = "uploadedImage3" src="" alt="" class = "w-40 rounded-lg hidden"/>
-                    </label>
-                </div>
-                <input type="file" name="foto1" id="foto1"
-                    value="{{(isset($produk['foto']['foto1']) ? $produk['foto']['foto1'] : '')}}"
-                    accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
-                <input type="file" name="foto2" id="foto2"
-                    value="{{(isset($produk['foto']['foto2']) ? $produk['foto']['foto2'] : '')}}"
-                    accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
-                <input type="file" name="foto3" id="foto3"
-                    value="{{(isset($produk['foto']['foto3']) ? $produk['foto']['foto3'] : '')}}"
-                    accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
             </div>
             <div class="flex ml-11 mt-16 items-center">
                 <p class="font-semibold text-[18px] mr-64">Nama Produk</p>
@@ -304,7 +251,6 @@ document.location.href = "/login";
                     <div class="bg-[#eeeeee] w-[547px] rounded-md">
                         <div class="px-10 py-5 pembungkus-page-3" style="display: flex; align-items: center">
                             <label for="" class="font-semibold mr-4">Varian 3</label>
-<<<<<<< HEAD
                             <button form="none" id="btn-tambah-varian3" class="btn-tambah-varian-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
                                 <span><img src="{{asset('assets/img_mitra_center/asset/tambahProduk/buttonPlus.svg')}}" alt="" /></span>
                                 Tambah Varian
@@ -314,31 +260,12 @@ document.location.href = "/login";
                             <input hidden type="text" placeholder="Masukan dalam Rupiah" name="varian[harga3]" id="" class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" value="{{( isset($produk['varian'][2]['harga']) ) ? $produk['varian'][2]['harga'] : '' }}" />
                             <label for="" class="mr-10" hidden>Stok</label>
                             <input hidden type="text" placeholder="Contoh: 17" name="varian[stok3]" id="" class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]" value="{{( isset($produk['varian'][2]['stok']) ) ? $produk['varian'][2]['stok'] : '' }}" />
-=======
-                            <button form="none" id="btn-tambah-varian3"
-                                class="btn-tambah-varian-produk flex items-center py-2 px-6 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
-                                <span><img src="{{asset('assets/img_mitra_center/asset/tambahProduk/buttonPlus.svg')}}"
-                                        alt="" /></span>
-                                Tambah Varian
-                            </button>
-                            <input hidden type="text" placeholder="Contoh: 250gr" name="varian[varian3]" id=""
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]"
-                                value="{{( isset($produk['varian'][2]['varian3']) ) ? $produk['varian'][2]['varian3'] : '' }}" />
-                            <label for="" class="mr-[29px]" hidden>Harga</label>
-                            <input hidden type="text" placeholder="Masukan dalam Rupiah" name="varian[harga3]" id=""
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]"
-                                value="{{( isset($produk['varian'][2]['harga']) ) ? $produk['varian'][2]['harga'] : '' }}" />
-                            <label for="" class="mr-10" hidden>Stok</label>
-                            <input hidden type="text" placeholder="Contoh: 17" name="varian[stok3]" id=""
-                                class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] focus:outline-[#D10B05]"
-                                value="{{( isset($produk['varian'][2]['stok']) ) ? $produk['varian'][2]['stok'] : '' }}" />
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                         </div>
                     </div>
                 </div>
             </div>
             <div class="my-20">
-                <div class="flex items-center gap-3 justify-end mr-[26%]">
+                <div class="flex items-center gap-3 justify-end mr-[25%]">
                     <button id="cancelButton" class="border-2 border-[#D10B05] text-[#D10b05] py-2 px-14 rounded-md font-semibold hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                         Kembali
                     </button>

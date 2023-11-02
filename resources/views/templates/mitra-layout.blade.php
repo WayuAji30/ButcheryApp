@@ -23,18 +23,10 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     <title>Butchery | Mitra Center</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
     <style>
-<<<<<<< HEAD
     .group:hover svg path {
         fill: #d10b05;
     }
     </style>
-
-=======
-        .group:hover svg path {
-            fill: #d10b05;
-        }
-    </style>
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
 </head>
 
 <body class="flex">
@@ -67,7 +59,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         </div>
                     </a>
                     @else
-                    <a href="/pesanan/{{$supplier->_id}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    <a href="/pesanan/{{$supplier->_id}}"
+                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                 <g fill="none" stroke="#454545" stroke-width="2">
@@ -87,22 +80,15 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                         class="border-2 border-[#D10B05] rounded-full" />
                                     <p class="font-medium mr-8 text-lg cursor-default">{{$user->username}}</p>
                                 </a></label>
-<<<<<<< HEAD
                             <ul tabindex="0"
                                 class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
                                         class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
-                                <li><a href="" class="font-semibold flex justify-between">Logout <svg
+                                <li><a href="/logout" class="font-semibold flex justify-between">Logout <svg
                                             xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             viewBox="0 0 24 24">
                                             <path fill="currentColor"
                                                 d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
-=======
-                            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
-                                <li><a href="/logout" class="font-semibold flex justify-between">Logout <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                                            <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                                         </svg></a></li>
                             </ul>
                         </div>
@@ -115,11 +101,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     @yield('content')
 
     @vite(['resources/js/tambahProduk.js','resources/js/hapusProduk.js','resources/js/search.js','resources/js/app.js',
-<<<<<<< HEAD
-    'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/chart.js'])
-=======
-    'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/change_status.js'])
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
+    'resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/change_status.js', 'resources/js/chart.js'])
     <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
