@@ -2,9 +2,13 @@
 
 use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
+use App\Models\CheckOutModel;
+use App\Models\PurchaseModel;
 
 $user = KonsumensModel::find(session('id_user'));
 $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$purchase = PurchaseModel::where('id_user',session('id_user'))->first();
+$checkout = CheckOutModel::where('user_id',session('id_user'))->first();
 
 ?>
 <!DOCTYPE html>
@@ -14,6 +18,12 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+     <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript"
+    src="https://app.sandbox.midtrans.com/snap/snap.js"
+    data-client-key="SB-Mid-client-SpSU-pEjrIfuDEE7"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+
     @vite(['resources/css/app.css', 'resources/css/ouput.css','resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
@@ -82,15 +92,24 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                             <p class="mt-2">Perubahan yang Anda lakukan di halaman ini tidak akan disimpan</p>
                             <form method="dialog">
                                 <button
-                                    class="border-2 py-2 w-full bg-[#D10B05] border-[#D10B05] text-white font-semibold rounded-md mt-8 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">Tetap
-                                    Di Halaman
-                                    Ini</button>
+                                    class="border-2 py-2 w-full bg-[#D10B05] border-[#D10B05] text-white font-semibold rounded-md mt-8 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                                    Tetap Di Halaman Ini</button>
                             </form>
+<<<<<<< HEAD
                             <form action="/cart/{{session('id_user')}}">
                                 <button
                                     class="border-2 py-2 w-full border-[#D10B05] text-[#D10B05] font-semibold rounded-md mt-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">Kembali
                                     & Hapus
                                     Perubahan</button>
+=======
+                            <form action="/hapusCheckOut" method = "POST">
+                                @csrf
+                                <input type="hidden" name = "id_purchase" value = "{{(isset($purchase->_id) ? $purchase->_id : '')}}">
+                                <input type="hidden" name = "id_checkout" value = "{{$checkout->_id}}">
+                                <input type="hidden" name = "id_user" value = "{{$user->_id}}">
+                                <button class="border-2 py-2 w-full border-[#D10B05] text-[#D10B05] font-semibold rounded-md mt-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">
+                                    Kembali & Hapus Perubahan</button>
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                             </form>
                         </div>
                         <form method="dialog" class="modal-backdrop">

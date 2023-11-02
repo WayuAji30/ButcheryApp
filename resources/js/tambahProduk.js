@@ -1,4 +1,63 @@
 $(document).ready(function () {
+    $("#foto1").change(function () {
+        var imagePreview = $("#uploadedImage");
+        var file = this.files[0];
+
+        if (file) {
+            // Membaca gambar sebagai URL data
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.attr("src", e.target.result);
+            };
+            reader.readAsDataURL(file);
+
+            $('.foto-utama').addClass('hidden');
+            imagePreview.removeClass('hidden');
+        } else {
+            imagePreview.attr("src", ""); // Menghapus gambar saat tidak ada file yang dipilih
+        }
+    });
+
+    $("#foto2").change(function () {
+        var imagePreview = $("#uploadedImage2");
+        var file = this.files[0];
+
+        if (file) {
+            // Membaca gambar sebagai URL data
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.attr("src", e.target.result);
+            };
+            reader.readAsDataURL(file);
+
+            $('.foto-kedua').addClass('hidden');
+            imagePreview.removeClass('hidden');
+        } else {
+            imagePreview.attr("src", ""); // Menghapus gambar saat tidak ada file yang dipilih
+        }
+    });
+
+    
+    $("#foto3").change(function () {
+        var imagePreview = $("#uploadedImage3");
+        var file = this.files[0];
+
+        if (file) {
+            // Membaca gambar sebagai URL data
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.attr("src", e.target.result);
+            };
+            reader.readAsDataURL(file);
+
+            $('.foto-ketiga').addClass('hidden');
+            imagePreview.removeClass('hidden');
+        } else {
+            imagePreview.attr("src", ""); // Menghapus gambar saat tidak ada file yang dipilih
+        }
+    });
+    
+
     $('#btn-tambah-varian').click(function(){
         $('#btn-tambah-varian').toggle();
         $('.pembungkus-page').css('display','flex');

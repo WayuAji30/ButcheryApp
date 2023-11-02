@@ -1,6 +1,13 @@
 @extends('templates.cart-checkout')
 @section('content')
 
+@php
+if(session()->has('NewDataCart')){
+    session()->forget('NewDataCart');
+}    
+@endphp
+
+
 <!-- CART -->
 <div class="container lg:pt-[201px] md:pt-20 pt-16">
     <div class="grid grid-cols-12">
@@ -26,7 +33,12 @@
                             <li>
                                 <span id="nama_produk" class="sm:text-sm">{{(isset($ci->nama_produk)) ? $ci->nama_produk : ''}}</span>
                                 <br />
+<<<<<<< HEAD
                                 <span class="text-[#D10B05] font-semibold sm:text-sm" id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span>
+=======
+                                <span class="text-[#D10B05] font-semibold sm:text-sm"
+                                    id="varian">{{(isset($ci->varian)) ? $ci->varian : ''}}</span>
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                             </li>
                             <li class="font-semibold mt-4">
                                 Rp<span id="harga">{{(isset($ci->harga)) ? $ci->harga : ''}}</span>

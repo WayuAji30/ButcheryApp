@@ -55,6 +55,7 @@ $(document).ready(function(){
             var id_user = list_produk.find('#id_user').val();
             var id_produk = list_produk.find('#id_produk').val();
             var id_supplier = list_produk.find('#id_supplier').val();
+            var foto_produk = list_produk.find('#foto_produk').val();
             var namaProduk = list_produk.find('#nama_produk').text();
             var varianProduk = list_produk.find('#varian').text();
             var harga = list_produk.find('#harga_barang').text();
@@ -63,6 +64,7 @@ $(document).ready(function(){
                 id_user : id_user,
                 id_supplier : id_supplier,
                 id_produk :id_produk,
+                foto: foto_produk,
                 nama_produk : namaProduk,
                 varian : varianProduk,
                 harga : harga,
@@ -78,7 +80,7 @@ $(document).ready(function(){
         // Mengubah array menjadi JSON string
         var selectedItemsJson = JSON.stringify(selectedItems);
 
-        window.location.href = '/store_orders/' + encodeURIComponent(selectedItemsJson) + '/' + alamatPengiriman + '/' + metode_pembayaran + '/' + opsi_pengiriman + '/' + b_ongkir + '/' + b_layanan + '/' + b_asuransi + '/' + b_tambahan + '/' + subtotal + '/' + total_harga + '/' + status;
+        window.location.href = '/store_orders/' + encodeURIComponent(selectedItemsJson) + '/' + opsi_pengiriman + '/' + b_ongkir + '/' + b_layanan + '/' + b_asuransi + '/' + b_tambahan + '/' + subtotal + '/' + total_harga + '/' + status + '/' + alamatPengiriman;
  
     });
 

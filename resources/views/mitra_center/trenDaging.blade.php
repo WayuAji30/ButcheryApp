@@ -1,5 +1,17 @@
 @extends('../templates/mitra-layout')
 @section('content')
+<?php
+
+use App\Models\KonsumensModel;
+use App\Models\SuppliersModel;
+use App\Models\PurchaseModel;
+
+$user = KonsumensModel::find(session('id_user'));
+$order = PurchaseModel::where('id_user',$user->id_user)->first();
+$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+
+?>
+
 <!-- Navbar kiri -->
 <aside class="relative pt-20 h-screen w-64 hidden lg:block md:block shadow-xl bg-white">
     <nav class="">
@@ -35,7 +47,12 @@
                     Produk</a>
             </p>
             <p class="mt-4">
+<<<<<<< HEAD
                 <a href="/daftarProduk" class="text-[#999] hover:text-[#D10B05] border-l-4 py-2 border-white pl-[58px]">Daftar
+=======
+                <a href="/daftarProduk/{{$supplier->_id}}"
+                    class="text-[#999] hover:text-[#D10B05] border-l-4 py-2 border-white pl-[58px]">Daftar
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                     Produk</a>
             </p>
             <p class="mt-4">
@@ -43,7 +60,7 @@
                     Produk</a>
             </p>
         </div>
-        <a href="/pesanan" class="flex items-center active-nav-link cta-btn py-4 pl-6 nav-item">
+        <a href="/pesanan/{{$supplier->_id}}" class="flex items-center active-nav-link cta-btn py-4 pl-6 nav-item">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                 <path fill="#2b2b2b" d="m17.275 20.25l3.475-3.45l-1.05-1.05l-2.425 2.375l-.975-.975l-1.05 1.075l2.025 2.025ZM6 9h12V7H6v2Zm12 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23ZM3 22V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v6.675q-.475-.225-.975-.375T19 11.075V5H5v14.05h6.075q.125.775.388 1.475t.687 1.325L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5L3 22Zm3-5h5.075q.075-.525.225-1.025t.375-.975H6v2Zm0-4h7.1q.95-.925 2.213-1.463T18 11H6v2Zm-1 6.05V5v14.05Z" />
             </svg>

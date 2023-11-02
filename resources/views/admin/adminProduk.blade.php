@@ -1,6 +1,10 @@
 @extends('../templates/adminLayout')
 @section('content')
 
+@if(!session()->has('loginAdmin'))
+    <script>window.location.href='/loginAdmin'</script>
+@endif
+
 <!-- Navbar kiri -->
 <aside class="relative pt-28 h-screen w-64 hidden lg:block md:block shadow-xl bg-white">
     <nav class="">
@@ -31,9 +35,13 @@
         <!-- SEARCH BAR -->
         <div class="flex mx-11 mt-5">
             <div class="flex gap-5">
-                <form action="">
+                <form action="/adminProduk" method="GET">
                     <div class="relative flex items-center">
+<<<<<<< HEAD
                         <input type="text" name="" id="" placeholder="Cari Nama Produk" required class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
+=======
+                        <input type="text" name="cari_daftarproduk" id="cari_daftarproduk" placeholder="Cari Nama Produk" class="border-solid border-2 border-slate-300 rounded-md w-64 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                         <button class="absolute right-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                                 <path fill="#999" d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
@@ -41,24 +49,33 @@
                         </button>
                     </div>
                 </form>
+<<<<<<< HEAD
                 <select name="" id="Kategori" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
+=======
+                <select name="kategori" id="kategori" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                     <option value="">Kategori</option>
-                    <option value="">Ayam</option>
-                    <option value="">Sapi</option>
+                    @foreach ($kategori as $k)
+                    <option value="{{$k['nama_kategori']['slug']}}">{{$k['nama_kategori']['nama']}}</option>
+                    @endforeach
                 </select>
+<<<<<<< HEAD
                 <select name="" id="Kategori" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
+=======
+                <select name="filter" id="filter" class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md w-36 focus:outline-[#D10B05]">
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                     <option value="">Filter</option>
-                    <option value="">Ayam</option>
-                    <option value="">Sapi</option>
+                    <option value="ASC">A - Z</option>
+                    <option value="DESC">Z - A</option>
                 </select>
             </div>
         </div>
         <!-- SEARCH BAR -->
 
         <!-- TABLE -->
-        <table class=" w-full mt-5 mb-5">
+        <table id="produk-table" class="table-auto w-full mt-5 mb-5">
             <thead>
-                <tr class="text-[#787878] font-semibold border-2 border-[#e6e6e6] w-full text-center  ">
+                <tr class="text-[#787878] font-semibold border-2 border-[#e6e6e6] w-full text-center">
                     <th colspan="2" class="py-4">Info Produk</th>
                     <th class="py-4">Harga</th>
                     <th class="py-4">Varian</th>
@@ -67,22 +84,46 @@
                 </tr>
             </thead>
             <tbody data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-out">
+<<<<<<< HEAD
                 <tr class="border-b-2 border-[#E6E6E6]">
                     <td class="pl-10 py-5 mx-auto my-auto">
                         <img src="{{asset('assets/img_mitra_center/asset/pesanan/contoh.png')}}" alt="" class="rounded-md">
                     </td>
+=======
+                @foreach ($produk as $p)
+                <tr class="border-b-2 border-slate-200" data-kategori = "{{(isset($p['id_kategori']) ? $p['id_kategori'] : '')}}" data-filter = "ASC" data-filter2 = "DESC">
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                     <td>
-                        <ul>
-                            <li class="font-semibold">Daging US Beef Slice Premium Quality 1kg</li>
-                            <li class="text-[#999] mt-1">YusupAnjayMabar</li>
-                        </ul>
+                        <img src="{{asset('storage/img_uploaded/'.(isset($p['foto']['foto1']) ? $p['foto']['foto1'] : ''))}}"
+                            alt="" class="w-[84px] rounded-lg ml-5 py-5" />
                     </td>
-                    <td class="text-center">Rp169.500</td>
-                    <td class="text-center">250gr</td>
-                    <td class="text-center">Ayam</td>
+                    <td class="font-semibold">
+                       {{$p->nama_produk}}<br />
+                        <p class="font-normal text-[#999]">
+                            ID: <span id="id-barang">{{$p->_id}}</span>
+                        </p>
+                    </td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">
+                        Rp<span id="harga">{{(isset($p['varian'][0]['harga']) ? $p['varian'][0]['harga'] : '')}}</span>
+                        <span id="harga">{{(isset($p['varian'][1]['harga']) ? '/ Rp'.$p['varian'][1]['harga'] : '')}}</span>
+                        <span id="harga">{{(isset($p['varian'][2]['harga']) ? '/ Rp'.$p['varian'][2]['harga'] : '')}}</span>
+                    </td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">
+                        {{(isset($p['varian'][0]['varian']) ? $p['varian'][0]['varian'] : '')}}
+                        {{(isset($p['varian'][1]['varian']) ? '/ '.$p['varian'][1]['varian'] : '')}}
+                        {{(isset($p['varian'][2]['varian']) ? '/ '.$p['varian'][2]['varian'] : '')}}
+                    </td>
+                    <td class="text-center font-semibold text-[#5e5e5e]">
+                        {{(isset($p->id_kategori) ? $p->id_kategori : '')}}
+                    </td>    
                     <td class="text-center">
                         <!-- The button to open modal -->
+<<<<<<< HEAD
                         <label for="my_modal_6" class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus</label>
+=======
+                        <label for="my_modal_6"
+                            class=" bg-[#D10B05] py-2 px-8 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear btn-hapus" data-id_produk = "{{(isset($p->_id) ? $p->_id : '')}}">Hapus</label>
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
 
                         <!-- Put this part before </body> tag -->
                         <input type="checkbox" id="my_modal_6" class="modal-toggle" />
@@ -100,8 +141,9 @@
                                             <div class="modal-action">
                                                 <label for="my_modal_6" class="border-2 border-[#d10b05] rounded-md px-8 py-2 font-semibold text-[#d10b05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">Batal</label>
                                             </div>
-                                            <form action="/hapusProduk" method="POST">
+                                            <form action="/hapusProdukAdmin" method="POST">
                                                 @csrf
+<<<<<<< HEAD
                                                 <input type="hidden" name="id" id="id" value="{{(isset($dp['_id']) ? $dp['_id'] : '')}}">
                                                 <button class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 mt-6 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus
                                                 </button>
@@ -150,6 +192,11 @@
                                                 @csrf
                                                 <input type="hidden" name="id" id="id" value="{{(isset($dp['_id']) ? $dp['_id'] : '')}}">
                                                 <button class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 mt-6 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus
+=======
+                                                <input type="hidden" class = "" name="id_produk" id="id_produk" value="">
+                                                <button
+                                                    class="border-2 border-[#d10b05] bg-[#d10b05] text-white px-8 py-2 mt-6 rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">Hapus
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                                                 </button>
                                             </form>
                                         </div>
@@ -158,6 +205,7 @@
                             </div>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
         <!-- TABLE -->

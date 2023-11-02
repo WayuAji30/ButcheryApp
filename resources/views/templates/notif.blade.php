@@ -81,27 +81,59 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     </form>
                 </div>
                 <div class="lg:gap-3 md:gap-2 sm:gap-1 lg:ml-0 md:ml-10 sm:ml-2 lg:mt-0 mt-1 flex" id="icon-bar">
-                    <a href="/cart/{{session('id_user')}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    @if(session()->has('NewDataCart'))
+                    <a href="/cart/{{session('id_user')}}"
+                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
-                            <div class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
+                            <div
+                                class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path fill="#454545" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
+                                <path fill="#454545"
+                                    d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
                             </svg>
                         </div>
                     </a>
-                    <a href="/notification" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    @else
+                    <a href="/cart/{{session('id_user')}}"
+                    class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                            <path fill="#454545"
+                                d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
+                        </svg>
+                     </a>
+                    @endif
+
+                    
+                    @if(session()->has('NewDataPesanan'))
+                    <a href="/notification/{{session('id_user')}}"
+                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
-                            <div class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
+                            <div
+                                class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                 <g fill="none" stroke="#454545" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
                                     <circle cx="12" cy="3" r="1" />
                                 </g>
                             </svg>
                         </div>
                     </a>
+                    @else
+                    <a href="/notification/{{session('id_user')}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                        <div class="relative inline-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#454545" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                    <circle cx="12" cy="3" r="1" />
+                                </g>
+                            </svg>
+                        </div>
+                    </a>
+                    @endif
                 </div>
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="" class="mx-4 lg:block hidden" />
                 @if (session()->has('login') && $user->role == 'konsumen')
@@ -224,9 +256,10 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         AOS.init();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+
     @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/loader.js',
     'resources/js/time.js', 'resources/js/hamburgerToggle.js', 'resources/js/cart.js',
-    'resources/js/product.js','resources/js/selectIndonesia.js', 'resources/js/drawer.js'])
+    'resources/js/product.js','resources/js/selectIndonesia.js', 'resources/js/drawer.js','resources/js/change_status.js'])
 </body>
 
 </html>

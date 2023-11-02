@@ -30,9 +30,16 @@
                     @foreach ($data_produk as $dp)
                     <input type="hidden" name="" id="subtotal" value="{{$dp->harga_total}}">
                     <div class="list_produk flex items-center mt-3">
+<<<<<<< HEAD
                         <input type="hidden" name="" id="id_user" class="" value="{{session('id_user')}}">
                         <input type="hidden" name="" id="id_produk" class="" value="{{$dp->_id}}">
                         <input type="hidden" name="" id="id_supplier" class="" value="{{$dp->supplier_id}}">
+=======
+                        <input type="hidden" name="" id="id_user" class = "" value="{{session('id_user')}}">
+                        <input type="hidden" name="" id="id_produk" class = "" value="{{$dp->produk_id}}">
+                        <input type="hidden" name="" id="id_supplier" class = "" value="{{$dp->supplier_id}}">
+                        <input type="hidden" name="" id="foto_produk" class = "" value="{{$dp->foto}}">
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                         <img src="{{asset('storage/img_uploaded/'. $dp->foto)}}" alt="" class="w-[180px] rounded-md" />
                         <ul class="ml-6">
                             <li>
@@ -57,6 +64,7 @@
                             </svg>
                             <p class="font-semibold text-[18px]">Alamat Pengiriman</p>
                         </div>
+<<<<<<< HEAD
                         <!-- <button class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</button> -->
                         <!-- The button to open modal -->
                         <label for="my_modal_7" id="ubah_alamat"
@@ -112,6 +120,30 @@
                                     <input type="checkbox" />
                                     <div class="collapse-title font-medium">
                                         Tambah Alamat
+=======
+                            <!-- <button class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</button> -->
+                            <!-- The button to open modal -->
+                            <label for="my_modal_7" id="ubah_alamat" class="text-[#D10B05] font-semibold hover:text-[#9F0804]" 
+                            data-alamat1 = "{{(isset($data_user['alamat'][0]['alamat']) ? $data_user['alamat'][0]['alamat'] : 'Tidak ada alamat tambahan')}}" 
+                            data-alamat2 = "{{(isset($data_user['alamat'][1]['alamat']) ? $data_user['alamat'][1]['alamat'] : 'Tidak ada alamat tambahan')}}"
+                            data-alamat3 = "{{(isset($data_user['alamat'][2]['alamat']) ? $data_user['alamat'][2]['alamat'] : 'Tidak ada alamat tambahan')}}">Ubah</label>
+
+                            <!-- Put this part before </body> tag -->
+                            <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+                            <div class="modal">
+                                <div class="modal-box">
+                                    <p class="font-semibold text-[20px] text-center">Alamat Pengiriman</p>
+                                    <div class="alamat flex items-center gap-5 mt-2">
+                                        <input type="radio" id="alamat1" value = "">
+                                        <label for="alamat1">
+                                            <p id="alamat-user-modal">
+                                                {{$data_user['alamat'][0]['alamat']}}
+                                            </p>
+                                            <p class="font-semibold mt-1" id="phone-user-modal">
+                                                {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
+                                            </p>
+                                        </label>
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                                     </div>
                                     <div class="collapse-content">
                                         <form action="/updateUserByCheckout" method="post">
@@ -162,15 +194,12 @@
                         </div>
                     </div>
                     <div class="mt-3 ms-2">
-                        <p id="alamat-user">
-                            {{$data_user['alamat'][0]['alamat']}}
-                        </p>
-                        <p class="font-semibold mt-4" id="phone-user">
-                            {{($data_user['no_hp'] === '') ?  '(+62) Tidak Tersedia' : $data_user['no_hp']}}
-                        </p>
+                        <p id="alamat-user">{{$data_user['alamat'][0]['alamat']}}</p>
+                        <p class="font-semibold mt-4" id="phone-user">{{($data_user['no_hp'] === '') ?  '(+62) Tidak Tersedia' : $data_user['no_hp']}}</p>
                     </div>
                     <div class="mt-10"></div>
                 </div>
+                
                 <!-- Payment -->
                 <div class="w-[100%] bg-white border-b-4 border-[#e6e6e6] mt-8">
                     <div class="flex items-center justify-between mr-8">
@@ -183,7 +212,11 @@
                         </div>
                     </div>
                     <div class="mt-3">
+<<<<<<< HEAD
 
+=======
+                        
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                         <div class="flex mt-5 gap-5">
                             @foreach ($metode_pembayaran as $mp)
                             <button id="" data-slug="{{$mp->slug}}"
@@ -193,7 +226,11 @@
                             </button>
                             @endforeach
                         </div>
+<<<<<<< HEAD
 
+=======
+                       
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                     </div>
                     <div class="mt-10"></div>
                 </div>
@@ -301,10 +338,18 @@
                                 Rp<span id="harga-total"></span>
                             </p>
                         </div>
+<<<<<<< HEAD
                         <button id="buat-pesanan"
                             class="lg:mt-6 mt-3 py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
                             Buat Pesanan
                         </button>
+=======
+                            <button
+                                id = "buat-pesanan"
+                                class="lg:mt-6 mt-3 py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                                Buat Pesanan
+                            </button>
+>>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
                     </div>
                 </div>
             </div>

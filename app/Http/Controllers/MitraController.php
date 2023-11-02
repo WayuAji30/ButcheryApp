@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\MitraProdukModel;
-use App\Models\KategoriModel;
-use App\Models\SuppliersModel;
 use App\Models\KonsumensModel; // memanggil model dalam folder Models
+use App\Models\MitraProdukModel;
+use App\Models\SuppliersModel;
+use App\Models\CartModel;
+use App\Models\KotaIndonesiaModel;
+use App\Models\CheckOutModel;
+use App\Models\MetodePembayaranModel;
+use App\Models\PurchaseModel;
+use App\Models\KategoriModel;
 use App\Http\Requests\StoreFileRequest;
 
 use Illuminate\View\View;
@@ -23,9 +28,18 @@ class MitraController extends Controller
         return view('mitra_center.trenDaging'); // view('folder.file', compact())
     }
 
-    public function pesanan(): View
+    public function pesanan($id_supplier)
     {
-        return view('mitra_center.pesanan'); // view('folder.file', compact())
+        $pesanan = PurchaseModel::where('id_supplier', $id_supplier)->get();
+
+        return view('mitra_center.pesanan',['pesanan' => $pesanan]); // view('folder.file', compact())
+    }
+
+    public function change_status($id_supplier,$id_pesanan,$status)
+    {
+        PurchaseModel::where('_id',$id_pesanan)->update(['status' => $status]);
+
+        return redirect()->to('/pesanan' . '/' . $id_supplier); // view('folder.file', compact())
     }
 
     public function langganan(): View
@@ -126,23 +140,29 @@ class MitraController extends Controller
             'deskripsi' => $deskripsi,
             'varian' => [
                 [
-                    'varian1' => $varian1,
+                    'varian' => $varian1,
                     'harga' => $harga1,
                     'stok' => $stok1,
                 ],
                 [
-                    'varian2' => $varian2,
+                    'varian' => $varian2,
                     'harga' => $harga2,
                     'stok' => $stok2,
                 ],
                 [
-                    'varian3' => $varian3,
+                    'varian' => $varian3,
                     'harga' => $harga3,
                     'stok' => $stok3,
                 ],
             ],
-            'rating' => null,
-            'reviews' => null
+            'rating' => [
+               'id_user' => null,
+               'rating' => null 
+            ],
+            'reviews' => [
+               'id_user' => null,
+               'rating' => null 
+            ]
         ]);
 
         return redirect()->to('/daftarProduk'. '/' . $data_supplier->_id);
