@@ -103,7 +103,7 @@ document.location.href = "/login";
 <!-- Navbar kiri -->
 
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
-    <div class="mt-32 bg-white rounded-tl-2xl w-screen h-screen ml-4 shadow-md">
+    <div class="mt-32 bg-white rounded-2xl w-[97%] ml-4 shadow-md">
         <div class="ml-11">
             <p class="mt-5">
                 <a class=" text-[28px] font-bold cursor-default">Beli Langganan</a>
@@ -114,7 +114,7 @@ document.location.href = "/login";
                 Menjalankan
                 Usaha Anda. Ayo Gabung Dan <br> Dapatkan Semua Benefitnya!</p>
         </div>
-        <div class="flex items-center ml-11 mt-8 gap-20">
+        <div class="flex items-center ml-11 mt-8 gap-20 mb-5">
             <div
                 class="bg-white border-2 border-[#d10b05] rounded-2xl pt-5 px-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
                 <p class="font-medium text-[18px]">Bronze</p>

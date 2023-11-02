@@ -4,45 +4,16 @@
 <!-- CART -->
 <div class="container lg:pt-[201px] md:pt-20 sm:pt-5">
     <div class="grid grid-cols-12">
-        <div class="lg:col-span-8 col-span-12 sm:text-sm sm:px-3">
-            <div class="lg:ml-24 md:ml-10 mt-8">
-                <img src="{{asset('assets/img_index/asset/checkout/bca.svg')}}" alt="">
-                <div class="border-t-4 border-slate-100 mt-7"></div>
-                <p class="font-semibold text-[18px] sm:text-sm lg:mt-11 sm:mt-5">Kode Pembayaran</p>
-                <button class="text-[#d10b05] text-[36px] sm:text-[25px] font-medium mt-2"
-                    id="norek">342546577455</button>
-                <div class="flex items-center mt-9">
-                    <p class="text-[#999] sm:text-xs">Lakukan Pembayaran Sebelum</p>
-                    <span class="countdown px-2  flex items-center font-semibold gap-1 sm:text-xs">
-                        <span style="--value:00;" class=""></span>:
-                        <span style="--value:00;" class=""></span>:
-                        <span style="--value:00;" class=""></span>
-                    </span>
-                </div>
-                <div class="border-t-4 border-slate-100 mt-7"></div>
-                <p class="font-semibold text-[18px] lg:mt-11 sm:mt-5 sm:text-xs">Petunjuk Pembayaran</p>
-                <div class="text-[#999]">
-                    <ul class="sm:text-xs">
-                        <li class="mt-4">1. Masukkan kartu ATM, lalu PIN.</li>
-                        <li class="mt-2">2. Pilih "Menu Lainnya".</li>
-                        <li class="mt-2">3. Pilih "Transfer".</li>
-                        <li class="mt-2">4. Pilih Jenis rekening yang akan Anda gunakan (Contoh; "Dari Rekening Tabungan").</li>
-                        <li class="mt-2">5. Pilih "Virtual Account Billing".</li>
-                        <li class="mt-2">6. Masukkan nomor Virtual Account Anda (contoh: 9880066710000001).</li>
-                        <li class="mt-2">7. Tagihan yang harus dibayarkan akan muncul pada layar konfirmasi.</li>
-                        <li class="mt-2">8. Pilih Benar</li>
-                        <li class="mt-2">9. Pilih jenis tagihan dan konfirmasi.</li>
-                        <li class="mt-2">10. Konfirmasi, apabila telah sesuai, lanjutkan transaksi.</li>
-                        <li class="mt-2">11. Transaksi Anda telah selesai.</li>
-                    </ul>
-                </div>
+        <div class="lg:col-span-6 col-span-12 sm:text-sm sm:px-3">
+            <div class="flex justify-center items-center lg:mt-20">
+                <img src="{{asset('assets/img_index/asset/checkout/Hiro.svg')}}" alt="" class="lg:w-fit w-full">
             </div>
         </div>
 
         <!-- Right -->
-        <div class="lg:col-span-4 col-span-12 lg:mt-0 md:mt-10 mt-10">
+        <div class="lg:col-span-6 col-span-12 lg:mt-9 md:mt-10 mt-10">
             <div class="grid justify-items-center">
-                <div class="lg:w-[75%] md:w-[80%] w-full lg:border-2 border-t-2 border-[#CCC] lg:rounded-3xl">
+                <div class="lg:w-[60%] md:w-[80%] w-full lg:border-2 border-t-2 border-[#CCC] lg:rounded-3xl">
                     <div class="lg:m-7 md:mb-10 sm:mx-4 sm:mb-4">
                         <p class="text-[18px] font-semibold lg:block hidden">Rincian Belanjaan</p>
                         <div class="flex items-center mt-5 justify-between md:hidden sm:hidden">
@@ -101,11 +72,9 @@
                             </p>
                         </div>
                         <form action="" class="lg:mt-6 mt-3">
-                            <!-- The button to open modal -->
-                            <label for="my_modal_7"
-                                class="btn lg:py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">Bayar</label>
-
-                            <!-- Put this part before </body> tag -->
+                            <!-- JANGAN DIHAPUS -->
+                            <!-- <label for="my_modal_7"
+                                class="lg:py-2 lg:px-[180px] md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</label>
                             <input type="checkbox" id="my_modal_7" class="modal-toggle" />
                             <div class="modal">
                                 <div class="modal-box text-center">
@@ -115,7 +84,8 @@
                                         Pembayaran Berhasil</p>
                                 </div>
                                 <label class="modal-backdrop" for="my_modal_7">Close</label>
-                            </div>
+                            </div> -->
+                            <button class="lg:py-2 py-1 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</button>
                         </form>
                     </div>
                 </div>
@@ -127,20 +97,20 @@
 <div class="lg:mt-20 sm:mt-5"></div>
 
 <script>
-document.getElementById('norek').addEventListener('click', function() {
-    var teks = this.innerText;
-    copyToClipboard(teks);
-});
+    document.getElementById('norek').addEventListener('click', function() {
+        var teks = this.innerText;
+        copyToClipboard(teks);
+    });
 
-function copyToClipboard(text) {
-    var tempInput = document.createElement("input");
-    tempInput.value = text;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-    alert("Teks berhasil disalin: " + text);
-}
+    function copyToClipboard(text) {
+        var tempInput = document.createElement("input");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Teks berhasil disalin: " + text);
+    }
 </script>
 
 @vite(['resources/js/app.js', 'resources/js/checkout.js', 'resources/js/time.js'])

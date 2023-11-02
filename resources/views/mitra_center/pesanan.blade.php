@@ -91,7 +91,7 @@
 <!-- Navbar kiri -->
 
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
-    <div class="mt-32 bg-white rounded-tl-2xl w-full ml-4 shadow-md">
+    <div class="mt-32 bg-white rounded-2xl w-[97%] ml-4 shadow-md">
         <p class="mt-7">
             <a class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium cursor-default">Daftar
                 Pesanan</a>

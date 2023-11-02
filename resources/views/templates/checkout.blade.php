@@ -86,14 +86,9 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                                     Di Halaman
                                     Ini</button>
                             </form>
-<<<<<<< HEAD
-                            <form action="/cart">
+                            <form action="/cart/{{session('id_user')}}">
                                 <button
                                     class="border-2 py-2 w-full border-[#D10B05] text-[#D10B05] font-semibold rounded-md mt-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">Kembali
-=======
-                            <form action="/cart/{{session('id_user')}}">
-                                <button class="border-2 py-2 w-full border-[#D10B05] text-[#D10B05] font-semibold rounded-md mt-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">Kembali
->>>>>>> 78419aa3b995ba3a32b9b33d32c527952a905071
                                     & Hapus
                                     Perubahan</button>
                             </form>
