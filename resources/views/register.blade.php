@@ -46,7 +46,7 @@
                             </span>
                             @enderror
                             <button
-                                class="text-white bg-[#D10B05] lg:py-3 md:py-3 sm:py-2 lg:px-40 md:px-36 px-[80px] lg:text-base md:text-base sm:text-xs rounded-lg font-semibold lg:mt-8 sm:mt-5 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
+                                class="text-white bg-[#D10B05] lg:py-3 md:py-3 sm:py-2 lg:px-36 md:px-36 px-[80px] lg:text-base md:text-base sm:text-xs rounded-lg font-semibold lg:mt-8 sm:mt-5 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Selanjutnya
                             </button>
                             <div class="justify-center flex mt-6">
