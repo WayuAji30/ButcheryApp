@@ -93,11 +93,8 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
                                 </div>
                                 <label class="modal-backdrop" for="my_modal_7">Close</label>
                             </div> -->
-<<<<<<< HEAD
-                            <button class="lg:py-2 py-1 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</button>
-=======
-                            <button id = "pay-button" class="lg:py-2 py-1 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</button>
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
+                            <button id="pay-button"
+                                class="lg:py-2 py-1 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</button>
                         </form>
                     </div>
                 </div>
@@ -108,23 +105,6 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
 <!-- CART -->
 <div class="lg:mt-20 sm:mt-5"></div>
 
-<<<<<<< HEAD
-<script>
-    document.getElementById('norek').addEventListener('click', function() {
-        var teks = this.innerText;
-        copyToClipboard(teks);
-    });
-
-    function copyToClipboard(text) {
-        var tempInput = document.createElement("input");
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-        alert("Teks berhasil disalin: " + text);
-    }
-=======
 <script type="text/javascript">
 document.getElementById('norek').addEventListener('click', function() {
     var teks = this.innerText;
@@ -141,34 +121,36 @@ function copyToClipboard(text) {
     alert("Teks berhasil disalin: " + text);
 }
 
- // For example trigger on button clicked, or any time you need
- var payButton = document.getElementById('pay-button');
-      payButton.addEventListener('click', function () {
-        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-        window.snap.pay('{{$snapToken}}', {
-          onSuccess: function(result){
+// For example trigger on button clicked, or any time you need
+var payButton = document.getElementById('pay-button');
+payButton.addEventListener('click', function() {
+    // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+    window.snap.pay('{{$snapToken}}', {
+        onSuccess: function(result) {
             /* You may add your own implementation here */
-            alert("payment success!"); 
-            window.location.href="/after_payment/{{$data_order->id_user}}/{{$cart->_id}}/{{$checkout->_id}}/{{$data_order->varian}}" ;
+            alert("payment success!");
+            window.location.href =
+                "/after_payment/{{$data_order->id_user}}/{{$cart->_id}}/{{$checkout->_id}}/{{$data_order->varian}}";
             console.log(result);
-          },
-          onPending: function(result){
+        },
+        onPending: function(result) {
             /* You may add your own implementation here */
-            alert("wating your payment!"); console.log(result);
-            window.location.href="/after_payment/{{$data_order->id_user}}" ;
-          },
-          onError: function(result){
+            alert("wating your payment!");
+            console.log(result);
+            window.location.href = "/after_payment/{{$data_order->id_user}}";
+        },
+        onError: function(result) {
             /* You may add your own implementation here */
-            alert("payment failed!"); console.log(result);
-            window.location.href="/after_payment/{{$data_order->id_user}}" ;
-          },
-          onClose: function(){
+            alert("payment failed!");
+            console.log(result);
+            window.location.href = "/after_payment/{{$data_order->id_user}}";
+        },
+        onClose: function() {
             /* You may add your own implementation here */
             alert('you closed the popup without finishing the payment');
-          }
-        })
-      });
->>>>>>> f77fdb57c30bc157ac7c514df50ae1af66b0a2c5
+        }
+    })
+});
 </script>
 
 @vite(['resources/js/app.js', 'resources/js/checkout.js', 'resources/js/snap_payment.js'])
