@@ -117,8 +117,8 @@ document.location.href = "/login";
 </aside>
 <!-- Navbar kiri -->
 
-<div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
-    <div class="lg:mt-32 mt-24 bg-white rounded-2xl w-[97%] ml-4 sm:ml-1 shadow-md">
+<div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden sm:overflow-x-auto border-t flex flex-col">
+    <div class="lg:mt-32 md:mt-24 sm:mt-20 bg-white rounded-2xl w-[97%] sm:w-[160%] ml-4 sm:mx-3 shadow-md">
         <p class="mt-7">
             <a
                 class="text-[#D10B05] lg:text-[20px] md:text-[18px] pb-4 lg:px-11 md:px-5 px-3 border-b-4 border-[#D10B05] font-medium cursor-default">Daftar
@@ -126,13 +126,13 @@ document.location.href = "/login";
         </p>
         <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
         <!-- SEARCH BAR -->
-        <div class="flex md:px-5 lg:mt-10 md:mt-5 justify-between md:text-sm">
+        <div class="flex md:px-5 lg:mt-10 md:mt-5 mt-4 sm:px-2 justify-between md:text-sm">
             <div class="flex gap-5">
                 <form action="/daftarProduk/{{$supplier->_id}}" method="GET">
                     <div class="relative flex items-center">
                         <input type="text" name="cari_daftarproduk" id="cari_daftarproduk"
                             placeholder="Cari Nama Produk"
-                            class="border-solid border-2 border-slate-300 rounded-md lg:w-64 md:w-48 py-2 pl-3 pr-9 focus:outline-[#D10B05]" />
+                            class="border-solid border-2 border-slate-300 rounded-md lg:w-64 md:w-48 py-2 sm:py-1 pl-3 pr-9 focus:outline-[#D10B05]" />
                         <button class="absolute right-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
                                 class="md:w-5">
@@ -143,21 +143,21 @@ document.location.href = "/login";
                     </div>
                 </form>
                 <select name="kategori" id="kategori"
-                    class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-36 md:w-24 focus:outline-[#D10B05]">
+                    class="px-3 py-2 sm:py-1 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-36 md:w-24 w-[105px] focus:outline-[#D10B05]">
                     <option value="">Kategori</option>
                     @foreach ($kategori as $k)
                     <option value="{{$k['nama_kategori']['slug']}}">{{$k['nama_kategori']['nama']}}</option>
                     @endforeach
                 </select>
                 <select name="filter" id="filter"
-                    class="px-3 py-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-36 md:w-24 focus:outline-[#D10B05]">
+                    class="px-3 py-2 sm:py-1 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-36 md:w-24 w-[105px] focus:outline-[#D10B05]">
                     <option value="">Filter</option>
                     <option value="ASC">A - Z</option>
                     <option value="DESC">Z - A</option>
                 </select>
             </div>
 
-            <a href="/tambahProduk">
+            <a href="/tambahProduk" class="sm:hidden block">
                 <button
                     class="bg-[#D10B05] px-3 py-2 rounded-md text-white font-semibold hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                     + Tambah Produk
@@ -185,15 +185,15 @@ document.location.href = "/login";
                     data-filter2="DESC">
                     <td>
                         <img src="{{asset('storage/img_uploaded/'.(isset($dp['foto']['foto1']) ? $dp['foto']['foto1'] : ''))}}"
-                            alt="" class="lg:w-[84px] md:w-14 rounded-lg ml-5 py-5" />
+                            alt="" class="lg:w-[84px] md:w-14 w-12 rounded-lg ml-5 py-5" />
                     </td>
-                    <td class="font-semibold">
+                    <td class="font-semibold sm:text-xs">
                         {{$dp->nama_produk}}<br />
-                        <p class="font-normal text-[#999]">
+                        <p class="font-normal text-[#999] sm:text-xs">
                             ID: <span id="id-barang">{{$dp->_id}}</span>
                         </p>
                     </td>
-                    <td class="text-center font-semibold text-[#5e5e5e]">
+                    <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
                         Rp<span
                             id="harga">{{(isset($dp['varian'][0]['harga']) ? $dp['varian'][0]['harga'] : '')}}</span>
                         <span
@@ -201,25 +201,25 @@ document.location.href = "/login";
                         <span
                             id="harga">{{(isset($dp['varian'][2]['harga']) ? '/ Rp'.$dp['varian'][2]['harga'] : '')}}</span>
                     </td>
-                    <td class="text-center font-semibold text-[#5e5e5e]">
+                    <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
                         {{(isset($dp['varian'][0]['varian']) ? $dp['varian'][0]['varian'] : '')}}
                         {{(isset($dp['varian'][1]['varian']) ? '/ '.$dp['varian'][1]['varian'] : '')}}
                         {{(isset($dp['varian'][2]['varian']) ? '/ '.$dp['varian'][2]['varian'] : '')}}
                     </td>
-                    <td class="text-center font-semibold text-[#5e5e5e]">
+                    <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
                         {{(isset($dp['varian'][0]['stok']) ? $dp['varian'][0]['stok'] : '')}}
                         {{(isset($dp['varian'][1]['stok']) ? '/ '.$dp['varian'][1]['stok'] : '')}}
                         {{(isset($dp['varian'][2]['stok']) ? '/ '.$dp['varian'][2]['stok'] : '')}}
                     </td>
-                    <td class="text-center">
+                    <td class="text-center sm:flex sm:flex-col sm:text-sm sm:gap-1">
                         <a href="/tambahProduk/{{$dp->_id}}"
-                            class="border-2 border-[#D10B05] py-2 lg:px-10 md:px-6 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
+                            class="border-2 border-[#D10B05] py-2 lg:px-10 md:px-6 px-3 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                             Edit
                         </a>
 
                         <!-- The button to open modal -->
                         <label for="my_modal_6"
-                            class=" bg-[#D10B05] py-2 lg:px-8 md:px-5 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear btn-hapus"
+                            class=" bg-[#D10B05] py-2 lg:px-8 md:px-5 px-3 sm:mr-2 rounded-md font-semibold text-white hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear btn-hapus"
                             data-id_produk="{{(isset($dp->_id) ? $dp->_id : '')}}">Hapus</label>
 
                         <!-- Put this part before </body> tag -->
