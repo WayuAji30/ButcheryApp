@@ -18,17 +18,21 @@ class AuthController extends Controller
 {
     private $idProvinsi, $idKota;
 
-    public function getIdProvinsi(){
+    public function getIdProvinsi()
+    {
         return $this->idProvinsi;
     }
-    public function getIdKota(){
+    public function getIdKota()
+    {
         return $this->idKota;
     }
 
-    public function setIdProvinsi($value){
+    public function setIdProvinsi($value)
+    {
         $this->idProvinsi = $value;
     }
-    public function setIdKota($value){
+    public function setIdKota($value)
+    {
         $this->idKota = $value;
     }
 
@@ -37,8 +41,9 @@ class AuthController extends Controller
         return view('login'); // view('folder.file', compact())
     }
 
-    public function auth_system(Request $request){
-        $this->validate($request,[
+    public function auth_system(Request $request)
+    {
+        $this->validate($request, [
             'identifier' => 'required',
             'password' => 'required'
         ]);
@@ -46,20 +51,20 @@ class AuthController extends Controller
         $identifier = $request->input('identifier');
         $password = $request->input('password');
 
-        $idn = KonsumensModel::where('email',$identifier)->orWhere('no_hp',$identifier)->first();
+        $idn = KonsumensModel::where('email', $identifier)->orWhere('no_hp', $identifier)->first();
 
-        if($idn){
-            if(Hash::check($password, $idn->password)){
-                if($idn->role == 'supplier'){
+        if ($idn) {
+            if (Hash::check($password, $idn->password)) {
+                if ($idn->role == 'supplier') {
                     $supplier = SuppliersModel::where('email', $idn->email)->orWhere('no_hp', $idn->no_hp)->first();
-                    session(['login' => true,'id_user' => $idn->_id, 'id_supplier' => $supplier->_id ,'provinsi_id' => $idn['alamat'][0]['provinsi'], 'kota_id' => $idn['alamat'][0]['kota/kab'], 'kecamatan_id' => $idn['alamat'][0]['kecamatan']]);
+                    session(['login' => true, 'id_user' => $idn->_id, 'id_supplier' => $supplier->_id, 'provinsi_id' => $idn['alamat'][0]['provinsi'], 'kota_id' => $idn['alamat'][0]['kota/kab'], 'kecamatan_id' => $idn['alamat'][0]['kecamatan']]);
                 }
-                session(['login' => true,'id_user' => $idn->_id, 'provinsi_id' => $idn['alamat'][0]['provinsi'], 'kota_id' => $idn['alamat'][0]['kota/kab'], 'kecamatan_id' => $idn['alamat'][0]['kecamatan']]);
+                session(['login' => true, 'id_user' => $idn->_id, 'provinsi_id' => $idn['alamat'][0]['provinsi'], 'kota_id' => $idn['alamat'][0]['kota/kab'], 'kecamatan_id' => $idn['alamat'][0]['kecamatan']]);
                 return redirect()->to('/');
-            }else{
+            } else {
                 return redirect()->to('/login')->with(['error' => 'No. Handphone/Email atau Password salah']);
             }
-        }else{
+        } else {
             return redirect()->to('/login')->with(['error' => 'No. Handphone/Email atau Password']);
         }
     }
@@ -74,7 +79,7 @@ class AuthController extends Controller
         return view('register');
     }
 
-     /**
+    /**
      * register_password
      *
      * @return View
@@ -88,7 +93,7 @@ class AuthController extends Controller
     {
         return view('register_user');
     }
-    
+
     public function register_mitra($id)
     {
         $user = KonsumensModel::find($id);
@@ -96,7 +101,8 @@ class AuthController extends Controller
         return view('register_mitra', ['user' => $user]);
     }
 
-    public function store_register_mitra(Request $request){
+    public function store_register_mitra(Request $request)
+    {
         $request->validate([
             'nama_toko' => 'required',
             'email' => 'required',
@@ -120,37 +126,38 @@ class AuthController extends Controller
         $kecamatan = $request->input('kecamatan');
         $alamat = $request->input('alamat');
 
-       $user_supplier =  SuppliersModel::create([
+        $user_supplier =  SuppliersModel::create([
             'user_id' => $user_id,
             'nama_toko' => $nama_toko,
-            'email'=> $email,
-            'no_hp'=> $no_telp,
-            'no_wa'=> $no_wa,
-            'no_rekening'=> $no_rekening,
+            'email' => $email,
+            'no_hp' => $no_telp,
+            'no_wa' => $no_wa,
+            'no_rekening' => $no_rekening,
             'alamat' => [
                 [
-                'provinsi' => $provinsi,
-                'kota' => $kota,
-                'kecamatan' => $kecamatan,
-                'alamat' => $alamat,
+                    'provinsi' => $provinsi,
+                    'kota' => $kota,
+                    'kecamatan' => $kecamatan,
+                    'alamat' => $alamat,
                 ]
             ]
         ]);
 
         echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>';
-        echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/updateUser/'.$user_id.'/'.$no_telp.'/'.$email.'";}); </script>';
+        echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/updateUser/' . $user_id . '/' . $no_telp . '/' . $email . '";}); </script>';
     }
 
-    public function updateUserByRegisterMitra($id, $no_telp, $email){
-       $user = KonsumensModel::find($id);
+    public function updateUserByRegisterMitra($id, $no_telp, $email)
+    {
+        $user = KonsumensModel::find($id);
 
-       KonsumensModel::where('_id',$user->_id)->update([
-        'email' => $email,
-        'no_hp' => $no_telp,
-        'role' => 'supplier'
-       ]);
+        KonsumensModel::where('_id', $user->_id)->update([
+            'email' => $email,
+            'no_hp' => $no_telp,
+            'role' => 'supplier'
+        ]);
 
-       return redirect()->to('/');
+        return redirect()->to('/');
     }
 
     public function forgetPassword(): View
@@ -158,22 +165,22 @@ class AuthController extends Controller
         return view('profile.forgetPassword');
     }
 
-    public function profile($id, $idProv, $idKota,$idKec)
+    public function profile($id, $idProv, $idKota, $idKec)
     {
         $user = KonsumensModel::find($id);
-        $provinsi = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/province/'.$idProv.'.json');
+        $provinsi = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/province/' . $idProv . '.json');
         $response = $provinsi->json();
-        $kota = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/regency/'.$idKota.'.json');
+        $kota = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/regency/' . $idKota . '.json');
         $response2 = $kota->json();
-        $kecamatan = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/district/'.$idKec.'.json');
+        $kecamatan = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/district/' . $idKec . '.json');
         $response3 = $kecamatan->json();
 
-        return view('profile.profile',['user' => $user, 'provinsiData' => $response,'kotaData' => $response2, 'kecData' => $response3]);
+        return view('profile.profile', ['user' => $user, 'provinsiData' => $response, 'kotaData' => $response2, 'kecData' => $response3]);
     }
 
     public function edit_profile(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'username' => 'required',
             'provinsi' => 'required',
             'kota' => 'required',
@@ -207,13 +214,14 @@ class AuthController extends Controller
             ]
         ]);
 
-        session()->forget(['provinsi_id','kota_id','kecamatan_id']);
+        session()->forget(['provinsi_id', 'kota_id', 'kecamatan_id']);
         session(['provinsi_id' => $idProv, 'kota_id' => $idKota, 'kecamatan_id' => $idKec]);
-        return redirect()->to('/profile'.'/'. $id .'/'.$provinsi.'/'.$kota.'/'.$kecamatan);
+        return redirect()->to('/profile' . '/' . $id . '/' . $provinsi . '/' . $kota . '/' . $kecamatan);
     }
 
-    public function ubah_password(Request $request){
-        $this->validate($request,[
+    public function ubah_password(Request $request)
+    {
+        $this->validate($request, [
             'password' => 'required',
             'confirm_password' => 'required|same:password',
         ]);
@@ -224,48 +232,51 @@ class AuthController extends Controller
         $idKec = $request->input('idKec');
 
         $password = $request->input('password');
-        $hash_password= Hash::make($password);
-        
+        $hash_password = Hash::make($password);
+
         KonsumensModel::where('_id', $id)->update([
-          'password' => $hash_password
+            'password' => $hash_password
         ]);
-        
-        return redirect()->to('/profile'.'/'. $id .'/'.$idProv.'/'.$idKota.'/'.$idKec);
+
+        return redirect()->to('/profile' . '/' . $id . '/' . $idProv . '/' . $idKota . '/' . $idKec);
     }
 
-    public function save_register(Request $request){
-        $this->validate($request,[
-            'identifier' => 'required|nullable',
+    public function save_register(Request $request)
+    {
+        $this->validate($request, [
+            'identifier' => 'required|nullable|unique:email',
         ]);
 
         $identifier = $request->input('identifier');
 
-        if(filter_var($identifier, FILTER_VALIDATE_EMAIL)){
+        if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
             $email = $identifier;
             $request->session()->put('registration_data.email', $email);
             return redirect()->to('/register_password');
-        }else{
+        } else {
             $no_hp = $identifier;
             $request->session()->put('registration_data.no_hp', $no_hp);
             return redirect()->to('/register_password');
         }
     }
 
-  public function save_register2(Request $request){
-        $this->validate($request,[
+    public function save_register2(Request $request)
+    {
+        $this->validate($request, [
             'password' => 'required|string',
             'confirm_password' => 'required|same:password',
         ]);
 
         $password = $request->input('password');
-        $hash_password= Hash::make($password);
+        $hash_password = Hash::make($password);
 
         $request->session()->put('registration_data.password', $hash_password);
         return redirect()->to('/register_user');
     }
 
-    public function save_register3(Request $request){
-        $this->validate($request,[
+    public function save_register3(Request $request)
+    {
+        $this->validate($request, [
             'username' => 'required',
             'provinsi' => 'required',
             'kota' => 'required',
@@ -284,37 +295,37 @@ class AuthController extends Controller
         $request->session()->put('registration_data.kota', $kota);
         $request->session()->put('registration_data.kecamatan', $kecamatan);
         $request->session()->put('registration_data.alamat', $alamat);
-        
+
         return redirect()->to('/store_register');
-  
     }
 
-    public function store_register(Request $request){
+    public function store_register(Request $request)
+    {
         $registrationData = $request->session()->get('registration_data');
-        
+
         $username = $registrationData['username'];
         $provinsi = $registrationData['provinsi'];
         $kota = $registrationData['kota'];
         $kecamatan = $registrationData['kecamatan'];
         $alamat = $registrationData['alamat'];
-        $email = (isset($registrationData['email'])) ? $registrationData['email']: '' ;
-        $no_hp = (isset($registrationData['no_hp'])) ? $registrationData['no_hp']: '';
+        $email = (isset($registrationData['email'])) ? $registrationData['email'] : '';
+        $no_hp = (isset($registrationData['no_hp'])) ? $registrationData['no_hp'] : '';
         $password = $registrationData['password'];
         $role = 'konsumen';
 
         try {
             KonsumensModel::create([
                 'username' => $username,
-                'email' => $email, 
-                'no_hp' => $no_hp, 
-                'alamat' =>[
-                        [
-                            'provinsi' => $provinsi,
-                            'kota/kab' => $kota,
-                            'kecamatan' => $kecamatan,
-                            'alamat' => $alamat
-                        ]
-                    ],
+                'email' => $email,
+                'no_hp' => $no_hp,
+                'alamat' => [
+                    [
+                        'provinsi' => $provinsi,
+                        'kota/kab' => $kota,
+                        'kecamatan' => $kecamatan,
+                        'alamat' => $alamat
+                    ]
+                ],
                 'password' => $password,
                 'role' => $role
             ]);
@@ -329,16 +340,17 @@ class AuthController extends Controller
         }
     }
 
-    public function updateUserByCheckout(Request $request){
-        $id_user = $request->input('id'); 
+    public function updateUserByCheckout(Request $request)
+    {
+        $id_user = $request->input('id');
 
-        $provinsi = $request->input('provinsi'); 
-        $kota = $request->input('kota'); 
+        $provinsi = $request->input('provinsi');
+        $kota = $request->input('kota');
         $kecamatan = $request->input('kecamatan');
         $alamat = $request->input('alamat');
 
         $user = KonsumensModel::find($id_user);
-        
+
         $alamatBaru = [
             'provinsi' => $provinsi,
             'kota' => $kota,
@@ -348,11 +360,12 @@ class AuthController extends Controller
 
         // Gunakan metode push untuk menambahkan alamat baru ke dalam array alamat
         $user->push('alamat', $alamatBaru);
-        
+
         return redirect()->to('/checkOut' . '/' . $id_user);
     }
 
-    public function getSession(Request $request){
+    public function getSession(Request $request)
+    {
         $registrationData = $request->session()->get('registration_data');
         $idData = $request->session()->get('id_user');
         $idSup = $request->session()->get('id_supplier');
@@ -361,13 +374,12 @@ class AuthController extends Controller
         $kecamatan = $request->session()->get('kecamatan_id');
         $newDataCart = $request->session()->get('NewDataCart');
         $newDataPesanan = $request->session()->get('NewDataPesanan');
-        var_dump([$registrationData,$idData,$idSup,$prov,$kota,$kecamatan,$newDataCart,$newDataPesanan]);
+        var_dump([$registrationData, $idData, $idSup, $prov, $kota, $kecamatan, $newDataCart, $newDataPesanan]);
     }
 
-    public function logout(){
+    public function logout()
+    {
         session()->flush();
         return redirect()->to('/');
     }
-
-   
 }

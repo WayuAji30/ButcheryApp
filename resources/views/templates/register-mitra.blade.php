@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 use App\Models\KonsumensModel;
 
 $user = KonsumensModel::find(session('id_user'));
@@ -11,7 +12,7 @@ $user = KonsumensModel::find(session('id_user'));
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     @vite(['resources/css/app.css','resources/css/output.css'])
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
@@ -26,16 +27,20 @@ $user = KonsumensModel::find(session('id_user'));
     <!-- NAVBAR -->
     <nav class="fixed top-0 w-full z-50">
         <div class="bg-white drop-shadow-md">
-            <div class="pt-6 pb-7 items-center justify-between flex lg:px-12 md:px-5">
+            <div
+                class="lg:pt-6 md:pt-6 sm:pt-4 lg:pb-7 md:pb-7 sm:pb-4 items-center justify-between flex lg:px-12 md:px-5">
                 <div class="flex items-center">
                     <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/logoButchery.svg')}}"
-                            alt="LogoButchery" class="mr-5" /></a>
-                    <p class="font-medium text-[24px] mt-2 text-[#999]">Pusat Mitra</p>
+                            alt="LogoButchery" class="mr-5 lg:block md:block sm:hidden" /></a>
+                    <p
+                        class="font-medium lg:text-[24px] md:text-[24px] mt-2 text-[#999] sm:text-[20px] lg:ml-0 md:ml-0 sm:ml-4">
+                        Pusat
+                        Mitra</p>
                 </div>
-                <div class="lg:gap-3 md:gap-1 flex items-center" id="icon-bar">
+                <div class="lg:gap-3 md:gap-1 sm:gap-2 flex items-center" id="icon-bar">
                     <a href=""><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="profile"
-                            class="border-2 border-[#D10B05] rounded-full" /></a>
-                    <p class="font-medium">{{$user->username}}</p>
+                            class="border-2 border-[#D10B05] rounded-full sm:w-10" /></a>
+                    <p class="font-medium lg:mr-0 md:mt-0 mr-4">{{$user->username}}</p>
                 </div>
             </div>
         </div>
@@ -45,11 +50,11 @@ $user = KonsumensModel::find(session('id_user'));
     @yield('content')
 
 
-    <div class="border-t-2 border-solid border-[#E6E6E6] mt-40"></div>
+    <div class="border-t-2 border-solid border-[#E6E6E6] lg:mt-40 md:mt-40 sm:mt-20"></div>
     <!-- FOOTER -->
     <footer>
-        <div class="w-full mt-12 mb-12">
-            <div class="container px-[53px]">
+        <div class="w-full mt-12 mb-12 sm:text-sm md:text-sm">
+            <div class="container lg:px-[53px] md:px-[53px] sm:px-7">
                 <div class="grid grid-cols-12">
                     <div class="lg:col-span-2 md:col-span-6 sm:col-span-6">
                         <h1 class="font-semibold">Jelajahi Butchery</h1>
@@ -83,7 +88,7 @@ $user = KonsumensModel::find(session('id_user'));
                             <a href=""><img src="{{asset('assets/img_index/asset/footer/instagram.svg')}}" alt="" /></a>
                         </div>
                     </div>
-                    <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 lg:mt-0 md:mt-0 sm:mt-0">
+                    <div class="lg:col-span-2 md:col-span-6 sm:col-span-6 sm:ml-3">
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">

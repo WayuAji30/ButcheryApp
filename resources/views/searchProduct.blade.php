@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- PRODUCT -->
-<div class="w-full lg:mt-52 md:mt-60 sm:mt-20">
+<div class="w-full lg:mt-52 md:mt-24 sm:mt-20">
     <div class="container mx-auto lg:px-[56px] md:px-12 sm:px-5">
         <p class="font-semibold text-2xl sm:text-[20px] text-[#d10b05]">{{(isset($slug)) ? $slug : $kata_kunci }}
             (<span>{{$total_data}}</span>)</p>

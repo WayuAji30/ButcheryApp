@@ -4,7 +4,7 @@ use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 <!DOCTYPE html>
@@ -20,9 +20,9 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
     <style>
-    #logout button:hover svg path {
-        fill: #d10b05;
-    }
+        #logout button:hover svg path {
+            fill: #d10b05;
+        }
     </style>
 
 </head>
@@ -37,32 +37,25 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     <div class="flex">
                         <img src="{{asset('assets/img_index/asset/navbar/phone.svg')}}" alt="" class="pr-2 -mt-2" />
                         <p class="text-white mr-4">Butchery app is now available on</p>
-                        <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}"
-                                alt="" /></a>
+                        <a href="" class="mr-1"><img src="{{asset('assets/img_index/asset/navbar/googleplay.svg')}}" alt="" /></a>
                         <a href=""><img src="{{asset('assets/img_index/asset/navbar/appstore.svg')}}" alt="" /></a>
                     </div>
                     <div class="flex gap-5 items-center">
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
-                                class="pr-1" />Tentang Kami</a>
+                        <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt="" class="pr-1" />Tentang Kami</a>
                         @if (session()->has('login') && $user->role == "supplier")
-                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex"
-                            id="register_mitra" data-id="{{session('id_user')}}">
+                        <a href="/register_mitra/{{session('id_user')}}" class="hidden text-white flex" id="register_mitra" data-id="{{session('id_user')}}">
                             <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
                             Jadi Mitra
                         </a>
                         @else
-                        <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id="register_mitra"
-                            data-id="{{session('id_user')}}">
+                        <a href="/register_mitra/{{session('id_user')}}" class=" text-white flex" id="register_mitra" data-id="{{session('id_user')}}">
                             <img src="{{asset('assets/img_index/asset/navbar/mitra.svg')}}" alt="" class="pr-1" />Daftar
                             Jadi Mitra
                         </a>
                         @endif
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
+                        <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
+                        <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
                             Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="" /></a>
                     </div>
                 </div>
@@ -71,18 +64,14 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
 
         <div class="bg-white drop-shadow-md">
             <div class="pt-6 pb-7 items-center justify-between flex lg:px-10 md:px-5">
-                <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}"
-                        alt="LogoButchery" class="mr-9" /></a>
+                <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}" alt="LogoButchery" class="mr-9" /></a>
                 <div class="flex mr-8">
                     <form action="/index">
                         <div class="relative flex items-center">
-                            <input type="text" name="" id=""
-                                placeholder="Beli Daging Segar Dengan Kualitas Terbaik Disini"
-                                class="border-solid border-2 border-slate-300 rounded-md w-[650px] pl-5 py-4 focus:outline-[#D10B05]" />
+                            <input type="text" name="" id="" placeholder="Beli Daging Segar Dengan Kualitas Terbaik Disini" class="border-solid border-2 border-slate-300 rounded-md w-[650px] pl-5 py-4 focus:outline-[#D10B05]" />
                             <button class="absolute right-7">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                    <path fill="#999"
-                                        d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
+                                    <path fill="#999" d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
                                 </svg>
                             </button>
                         </div>
@@ -90,39 +79,31 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                 </div>
                 <div class="gap-3 flex" id="icon-bar">
                     @if(session()->has('NewDataCart'))
-                    <a href="/cart/{{session('id_user')}}"
-                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    <a href="/cart/{{session('id_user')}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
-                            <div
-                                class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
+                            <div class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path fill="#454545"
-                                    d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
+                                <path fill="#454545" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
                             </svg>
                         </div>
                     </a>
                     @else
-                    <a href="/cart/{{session('id_user')}}"
-                    class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    <a href="/cart/{{session('id_user')}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path fill="#454545"
-                                d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
+                            <path fill="#454545" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
                         </svg>
-                     </a>
+                    </a>
                     @endif
-                    
+
                     @if(session()->has('NewDataPesanan'))
-                    <a href="/notification/{{session('id_user')}}"
-                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    <a href="/notification/{{session('id_user')}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
-                            <div
-                                class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
+                            <div class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                 <g fill="none" stroke="#454545" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
                                     <circle cx="12" cy="3" r="1" />
                                 </g>
                             </svg>
@@ -133,14 +114,13 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                         <div class="relative inline-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                 <g fill="none" stroke="#454545" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
                                     <circle cx="12" cy="3" r="1" />
                                 </g>
                             </svg>
                         </div>
                     </a>
-                    @endif             
+                    @endif
                 </div>
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt="" class="mx-4" />
                 @if (session()->has('login') && $user->role == 'konsumen')
@@ -148,17 +128,13 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     <div class="flex items-center gap-3">
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
-                                    <img src="{{asset('assets/img_index/asset/navbar/profile-male.svg')}}" alt="" />
+                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" class="border-2 border-[#d10b05] rounded-full" />
                                     <p class="font-medium text-lg mr-8">{{$user->username}}</p>
                                 </a></label>
-                            <ul tabindex="0"
-                                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
-                                        class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
-                                <li><a href="/logout" class="font-semibold flex"><svg xmlns="http://www.w3.org/2000/svg"
-                                            width="20" height="20" viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="text-[#d10b05] font-semibold hover:text-[#d10b05]">Lihat Profile</a></li>
+                                <li><a href="/logout" class="font-semibold flex"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
                                         </svg> Logout
                                     </a></li>
                             </ul>
@@ -168,22 +144,17 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                 @elseif(session()->has('login') && $user->role == "supplier")
                 <div class="">
                     <div class="flex items-center gap-8">
-                        <a href="/daftarProduk/{{$supplier->_id}}" class="flex items-center gap-2"><img
-                                src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
+                        <a href="/daftarProduk/{{$supplier->_id}}" class="flex items-center gap-2"><img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" />
                             <p class="font-semibold text-lg">Toko Saya</p>
                         </a>
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
-                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
-                                        class="border-2 border-[#D10B05] rounded-full" />
+                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" class="border-2 border-[#D10B05] rounded-full" />
                                     <p class="font-medium text-lg mr-8">{{substr($user->username,0,1)}}...</p>
                                 </a></label>
-                            <ul tabindex="0"
-                                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a href="/logout" class="font-semibold flex"><svg xmlns="http://www.w3.org/2000/svg"
-                                            width="20" height="20" viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><a href="/logout" class="font-semibold flex"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
                                         </svg> Logout
                                     </a>
                                 </li>
@@ -336,13 +307,10 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                             </button>
                             <ul class="ml-5 list-none">
                                 <li>
-                                    <a href="" class="ml-5"><img
-                                            src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
-                                            alt="" /></a>
+                                    <a href="" class="ml-5"><img src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}" alt="" /></a>
                                 </li>
                                 <li class="mt-3">
-                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
-                                            alt="" /></a>
+                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}" alt="" /></a>
                                 </li>
                             </ul>
                         </div>

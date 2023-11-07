@@ -3,7 +3,7 @@ const labels = ["September", "Oktober", "November"];
 function generateRandomData() {
   const randomData = [];
   for (let i = 0; i < 12; i++) {
-    const randomValue = Math.floor(Math.random() * 100);
+    const randomValue = Math.floor(Math.random() * 1000);
     randomData.push(randomValue);
   }
   return randomData;

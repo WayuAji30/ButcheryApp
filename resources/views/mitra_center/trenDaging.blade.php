@@ -7,13 +7,13 @@ use App\Models\SuppliersModel;
 use App\Models\PurchaseModel;
 
 $user = KonsumensModel::find(session('id_user'));
-$order = PurchaseModel::where('id_user',$user->id_user)->first();
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$order = PurchaseModel::where('id_user', $user->id_user)->first();
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 
 <!-- Navbar kiri -->
-<aside class="relative pt-20 h-screen w-64 hidden lg:block md:block shadow-xl bg-white">
+<aside class="relative pt-20 h-screen w-64 hidden lg:block hidden shadow-xl bg-white">
     <nav class="">
         <div class="px-6 pt-[36px]">
             <h1 class="flex items-center font-semibold text-[18px]">
@@ -78,9 +78,16 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
 
         <a href="" class="nav-item" id="data">
             <h1 class="flex items-center font-semibold px-6 text-[18px]">
-                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                    <path fill="#2b2b2b"
-                        d="M22 3H2v6h1v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9h1V3zM4 5h16v2H4V5zm15 15H5V9h14v11zM9 11h6a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z" />
+                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 22 22"
+                    fill="none">
+                    <path
+                        d="M2.75 2.75V17.4167C2.75 17.9029 2.94315 18.3692 3.28697 18.713C3.63079 19.0568 4.0971 19.25 4.58333 19.25H19.25"
+                        stroke="black" stroke-width="2" stroke-miterlimit="5.759" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M6.41797 12.8335L10.0846 9.16683L13.7513 12.8335L19.2513 7.3335" stroke="black"
+                        stroke-width="2" stroke-miterlimit="5.759" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M16.5 7.3335H19.25V10.0835" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
                 Data
                 <img src="{{asset('assets/img_mitra_center/asset/navbar/arrow_down.svg')}}" alt="" class="ml-2 arrow-1">

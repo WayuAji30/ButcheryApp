@@ -80,7 +80,7 @@
                         <div class="justify-center flex mb-10">
                             <form action="">
                                 <button
-                                    class="bg-white border-[#CCC] border-2 sm:text-xs lg:py-3 md:py-3 sm:py-2 lg:px-[82px] md:px-16 sm:px-7 rounded-lg font-semibold mt-6 flex hover:bg-[#191C50] hover:text-white hover:border-[#191C50] transition-all duration-200 ease-linear">
+                                    class="bg-white border-[#CCC] border-2 sm:text-xs lg:py-3 md:py-3 sm:py-2 lg:px-[82px] md:px-16 sm:px-7 rounded-lg font-semibold mt-6 flex hover:border-[#d10b05] hover:text-[#d10b05] transition-all duration-200 ease-linear">
                                     <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt=""
                                         class="lg:pr-3 pr-2 sm:w-6" />
                                     Masuk dengan Google

@@ -91,8 +91,8 @@ Route::post('/test_api', [HomeController::class, 'test_api']);
 
 Route::get('/loginAdmin', [AdminController::class, 'loginAdmin']);
 Route::post('/auth_admin', [AdminController::class, 'authAdmin']);
-//Route::get('/daftarAdmin', [AdminController::class, 'daftarAdmin']);
-//Route::post('/auth_daftar_admin', [AdminController::class, 'authDaftarAdmin']);
+Route::get('/daftarAdmin', [AdminController::class, 'daftarAdmin']);
+Route::post('/auth_daftar_admin', [AdminController::class, 'authDaftarAdmin']);
 Route::get('/adminProduk', [AdminController::class, 'adminProduk']);
 Route::get('/adminReviews', [AdminController::class, 'adminReviews']);
 

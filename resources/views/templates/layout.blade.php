@@ -4,7 +4,7 @@ use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 
@@ -209,7 +209,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt=""
                     class="mx-4 lg:block hidden" />
                 @if (session()->has('login') && $user->role == 'konsumen')
-                <div class="">
+                <div class="lg:block hidden">
                     <div class="flex items-center gap-3">
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
@@ -334,8 +334,8 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
     <div class="border-t-2 border-solid border-[#E6E6E6]"></div>
     <!-- FOOTER -->
     <footer>
-        <div class="w-full mt-12 mb-12 sm:text-xs md:text-sm">
-            <div class="container px-[53px]">
+        <div class="w-full mt-12 mb-12 sm:text-sm md:text-sm">
+            <div class="container lg:px-[53px] md:px-[53px] px-7">
                 <div class="grid grid-cols-12">
                     <div class="lg:col-span-2 md:col-span-6 sm:col-span-6">
                         <h1 class="font-semibold">Jelajahi Butchery</h1>
@@ -504,7 +504,8 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
     @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/loader.js',
     'resources/js/time.js', 'resources/js/hamburgerToggle.js', 'resources/js/cart.js',
-    'resources/js/product.js','resources/js/selectIndonesia.js', 'resources/js/drawer.js'])
+    'resources/js/product.js','resources/js/selectIndonesia.js', 'resources/js/drawer.js',
+    'resources/js/changePassword.js'])
 </body>
 
 </html>

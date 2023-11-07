@@ -4,7 +4,7 @@ use App\Models\KonsumensModel;
 use App\Models\SuppliersModel;
 
 $user = KonsumensModel::find(session('id_user'));
-$supplier = SuppliersModel::where('user_id',session('id_user'))->first();
+$supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 <!DOCTYPE html>
@@ -95,10 +95,10 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     <form action="/searchProduct">
                         <div class="relative flex items-center">
                             <input type="text" name="cari" id="cari" required placeholder="Cari di Butchery"
-                                class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] w-56 lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
+                                class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] sm:w-[190px] lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
                             <button class="absolute lg:right-7 right-2">
                                 <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24" class="sm:w-5">
                                     <path fill="#999"
                                         d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z" />
                                 </svg>
@@ -114,7 +114,8 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                             <div
                                 class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                class="sm:w-7">
                                 <path fill="#454545"
                                     d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
                             </svg>
@@ -122,14 +123,15 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     </a>
                     @else
                     <a href="/cart/{{session('id_user')}}"
-                    class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                            class="sm:w-7">
                             <path fill="#454545"
                                 d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z" />
                         </svg>
-                     </a>
+                    </a>
                     @endif
-                    
+
                     @if(session()->has('NewDataPesanan'))
                     <a href="/notification/{{session('id_user')}}"
                         class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
@@ -137,7 +139,8 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                             <div
                                 class="absolute bottom-auto left-auto right-0 top-0 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 rounded-full bg-red-600 p-1">
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                class="sm:w-7">
                                 <g fill="none" stroke="#454545" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
@@ -147,9 +150,11 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                         </div>
                     </a>
                     @else
-                    <a href="/notification/{{session('id_user')}}" class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                    <a href="/notification/{{session('id_user')}}"
+                        class="py-1 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
                         <div class="relative inline-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                class="sm:w-7">
                                 <g fill="none" stroke="#454545" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
@@ -163,7 +168,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                 <img src="{{asset('assets/img_index/asset/navbar/pembatas.svg')}}" alt=""
                     class="mx-4 lg:block hidden" />
                 @if (session()->has('login') && $user->role == 'konsumen')
-                <div class="">
+                <div class="lg:block hidden">
                     <div class="flex items-center gap-3">
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
                             <label tabindex="0" class=" "><a class="flex items-center gap-2" id="profile" data-id="">
@@ -286,11 +291,11 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
 
     @yield('content')
 
-    <div class="border-t-2 border-solid border-[#E6E6E6] mt-40"></div>
+    <div class="border-t-2 border-solid border-[#E6E6E6] mt-40 sm:mt-10"></div>
     <!-- FOOTER -->
     <footer>
-        <div class="w-full mt-12 mb-12 sm:text-xs md:text-sm">
-            <div class="container px-[53px]">
+        <div class="w-full mt-12 mb-12 sm:text-sm md:text-sm">
+            <div class="container lg:px-[53px] md:px-[53px] px-7">
                 <div class="grid grid-cols-12">
                     <div class="lg:col-span-2 md:col-span-6 sm:col-span-6">
                         <h1 class="font-semibold">Jelajahi Butchery</h1>
