@@ -249,6 +249,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                 </button>
                             </div>
                             <div class="block mt-4">
+                                <!-- Tampilan mobile belum login -->
                                 <div class="flex gap-6">
                                     <a href="/login">
                                         <button
@@ -263,6 +264,27 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                         </button>
                                     </a>
                                 </div>
+
+                                <!-- Tampilan mobile sudah login -->
+                                <!-- <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
+                                    class="flex items-center gap-3">
+                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                                        class="border-2 border-[#D10B05] rounded-full" />
+                                    <p class="font-medium text-lg mr-8">{{($user->username)}}</p>
+                                </a>
+                                <a href="/daftarProduk/{{$supplier->_id}}"
+                                    class="flex items-center gap-5 mt-3 ml-1"><img
+                                        src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
+                                    <p class="font-semibold text-lg">Toko Saya</p>
+                                </a>
+                            </div>
+                            <div class="border-t-2 border-[#e6e6e6] mt-4"></div>
+                            <a href="/logout" class="font-semibold flex items-center text-lg gap-3 ml-2 mt-4"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
+                                </svg> Logout
+                            </a> -->
                             </div>
                             <div class="border-t-4 border-[#e6e6e6] mt-4"></div>
                         </ul>
