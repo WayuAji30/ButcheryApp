@@ -2,12 +2,12 @@
 @section('content')
 
 <!-- PROFILE -->
-<div class="container lg:pt-52 sm:pt-20 pb-5">
+<div class="container lg:pt-52 md:pt-24 sm:pt-20 pb-5">
     <div class="grid grid-cols-12">
         <div class="col-span-12">
-            <div class="grid justify-items-center">
-                <div class="bg-white rounded-md lg:w-[80%] shadow-md">
-                    <p class="mt-7">
+            <div class="grid justify-items-center sm:justify-items-start md:mx-2 sm:mx-2">
+                <div class="bg-white rounded-md lg:w-[80%] md:w-full w-[150%] shadow-md">
+                    <p class="lg:mt-7 md:mt-5">
                         <a href="" class="text-[#D10B05] text-[20px] pb-4 lg:px-11 px-4 sm:text-[16px] lg:border-b-4 border-b-2 border-[#D10B05] font-medium">Daftar
                             Pesanan</a>
                     </p>
@@ -31,21 +31,21 @@
                                 </td>
                                 <td>
                                     <ul>
-                                        <li class="font-semibold">{{$p->nama_produk}}</li>
-                                        <li class="text-[#999] mt-1">{{$data_user->username}}</li>
+                                        <li class="font-semibold sm:text-sm">{{$p->nama_produk}}</li>
+                                        <li class="text-[#999] mt-1 sm:text-sm">{{$data_user->username}}</li>
                                     </ul>
                                 </td>
-                                <td class="text-center">Rp{{number_format($p->harga,0,',')}}</td>
-                                <td class="text-center">{{$p->varian}}</td>
-                                <td class="text-center">{{$p->status}}</td>
-                                <td class="text-center">
+                                <td class="text-center sm:text-sm">Rp{{number_format($p->harga,0,',')}}</td>
+                                <td class="text-center sm:text-sm">{{$p->varian}}</td>
+                                <td class="text-center sm:text-sm">{{$p->status}}</td>
+                                <td class="text-center sm:text-sm">
                                     @if($p->status === "Sampai")
-                                        <!-- The button to open modal -->
-                                        <label for="my_modal_7" class="btn-nilai border-2 bg-[#d10b05] py-2 px-10 rounded-md font-semibold text-white mr-2 hover:hover:bg-[#9F0804] border-[#d10b05] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear cursor-pointer" data-id_user = "{{$p->id_user}}" data-id_produk = "{{$p->id_produk}}" data-id_pesanan = {{$p->_id}}>Nilai</label>
+                                    <!-- The button to open modal -->
+                                    <label for="my_modal_7" class="btn-nilai border-2 bg-[#d10b05] py-2 px-10 rounded-md font-semibold text-white mr-2 hover:hover:bg-[#9F0804] border-[#d10b05] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear cursor-pointer" data-id_user="{{$p->id_user}}" data-id_produk="{{$p->id_produk}}" data-id_pesanan={{$p->_id}}>Nilai</label>
                                     @elseif($p->status === "Sudah dinilai")
-                                        <label for="" class="border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+                                    <label for="" class="border-[#ccc] border-2 py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
                                     @else
-                                        <label for="" class="border-[#ccc] py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+                                    <label for="" class="border-[#ccc] border-2 py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
                                     @endif
 
                                     <!-- Put this part before </body> tag -->
@@ -59,17 +59,17 @@
                                             <div class="text-center mt-5">
                                                 <p class="font-semibold text-[18px]">{{$data_user->username}}</p>
                                                 <p class="text-[#787878]">{{$p->nama_produk}}</p>
-                                                <form action="/store_rreviews" method = "post">
+                                                <form action="/store_rreviews" method="post">
                                                     @csrf
-                                                    <input type="hidden" name = "id_pesanan" id = "id_pesanan" value = "">
-                                                    <input type="hidden" name = "id_user" id = "id_user" value = "">
-                                                    <input type="hidden" name = "id_produk" id = "id_produk" value = "">
+                                                    <input type="hidden" name="id_pesanan" id="id_pesanan" value="">
+                                                    <input type="hidden" name="id_user" id="id_user" value="">
+                                                    <input type="hidden" name="id_produk" id="id_produk" value="">
                                                     <div class="rating mt-5 gap-3">
-                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "1"/>
-                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "2"/>
-                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "3"/>
-                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "4" checked />
-                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value = "5"/>
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value="1" />
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value="2" />
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value="3" />
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value="4" checked />
+                                                        <input type="radio" name="rating" class="mask mask-star-2 bg-[#d10b05]" value="5" />
                                                     </div>
                                             </div>
                                             <textarea name="reviews" id="reviews" cols="46" rows="4" placeholder="Berikan Ulasan Anda" class="border-[#ccc] border-2 rounded-lg pl-4 pt-3 focus:outline-[#d10b05] mt-7"></textarea>
@@ -78,15 +78,16 @@
                                         </div>
                                         <label class="modal-backdrop" for="my_modal_7">Close</label>
                                     </div>
-                                    @if($p->status === "sudah bayar" || $p->status === "Kurir menuju toko anda" || $p->status == "Sampai" || $p->status == "Sudah dinilai")
-                                        <button disabled class="btn-sampai border-[#ccc] py-2 px-8 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear" data-id_user = "{{$p->id_user}}" data-id_pesanan = "{{$p->_id}}">Sampai</button>
+                                    @if($p->status === "sudah bayar" || $p->status === "Kurir menuju toko anda" ||
+                                    $p->status == "Sampai" || $p->status == "Sudah dinilai")
+                                    <button disabled class="btn-sampai border-[#ccc] py-2 px-8 rounded-md font-semibold border-2 text-[#ccc] mr-2 transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}">Sampai</button>
                                     @else
-                                        <button class="btn-sampai bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear" data-id_user = "{{$p->id_user}}" data-id_pesanan = "{{$p->_id}}">Sampai</button>
+                                    <button class="btn-sampai bg-[#d10b05] py-2 px-8 rounded-md font-semibold border-2 text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}">Sampai</button>
                                     @endif
                                 </td>
                             </tr>
                             @endforeach
-                         </tbody>
+                        </tbody>
                     </table>
                     <!-- TABLE -->
                 </div>
