@@ -104,7 +104,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
-    <div class="lg:mt-32 md:mt-24 mt-20 bg-white rounded-2xl w-[97%] lg:ml-4 sm:ml-1 mx-3 shadow-md mb-5">
+    <div class="lg:mt-32 md:mt-24 mt-[75px] bg-white rounded-2xl sm:rounded-none w-[97%] sm:w-full lg:ml-4 sm:ml-0 mx-3 shadow-md mb-5 sm:mb-0">
         <p class="mt-7">
             <a class="text-[#D10B05] lg:text-[20px] md:text-[18px] pb-4 lg:px-11 px-5 border-b-4 border-[#D10B05] font-medium cursor-default">Informasi
                 Produk</a>
@@ -135,7 +135,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         perhatian pembeli.
                     </p>
                 </div>
-                <div class="flex items-center lg:gap-9 gap-2 lg:ml-28 md:ml-14 md:mr-2 sm:ml-2">
+                <div class="flex items-center lg:gap-9 gap-3 lg:ml-28 md:ml-14 md:mr-2 sm:ml-2">
                     <label for="foto1" class="cursor-pointer group">
                         <div class="foto-utama border-2 border-dashed border-[#ccc] rounded-xl lg:w-40 text-center group-hover:border-[#d10b05]">
                             <div class="flex justify-center md:px-10"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" class="mt-7 sm:w-9 sm:mt-4">
@@ -174,13 +174,13 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 <input type="file" name="foto2" id="foto2" value="{{(isset($produk['foto']['foto2']) ? $produk['foto']['foto2'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
                 <input type="file" name="foto3" id="foto3" value="{{(isset($produk['foto']['foto3']) ? $produk['foto']['foto3'] : '')}}" accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
             </div>
-            <div class="flex sm:flex-wrap lg:ml-11 md:ml-5 ml-2 md:mr-2 lg:mt-16 md:mt-5 mt-4 md:justify-between items-center">
+            <div class="flex sm:flex-wrap lg:ml-11 md:ml-5 mx-2 md:mr-2 lg:mt-16 md:mt-5 mt-4 md:justify-between items-center">
                 <p class="font-semibold text-[18px] lg:mr-64 sm:mr-10">Nama Produk</p>
-                <input name="nama_produk" type="text" placeholder="Ketikan Disini" value="{{(isset($produk->nama_produk)) ? $produk->nama_produk : ''}}" class="px-3 lg:py-4 md:py-3 py-2 sm:text-sm sm:mt-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-[547px] md:w-[410px] w-80 focus:outline-[#D10B05]" />
+                <input name="nama_produk" type="text" placeholder="Ketikan Disini" value="{{(isset($produk->nama_produk)) ? $produk->nama_produk : ''}}" class="px-3 lg:py-4 md:py-3 py-2 sm:text-sm sm:mt-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-[547px] md:w-[410px] w-full focus:outline-[#D10B05]" />
             </div>
-            <div class="flex sm:flex-wrap lg:ml-11 md:ml-5 ml-2 lg:mt-10 md:mr-2 md:mt-5 mt-4 md:justify-between items-center">
+            <div class="flex sm:flex-wrap lg:ml-11 md:ml-5 mx-2 lg:mt-10 md:mr-2 md:mt-5 mt-4 md:justify-between items-center">
                 <p class="font-semibold text-[18px] lg:mr-[300px] sm:mr-16">Kategori</p>
-                <select name="kategori" id="Kategori" class="px-3 lg:py-4 md:py-3 py-2 sm:text-sm sm:mt-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-[547px] md:w-[410px] w-80 focus:outline-[#D10B05]">
+                <select name="kategori" id="Kategori" class="px-3 lg:py-4 md:py-3 py-2 sm:text-sm sm:mt-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-[547px] md:w-[410px] w-full focus:outline-[#D10B05]">
                     <option value="{{(isset($produk->id_kategori)) ? $produk->id_kategori : '' }}">
                         {{(isset($produk->id_kategori)) ? $produk->id_kategori : 'Pilih kategori produkmu'}}
                     </option>
@@ -189,7 +189,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     @endforeach
                 </select>
             </div>
-            <div class="flex sm:flex-wrap lg:ml-11 md:ml-5 ml-2 lg:mt-10 md:mt-5 mt-4 md:mr-2 md:justify-between items-center">
+            <div class="flex sm:flex-wrap lg:ml-11 md:ml-5 mx-2 lg:mt-10 md:mt-5 mt-4 md:mr-2 md:justify-between items-center">
                 <div>
                     <p class="font-semibold text-[18px] lg:mr-[230px] sm:mr-8">
                         Deskripsi Produk
@@ -202,14 +202,14 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         menemukan produkmu.
                     </p>
                 </div>
-                <textarea class="peer block min-h-[auto] lg:w-[547px] md:w-[410px] w-80 sm:text-sm lg:h-64 md:h-40 mt-3 rounded-md border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear peer-focus:text-primary focus:border-[#D10B05]" id="alamat" rows="4" placeholder="Ketikan deskripsi produkmu" name="deskripsi" value="">{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}</textarea>
+                <textarea class="peer block min-h-[auto] lg:w-[547px] md:w-[410px] w-full sm:text-sm lg:h-64 md:h-40 mt-3 rounded-md border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear peer-focus:text-primary focus:border-[#D10B05]" id="alamat" rows="4" placeholder="Ketikan deskripsi produkmu" name="deskripsi" value="">{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}</textarea>
             </div>
             <p class="mt-2 lg:ml-[32%] md:ml-[44%] sm:text-xs sm:ml-2">
                 <span class="text-[#D10B05]">*</span> Tulis deskripsi produkmu max.
                 1200 karakter.
             </p>
 
-            <div class="grid grid-rows-1 grid-flow-col sm:grid-flow-row lg:ml-11 md:ml-5 ml-2 md:mr-2 mt-14 sm:mt-4">
+            <div class="grid grid-rows-1 grid-flow-col sm:grid-flow-row lg:ml-11 md:ml-5 mx-2 md:mr-2 mt-14 sm:mt-4">
                 <div class="row-span-3">
                     <div>
                         <p class="font-semibold text-[18px]">Harga & Berat Produk</p>
@@ -224,7 +224,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     </div>
                 </div>
                 <div class="col-span-2 sm:mt-2">
-                    <div class="bg-[#eeeeee] lg:w-[547px] md:w-[410px] w-80 md:ml-36 rounded-md">
+                    <div class="bg-[#eeeeee] lg:w-[547px] md:w-[410px] w-full md:ml-36 rounded-md">
                         <div class="lg:px-10 md:px-3 py-5">
                             <label for="" class="font-semibold mr-4 sm:text-sm sm:ml-3">Varian 1</label>
                             <input name="varian[varian1]" type="text" placeholder="Contoh: 250gr" value="{{( isset($produk['varian'][0]['varian1']) ) ? $produk['varian'][0]['varian1'] : '' }}" class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]" />
@@ -236,7 +236,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     </div>
                 </div>
                 <div class="col-span-2 mt-5" id="varian-plus">
-                    <div class="bg-[#eeeeee] lg:w-[547px] md:w-[410px] w-80 md:ml-36 rounded-md">
+                    <div class="bg-[#eeeeee] lg:w-[547px] md:w-[410px] w-full md:ml-36 rounded-md">
                         <div class="lg:px-10 md:pl-1 py-5 pembungkus-page" style="display: flex; align-items: center">
                             <label for="" class="font-semibold mr-4 sm:text-sm sm:ml-3">Varian 2</label>
                             <button id="btn-tambah-varian" form="none" class="btn-tambah-produk sm:text-sm flex items-center py-2 px-6 sm:px-3 border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
@@ -252,7 +252,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     </div>
                 </div>
                 <div class="col-span-2 mt-5" id="varian-plus-3">
-                    <div class="bg-[#eeeeee] lg:w-[547px] md:w-[410px] w-80 md:ml-36 rounded-md">
+                    <div class="bg-[#eeeeee] lg:w-[547px] md:w-[410px] w-full md:ml-36 rounded-md">
                         <div class="lg:px-10 md:pl-1 py-5 pembungkus-page-3" style="display: flex; align-items: center">
                             <label for="" class="font-semibold mr-4 sm:text-sm sm:ml-3">Varian 3</label>
                             <button form="none" id="btn-tambah-varian3" class="btn-tambah-varian-produk flex items-center py-2 px-6 sm:px-3 sm:text-sm border-dashed border-2 border-[#D10B05] text-[#D10B05] font-semibold gap-3 rounded-md">
