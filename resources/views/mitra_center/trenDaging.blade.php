@@ -13,7 +13,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 ?>
 
 <!-- Navbar kiri -->
-<aside class="relative pt-20 h-screen w-64 hidden lg:block hidden shadow-xl bg-white">
+<aside class="relative pt-20 h-screen w-64 hidden lg:block shadow-xl bg-white">
     <nav class="">
         <div class="px-6 pt-[36px]">
             <h1 class="flex items-center font-semibold text-[18px]">
@@ -115,51 +115,53 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 <div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
     <!-- TREN NAV -->
-    <div class="flex ml-8 gap-8">
-        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]" data-aos="zoom-in-up"
-            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
-            <p class="font-medium text-[#D10b05] ml-7 mt-7">
+    <div class="flex sm:flex-col sm:gap-4 lg:ml-8 md:mx-4 lg:gap-8 md:gap-4">
+        <div class="lg:mt-32 md:mt-24 mt-20 bg-white w-96 lg:h-28 md:h-24 shadow-md rounded-r-lg border-l-8 border-[#D10b05]"
+            data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
+            <p class="font-medium text-[#D10b05] lg:ml-7 ml-2 lg:mt-7 md:mt-5 mt-3 lg:text-base text-sm">
                 Prediksi Tren Daging Bulan Ini
             </p>
-            <p class="font-semibold text-[20px] ml-7">Daging Ayam</p>
+            <p class="font-semibold text-[20px] lg:ml-7 ml-2 mb-2">Daging Ayam</p>
         </div>
-        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]" data-aos="zoom-in-up"
-            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
-            <p class="font-medium text-[#D10b05] ml-7 mt-7">
+        <div class="lg:mt-32 md:mt-24 bg-white w-96 lg:h-28 md:h-24 shadow-md rounded-r-lg border-l-8 border-[#D10b05]"
+            data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
+            <p class="font-medium text-[#D10b05] lg:ml-7 ml-2 lg:mt-7 md:mt-5 mt-3 lg:text-base text-sm">
                 Tren Daging Bulan Lalu
             </p>
-            <p class="font-semibold text-[20px] ml-7">Daging Sapi</p>
+            <p class="font-semibold text-[20px] lg:ml-7 ml-2 mb-2">Daging Sapi</p>
         </div>
-        <div class="mt-32 bg-white w-96 h-28 shadow-md rounded-r-lg border-l-8 border-[#D10b05]" data-aos="zoom-in-up"
-            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
-            <p class="font-medium text-[#D10b05] ml-7 mt-7">
+        <div class="lg:mt-32 md:mt-24 bg-white w-96 lg:h-28 md:h-24 shadow-md rounded-r-lg border-l-8 border-[#D10b05]"
+            data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
+            <p class="font-medium text-[#D10b05] lg:ml-7 ml-2 lg:mt-7 md:mt-5 mt-3 lg:text-base text-sm">
                 Tidak Diminati Bulan Lalu
             </p>
-            <p class="font-semibold text-[20px] ml-7">Daging Puyuh</p>
+            <p class="font-semibold text-[20px] lg:ml-7 ml-2 mb-2">Daging Puyuh</p>
         </div>
     </div>
     <!-- TREN NAV -->
 
-    <div class="flex gap-9 ml-8">
+    <div class="flex md:flex-col sm:flex-col lg:gap-9 gap-5 lg:ml-8 md:ml-4">
         <!-- GRAFIK -->
-        <div class="mt-8 bg-white w-[62%] rounded-lg h-[450px] shadow-md" data-aos="zoom-in-up"
-            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
+        <div class="mt-8 bg-white lg:w-[62%] md:w-[98%] rounded-lg lg:h-[450px] md:h-[440px] h-64 shadow-md"
+            data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="mt-4">
-                <a class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Grafik Minat Daging
+                <a class="text-[#D10B05] pb-4 lg:px-11 md:px-6 px-3 border-b-4 border-[#D10B05] font-medium">Grafik
+                    Minat
+                    Daging
                 </a>
             </p>
-            <div class="border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
-            <!-- <img src="{{asset('assets/img_mitra_center/asset/trenDaging/chart.png')}}" alt=""
-                class="ml-14 mt-5 lg:w-fit md:w-[80%] sm:w[50%]" /> -->
-            <canvas class="p-6" id="chartLine"></canvas>
+            <div class="border-t-2 border-solid border-[#E6E6E6] mt-4 md:mb-3 sm:mb-4"></div>
+            <canvas class="lg:p-6 p-1" id="chartLine"></canvas>
         </div>
         <!-- GRAFIK -->
 
         <!-- TOP 5 DAGING -->
-        <div class="mt-8 bg-white w-[30%] rounded-r-lg h-96 shadow-md" data-aos="zoom-in-up"
-            data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
+        <div class="lg:mt-8 md:my-4 bg-white lg:w-[30%] md:w-[98%] w-full rounded-r-lg md:rounded-lg h-96 shadow-md"
+            data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="mt-4">
-                <a class="text-[#D10B05] pb-4 px-11 border-b-4 border-[#D10B05] font-medium">Top 5 Daging Bulan
+                <a class="text-[#D10B05] pb-4 lg:px-11 md:px-6 px-3 border-b-4 border-[#D10B05] font-medium">Top 5
+                    Daging
+                    Bulan
                     Lalu</a>
             </p>
             <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>

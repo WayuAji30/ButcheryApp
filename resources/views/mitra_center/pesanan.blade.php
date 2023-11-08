@@ -120,17 +120,18 @@ document.location.href = "/login";
 </aside>
 <!-- Navbar kiri -->
 
-<div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden border-t flex flex-col">
-    <div class="mt-32 bg-white rounded-2xl w-[97%] ml-4 shadow-md">
+<div class="w-full h-screen bg-[#f3f3f3] overflow-x-hidden sm:overflow-x-auto border-t flex flex-col">
+    <div class="lg:mt-32 md:mt-24 mt-20 bg-white rounded-2xl w-[97%] sm:w-[160%] lg:ml-4 md:ml-3 sm:mx-2 shadow-md">
         <p class="mt-7">
-            <a class="text-[#D10B05] text-[20px] pb-4 px-11 border-b-4 border-[#D10B05] font-medium cursor-default">Daftar
+            <a
+                class="text-[#D10B05] text-[20px] sm:text-base pb-4 lg:px-11 md:px-6 px-3 border-b-4 border-[#D10B05] font-medium cursor-default">Daftar
                 Pesanan</a>
         </p>
         <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
         <!-- TABLE -->
-        <table class=" w-full mt-5 mb-5">
+        <table class=" w-full mt-5 sm:mt-2 mb-5">
             <thead>
-                <tr class="text-[#787878] font-semibold border-b-2 border-[#e6e6e6] w-full text-center  ">
+                <tr class="text-[#787878] font-semibold border-b-2 border-[#e6e6e6] w-full text-center">
                     <th colspan="2" class="py-4">Info Produk</th>
                     <th class="py-4">Harga</th>
                     <th class="py-4">Varian</th>
@@ -142,18 +143,19 @@ document.location.href = "/login";
                 @foreach ($pesanan as $p)
                 <tr class="border-b-2 border-[#E6E6E6]">
                     <td class="pl-10 py-5 mx-auto my-auto">
-                        <img src="{{asset('storage/img_uploaded/'. $p->foto)}}" alt="" class="w-24 rounded-md">
+                        <img src="{{asset('storage/img_uploaded/'. $p->foto)}}" alt=""
+                            class="lg:w-24 md:w-14 w-12 rounded-md">
                     </td>
                     <td>
                         <ul>
-                            <li class="font-semibold">{{$p->nama_produk}}</li>
-                            <li class="text-[#999] mt-1">ID COSTUMER: {{$p->id_user}}</li>
+                            <li class="font-semibold sm:text-xs">{{$p->nama_produk}}</li>
+                            <li class="text-[#999] mt-1 sm:text-xs">ID COSTUMER: {{$p->id_user}}</li>
                         </ul>
                     </td>
-                    <td class="text-center">Rp{{number_format($p->harga,0,',')}}</td>
-                    <td class="text-center">{{$p->varian}}</td>
-                    <td class="text-center">{{$p->status}}</td>
-                    <td class="text-center">
+                    <td class="text-center sm:text-xs">Rp{{number_format($p->harga,0,',')}}</td>
+                    <td class="text-center sm:text-xs">{{$p->varian}}</td>
+                    <td class="text-center sm:text-xs">{{$p->status}}</td>
+                    <td class="text-center sm:text-xs">
                         @if($p->status === "Kurir menuju toko anda")
                         <button id="" name="btn-siap" disabled
                             class="btn-siap border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
