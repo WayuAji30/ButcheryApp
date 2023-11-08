@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     @vite(['resources/css/app.css','resources/css/output.css'])
     <title>Butchery</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
@@ -15,7 +15,7 @@
 
     @yield('content')
 
-    <div class="border-t-2 border-solid border-[#E6E6E6] lg:mt-40 sm:mt-20"></div>
+    <div class="border-t-2 border-solid border-[#E6E6E6] lg:mt-40 mt-20"></div>
     <!-- FOOTER -->
     <footer class="sm:text-xs">
         <div class="w-full mt-12 mb-12">
@@ -153,10 +153,13 @@
                             </button>
                             <ul class="ml-5 list-none">
                                 <li>
-                                    <a href="" class="ml-5"><img src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}" alt="" /></a>
+                                    <a href="" class="ml-5"><img
+                                            src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
+                                            alt="" /></a>
                                 </li>
                                 <li class="mt-3">
-                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}" alt="" /></a>
+                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
+                                            alt="" /></a>
                                 </li>
                             </ul>
                         </div>

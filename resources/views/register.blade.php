@@ -3,7 +3,8 @@
 <!-- REGISTER -->
 <div class="w-full">
     <div class="container mx-auto px-[53px] mt-14">
-        <a href="/index"><img src="{{asset('assets/img_index/asset/loginPage/logo.svg')}}" alt="" class="lg:w-fit md:w-fit sm:w-[50%]" /></a>
+        <a href="/index"><img src="{{asset('assets/img_index/asset/loginPage/logo.svg')}}" alt=""
+                class="lg:w-fit md:w-fit sm:w-[50%]" /></a>
         <div class="grid grid-cols-12">
             <div class="col-span-6 items-center flex justify-center">
                 <div class="flex-none text-center lg:block hidden max-sm:hidden">
@@ -19,7 +20,8 @@
 
             <div class="lg:col-span-6 col-span-12 lg:mt-0 md:mt-7">
                 <div class="justify-center flex">
-                    <div class="lg:w-[65%] lg:h-[80%] md:w-[65%] md:h-[80%] sm:w-[100%] sm:h-[100%] sm:mt-5 bg-white rounded-lg shadow-lg text-center">
+                    <div
+                        class="lg:w-[65%] lg:h-[80%] md:w-[65%] md:h-[80%] sm:w-[100%] sm:h-[100%] sm:mt-5 bg-white rounded-lg shadow-lg text-center">
                         <p class="font-semibold lg:text-[24px] md:text-[24px] sm:text-[18px] lg:mt-14 sm:mt-5">
                             Hai! Daftar Dulu Ya
                         </p>
@@ -30,16 +32,21 @@
                         </p>
                         <form action="/save_register" method="POST">
                             @csrf
-                            <input class="lg:pl-5 pl-3 lg:py-3 md:py-3 sm:py-2 lg:mt-9 sm:mt-5 border-solid border-2 border-[#CCCCCC] lg:text-base md:text-base sm:text-xs rounded-lg lg:w-[80%] sm:w-[80%] focus:outline-[#D10B05]" type="text" name="identifier" id="" placeholder="No. Handphone/Email" />
-                            <p class="lg:mt-2 mt-1 lg:text-[14px] md:text-[14px] sm:text-[10px] lg:pl-12 md:pl-12 sm:pl-7 text-start">
+                            <input
+                                class="lg:pl-5 pl-3 lg:py-3 md:py-3 py-2 lg:mt-9 mt-5 border-solid border-2 border-[#CCCCCC] sm:text-xs rounded-lg w-[80%] focus:outline-[#D10B05]"
+                                type="text" name="identifier" id="" placeholder="No. Handphone/Email" />
+                            <p
+                                class="lg:mt-2 mt-1 lg:text-[14px] md:text-[14px] sm:text-[10px] lg:pl-12 md:pl-12 sm:pl-7 text-start">
                                 <a class="text-[#787878] lg:mt-3">Contoh: email@butchery.com</a>
                             </p>
                             @error('identifier')
-                            <span class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                            <span
+                                class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
                                 {{$message}}
                             </span>
                             @enderror
-                            <button class="text-white bg-[#D10B05] lg:py-3 md:py-3 sm:py-2 lg:px-36 md:px-36 px-[80px] lg:text-base md:text-base sm:text-xs rounded-lg font-semibold lg:mt-8 sm:mt-5 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
+                            <button
+                                class="text-white bg-[#D10B05] lg:py-3 md:py-3 py-2 lg:px-36 md:px-32 md:mt-8 px-[80px] lg:text-base md:text-base sm:text-xs rounded-lg font-semibold lg:mt-8 sm:mt-5 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Selanjutnya
                             </button>
                             <div class="justify-center flex mt-6">
@@ -48,8 +55,10 @@
                         </form>
                         <div class="justify-center flex">
                             <form action="">
-                                <button class="bg-white border-[#CCC] border-2 lg:py-3 md:py-3 sm:py-2 lg:px-[82px] md:px-16 sm:px-4 rounded-lg font-semibold mt-6 lg:text-base md:text-base sm:text-xs flex items-center  hover:border-[#d10b05] hover:text-[#d10b05] transition-all duration-200 ease-linear">
-                                    <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt="" class="lg:pr-3 pr-2 sm:w-6" />
+                                <button
+                                    class="bg-white border-[#CCC] border-2 lg:py-3 py-2 lg:px-[82px] md:px-16 sm:px-4 rounded-lg font-semibold mt-6 lg:text-base md:text-base sm:text-xs flex items-center  hover:border-[#d10b05] hover:text-[#d10b05] transition-all duration-200 ease-linear">
+                                    <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt=""
+                                        class="lg:pr-3 pr-2 sm:w-6" />
                                     Masuk dengan Google
                                 </button>
                             </form>
