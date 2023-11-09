@@ -291,9 +291,9 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             </svg>
                         </label>
                     </div>
-                    <div class="drawer-side">
+                    <div class="drawer-side overflow-x-hidden">
                         <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-                        <ul class="menu p-4 w-full min-h-full overflow-x-hidden bg-white text-base-content">
+                        <ul class="menu p-4 w-full min-h-full bg-white text-base-content">
                             <!-- Sidebar content here -->
                             <div class="flex justify-between">
                                 <p class="text-lg font-semibold">Menu Utama</p>
@@ -322,14 +322,12 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                 </div>
 
                                 <!-- Tampilan mobile sudah login -->
-                                <!-- <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
-                                    class="flex items-center gap-3">
+                                <!-- <a href="" class="flex items-center gap-3">
                                     <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
                                         class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium text-lg mr-8">{{($user->username)}}</p>
+                                    <p class="font-medium text-lg mr-8"></p>
                                 </a>
-                                <a href="/daftarProduk/{{$supplier->_id}}"
-                                    class="flex items-center gap-5 mt-3 ml-1"><img
+                                <a href="/daftarProduk/" class="flex items-center gap-5 mt-3 ml-1"><img
                                         src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
                                     <p class="font-semibold text-lg">Toko Saya</p>
                                 </a>
