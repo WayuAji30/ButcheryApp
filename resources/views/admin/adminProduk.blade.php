@@ -97,16 +97,16 @@ window.location.href = '/loginAdmin'
                         </p>
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
-                        Rp<span id="harga">{{(isset($p['varian'][0]['harga']) ? $p['varian'][0]['harga'] : '')}}</span>
+                        Rp<span id="harga">{{(isset($p['varian'][0]['harga1']) ? $p['varian'][0]['harga1'] : '')}}</span>
                         <span
-                            id="harga">{{(isset($p['varian'][1]['harga']) ? '/ Rp'.$p['varian'][1]['harga'] : '')}}</span>
+                            id="harga">{{(isset($p['varian'][1]['harga2']) ? '/ Rp'.$p['varian'][1]['harga2'] : '')}}</span>
                         <span
-                            id="harga">{{(isset($p['varian'][2]['harga']) ? '/ Rp'.$p['varian'][2]['harga'] : '')}}</span>
+                            id="harga">{{(isset($p['varian'][2]['harga3']) ? '/ Rp'.$p['varian'][2]['harga3'] : '')}}</span>
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
-                        {{(isset($p['varian'][0]['varian']) ? $p['varian'][0]['varian'] : '')}}
-                        {{(isset($p['varian'][1]['varian']) ? '/ '.$p['varian'][1]['varian'] : '')}}
-                        {{(isset($p['varian'][2]['varian']) ? '/ '.$p['varian'][2]['varian'] : '')}}
+                        {{(isset($p['varian'][0]['varian1']) ? $p['varian'][0]['varian1'] : '')}}
+                        {{(isset($p['varian'][1]['varian2']) ? '/ '.$p['varian'][1]['varian2'] : '')}}
+                        {{(isset($p['varian'][2]['varian3']) ? '/ '.$p['varian'][2]['varian3'] : '')}}
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e]">
                         {{(isset($p->id_kategori) ? $p->id_kategori : '')}}

@@ -527,7 +527,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                             {{$pl['nama_produk']}}
                                         </p>
                                         <p class="font-bold pt-2">
-                                            Rp<span>{{number_format($pl['varian'][0]['harga'], 0, ',')}}</span></p>
+                                            Rp<span>{{number_format($pl['varian'][0]['harga1'], 0, ',')}}</span></p>
                                         <p class="pt-5 flex text-[#999]">
                                             <img class="pr-2" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}" alt="" />{{(strlen($pl['nama_toko']) > 16 ? substr($pl['nama_toko'],0,15).'...' : $pl['nama_toko'])}}
                                         </p>
@@ -725,7 +725,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                 {{(strlen($rp['nama_produk']) > 38 ? substr($rp['nama_produk'],0,37) .'...' : $rp['nama_produk'])}}
                             </p>
                             <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
-                                Rp<span>{{number_format($rp['varian'][0]['harga'], 0, ',')}}</span></p>
+                                Rp<span>{{number_format($rp['varian'][0]['harga1'], 0, ',')}}</span></p>
                             <p class="pt-5 flex text-[#999] sm:text-xs leading-4">
                                 <img class="pr-2 sm:w-6" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}" alt="" />{{(strlen($rp['nama_toko']) > 16 ? substr($rp['nama_toko'],0,15).'...' : $rp['nama_toko'])}}
                             </p>

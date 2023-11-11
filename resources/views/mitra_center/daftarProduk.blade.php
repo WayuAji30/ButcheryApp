@@ -187,29 +187,29 @@ document.location.href = "/login";
                         <img src="{{asset('storage/img_uploaded/'.(isset($dp['foto']['foto1']) ? $dp['foto']['foto1'] : ''))}}"
                             alt="" class="lg:w-[84px] md:w-14 w-12 rounded-lg ml-5 py-5" />
                     </td>
-                    <td class="font-semibold sm:text-xs">
+                    <td class="font-semibold sm:text-xs lg:w-96 w-40 sm:pl-5">
                         {{$dp->nama_produk}}<br />
                         <p class="font-normal text-[#999] sm:text-xs">
                             ID: <span id="id-barang">{{$dp->_id}}</span>
                         </p>
-                    </td>
+                    </td>
                     <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
                         Rp<span
-                            id="harga">{{(isset($dp['varian'][0]['harga']) ? $dp['varian'][0]['harga'] : '')}}</span>
+                            id="harga">{{($dp['varian'][0]['harga1'] != null) ? $dp['varian'][0]['harga1'] : ''}}</span>
                         <span
-                            id="harga">{{(isset($dp['varian'][1]['harga']) ? '/ Rp'.$dp['varian'][1]['harga'] : '')}}</span>
+                            id="harga">{{($dp['varian'][1]['harga2'] != null) ? '/ Rp'.$dp['varian'][1]['harga2'] : ''}}</span>
                         <span
-                            id="harga">{{(isset($dp['varian'][2]['harga']) ? '/ Rp'.$dp['varian'][2]['harga'] : '')}}</span>
+                            id="harga">{{($dp['varian'][2]['harga3'] != null) ? '/ Rp'.$dp['varian'][2]['harga3'] : ''}}</span>
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
-                        {{(isset($dp['varian'][0]['varian']) ? $dp['varian'][0]['varian'] : '')}}
-                        {{(isset($dp['varian'][1]['varian']) ? '/ '.$dp['varian'][1]['varian'] : '')}}
-                        {{(isset($dp['varian'][2]['varian']) ? '/ '.$dp['varian'][2]['varian'] : '')}}
+                        {{(isset($dp['varian'][0]['varian1']) ? $dp['varian'][0]['varian1'] : '')}}
+                        {{(isset($dp['varian'][1]['varian2']) ? '/ '.$dp['varian'][1]['varian2'] : '')}}
+                        {{(isset($dp['varian'][2]['varian3']) ? '/ '.$dp['varian'][2]['varian3'] : '')}}
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
-                        {{(isset($dp['varian'][0]['stok']) ? $dp['varian'][0]['stok'] : '')}}
-                        {{(isset($dp['varian'][1]['stok']) ? '/ '.$dp['varian'][1]['stok'] : '')}}
-                        {{(isset($dp['varian'][2]['stok']) ? '/ '.$dp['varian'][2]['stok'] : '')}}
+                        {{(isset($dp['varian'][0]['stok1']) ? $dp['varian'][0]['stok1'] : '')}}
+                        {{(isset($dp['varian'][1]['stok2']) ? '/ '.$dp['varian'][1]['stok2'] : '')}}
+                        {{(isset($dp['varian'][2]['stok3']) ? '/ '.$dp['varian'][2]['stok3'] : '')}}
                     </td>
                     <td class="text-center sm:flex sm:flex-col sm:text-sm sm:gap-1">
                         <a href="/tambahProduk/{{$dp->_id}}"

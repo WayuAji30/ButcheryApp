@@ -57,7 +57,7 @@
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">
-                                <li><a href="" class="hover:text-[#D10B05]">Bantuan</a></li>
+                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="hover:text-[#D10B05]">Bantuan</a></li>
                                 <li class="mt-2">
                                     <a href="" class="hover:text-[#D10B05]">Butchery Care</a>
                                 </li>

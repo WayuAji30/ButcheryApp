@@ -89,15 +89,30 @@ class MitraController extends Controller
 
         //upload image
         $image = $request->file('foto1');
-        $image->storeAs('img_uploaded', $image->hashName(), 'public');
+        if(isset($image)){
+            $image->storeAs('img_uploaded', $image->hashName(), 'public');
+            $image = $image->hashName();
+        }else{
+            $image = "tidak upload foto";
+        }
 
         //upload image
         $image2 = $request->file('foto2');
-        $image2->storeAs('img_uploaded', $image2->hashName(), 'public');
+        if(isset($image2)){
+            $image2->storeAs('img_uploaded', $image2->hashName(), 'public');
+            $image2 = $image2->hashName();
+        }else{
+            $image2 = "tidak upload foto";
+        }
 
         //upload image
         $image3 = $request->file('foto3');
-        $image3->storeAs('img_uploaded', $image3->hashName(), 'public');
+        if(isset($image3)){
+            $image3->storeAs('img_uploaded', $image3->hashName(), 'public');
+            $image3 = $image3->hashName();
+        }else{
+            $image3 = "tidak upload foto"; 
+        }
 
         $user_id = $request->input('user_id');
 
@@ -131,37 +146,29 @@ class MitraController extends Controller
                 'alamat' => $response2['name']
             ],
             'foto' => [
-                'foto1' => (empty($image) ? '' : $image->hashName()),
-                'foto2' => (empty($image2) ? '' : $image2->hashName()),
-                'foto3' => (empty($image3) ? '' : $image3->hashName()),
+                'foto1' => $image,
+                'foto2' => $image2,
+                'foto3' => $image3
             ],
             'nama_produk' => $nama_produk,
             'id_kategori' => $kategori,
             'deskripsi' => $deskripsi,
             'varian' => [
                 [
-                    'varian' => $varian1,
-                    'harga' => $harga1,
-                    'stok' => $stok1,
+                    'varian1' => $varian1,
+                    'harga1' => $harga1,
+                    'stok1' => $stok1,
                 ],
                 [
-                    'varian' => $varian2,
-                    'harga' => $harga2,
-                    'stok' => $stok2,
+                    'varian2' => $varian2,
+                    'harga2' => $harga2,
+                    'stok2' => $stok2,
                 ],
                 [
-                    'varian' => $varian3,
-                    'harga' => $harga3,
-                    'stok' => $stok3,
+                    'varian3' => $varian3,
+                    'harga3' => $harga3,
+                    'stok3' => $stok3,
                 ],
-            ],
-            'rating' => [
-               'id_user' => null,
-               'rating' => null 
-            ],
-            'reviews' => [
-               'id_user' => null,
-               'rating' => null 
             ]
         ]);
 
@@ -257,18 +264,18 @@ class MitraController extends Controller
             'varian' => [
                 [
                     'varian1' => $varian1,
-                    'harga' => $harga1,
-                    'stok' => $stok1,
+                    'harga1' => $harga1,
+                    'stok1' => $stok1,
                 ],
                 [
                     'varian2' => $varian2,
-                    'harga' => $harga2,
-                    'stok' => $stok2,
+                    'harga2' => $harga2,
+                    'stok2' => $stok2,
                 ],
                 [
                     'varian3' => $varian3,
-                    'harga' => $harga3,
-                    'stok' => $stok3,
+                    'harga3' => $harga3,
+                    'stok3' => $stok3,
                 ]
             ]
         ]);

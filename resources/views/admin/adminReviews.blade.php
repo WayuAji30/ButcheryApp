@@ -64,10 +64,10 @@
                 @php
                 $ds = null;
                 foreach($data_user as $data){
-                if($data['id_user'] === $r->id_user ){
-                $ds = $data;
-                break;
-                }
+                    if($data['id_user'] === $r->id_user ){
+                     $ds = $data;
+                     break;
+                    }
                 }
                 @endphp
                 <tr class="border-b-2 border-[#E6E6E6]">
@@ -77,9 +77,9 @@
                     <td class="">{{$r->reviews}}</td>
                     <td class="text-center">
                         <div class="rating rating-sm">
-                            @for ($i = 1; $i
-                            <= 5; $i++) <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400"
-                                {{ $r->ratings === $i ? 'checked' : '' }} />
+                            @for ($i = 1; $i <= 5; $i++)
+                                <input type="radio" name="rating-{{$r->_id}}" class="mask mask-star-2 bg-orange-400"
+                                    {{ $r->ratings == $i ? 'checked' : '' }} />
                             @endfor
                         </div>
                     </td>

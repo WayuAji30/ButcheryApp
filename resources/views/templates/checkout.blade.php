@@ -19,10 +19,8 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="SB-Mid-client-SpSU-pEjrIfuDEE7"></script>
+     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-SpSU-pEjrIfuDEE7"></script>
     <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
-
     @vite(['resources/css/app.css', 'resources/css/ouput.css','resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
@@ -68,7 +66,7 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt=""
                                 class="pr-1" />Tentang Kami</a>
-                        <a href="" class="text-white flex"><img
+                        <a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
                         <a href="" class="text-white flex"><img
@@ -96,8 +94,7 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
                             </form>
                             <form action="/hapusCheckOut" method="POST">
                                 @csrf
-                                <input type="hidden" name="id_purchase"
-                                    value="{{(isset($purchase->_id) ? $purchase->_id : '')}}">
+                                <input type="hidden" name="id_purchase" value="{{(isset($purchase->_id) ? $purchase->_id : '')}}">
                                 <input type="hidden" name="id_checkout" value="{{$checkout->_id}}">
                                 <input type="hidden" name="id_user" value="{{$user->_id}}">
                                 <button

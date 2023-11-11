@@ -94,9 +94,4 @@ $(document).ready(function () {
     
     });
   
-    // Ketika tombol "Batal" ditekan
-    $("#cancelButton").on("click", function (event) {
-        event.preventDefault();
-        window.location.href = "/tambahProduk";
-    });
 });

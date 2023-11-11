@@ -18,7 +18,7 @@
                                 {{$ds->nama_produk}}
                             </p>
                             <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
-                                Rp<span>{{number_format($ds['varian'][0]['harga'], 0, ',')}}</span></p>
+                                Rp<span>{{number_format($ds['varian'][0]['harga1'], 0, ',')}}</span></p>
                             <p class="lg:pt-5 sm:pt-2 flex text-[#999] sm:text-xs">
                                 <img class="pr-2 sm:w-6" src="{{asset('assets/img_index/asset/card/clarity_store-solid.svg')}}" alt="" />{{(strlen($ds['nama_toko']) > 16 ? substr($ds['nama_toko'],0,15).'...' : $ds['nama_toko'])}}
                             </p>

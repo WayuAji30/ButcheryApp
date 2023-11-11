@@ -43,7 +43,7 @@ $supplier = SuppliersModel::where('user_id',session('id_user'))->first();
                     </div>
                     <div class="flex gap-5 items-center">
                         <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/office.svg')}}" alt="" class="pr-1" />Tentang Kami</a>
-                        <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
+                        <a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
                         <a href="" class="text-white flex"><img src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
                             Indonesia<img src="{{asset('asset/navbar/arrowUp.svg')}}" alt="" /></a>

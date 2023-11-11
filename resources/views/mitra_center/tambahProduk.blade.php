@@ -210,6 +210,12 @@ document.location.href = "/login";
                     value="{{(isset($produk['foto']['foto3']) ? $produk['foto']['foto3'] : '')}}"
                     accept=".jpg,.jpeg,.png,.gif,.svg" class="hidden" />
             </div>
+            @error('foto1')
+                <p class="mt-2 lg:ml-[32%] md:ml-[44%] sm:text-xs sm:ml-2">
+                    <span class="text-[#D10B05]">*</span>
+                    <span class="text-[#D10B05]"> Isi bagian foto (minimal 1).</span>
+                </p>  
+            @enderror 
             <div
                 class="flex sm:flex-wrap lg:ml-11 md:ml-5 mx-2 md:mr-2 lg:mt-16 md:mt-5 mt-4 md:justify-between items-center">
                 <p class="font-semibold text-[18px] lg:mr-64 sm:mr-10">Nama Produk</p>
@@ -217,6 +223,12 @@ document.location.href = "/login";
                     value="{{(isset($produk->nama_produk)) ? $produk->nama_produk : ''}}"
                     class="px-3 lg:py-4 md:py-3 py-2 sm:text-sm sm:mt-2 border-solid border-2 border-[#CCCCCC] text-[#999] rounded-md lg:w-[547px] md:w-[410px] w-full focus:outline-[#D10B05]" />
             </div>
+            @error('nama_produk')
+                <p class="mt-2 lg:ml-[32%] md:ml-[44%] sm:text-xs sm:ml-2">
+                    <span class="text-[#D10B05]">*</span>
+                    <span class="text-[#D10B05]"> Isi bagian nama produk.</span>
+                </p>
+            @enderror 
             <div
                 class="flex sm:flex-wrap lg:ml-11 md:ml-5 mx-2 lg:mt-10 md:mr-2 md:mt-5 mt-4 md:justify-between items-center">
                 <p class="font-semibold text-[18px] lg:mr-[300px] sm:mr-16">Kategori</p>
@@ -230,6 +242,12 @@ document.location.href = "/login";
                     @endforeach
                 </select>
             </div>
+            @error('kategori')
+                <p class="mt-2 lg:ml-[32%] md:ml-[44%] sm:text-xs sm:ml-2">
+                    <span class="text-[#D10B05]">*</span>
+                    <span class="text-[#D10B05]"> Isi bagian kategori.</span>
+                </p>
+            @enderror 
             <div
                 class="flex sm:flex-wrap lg:ml-11 md:ml-5 mx-2 lg:mt-10 md:mt-5 mt-4 md:mr-2 md:justify-between items-center">
                 <div>
@@ -249,11 +267,12 @@ document.location.href = "/login";
                     id="alamat" rows="4" placeholder="Ketikan deskripsi produkmu" name="deskripsi"
                     value="">{{(isset($produk->deskripsi)) ? $produk->deskripsi : '' }}</textarea>
             </div>
-            <p class="mt-2 lg:ml-[32%] md:ml-[44%] sm:text-xs sm:ml-2">
-                <span class="text-[#D10B05]">*</span> Tulis deskripsi produkmu max.
-                1200 karakter.
-            </p>
-
+            @error('deskripsi')
+                <p class="mt-2 lg:ml-[32%] md:ml-[44%] sm:text-xs sm:ml-2">
+                    <span class="text-[#D10B05]">*</span>
+                    <span class="text-[#D10B05]"> Tulis deskripsi produkmu max.1200 karakter.</span>
+                </p>
+            @enderror
             <div class="grid grid-rows-1 grid-flow-col sm:grid-flow-row lg:ml-11 md:ml-5 mx-2 md:mr-2 mt-14 sm:mt-4">
                 <div class="row-span-3">
                     <div>
@@ -275,16 +294,36 @@ document.location.href = "/login";
                             <input name="varian[varian1]" type="text" placeholder="Contoh: 250gr"
                                 value="{{( isset($produk['varian'][0]['varian1']) ) ? $produk['varian'][0]['varian1'] : '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]" />
+                            @error('varian.varian1')
+                                <p class="mt-2 lg:ml-[15%] md:ml-[44%] sm:text-xs sm:ml-2">
+                                    <span class="text-[#D10B05]">*</span>
+                                    <span class="text-[#D10B05]"> Isi bagian varian.</span>
+                                </p> 
+                            @enderror    
+
                             <label for="" class="mr-[29px] sm:text-sm sm:ml-3">Harga</label>
                             <input name="varian[harga1]" type="text" placeholder="Masukan dalam Rupiah"
-                                value="{{(isset($produk['varian'][0]['harga'])) ? $produk['varian'][0]['harga']: '' }}"
+                                value="{{(isset($produk['varian'][0]['harga1'])) ? $produk['varian'][0]['harga1']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 sm:mt-2 text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]" />
+                            @error('varian.harga1')
+                                <p class="mt-2 lg:ml-[15%] md:ml-[44%] sm:text-xs sm:ml-2">
+                                    <span class="text-[#D10B05]">*</span>
+                                    <span class="text-[#D10B05]"> Isi bagian harga.</span>
+                                </p>    
+                            @enderror 
+
                             <label for="" class="mr-10 sm:ml-3 sm:text-sm">Stok</label>
                             <input name="varian[stok1]" type="text" placeholder="Contoh: 17"
-                                value="{{(isset($produk['varian'][0]['stok'])) ? $produk['varian'][0]['stok']: '' }}"
+                                value="{{(isset($produk['varian'][0]['stok1'])) ? $produk['varian'][0]['stok1']: '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 sm:mt-2 text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]" />
-                        </div>
+                            @error('varian.varian1')
+                                <p class="mt-2 lg:ml-[15%] md:ml-[44%] sm:text-xs sm:ml-2">
+                                    <span class="text-[#D10B05]">*</span>
+                                    <span class="text-[#D10B05]"> Isi bagian stok.</span> 
+                                </p>
+                            @enderror    
                     </div>
+                    </div>    
                 </div>
                 <div class="col-span-2 mt-5" id="varian-plus">
                     <div class="bg-[#eeeeee] lg:w-[547px] md:w-[410px] w-full md:ml-36 rounded-md">
@@ -301,11 +340,11 @@ document.location.href = "/login";
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]" />
                             <label for="" class="mr-[29px] sm:text-sm sm:ml-3" hidden>Harga</label>
                             <input hidden name="varian[harga2]" type="text" placeholder="Masukan dalam Rupiah"
-                                value="{{( isset($produk['varian'][1]['harga']) ) ? $produk['varian'][1]['harga'] : '' }}"
+                                value="{{( isset($produk['varian'][1]['harga2']) ) ? $produk['varian'][1]['harga2'] : '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]" />
                             <label for="" class="mr-10 sm:text-sm sm:ml-3" hidden>Stok</label>
                             <input hidden type="text" name="varian[stok2]" placeholder="Contoh: 17"
-                                value="{{( isset($produk['varian'][1]['stok']) ) ? $produk['varian'][1]['stok'] : '' }}"
+                                value="{{( isset($produk['varian'][1]['stok2']) ) ? $produk['varian'][1]['stok2'] : '' }}"
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]" />
                         </div>
                     </div>
@@ -326,11 +365,11 @@ document.location.href = "/login";
                             <label for="" class="mr-[29px] sm:text-sm sm:ml-3" hidden>Harga</label>
                             <input hidden type="text" placeholder="Masukan dalam Rupiah" name="varian[harga3]" id=""
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]"
-                                value="{{( isset($produk['varian'][2]['harga']) ) ? $produk['varian'][2]['harga'] : '' }}" />
+                                value="{{( isset($produk['varian'][2]['harga3']) ) ? $produk['varian'][2]['harga3'] : '' }}" />
                             <label for="" class="mr-10 sm:text-sm sm:ml-3" hidden>Stok</label>
                             <input hidden type="text" placeholder="Contoh: 17" name="varian[stok3]" id=""
                                 class="px-3 py-2 border-solid border-2 border-[#e6e6e6] mt-4 text-[#999] rounded-md w-[80%] sm:w-[70%] sm:text-sm focus:outline-[#D10B05]"
-                                value="{{( isset($produk['varian'][2]['stok']) ) ? $produk['varian'][2]['stok'] : '' }}" />
+                                value="{{( isset($produk['varian'][2]['stok3']) ) ? $produk['varian'][2]['stok3'] : '' }}" />
                         </div>
                     </div>
                 </div>
@@ -338,10 +377,10 @@ document.location.href = "/login";
             <div class="my-20 sm:mt-8 sm:mb-6">
                 <div
                     class="flex items-center gap-3 lg:justify-end md:justify-center sm:justify-end sm:mr-5 lg:mr-[25%]">
-                    <button id="cancelButton"
+                    <a href = "/daftarProduk/{{$supplier->_id}}" id="cancelButton"
                         class="border-2 border-[#D10B05] text-[#D10b05] py-2 px-14 sm:px-5 sm:text-sm rounded-md font-semibold hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
                         Kembali
-                    </button>
+                    </a>
                     <button name="submit"
                         class="border-2 border-[#D10B05] text-white bg-[#D10b05] py-2 px-14 sm:px-5 sm:text-sm rounded-md font-semibold hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
                         Simpan

@@ -13,11 +13,6 @@ $(document).ready(function(){
     $('#rincian_subtotal').text(subtotal);
     $('#harga-total').text(total_harga.toLocaleString("id-ID"));
 
-    $('.btn-mp').on('click',function(){
-        const slug = $(this).data('slug');
-        localStorage.setItem('metode_pembayaran', slug);
-    });
-
     $('#motor').on('click',function(){
         var pengiriman = $('#motor #motor_j').text();
 
@@ -80,7 +75,7 @@ $(document).ready(function(){
         // Mengubah array menjadi JSON string
         var selectedItemsJson = JSON.stringify(selectedItems);
 
-        window.location.href = '/store_orders/' + encodeURIComponent(selectedItemsJson) + '/' + opsi_pengiriman + '/' + b_ongkir + '/' + b_layanan + '/' + b_asuransi + '/' + b_tambahan + '/' + subtotal + '/' + total_harga + '/' + status + '/' + alamatPengiriman;
+        window.location.href = '/store_orders/' + encodeURIComponent(selectedItemsJson) + '/' + opsi_pengiriman + '/' + listproduk + '/' +b_ongkir + '/' + b_layanan + '/' + b_asuransi + '/' + b_tambahan + '/' + subtotal + '/' + total_harga + '/' + status + '/' + alamatPengiriman;
  
     });
 

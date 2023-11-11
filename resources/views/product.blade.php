@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="flex pl-16 mt-6 gap-4">
-                        <button
+                        <a href = "https://api.whatsapp.com/send/?phone={{$data_supplier->no_wa}}&text&type=phone_number&app_absent=0"
                             class="flex text-[#D10B05] bg-[#D10B05] bg-opacity-10 py-2 px-6 border-2 border-[#D10B05] items-center">
                             <svg class="pr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                 viewBox="0 0 24 24">
@@ -53,7 +53,7 @@
                                     d="M2 22V4q0-.825.588-1.413T4 2h16q.825 0 1.413.588T22 4v12q0 .825-.588 1.413T20 18H6l-4 4Zm4-8h8v-2H6v2Zm0-3h12V9H6v2Zm0-3h12V6H6v2Z" />
                             </svg>
                             Chat Seller
-                        </button>
+                        </a>
                         <button class="flex text-[#B3B3B3] py-2 px-6 border-2 border-[#B3B3B3] items-center">
                             <svg class="pr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                 viewBox="0 0 24 24">
@@ -73,7 +73,7 @@
                         <div class="flex-none pl-4 mt-3">
                             <p class="w-[200px]">{{$pr->nama_produk}}</p>
                             <p class="font-semibold text-[#D10B05] text-[16px] mt-2">
-                                Rp<span>{{$pr['varian'][0]['harga']}}</span>
+                                Rp<span>{{$pr['varian'][0]['harga1']}}</span>
                             </p>
                         </div>
                     </button>
@@ -97,23 +97,23 @@
                 <section class="mt-9 sm:mt-5">
                     <p class="font-semibold text-[18px]">Pilih varian:</p>
                     <div class="flex gap-3 mt-4">
-                        <button id="low" data-varian="{{$detail_produk['varian'][0]['varian']}}"
-                            data-price="{{$detail_produk['varian'][0]['harga']}}"
-                            data-stok="{{$detail_produk['varian'][0]['stok']}}"
+                        <button id="low" data-varian="{{$detail_produk['varian'][0]['varian1']}}"
+                            data-price="{{$detail_produk['varian'][0]['harga1']}}"
+                            data-stok="{{$detail_produk['varian'][0]['stok1']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 active transition-all duration-500 ease-in-out">
-                            {{$detail_produk['varian'][0]['varian']}}
+                            {{$detail_produk['varian'][0]['varian1']}}
                         </button>
-                        <button id="mid" data-varian="{{$detail_produk['varian'][1]['varian']}}"
-                            data-price="{{$detail_produk['varian'][1]['harga']}}"
-                            data-stok="{{$detail_produk['varian'][1]['stok']}}"
+                        <button id="mid" data-varian="{{$detail_produk['varian'][1]['varian2']}}"
+                            data-price="{{$detail_produk['varian'][1]['harga2']}}"
+                            data-stok="{{$detail_produk['varian'][1]['stok2']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
-                            {{$detail_produk['varian'][1]['varian']}}
+                            {{$detail_produk['varian'][1]['varian2']}}
                         </button>
-                        <button id="high" data-varian="{{$detail_produk['varian'][2]['varian']}}"
-                            data-price="{{$detail_produk['varian'][2]['harga']}}"
-                            data-stok="{{$detail_produk['varian'][2]['stok']}}"
+                        <button id="high" data-varian="{{$detail_produk['varian'][2]['varian3']}}"
+                            data-price="{{$detail_produk['varian'][2]['harga3']}}"
+                            data-stok="{{$detail_produk['varian'][2]['stok3']}}"
                             class="py-2 px-4 rounded-lg border-2 border-gray-300 transition-all duration-500 ease-in-out">
-                            {{$detail_produk['varian'][2]['varian']}}
+                            {{$detail_produk['varian'][2]['varian3']}}
                         </button>
                     </div>
                 </section>
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div class="flex mt-6 gap-4">
-                        <button
+                        <a href = "https://api.whatsapp.com/send/?phone={{$data_supplier->no_wa}}&text&type=phone_number&app_absent=0"
                             class="flex text-[#D10B05] bg-[#D10B05] bg-opacity-10 py-2 sm:py-1 sm:px-4 px-6 border-2 border-[#D10B05] items-center sm:text-sm">
                             <svg class="pr-2 sm:pr-1 sm:w-5" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                 viewBox="0 0 24 24">
@@ -137,7 +137,7 @@
                                     d="M2 22V4q0-.825.588-1.413T4 2h16q.825 0 1.413.588T22 4v12q0 .825-.588 1.413T20 18H6l-4 4Zm4-8h8v-2H6v2Zm0-3h12V9H6v2Zm0-3h12V6H6v2Z" />
                             </svg>
                             Chat Seller
-                        </button>
+                        </a>
                         <button
                             class="flex text-[#B3B3B3] py-2 sm:py-1 sm:px-4 px-6 border-2 border-[#B3B3B3] items-center sm:text-sm">
                             <svg class="pr-2 sm:pr-1 sm:w-5" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -224,7 +224,7 @@
                                     <p class="">
                                         Sisa Stok:
                                         <span class="font-semibold"
-                                            id="value-stok">{{$detail_produk['varian'][0]['stok']}}</span>
+                                            id="value-stok">{{$detail_produk['varian'][0]['stok1']}}</span>
                                     </p>
                                 </div>
                                 <p class="mt-7 sm:hidden">
@@ -243,20 +243,38 @@
                                         Rp <span id="total-value"></span>
                                     </p>
                                 </div>
+                                @if($detail_produk->supplier_id == session('id_supplier'))
                                 <div class="flex items-center justify-between mt-6 sm:mt-2">
                                     <a href="javascript:void(0);" id="btn-beli" data-id_user="{{session('id_user')}}"
+                                        disabled
                                         data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
                                         data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
-                                        class="text-[#D10B05] py-2 px-8 sm:px-14 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
+                                        class="cursor-not-allowed text-[#CCC] py-2 px-8 sm:px-14 border-2 border-[#CCC] rounded-md font-medium transition-all duration-200 ease-linear">
                                         Beli
                                     </a>
                                     <a href="javascript:void(0);" id="addToCart" data-id_user="{{session('id_user')}}"
                                         data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
                                         data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
-                                        class="py-2 lg:px-5 md:px-4 sm:px-8 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
+                                        class="cursor-not-allowed py-2 lg:px-5 md:px-4 sm:px-8 border-2 border-[#CCC] bg-[#CCC] text-white rounded-md font-medium transition-all duration-200 ease-linear">
                                         + Keranjang
                                     </a>
                                 </div>
+                                @else
+                                    <div class="flex items-center justify-between mt-6 sm:mt-2">
+                                        <a href="javascript:void(0);" id="btn-beli" data-id_user="{{session('id_user')}}"
+                                            data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
+                                            data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
+                                            class="text-[#D10B05] py-2 px-8 sm:px-14 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
+                                            Beli
+                                        </a>
+                                        <a href="javascript:void(0);" id="addToCart" data-id_user="{{session('id_user')}}"
+                                            data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
+                                            data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
+                                            class="py-2 lg:px-5 md:px-4 sm:px-8 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
+                                            + Keranjang
+                                        </a>
+                                    </div>
+                                @endif
                             </form>
                         </div>
                     </div>
@@ -271,67 +289,76 @@
                         </p>
                     </div>
                 </div>
+                @foreach ($reviews as $r)
+                        @php
+                            $ds = [];
+                            foreach ($data_user as $data) {
+                                if ($data[0]['_id'] === $r->id_user) {
+                                    $ds[] = $data;
+                                }
+                            }
+                        @endphp
                 <div class="ml-14 mt-9 sm:ml-2">
                     <!-- Review 1 -->
-                    @foreach ($reviews as $r)
-                    @foreach ($data_user as $ds)
-                    <div class="flex items-start gap-5">
-                        <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt="" />
-                        <ul>
-                            <li class="flex">
-                                <p class="font-semibold mr-3">{{$ds[0]['username']}}</p>
-                                <p class="text-[#b3b3b3]">4 hari lalu</p>
-                            </li>
-                            <li>
-                                <img src="{{asset('assets/img_index/asset/product/starReview.svg')}}" alt=""
-                                    class="mt-1" />
-                            </li>
-                            <li>
-                                <p class="mt-2">
-                                    {{$r['reviews']}}
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    @endforeach
-                    @endforeach
-                    <div class="border-t-2 border-solid border-[#E6E6E6] mt-8 mx-3"></div>
-                    <!-- Review 1 -->
-
-                    <div class="mt-8 mx-3"></div>
-                    <!-- pagination -->
-                    <div class="w-full">
-                        <div class="flex justify-between">
-                            <img src="{{asset('assets/img_index/asset/product/pagination_arrow-left.svg')}}" alt="" />
-                            <div class="w-[75%] flex justify-between">
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                    <span>1</span>
-                                </div>
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#ffffff] bg-[#D10B05]">
-                                    <span>2</span>
-                                </div>
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                    <span>3</span>
-                                </div>
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                    <span>4</span>
-                                </div>
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                    <span>5</span>
-                                </div>
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                    <span>6</span>
-                                </div>
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                    <span>...</span>
-                                </div>
-                                <div class="px-2 py-[2px] rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                    <span>12</span>
-                                </div>
-                            </div>
-                            <img src="{{asset('assets/img_index/asset/product/pagination_arrow-right.svg')}}" alt="" />
+                        <div class="flex items-start gap-5">
+                            <img src="{{ asset('assets/img_mitra_center/asset/navbar/profile.svg') }}" alt="" />
+                            <ul>
+                                <li class="flex">
+                                    <p class="font-semibold mr-3">{{ $ds[0][0]['username'] }}</p>
+                                    <p class="text-[#b3b3b3]">4 hari lalu</p>
+                                </li>
+                                <li>
+                                    <div class="rating rating-sm mt-1">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <input type="radio" name="rating-{{$r->_id}}" class="mask mask-star-2 bg-orange-400"
+                                                {{ $r->ratings == $i ? 'checked' : '' }} />
+                                        @endfor
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="mt-2">
+                                        {{ $r['reviews'] }}
+                                    </p>
+                                </li>
+                            </ul>
                         </div>
+                        <div class="border-t-2 border-solid border-[#E6E6E6] mt-8 mx-3"></div>
+                        <!-- Review 1 -->
+                        <div class="mt-8 mx-3"></div>
+                        <!-- pagination -->
+                </div>
+                @endforeach
+                <div class="w-full">
+                    <div class="flex justify-between">
+                        @if ($reviews->currentPage() > 1)
+                            <a href="{{ $reviews->previousPageUrl() }}" class="rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                                <img src="{{asset('assets/img_index/asset/product/pagination_arrow-left.svg')}}" alt="" />
+                            </a>
+                        @endif
+                
+                        <div class="w-[75%] flex justify-between">
+                            @for ($i = 1; $i <= $reviews->lastPage(); $i++)
+                                <div class="rounded-md cursor-pointer
+                                    @if ($reviews->currentPage() == $i)
+                                        text-[#ffffff] bg-[#D10B05]
+                                    @else
+                                        text-[#999999] bg-[#CCCCCC] hover:bg-[#D10B05]
+                                    @endif
+                                    px-2 py-[2px]">
+                                    <a href="{{ $reviews->url($i) }}">
+                                        <span>{{ $i }}</span>
+                                    </a>
+                                </div>
+                            @endfor
+                        </div>
+                
+                        @if ($reviews->hasMorePages())
+                            <a href="{{ $reviews->nextPageUrl() }}" class="rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
+                                <img src="{{asset('assets/img_index/asset/product/pagination_arrow-right.svg')}}" alt="" />
+                            </a>
+                        @endif
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -352,8 +379,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const valueView = document.getElementById("value-view");
 
     // Mendefinisikan harga awal
-    var currentPrice = parseInt("{{$detail_produk['varian'][0]['harga']}}");
-    var currentWeight = "{{$detail_produk['varian'][0]['varian']}}";
+    var currentPrice = parseInt("{{$detail_produk['varian'][0]['harga1']}}");
+    var currentWeight = "{{$detail_produk['varian'][0]['varian1']}}";
 
     // Menetapkan nilai awal pada elemen-elemen HTML
     valueProduct.innerText = "1";
@@ -375,18 +402,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     lowButton.addEventListener(
         "click",
-        handleWeightButtonClick("{{$detail_produk['varian'][0]['varian']}}", parseInt(
-            "{{$detail_produk['varian'][0]['harga']}}"))
+        handleWeightButtonClick("{{$detail_produk['varian'][0]['varian1']}}", parseInt(
+            "{{$detail_produk['varian'][0]['harga1']}}"))
     );
     midButton.addEventListener(
         "click",
-        handleWeightButtonClick("{{$detail_produk['varian'][1]['varian']}}", parseInt(
-            "{{$detail_produk['varian'][1]['harga']}}"))
+        handleWeightButtonClick("{{$detail_produk['varian'][1]['varian2']}}", parseInt(
+            "{{$detail_produk['varian'][1]['harga2']}}"))
     );
     highButton.addEventListener(
         "click",
-        handleWeightButtonClick("{{$detail_produk['varian'][2]['varian']}}", parseInt(
-            "{{$detail_produk['varian'][2]['harga']}}"))
+        handleWeightButtonClick("{{$detail_produk['varian'][2]['varian3']}}", parseInt(
+            "{{$detail_produk['varian'][2]['harga3']}}"))
     );
 
     // Menangani klik pada tombol plus
