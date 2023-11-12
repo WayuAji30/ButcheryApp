@@ -124,9 +124,13 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         <a href="" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
-                        <a href="" class="text-white flex"><img
-                                src="{{asset('assets/img_index/asset/navbar/globe.svg')}}" alt="" class="pr-1" />Bahasa
-                            Indonesia<img src="{{asset('assets/img_index/asset/navbar/arrowUp.svg')}}" alt="" /></a>
+                        <div class="flex items-center"><img src="{{asset('assets/img_index/asset/navbar/globe.svg')}}"
+                                alt="" class="pr-1" />
+                            <select name="Bahasa" id="" class="bg-[#d10b05] text-white">
+                                <option value="" class="">Bahasa Indonesia</option>
+                                <option value="" class="">English</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
