@@ -18,7 +18,7 @@ class PurchaseModel extends Model
      * @var array
      */
     protected $fillable = [
-        'id_user','id_produk','id_supplier', 'foto','nama_produk', 'varian', 'harga', 'qty', 'alamat_pengiriman', 'metode_pembayaran', 'opsi_pengiriman', 'biaya_ongkir', 'biaya_layanan', 'biaya_asuransi', 'biaya_tambahan', 'subtotal', 'total_harga', 'status'   
+        'id_user','id_produk','id_supplier', 'foto','nama_produk', 'varian', 'harga', 'qty', 'alamat_pengiriman', 'metode_pembayaran', 'opsi_pengiriman', 'total_produk' ,'biaya_ongkir', 'biaya_layanan', 'biaya_asuransi', 'biaya_tambahan', 'subtotal', 'total_harga', 'status'   
     ];
 
 }

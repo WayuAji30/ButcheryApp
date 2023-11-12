@@ -143,6 +143,8 @@ class AuthController extends Controller
             ]
         ]);
 
+        session(['id_supplier' => $user_supplier->_id]);
+
         echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>';
         echo '<script> $(document).ready(function(){localStorage.clear();window.location.href = "/updateUser/' . $user_id . '/' . $no_telp . '/' . $email . '";}); </script>';
     }

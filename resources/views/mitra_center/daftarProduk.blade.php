@@ -164,21 +164,30 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         <p class="font-normal text-[#999] sm:text-xs">
                             ID: <span id="id-barang">{{$dp->_id}}</span>
                         </p>
-                    </td>
+                    </td>
                     <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
+<<<<<<< HEAD
                         Rp<span id="harga">{{(isset($dp['varian'][0]['harga']) ? $dp['varian'][0]['harga'] : '')}}</span>
                         <span id="harga">{{(isset($dp['varian'][1]['harga']) ? '/ Rp'.$dp['varian'][1]['harga'] : '')}}</span>
                         <span id="harga">{{(isset($dp['varian'][2]['harga']) ? '/ Rp'.$dp['varian'][2]['harga'] : '')}}</span>
+=======
+                        Rp<span
+                            id="harga">{{($dp['varian'][0]['harga1'] != null) ? $dp['varian'][0]['harga1'] : ''}}</span>
+                        <span
+                            id="harga">{{($dp['varian'][1]['harga2'] != null) ? '/ Rp'.$dp['varian'][1]['harga2'] : ''}}</span>
+                        <span
+                            id="harga">{{($dp['varian'][2]['harga3'] != null) ? '/ Rp'.$dp['varian'][2]['harga3'] : ''}}</span>
+>>>>>>> cfed67b68bdfce801310be38581067be3a6122db
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
-                        {{(isset($dp['varian'][0]['varian']) ? $dp['varian'][0]['varian'] : '')}}
-                        {{(isset($dp['varian'][1]['varian']) ? '/ '.$dp['varian'][1]['varian'] : '')}}
-                        {{(isset($dp['varian'][2]['varian']) ? '/ '.$dp['varian'][2]['varian'] : '')}}
+                        {{(isset($dp['varian'][0]['varian1']) ? $dp['varian'][0]['varian1'] : '')}}
+                        {{(isset($dp['varian'][1]['varian2']) ? '/ '.$dp['varian'][1]['varian2'] : '')}}
+                        {{(isset($dp['varian'][2]['varian3']) ? '/ '.$dp['varian'][2]['varian3'] : '')}}
                     </td>
                     <td class="text-center font-semibold text-[#5e5e5e] sm:text-sm">
-                        {{(isset($dp['varian'][0]['stok']) ? $dp['varian'][0]['stok'] : '')}}
-                        {{(isset($dp['varian'][1]['stok']) ? '/ '.$dp['varian'][1]['stok'] : '')}}
-                        {{(isset($dp['varian'][2]['stok']) ? '/ '.$dp['varian'][2]['stok'] : '')}}
+                        {{(isset($dp['varian'][0]['stok1']) ? $dp['varian'][0]['stok1'] : '')}}
+                        {{(isset($dp['varian'][1]['stok2']) ? '/ '.$dp['varian'][1]['stok2'] : '')}}
+                        {{(isset($dp['varian'][2]['stok3']) ? '/ '.$dp['varian'][2]['stok3'] : '')}}
                     </td>
                     <td class="text-center sm:flex sm:flex-col sm:text-sm sm:gap-1">
                         <a href="/tambahProduk/{{$dp->_id}}" class="border-2 border-[#D10B05] py-2 lg:px-10 md:px-4 px-3 rounded-md font-semibold text-[#D10B05] mr-2 hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">

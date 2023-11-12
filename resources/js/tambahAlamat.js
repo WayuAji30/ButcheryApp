@@ -18,6 +18,7 @@ $(document).ready(function(){
 
     function hapusTombolTambahAlamat(){
         const jumlahAlamat = $('input[type="radio"]').length;
+        console.log(jumlahAlamat);
         if(jumlahAlamat == 3){
             $('.tambah_alamat').hide();
         }else{

@@ -8,6 +8,12 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 ?>
 
+@php
+if(session()->has('NewDataPesanan')){
+session()->forget('NewDataPesanan');
+}
+@endphp
+
 <!DOCTYPE html>
 <html>
 
@@ -61,7 +67,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             Jadi Mitra
                         </a>
                         @endif
-                        <a href="" class="text-white flex"><img
+                        <a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="text-white flex"><img
                                 src="{{asset('assets/img_index/asset/navbar/help.svg')}}" alt="" class="pr-1" />Bantuan
                         </a>
                         <a href="" class="text-white flex"><img
@@ -179,7 +185,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 @elseif(session()->has('login') && $user->role == "supplier")
                 <div class="lg:block hidden">
                     <div class="flex items-center gap-8">
-                        <a href="/daftarProduk/{{$supplier->_id}}" class="flex items-center gap-2"><img
+                        <a href="/daftarProduk/{{(isset($supplier->_id)) ? $supplier->_id : ''}}" class="flex items-center gap-2"><img
                                 src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
                             <p class="font-semibold text-lg">Toko Saya</p>
                         </a>
@@ -266,15 +272,15 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                 </div>
 
                                 <!-- Tampilan mobile sudah login -->
-                                <!-- <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
+                                <!-- <a href="/profile/"
                                     class="flex items-center gap-3">
-                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                                    <img src="" alt=""
                                         class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium text-lg mr-8">{{($user->username)}}</p>
+                                    <p class="font-medium text-lg mr-8"></p>
                                 </a>
-                                <a href="/daftarProduk/{{$supplier->_id}}"
+                                <a href=""
                                     class="flex items-center gap-5 mt-3 ml-1"><img
-                                        src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
+                                        src="" alt="" />
                                     <p class="font-semibold text-lg">Toko Saya</p>
                                 </a>
                             </div>

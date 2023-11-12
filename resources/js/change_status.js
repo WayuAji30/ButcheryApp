@@ -14,6 +14,7 @@ $(document).ready(function(){
 
         window.location.href = "/changeStatusBySupplier/" + id_supplier + '/'+ id_pesanan + '/' + status;
     });
+    
     $('.btn-sampai').click(function(){
         var id_user = $(this).data('id_user');
         var id_pesanan = $(this).data('id_pesanan');
@@ -33,4 +34,13 @@ $(document).ready(function(){
         $('#id_produk').val(id_produk);
     });
     
+    $('.btn-bayar').click(function(){
+        var id_pesanan = $(this).data('id_pesanan');
+        var id_user = $(this).data('id_user');
+        var snapToken = $(this).data('token');
+        var id_produk = $(this).data('id_produk');
+
+        window.location.href = '/checkout_payment/' + id_user + '?snapToken=' + snapToken;
+    });
+
 });

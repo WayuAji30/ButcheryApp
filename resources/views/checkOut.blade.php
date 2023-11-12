@@ -60,18 +60,49 @@
                         <div class="modal">
                             <div class="modal-box">
                                 <p class="font-semibold text-[20px] text-center">Alamat Pengiriman</p>
+                                @if(isset($data_user['alamat'][0]['alamat']))
+                                    <div class="alamat flex items-center gap-5 mt-2">
+                                        <input type="radio" id="alamat1" value="">
+                                        <label for="alamat1">
+                                            <p id="alamat-user-modal">
+                                                {{($data_user['alamat'][0]['alamat'])}}
+                                            </p>
+                                            <p class="font-semibold mt-1" id="phone-user-modal">
+                                                {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
+                                            </p>
+                                        </label>
+                                    </div>
+                                @endif
+                                
+                                @if(isset($data_user['alamat'][1]['alamat']))
                                 <div class="alamat flex items-center gap-5 mt-2">
-                                    <input type="radio" id="alamat1" value="">
-                                    <label for="alamat1">
+                                    <input type="radio" id="alamat2" value="">
+                                    <label for="alamat2">
                                         <p id="alamat-user-modal">
-                                            {{$data_user['alamat'][0]['alamat']}}
+                                            {{$data_user['alamat'][1]['alamat']}}
                                         </p>
                                         <p class="font-semibold mt-1" id="phone-user-modal">
                                             {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
                                         </p>
                                     </label>
                                 </div>
-                                <div class="collapse bg-base-200 collapse-arrow mt-10">
+                                @endif
+
+                                @if(isset($data_user['alamat'][2]['alamat']))
+                                <div class="alamat flex items-center gap-5 mt-2">
+                                    <input type="radio" id="alamat3" value="">
+                                    <label for="alamat1">
+                                        <p id="alamat-user-modal">
+                                            {{$data_user['alamat'][2]['alamat']}}
+                                        </p>
+                                        <p class="font-semibold mt-1" id="phone-user-modal">
+                                            {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
+                                        </p>
+                                    </label>
+                                </div>
+                                @endif
+
+                                <div class="tambah_alamat collapse bg-base-200 collapse-arrow mt-10">
                                     <input type="checkbox" />
                                     <div class="collapse-title font-semibold">
                                         Tambah Alamat Pengiriman
