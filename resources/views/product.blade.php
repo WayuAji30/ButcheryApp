@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="flex pl-16 mt-6 gap-4">
-                        <a href = "https://api.whatsapp.com/send/?phone={{$data_supplier->no_wa}}&text&type=phone_number&app_absent=0"
+                        <a href="https://api.whatsapp.com/send/?phone={{$data_supplier->no_wa}}&text&type=phone_number&app_absent=0"
                             class="flex text-[#D10B05] bg-[#D10B05] bg-opacity-10 py-2 px-6 border-2 border-[#D10B05] items-center">
                             <svg class="pr-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                 viewBox="0 0 24 24">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div class="flex mt-6 gap-4">
-                        <a href = "https://api.whatsapp.com/send/?phone={{$data_supplier->no_wa}}&text&type=phone_number&app_absent=0"
+                        <a href="https://api.whatsapp.com/send/?phone={{$data_supplier->no_wa}}&text&type=phone_number&app_absent=0"
                             class="flex text-[#D10B05] bg-[#D10B05] bg-opacity-10 py-2 sm:py-1 sm:px-4 px-6 border-2 border-[#D10B05] items-center sm:text-sm">
                             <svg class="pr-2 sm:pr-1 sm:w-5" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                 viewBox="0 0 24 24">
@@ -260,20 +260,20 @@
                                     </a>
                                 </div>
                                 @else
-                                    <div class="flex items-center justify-between mt-6 sm:mt-2">
-                                        <a href="javascript:void(0);" id="btn-beli" data-id_user="{{session('id_user')}}"
-                                            data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
-                                            data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
-                                            class="text-[#D10B05] py-2 px-8 sm:px-14 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
-                                            Beli
-                                        </a>
-                                        <a href="javascript:void(0);" id="addToCart" data-id_user="{{session('id_user')}}"
-                                            data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
-                                            data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
-                                            class="py-2 lg:px-5 md:px-4 sm:px-8 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
-                                            + Keranjang
-                                        </a>
-                                    </div>
+                                <div class="flex items-center justify-between mt-6 sm:mt-2">
+                                    <a href="javascript:void(0);" id="btn-beli" data-id_user="{{session('id_user')}}"
+                                        data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
+                                        data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
+                                        class="text-[#D10B05] py-2 px-8 sm:px-14 border-2 border-[#D10B05] rounded-md font-medium hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-linear">
+                                        Beli
+                                    </a>
+                                    <a href="javascript:void(0);" id="addToCart" data-id_user="{{session('id_user')}}"
+                                        data-id_produk="{{(isset($detail_produk->_id)) ? $detail_produk->_id : ''}}"
+                                        data-id_supplier="{{(isset($detail_produk->supplier_id)) ? $detail_produk->supplier_id : ''}}"
+                                        class="py-2 lg:px-5 md:px-4 sm:px-8 border-2 border-[#D10B05] bg-[#D10B05] text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-linear">
+                                        + Keranjang
+                                    </a>
+                                </div>
                                 @endif
                             </form>
                         </div>
@@ -290,79 +290,82 @@
                     </div>
                 </div>
                 @foreach ($reviews as $r)
-                        @php
-                            $ds = [];
-                            foreach ($data_user as $data) {
-                                if ($data[0]['_id'] === $r->id_user) {
-                                    $ds[] = $data;
-                                }
-                            }
-                        @endphp
+                @php
+                $ds = [];
+                foreach ($data_user as $data) {
+                if ($data[0]['_id'] === $r->id_user) {
+                $ds[] = $data;
+                }
+                }
+                @endphp
                 <div class="ml-14 mt-9 sm:ml-2">
                     <!-- Review 1 -->
-                        <div class="flex items-start gap-5">
-                            <img src="{{ asset('assets/img_mitra_center/asset/navbar/profile.svg') }}" alt="" />
-                            <ul>
-                                <li class="flex">
-                                    <p class="font-semibold mr-3">{{ $ds[0][0]['username'] }}</p>
-                                    <p class="text-[#b3b3b3]">4 hari lalu</p>
-                                </li>
-                                <li>
-                                    <div class="rating rating-sm mt-1">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            <input type="radio" name="rating-{{$r->_id}}" class="mask mask-star-2 bg-orange-400"
-                                                {{ $r->ratings == $i ? 'checked' : '' }} />
-                                        @endfor
-                                    </div>
-                                </li>
-                                <li>
-                                    <p class="mt-2">
-                                        {{ $r['reviews'] }}
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="border-t-2 border-solid border-[#E6E6E6] mt-8 mx-3"></div>
-                        <!-- Review 1 -->
-                        <div class="mt-8 mx-3"></div>
-                        <!-- pagination -->
+                    <div class="flex items-start gap-5">
+                        <img src="{{ asset('assets/img_mitra_center/asset/navbar/profile.svg') }}" alt="" />
+                        <ul>
+                            <li class="flex">
+                                <p class="font-semibold mr-3">{{ $ds[0][0]['username'] }}</p>
+                                <p class="text-[#b3b3b3]">4 hari lalu</p>
+                            </li>
+                            <li>
+                                <div class="rating rating-sm mt-1">
+                                    @for ($i = 1; $i
+                                    <= 5; $i++) <input type="radio" name="rating-{{$r->_id}}"
+                                        class="mask mask-star-2 bg-orange-400"
+                                        {{ $r->ratings == $i ? 'checked' : '' }} />
+                                    @endfor
+                                </div>
+                            </li>
+                            <li>
+                                <p class="mt-2">
+                                    {{ $r['reviews'] }}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="border-t-2 border-solid border-[#E6E6E6] mt-8 mx-3"></div>
+                    <!-- Review 1 -->
+                    <div class="mt-8 mx-3"></div>
+                    <!-- pagination -->
                 </div>
                 @endforeach
                 <div class="w-full">
-                    <div class="flex justify-between">
+                    <div class="flex justify-center items-center">
                         @if ($reviews->currentPage() > 1)
-                            <a href="{{ $reviews->previousPageUrl() }}" class="rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <img src="{{asset('assets/img_index/asset/product/pagination_arrow-left.svg')}}" alt="" />
-                            </a>
+                        <a href="{{ $reviews->previousPageUrl() }}"
+                            class="rounded-md cursor-pointer hover:bg-[#CCCCCC] py-1 pl-1">
+                            <img src="{{asset('assets/img_index/asset/product/pagination_arrow-left.svg')}}" alt="" />
+                        </a>
                         @endif
-                
-                        <div class="w-[75%] flex justify-between">
+
+                        <div class="w-[80%] flex justify-center gap-3 items-center">
                             @for ($i = 1; $i <= $reviews->lastPage(); $i++)
                                 <div class="rounded-md cursor-pointer
                                     @if ($reviews->currentPage() == $i)
-                                        text-[#ffffff] bg-[#D10B05]
+                                        text-white bg-[#D10B05]
                                     @else
-                                        text-[#999999] bg-[#CCCCCC] hover:bg-[#D10B05]
+                                        text-white bg-[#CCCCCC] hover:bg-[#D10B05]
                                     @endif
                                     px-2 py-[2px]">
                                     <a href="{{ $reviews->url($i) }}">
                                         <span>{{ $i }}</span>
                                     </a>
                                 </div>
-                            @endfor
+                                @endfor
                         </div>
-                
+
                         @if ($reviews->hasMorePages())
-                            <a href="{{ $reviews->nextPageUrl() }}" class="rounded-md cursor-pointer text-[#999999] hover:bg-[#CCCCCC]">
-                                <img src="{{asset('assets/img_index/asset/product/pagination_arrow-right.svg')}}" alt="" />
-                            </a>
+                        <a href="{{ $reviews->nextPageUrl() }}"
+                            class="rounded-md cursor-pointer hover:bg-[#CCCCCC] py-1 pr-1">
+                            <img src="{{asset('assets/img_index/asset/product/pagination_arrow-right.svg')}}" alt="" />
+                        </a>
                         @endif
                     </div>
-                </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script>
