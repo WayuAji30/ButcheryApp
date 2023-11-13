@@ -194,9 +194,9 @@
 
             <!-- Right -->
             <div class="lg:col-span-4 md:col-span-6 sm:col-span-12 ml-8 sm:ml-0 lg:mt-0 md:mt-5">
-                <div class="grid justify-items-center">
+                <div class="grid grid-cols-1 justify-items-center">
                     <div
-                        class="lg:w-[75%] w-[100%] h-[100%] sm:h-[10%] sm:rounded-none border-2 border-[#CCC] rounded-3xl sm:fixed sm:bottom-0 sm:bg-white">
+                        class="lg:w-[80%] w-[100%] h-[100%] sm:h-[10%] sm:rounded-none border-2 border-[#CCC] rounded-3xl sm:fixed sm:bottom-0 sm:bg-white">
                         <div class="m-7 sm:m-5">
                             <p class="text-[18px] font-semibold sm:hidden">Siapkan Pesanan</p>
                             <form action="/checkOut">
