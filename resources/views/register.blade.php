@@ -46,7 +46,7 @@
                             </span>
                             @enderror
                             <button
-                                class="text-white bg-[#D10B05] lg:py-3 md:py-3 py-2 lg:px-36 md:px-32 md:mt-8 px-[80px] lg:text-base md:text-base sm:text-xs rounded-lg font-semibold lg:mt-8 sm:mt-5 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
+                                class="button-submit2 text-white bg-[#D10B05] lg:py-3 md:py-3 py-2 lg:px-36 md:px-32 md:mt-8 px-[80px] lg:text-base md:text-base sm:text-xs rounded-lg font-semibold lg:mt-8 sm:mt-5 hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                 Selanjutnya
                             </button>
                             <div class="justify-center flex mt-6">
@@ -56,7 +56,7 @@
                         <div class="justify-center flex">
                             <form action="">
                                 <button
-                                    class="bg-white border-[#CCC] border-2 lg:py-3 py-2 lg:px-[82px] md:px-16 sm:px-4 rounded-lg font-semibold mt-6 lg:text-base md:text-base sm:text-xs flex items-center  hover:border-[#d10b05] hover:text-[#d10b05] transition-all duration-200 ease-linear">
+                                    class="button bg-white border-[#CCC] border-2 lg:py-3 py-2 lg:px-[82px] md:px-16 sm:px-4 rounded-lg font-semibold mt-6 lg:text-base md:text-base sm:text-xs flex items-center  hover:border-[#d10b05] hover:text-[#d10b05] transition-all duration-200 ease-linear">
                                     <img src="{{asset('assets/img_index/asset/loginPage/google.svg')}}" alt=""
                                         class="lg:pr-3 pr-2 sm:w-6" />
                                     Masuk dengan Google

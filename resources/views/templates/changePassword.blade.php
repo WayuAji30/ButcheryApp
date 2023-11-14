@@ -23,6 +23,17 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         #logout button:hover svg path {
             fill: #d10b05;
         }
+
+        @media (min-width: 1280px) and (max-width: 1439px) {
+            #cari {
+                width: 520px;
+            }
+
+            #kota,
+            #kecamatan {
+                width: 152px;
+            }
+        }
     </style>
 
 </head>
@@ -70,7 +81,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             <div class="lg:pt-6 py-3 lg:pb-7 items-center justify-between flex lg:px-10 md:px-14 px-2">
                 <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}" alt="LogoButchery" class="mr-9 lg:block hidden" /></a>
                 <div class="flex lg:mr-0 sm:mr-1">
-                    <form action="/searchProduct" method="get">
+                    <form action="/searchProduct" method="get" id="search">
                         <div class="relative flex items-center">
                             <input type="text" name="cari" id="cari" placeholder="Cari di Butchery" class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] w-56 lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
                             <button class="absolute lg:right-7 right-2">

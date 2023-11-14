@@ -43,6 +43,12 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     .border-focus {
         border-color: #d10b05 !important;
     }
+
+    @media (min-width: 1280px) and (max-width: 1439px) {
+        #search {
+            width: 520px;
+        }
+    }
     </style>
 </head>
 
@@ -92,7 +98,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}"
                         alt="LogoButchery" class="mr-9 lg:block hidden" /></a>
                 <div class="flex lg:mr-0 sm:mr-1">
-                    <form action="/searchProduct">
+                    <form action="/searchProduct" method="get" id="search">
                         <div class="relative flex items-center">
                             <input type="text" name="cari" id="cari" required placeholder="Cari di Butchery"
                                 class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] sm:w-[190px] lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
@@ -333,7 +339,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">
-                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="hover:text-[#D10B05]">Bantuan</a></li>
+                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan"
+                                        class="hover:text-[#D10B05]">Bantuan</a></li>
                                 <li class="mt-2">
                                     <a href="" class="hover:text-[#D10B05]">Butchery Care</a>
                                 </li>

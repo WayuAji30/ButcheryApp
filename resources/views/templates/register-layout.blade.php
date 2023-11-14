@@ -9,6 +9,27 @@
     @vite(['resources/css/app.css','resources/css/output.css'])
     <title>Butchery</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
+
+    <style>
+    @media (min-width: 1280px) and (max-width: 1439px) {
+        .button {
+            padding: 12px 50px 12px 50px;
+        }
+
+        .button-submit {
+            padding: 12px 125px 12px 125px;
+        }
+
+        .button-submit2 {
+            padding: 12px 110px 12px 110px;
+        }
+
+        #kota,
+        #kecamatan {
+            width: 140px;
+        }
+    }
+    </style>
 </head>
 
 <body>
@@ -57,7 +78,8 @@
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">
-                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="hover:text-[#D10B05]">Bantuan</a></li>
+                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan"
+                                        class="hover:text-[#D10B05]">Bantuan</a></li>
                                 <li class="mt-2">
                                     <a href="" class="hover:text-[#D10B05]">Butchery Care</a>
                                 </li>

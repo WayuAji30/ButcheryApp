@@ -28,7 +28,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         <div class="splide__track">
                             <ul class="splide__list">
                                 <li class="splide__slide">
-                                    <img src="{{asset('assets/img_index/asset/hiro/iklan/big.svg')}}" alt="" />
+                                    <img src="{{asset('assets/img_index/asset/hiro/iklan/hiro3.svg')}}" alt="" />
                                 </li>
                                 <li class="splide__slide">
                                     <img src="{{asset('assets/img_index/asset/hiro/iklan/hiro1.svg')}}" alt="" />
@@ -37,7 +37,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                     <img src="{{asset('assets/img_index/asset/hiro/iklan/hiro2.svg')}}" alt="" />
                                 </li>
                                 <li class="splide__slide">
-                                    <img src="{{asset('assets/img_index/asset/hiro/iklan/carosel4.svg')}}" alt="" />
+                                    <img src="{{asset('assets/img_index/asset/hiro/iklan/hiro4.svg')}}" alt="" />
                                 </li>
                             </ul>
                         </div>
@@ -45,10 +45,10 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 </div>
             </div>
             <div class="col-span-4">
-                <img src="{{asset('assets/img_index/asset/hiro/iklan/carosel1.svg')}}" alt=""
+                <img src="{{asset('assets/img_index/asset/hiro/iklan/rightUp.svg')}}" alt=""
                     class="lg:mb-2 sm:mb-[3px] w-full lg:block md:block hidden" />
 
-                <img src="{{asset('assets/img_index/asset/hiro/iklan/smallDown.svg')}}" alt=""
+                <img src="{{asset('assets/img_index/asset/hiro/iklan/Group 33835.svg')}}" alt=""
                     class="w-full lg:block md:block hidden" />
             </div>
         </div>
@@ -58,9 +58,9 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 <!-- Fitur -->
 <div class="w-full lg:mt-16 sm:mt-3" id="fitur">
-    <div class="container mx-auto lg:block md:hidden sm:hidden">
-        <div class="grid grid-cols-12 lg:mx-14 md:mx-14">
-            <div class="lg:col-span-6 md:col-span-12 sm:col-span-12 lg:gap-14 md:gap-14 flex">
+    <div class="container mx-auto lg:block hidden">
+        <div class="grid grid-cols-12">
+            <div class="col-span-12 gap-14 flex justify-center items-center">
                 <!-- 1 -->
                 <a href="/searchProduct/bersetifikat">
                     <button id="bersetifikat"
@@ -107,8 +107,6 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         </svg>Daging Impor
                     </button>
                 </a>
-            </div>
-            <div class="lg:col-span-6 md:col-span-12 sm:col-span-12 lg:gap-14 md:gap-2 flex">
                 <!-- 5 -->
                 <a href="/searchProduct/daging-premium">
                     <button id="daging-premium"
@@ -280,11 +278,6 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 <p class="font-semibold text-[14px] pr-1 lg:hidden md:hidden block">
                     Flash Sale
                 </p>
-                <!-- <span class="countdown px-2 text-2xl flex items-center">
-                    <span style="--value:00;" class="bg-[#FA4742] text-white px-2 rounded-md"></span>:
-                    <span style="--value:00;" class="bg-[#FA4742] text-white px-2 rounded-md"></span>:
-                    <span style="--value:00;" class="bg-[#FA4742] text-white px-2 rounded-md"></span>
-                </span> -->
                 <div class="flex gap-2 sm:gap-1 items-center">
                     <p class="bg-[#FA4742] text-white py-2 sm:py-1 sm:px-2 px-3 rounded-lg sm:rounded-sm font-semibold sm:font-normal sm:text-xs countdown-number"
                         id="hour">
@@ -324,10 +317,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                         <p class="text-white pt-3">*S&K Berlaku</p>
                     </div>
                 </div>
-                <!-- 1 -->
-                <div class="col-span-2 absolute lg:ml-[230px] md:ml-36  ">
+                <div class="flex items-center absolute ml-56 gap-5">
+                    <!-- 1 -->
                     <a href="">
-                        <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
+                        <div
+                            class="card-flash-sale bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/sliceYakiniku.png')}}" alt="" />
                             <div class="pt-3 pl-3">
                                 <p class="lg:text-[14px] md:text-[12px] leading-4 font-medium">
@@ -344,11 +338,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             </div>
                         </div>
                     </a>
-                </div>
-                <!-- 2 -->
-                <div class="col-span-2 lg:ml-28 md:ml-36">
+
+                    <!-- 2 -->
                     <a href="">
-                        <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
+                        <div
+                            class="card-flash-sale bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/wagyuMeltique.png')}}" alt="" />
                             <div class="pt-3 pl-3">
                                 <p class="lg:text-[14px] md:text-[12px] leading-4 font-medium">
@@ -365,11 +359,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             </div>
                         </div>
                     </a>
-                </div>
-                <!-- 3 -->
-                <div class="col-span-2 lg:ml-28 md:ml-[200px]">
+
+                    <!-- 3 -->
                     <a href="">
-                        <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
+                        <div
+                            class="card-flash-sale bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/AUSstriploin.png')}}" alt="" />
                             <div class="pt-3 pl-3">
                                 <p class="lg:text-[14px] md:text-[12px] leading-4 font-medium">
@@ -386,11 +380,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             </div>
                         </div>
                     </a>
-                </div>
-                <!-- 4 -->
-                <div class="col-span-2 lg:ml-28 lg:block md:hidden">
+
+                    <!-- 4 -->
                     <a href="">
-                        <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
+                        <div
+                            class="card-flash-sale bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
                             <img src="{{asset('assets/img_index/asset/flashsale/Angus.png')}}" alt="" />
                             <div class="pt-3 pl-3">
                                 <p class="text-[14px] leading-4 font-medium">
@@ -406,11 +400,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             </div>
                         </div>
                     </a>
-                </div>
-                <!-- 5 -->
-                <div class="col-span-2 ml-28 lg:block md:hidden">
+
+                    <!-- 5 -->
                     <a href="">
-                        <div class="bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg">
+                        <div class="card-flash-sale bg-white h-[272px] lg:w-[215px] md:w-[150px] rounded-2xl drop-shadow-lg"
+                            id="kelima">
                             <img src="{{asset('assets/img_index/asset/flashsale/ribeye.png')}}" alt="" />
                             <div class="pt-3 pl-3">
                                 <p class="text-[14px] leading-4 font-medium">
@@ -631,7 +625,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         <div class="grid grid-cols-12 lg:gap-10 sm:gap-2">
             <!-- 1 -->
             <div class="lg:col-span-3 col-span-6 ">
-                <a href="/searchProduct/daging-ikan" class="items-center flex lg:mt-5 md:mt-20 group">
+                <a href="/searchProduct/daging-ikan" class="card-kategori items-center flex lg:mt-5 md:mt-20 group">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ikan.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -645,7 +639,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 2 -->
             <div class="lg:col-span-3 col-span-6 ">
-                <a href="/searchProduct/daging-bebek" class="items-center flex group lg:mt-5 md:mt-20">
+                <a href="/searchProduct/daging-bebek" class="card-kategori items-center flex group lg:mt-5 md:mt-20">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/bebek.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -659,7 +653,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 3 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/daging-kerbau" class="items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-kerbau"
+                    class="card-kategori items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerbau.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -673,7 +668,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 4 -->
             <div class="lg:col-span-3 col-span-6 ">
-                <a href="/searchProduct/daging-kelinci" class="items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-kelinci"
+                    class="card-kategori items-center flex group lg:mt-5 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kelinci.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -687,7 +683,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 5 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/daging-ayam" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-ayam"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ayam.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -701,7 +698,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 6 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/daging-kambing" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-kambing"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kambing.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -715,7 +713,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 7 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/daging-domba" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-domba"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/domba.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -729,7 +728,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 8 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/daging-udang" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-udang"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/udang.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -743,7 +743,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 9 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/daging-sapi" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-sapi"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/sapi.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -757,7 +758,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 10 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/daging-puyuh" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/daging-puyuh"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/puyuh.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -771,7 +773,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 11 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/kerang-dan-tiram" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/kerang-dan-tiram"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerang.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -785,7 +788,8 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </div>
             <!-- 12 -->
             <div class="lg:col-span-3 col-span-6">
-                <a href="/searchProduct/cumi-cumi" class="items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
+                <a href="/searchProduct/cumi-cumi"
+                    class="card-kategori items-center flex group lg:mt-28 md:mt-36 mt-[70px]">
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/cumi.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
@@ -797,8 +801,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 </a>
             </div>
         </div>
-        <img src="{{asset('assets/img_index/asset/pilihanDaging/line.svg')}}" alt=""
-            class="mt-28 justify-center lg:block hidden" />
+        <div class="border-t-2 border-[#f3f3f3] mt-28 lg:block hidden"></div>
     </div>
 </div>
 <!-- Pilihan Daging -->
@@ -822,11 +825,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             @if ($pd)
             <div class="lg:col-span-2 md:col-span-4 lg:mt-0 md:mt-4 mt-3 sm:col-span-6">
                 <a href="/produk/{{$rp['_id']}}">
-                    <div
-                        class="bg-white h-[344px] sm:h-[310px] w-[207px] sm:w-[155px] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
+                    <div id="card"
+                        class="bg-white h-[344px] sm:h-[310px] w-full rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt=""
                             class="w-[300px] h-[152px] rounded-t-[15px] " />
-                        <div class="pt-3 pl-2 pr-1">
+                        <div class="pt-3 pl-2 ">
                             <p class="text-[14px] sm:text-[12px] leading-4 font-medium lg:pr-5 lg:block hidden">
                                 {{(strlen($rp['nama_produk']) > 44 ? substr($rp['nama_produk'],0,43) .'...' : $rp['nama_produk'])}}
                             </p>
