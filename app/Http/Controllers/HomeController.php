@@ -37,14 +37,14 @@ class HomeController extends Controller
         $data_produk = MitraProdukModel::all();
 
         $produk_data = [];
-        
+
         foreach ($data_produk as $dp) {
             $id_produk = $dp->_id;
             $jumlah_allrating = RReviewsModel::where('id_produk', $id_produk)->get()->sum('ratings');
             $jumlah_reviews = RReviewsModel::where('id_produk', $id_produk)->count();
             $jumlah_terjual = PurchaseModel::where('id_produk', $id_produk)->count();
-        
-            $avgRating = ($jumlah_reviews != 0) ? round(doubleval($jumlah_allrating / $jumlah_reviews),1) : "0";
+
+            $avgRating = ($jumlah_reviews != 0) ? round(doubleval($jumlah_allrating / $jumlah_reviews), 1) : "0";
 
             $produk_data[] = [
                 'id_produk' => $id_produk,
@@ -73,7 +73,7 @@ class HomeController extends Controller
         $data_produk = MitraProdukModel::all()->toArray();
         shuffle($data_produk);
 
-        $rekomendasi_produk = array_slice($data_produk,0,29);
+        $rekomendasi_produk = array_slice($data_produk, 0, 29);
 
         return view('index', ['rekproduk' => $rekomendasi_produk, 'produk_laris' => $data_produk_laris, 'produk_data' => $produk_data]);
     }
@@ -82,51 +82,51 @@ class HomeController extends Controller
     {
         $name = $request->input('cari');
 
-        $data_search = MitraProdukModel::where('nama_produk','regex', new \MongoDB\BSON\Regex($name, 'i'))->get();
+        $data_search = MitraProdukModel::where('nama_produk', 'regex', new \MongoDB\BSON\Regex($name, 'i'))->get();
 
         $total_data = count($data_search);
 
-        return view('searchProduct',['data_search' => $data_search, 'kata_kunci' => $name, 'total_data' => $total_data]); // view('folder.file', compact())
+        return view('searchProduct', ['data_search' => $data_search, 'kata_kunci' => $name, 'total_data' => $total_data]); // view('folder.file', compact())
     }
 
     public function searchProductByKategori($slug)
     {
-        $data_search = MitraProdukModel::where('id_kategori',$slug)->get();
+        $data_search = MitraProdukModel::where('id_kategori', $slug)->get();
 
         $total_data = count($data_search);
 
-        return view('searchProduct',['data_search' => $data_search, 'slug'=>$slug, 'total_data' => $total_data]); // view('folder.file', compact())
+        return view('searchProduct', ['data_search' => $data_search, 'slug' => $slug, 'total_data' => $total_data]); // view('folder.file', compact())
     }
 
     public function notification($id)
     {
-        $pesanan = PurchaseModel::where('id_user',$id)->get();
-        
+        $pesanan = PurchaseModel::where('id_user', $id)->get();
+
         $produks =  [];
-        foreach($pesanan as $pe){
+        foreach ($pesanan as $pe) {
             $produk = MitraProdukModel::find($pe->id_produk);
-            $produks[]=$produk;
+            $produks[] = $produk;
         }
-        
+
         $data_user = KonsumensModel::find($id);
 
-        if(!session()->has('login')){
+        if (!session()->has('login')) {
             return redirect()->to('/login');
         }
 
-        return view('notification',['pesanan' => $pesanan, 'data_user' => $data_user, 'produk' => (isset($produks[0]) ? $produks[0] : '')]); // view('folder.file', compact())
+        return view('notification', ['pesanan' => $pesanan, 'data_user' => $data_user, 'produk' => (isset($produks[0]) ? $produks[0] : '')]); // view('folder.file', compact())
     }
 
     public function produk($id)
     {
         $detail_produk = MitraProdukModel::find($id);
-        $jumlah_allrating = RReviewsModel::where('id_produk',$id)->get()->sum('ratings');   
-        $jumlah_reviews = RReviewsModel::where('id_produk',$id)->count('reviews');
-        $jumlah_terjual = PurchaseModel::where('id_produk',$id)->count();
+        $jumlah_allrating = RReviewsModel::where('id_produk', $id)->get()->sum('ratings');
+        $jumlah_reviews = RReviewsModel::where('id_produk', $id)->count('reviews');
+        $jumlah_terjual = PurchaseModel::where('id_produk', $id)->count();
 
-        if($jumlah_reviews != 0){
-            $avgRating = round(doubleval($jumlah_allrating / $jumlah_reviews),1);
-        }else{
+        if ($jumlah_reviews != 0) {
+            $avgRating = round(doubleval($jumlah_allrating / $jumlah_reviews), 1);
+        } else {
             $avgRating = "";
         }
 
@@ -134,26 +134,26 @@ class HomeController extends Controller
 
         $data_user = [];
 
-        foreach($data_reviews as $dr){
+        foreach ($data_reviews as $dr) {
             $users = KonsumensModel::where('_id', $dr->id_user)->get();
-            $data_user[]=$users;
+            $data_user[] = $users;
         }
 
-        $data_supplier = SuppliersModel::where('_id',$detail_produk->supplier_id)->first();
+        $data_supplier = SuppliersModel::where('_id', $detail_produk->supplier_id)->first();
 
         // Dapatkan kategori produk saat ini
         $kategori_produk_saat_ini = $detail_produk->id_kategori;
 
         $produk_terkait = MitraProdukModel::where('id_kategori', $kategori_produk_saat_ini)->where('_id', '!=', $id)->take(3)->get();
-        
+
         $kota = KotaindonesiaModel::first();
 
-        return view('product', ['kota' => $kota, 'detail_produk' => $detail_produk, 'product_related' => $produk_terkait, 'rating' => $avgRating, 'terjual' => $jumlah_terjual ,'jumlah_reviews' => $jumlah_reviews ,'reviews' => $data_reviews, 'data_user' => $data_user, 'data_supplier' => $data_supplier]); // view('folder.file', compact())
+        return view('product', ['kota' => $kota, 'detail_produk' => $detail_produk, 'product_related' => $produk_terkait, 'rating' => $avgRating, 'terjual' => $jumlah_terjual, 'jumlah_reviews' => $jumlah_reviews, 'reviews' => $data_reviews, 'data_user' => $data_user, 'data_supplier' => $data_supplier]); // view('folder.file', compact())
     }
 
     public function cart($id_user)
     {
-        $cart_items = CartModel::where('user_id',$id_user)->get();
+        $cart_items = CartModel::where('user_id', $id_user)->get();
 
         return view('/cart', ['cart_items' => $cart_items]);
     }
@@ -175,9 +175,9 @@ class HomeController extends Controller
             'foto' => $foto_produk
         ]);
 
-        $dataBaru =CartModel::all()->count();
+        $dataBaru = CartModel::all()->count();
 
-        if($dataBaru > $dataLama){
+        if ($dataBaru > $dataLama) {
             session(['NewDataCart' => true]);
         }
 
@@ -193,7 +193,7 @@ class HomeController extends Controller
 
         $data->delete();
 
-        return redirect()->to('/cart'. '/' . $id_user);
+        return redirect()->to('/cart' . '/' . $id_user);
     }
 
     public function hapusCheckout(Request $request)
@@ -203,10 +203,10 @@ class HomeController extends Controller
         $id_user = $request->input('id_user');
 
         CheckOutModel::find($id_checkout)->delete();
-        if(isset($id_purchase)){
+        if (isset($id_purchase)) {
             PurchaseModel::find($id_purchase)->delete();
         }
-        
+
 
         return redirect()->to('/');
     }
@@ -217,7 +217,7 @@ class HomeController extends Controller
         $data_user = KonsumensModel::where('_id', $id_user)->first();
         $metode_pembayaran = MetodePembayaranModel::all();
 
-        return view('/checkout', ['data_produk' => $data_produk,'data_user' => $data_user, 'metode_pembayaran' => $metode_pembayaran]);
+        return view('/checkout', ['data_produk' => $data_produk, 'data_user' => $data_user, 'metode_pembayaran' => $metode_pembayaran]);
     }
 
 
@@ -243,7 +243,7 @@ class HomeController extends Controller
         return redirect()->to('/checkOut' . '/' . $id_user);
     }
 
-    public function store_checkout($id_user, $id_supplier, $id_produk, $foto,$nama_produk,$varian,$harga,$qty,$harga_total, $note)
+    public function store_checkout($id_user, $id_supplier, $id_produk, $foto, $nama_produk, $varian, $harga, $qty, $harga_total, $note)
     {
         CheckOutModel::create([
             'user_id' => $id_user,
@@ -257,33 +257,34 @@ class HomeController extends Controller
             'harga_total' => $harga_total,
             'note' => $note
         ]);
-        
+
 
         return redirect()->to('/checkOut' . '/' . $id_user);
     }
 
-    public function store_orders($data_orders, $opsi_pengiriman, $total_produk ,$biaya_ongkir, $biaya_layanan, $biaya_asuransi, $biaya_tambahan, $subtotal, $total_harga, $status, $alamatPengiriman){
+    public function store_orders($data_orders, $opsi_pengiriman, $total_produk, $biaya_ongkir, $biaya_layanan, $biaya_asuransi, $biaya_tambahan, $subtotal, $total_harga, $status, $alamatPengiriman)
+    {
 
-         // Set your Merchant Server Key
-         \Midtrans\Config::$serverKey = config('midtrans.server_key');
-         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-         \Midtrans\Config::$isProduction = false;
-         // Set sanitization on (default)
-         \Midtrans\Config::$isSanitized = true;
-         // Set 3DS transaction for credit card to true
-         \Midtrans\Config::$is3ds = true;
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
 
         $data = json_decode(urldecode($data_orders), true);
 
         $dataLama = PurchaseModel::all()->count();
 
-        foreach($data as $do){
-           $order = PurchaseModel::create([
+        foreach ($data as $do) {
+            $order = PurchaseModel::create([
                 'id_user' => $do['id_user'],
                 'id_supplier' => $do['id_supplier'],
                 'id_produk' => $do['id_produk'],
                 'foto' => $do['foto'],
-                'nama_produk'=> $do['nama_produk'],
+                'nama_produk' => $do['nama_produk'],
                 'varian' => $do['varian'],
                 'harga' => $do['harga'],
                 'qty' => $do['qty'],
@@ -305,7 +306,7 @@ class HomeController extends Controller
                     'gross_amount' => $order->total_harga,
                 ),
                 'customer_details' => array(
-                   'id_user' => $order->id_user
+                    'id_user' => $order->id_user
                 ),
             );
 
@@ -314,55 +315,57 @@ class HomeController extends Controller
 
         $dataBaru = PurchaseModel::all()->count();
 
-        if($dataBaru > $dataLama){
-            session(['NewDataPesanan' => true,'snapToken' => $snapToken]);
+        if ($dataBaru > $dataLama) {
+            session(['NewDataPesanan' => true, 'snapToken' => $snapToken]);
         }
 
-        return redirect()->to('/checkout_payment' .'/' . $order->id_user . '?snapToken=' . $snapToken);
+        return redirect()->to('/checkout_payment' . '/' . $order->id_user . '?snapToken=' . $snapToken);
     }
 
-    public function checkout_payment(Request $request,$id_user)
+    public function checkout_payment(Request $request, $id_user)
     {
         $snapToken = $request->get('snapToken');
 
-        $order = PurchaseModel::where('id_user',$id_user)->latest()->first();
-        $total_produk = 
+        $order = PurchaseModel::where('id_user', $id_user)->latest()->first();
+        $total_produk =
 
-        $cart = CartModel::where('user_id',$id_user)->first();
-        $checkout = CheckOutModel::where('user_id',$id_user)->first();
-        $data_order = PurchaseModel::where('id_user',$id_user)->latest()->first();
+            $cart = CartModel::where('user_id', $id_user)->first();
+        $checkout = CheckOutModel::where('user_id', $id_user)->first();
+        $data_order = PurchaseModel::where('id_user', $id_user)->latest()->first();
 
-        return view('checkout_payment',['data_order' => $data_order,'total_produk' => intval($order->qty),'cart' => $cart, 'checkout' => $checkout ,'snapToken' => $snapToken]); // view('folder.file', compact())
+        return view('checkout_payment', ['data_order' => $data_order, 'total_produk' => intval($order->qty), 'cart' => $cart, 'checkout' => $checkout, 'snapToken' => $snapToken]); // view('folder.file', compact())
     }
 
-    public function after_payment($total_harga,$id_cart,$id_checkout,$varian){
-        if($id_cart == 'null'){
+    public function after_payment($total_harga, $id_cart, $id_checkout, $varian)
+    {
+        if ($id_cart == 'null') {
             CheckOutModel::find($id_checkout)->delete();
-            PurchaseModel::where('total_harga',$total_harga)->update(['status' => 'sudah bayar']); 
-        }else{
+            PurchaseModel::where('total_harga', $total_harga)->update(['status' => 'sudah bayar']);
+        } else {
             CartModel::find($id_cart)->delete();
             CheckOutModel::find($id_checkout)->delete();
-            PurchaseModel::where('total_harga',$total_harga)->update(['status' => 'sudah bayar']);
+            PurchaseModel::where('total_harga', $total_harga)->update(['status' => 'sudah bayar']);
         }
         return redirect()->to('/');
     }
 
-    public function changeStatusByKonsumen($id_user,$id_pesanan,$status)
+    public function changeStatusByKonsumen($id_user, $id_pesanan, $status)
     {
-        PurchaseModel::where('_id',$id_pesanan)->update(['status' => $status]);
+        PurchaseModel::where('_id', $id_pesanan)->update(['status' => $status]);
 
-        return redirect()->to('/notification'.'/'.$id_user); // view('folder.file', compact())
+        return redirect()->to('/notification' . '/' . $id_user); // view('folder.file', compact())
     }
 
-    public function store_rrviews(Request $request){
+    public function store_rrviews(Request $request)
+    {
         $id_pesanan = $request->input('id_pesanan');
         $id_user = $request->input('id_user');
         $id_produk = $request->input('id_produk');
         $reviews = $request->input('reviews');
         $rating = $request->input('rating');
 
-        $data_pesanan = PurchaseModel::where('_id',$id_pesanan)->update(['status' => 'Sudah dinilai']);
-       
+        $data_pesanan = PurchaseModel::where('_id', $id_pesanan)->update(['status' => 'Sudah dinilai']);
+
         RReviewsModel::create([
             'id_user' => $id_user,
             'id_produk' => $id_produk,
@@ -388,5 +391,10 @@ class HomeController extends Controller
 
 
         dd([$response, $response2]);
+    }
+
+    public function toko()
+    {
+        return view('toko');
     }
 }

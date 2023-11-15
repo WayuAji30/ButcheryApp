@@ -23,49 +23,49 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/searchProduct', [HomeController::class, 'searchProduct']);
 Route::get('/searchProduct/{slug}', [HomeController::class, 'searchProductByKategori']);
 
-Route::get('/notification' . '/', function(){
+Route::get('/notification' . '/', function () {
     return redirect()->to('/login');
 });
 Route::get('/notification/{id}', [HomeController::class, 'notification']);
 
-Route::get('/cart' . '/', function(){
+Route::get('/cart' . '/', function () {
     return redirect()->to('/login');
 });
 Route::get('/cart/{id}', [HomeController::class, 'cart']);
 
-Route::get('/store_cart//{id_produk}/{id_supplier}/{nama_produk}/{varian}/{harga}/{qty}/{subtotal}/{note}/{foto_produk}',function(){
+Route::get('/store_cart//{id_produk}/{id_supplier}/{nama_produk}/{varian}/{harga}/{qty}/{subtotal}/{note}/{foto_produk}', function () {
     return redirect()->to('/login');
 });
 Route::get('/store_cart/{id}/{id_produk}/{id_supplier}/{nama_produk}/{varian}/{harga}/{qty}/{subtotal}/{note}/{foto_produk}', [HomeController::class, 'store_cart']);
 
 Route::post('/deleteCart', [HomeController::class, 'deleteCart']);
-Route::post('/hapusCheckOut',[HomeController::class,'hapusCheckOut']);
+Route::post('/hapusCheckOut', [HomeController::class, 'hapusCheckOut']);
 
-Route::get('/checkout' . '/', function(){
+Route::get('/checkout' . '/', function () {
     return redirect()->to('/login');
 });
 Route::get('/checkOut/{id}', [HomeController::class, 'checkOut']);
 
-Route::get('/store_checkout//{id_supplier}/{id_produk}/{foto}/{nama_produk}/{varian}/{harga}/{qty}/{harga_total}/{note}', function(){
+Route::get('/store_checkout//{id_supplier}/{id_produk}/{foto}/{nama_produk}/{varian}/{harga}/{qty}/{harga_total}/{note}', function () {
     return redirect()->to('/login');
 });
-    
+
 Route::get('/store_checkout/{id_user}/{id_supplier}/{id_produk}/{foto}/{nama_produk}/{varian}/{harga}/{qty}/{harga_total}/{note}', [HomeController::class, 'store_checkout']);
 
 Route::get('/store_cartcheckout/{id_user}/{data_keranjang}/{harga_total}/{foto}', [HomeController::class, 'store_cartcheckout']);
 
 Route::post('/updateUserByCheckout', [AuthController::class, 'updateUserByCheckout']);
 
-Route::get('/checkout_payment' . '/', function(){
+Route::get('/checkout_payment' . '/', function () {
     return redirect()->to('/login');
 });
 Route::get('/checkout_payment/{id_user}', [HomeController::class, 'checkout_payment']);
 
-Route::get('/store_orders/{data_orders}/{opsiPengiriman}/{totalProduk}/{biayaOngkir}/{biayaLayanan}/{biayaAsuransi}/{biayaTambahan}/{subtotal}/{total_harga}/{status}/{alamatPengiriman}',[HomeController::class,'store_orders']);
+Route::get('/store_orders/{data_orders}/{opsiPengiriman}/{totalProduk}/{biayaOngkir}/{biayaLayanan}/{biayaAsuransi}/{biayaTambahan}/{subtotal}/{total_harga}/{status}/{alamatPengiriman}', [HomeController::class, 'store_orders']);
 
-Route::get('/after_payment/{id_user}/{id_cart}/{id_checkout}/{varian}',[HomeController::class,'after_payment']);  
+Route::get('/after_payment/{id_user}/{id_cart}/{id_checkout}/{varian}', [HomeController::class, 'after_payment']);
 
-Route::post('/store_rreviews',[HomeController::class,'store_rrviews']);
+Route::post('/store_rreviews', [HomeController::class, 'store_rrviews']);
 
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/auth_system', [AuthController::class, 'auth_system']);
@@ -86,7 +86,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/profile/{id}/{idProv}/{idKota}/{idKec}', [AuthController::class, 'profile']);
 Route::post('/edit_profile', [AuthController::class, 'edit_profile']);
 
-Route::get('/register_mitra' . '/', function(){
+Route::get('/register_mitra' . '/', function () {
     return redirect()->to('/login');
 });
 Route::get('/register_mitra/{id}', [AuthController::class, 'register_mitra']);
@@ -98,12 +98,12 @@ Route::post('/ubah_Password', [AuthController::class, 'ubah_password']);
 
 Route::get('/trenDaging', [MitraController::class, 'trenDaging']);
 
-Route::get('/daftarProduk' . '/', function(){
+Route::get('/daftarProduk' . '/', function () {
     return redirect()->to('/login');
 });
 Route::get('/daftarProduk/{id_supplier}', [MitraController::class, 'daftarProduk']);
 
-Route::get('/pesanan' . '/', function(){
+Route::get('/pesanan' . '/', function () {
     return redirect()->to('/login');
 });
 Route::get('/pesanan/{id_supplier}', [MitraController::class, 'pesanan']);
@@ -119,8 +119,8 @@ Route::post('/hapusProduk', [MitraController::class, 'deleteProduk']);
 
 Route::get('/produk/{id}', [HomeController::class, 'produk']);
 
-Route::get('/changeStatusBySupplier/{id_supplier}/{id_produk}/{status}',[MitraController::class,'change_status']);
-Route::get('/changeStatusByKonsumen/{id_user}/{id_produk}/{status}',[HomeController::class,'changeStatusByKonsumen']);
+Route::get('/changeStatusBySupplier/{id_supplier}/{id_produk}/{status}', [MitraController::class, 'change_status']);
+Route::get('/changeStatusByKonsumen/{id_user}/{id_produk}/{status}', [HomeController::class, 'changeStatusByKonsumen']);
 
 Route::get('/success_page', [HomeController::class, 'success_page']);
 Route::post('/test_api', [HomeController::class, 'test_api']);
@@ -134,3 +134,5 @@ Route::get('/adminReviews', [AdminController::class, 'adminReviews']);
 
 Route::post('/hapusProdukAdmin', [AdminController::class, 'deleteProdukByAdmin']);
 Route::post('/hapusRReviews', [AdminController::class, 'deleteRReviews']);
+
+Route::get('/toko', [HomeController::class, 'toko']);
