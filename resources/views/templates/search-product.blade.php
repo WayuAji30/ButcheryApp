@@ -48,6 +48,14 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         #search {
             width: 520px;
         }
+
+        .card-product {
+            width: 90%;
+        }
+
+        .toko {
+            padding-left: 20px;
+        }
     }
     </style>
 </head>
