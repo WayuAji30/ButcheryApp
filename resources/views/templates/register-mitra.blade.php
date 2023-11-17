@@ -92,7 +92,8 @@ $user = KonsumensModel::find(session('id_user'));
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">
-                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="hover:text-[#D10B05]">Bantuan</a></li>
+                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan"
+                                        class="hover:text-[#D10B05]">Bantuan</a></li>
                                 <li class="mt-2">
                                     <a href="" class="hover:text-[#D10B05]">Butchery Care</a>
                                 </li>
@@ -186,7 +187,7 @@ $user = KonsumensModel::find(session('id_user'));
                             <button class="p-2 shadow-md rounded-lg" disabled>
                                 <img src="{{asset('assets/img_index/asset/footer/qr.svg')}}" alt="" />
                             </button>
-                            <ul class="ml-5 list-none">
+                            <ul class="ml-5 list-none -mt-4">
                                 <li>
                                     <a href="" class="ml-5"><img
                                             src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
