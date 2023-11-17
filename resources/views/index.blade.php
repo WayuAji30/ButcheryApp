@@ -826,17 +826,17 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             <div class="lg:col-span-2 md:col-span-4 lg:mt-0 md:mt-4 mt-3 sm:col-span-6">
                 <a href="/produk/{{$rp['_id']}}">
                     <div id="card"
-                        class="bg-white h-[344px] sm:h-[310px] w-full rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
+                        class="bg-white h-[344px] sm:h-[310px] w-full md:w-[90%] rounded-2xl drop-shadow-lg border-white border-2 hover:border-[#D10B05] hover:border-2 transition-all duration-200 ease-linear">
                         <img src="{{asset('storage/img_uploaded/'.$rp['foto']['foto1'])}}" alt=""
                             class="w-[300px] h-[152px] rounded-t-[15px] " />
                         <div class="pt-3 pl-2 ">
-                            <p class="text-[14px] sm:text-[12px] leading-4 font-medium lg:pr-5 lg:block hidden">
+                            <p class="text-[14px] sm:text-[12px] leading-4 font-medium lg:pr-5 block sm:hidden">
                                 {{(strlen($rp['nama_produk']) > 44 ? substr($rp['nama_produk'],0,43) .'...' : $rp['nama_produk'])}}
                             </p>
                             <p class="text-[14px] sm:text-[12px] leading-4 font-medium lg:pr-5 hidden sm:block">
                                 {{(strlen($rp['nama_produk']) > 38 ? substr($rp['nama_produk'],0,37) .'...' : $rp['nama_produk'])}}
                             </p>
-                            <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
+                            <p class="font-bold lg:pt-2 pt-1 sm:text-[14px]">
                                 Rp<span>{{number_format($rp['varian'][0]['harga1'], 0, ',')}}</span></p>
                             <p class="pt-5 flex text-[#999] sm:text-xs leading-4">
                                 <img class="pr-2 sm:w-6"
