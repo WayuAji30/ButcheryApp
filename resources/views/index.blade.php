@@ -620,7 +620,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
 <!-- Pilihan Daging -->
 <div class="w-full lg:mt-20 md:mt-10 sm:mt-4 ">
-    <div class="container mx-auto lg:px-[53px] md:px-12 px-5">
+    <div class="container mx-auto lg:px-[53px] md:px-12 pl-5">
         <h1 class="text-[24px] md:text-[20px] font-medium lg:mb-20 sm:mb-10 sm:text-[16px]">Ngga Cuma Daging Sapi!</h1>
         <div class="grid grid-cols-12 lg:gap-10 sm:gap-2">
             <!-- 1 -->
@@ -629,7 +629,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ikan.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -643,7 +643,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/bebek.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -658,7 +658,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerbau.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -673,7 +673,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kelinci.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -688,7 +688,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/ayam.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -703,7 +703,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kambing.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -718,7 +718,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/domba.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -733,7 +733,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/udang.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -748,7 +748,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/sapi.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -763,7 +763,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/puyuh.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -778,7 +778,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/kerang.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">
@@ -793,7 +793,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                     <img src="{{asset('assets/img_index/asset/pilihanDaging/cumi.png')}}" alt=""
                         class="absolute sm:w-40" />
                     <div
-                        class="absolute w-[310px] h-[129px] rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200 sm:hidden">
+                        class="absolute w-[310px] sm:w-40 h-[129px] sm:h-[66px] sm:rounded-lg rounded-xl bg-gradient-to-r from-[#d10b05] opacity-0 group-hover:opacity-100 transition-all duration-200">
                     </div>
                     <p
                         class="absolute block text-white text-[20px] font-semibold lg:pl-8 md:pl-5 sm:pl-3 sm:text-[14px] group-hover:opacity-100">

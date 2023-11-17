@@ -88,7 +88,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         }
 
         .card-flash-sale {
-            width: 175px;
+            width: 185px;
         }
 
         .card-kategori img {
@@ -165,14 +165,14 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         </div>
 
         <div class="bg-white drop-shadow-md">
-            <div class="lg:pt-6 py-3 lg:pb-7 items-center justify-between flex lg:px-10 md:px-14 px-2">
+            <div class="lg:pt-6 py-3 lg:pb-7 items-center justify-between flex lg:px-10 md:px-14 px-4">
                 <a href="/index"><img src="{{asset('assets/img_index/asset/navbar/LogoButchery.svg')}}"
                         alt="LogoButchery" class="mr-9 lg:block hidden" /></a>
                 <div class="flex lg:mr-0 sm:mr-1">
                     <form action="/searchProduct" method="get" id="search">
                         <div class="relative flex items-center">
                             <input type="text" name="cari" id="cari" placeholder="Cari di Butchery"
-                                class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] w-56 lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
+                                class="border-solid border-2 border-slate-300 rounded-md lg:w-[650px] md:w-[500px] w-60 lg:pl-5 pl-2 lg:py-4 py-2 sm:text-xs focus:outline-[#D10B05] " />
                             <button class="absolute lg:right-7 right-2">
                                 <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                     viewBox="0 0 24 24">
