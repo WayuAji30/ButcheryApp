@@ -53,7 +53,7 @@
                         </div>
                         <!-- <button class="text-[#D10B05] font-semibold hover:text-[#9F0804]">Ubah</button> -->
                         <!-- The button to open modal -->
-                        <label for="my_modal_7" id="ubah_alamat" class="text-[#D10B05] font-semibold hover:text-[#9F0804]" data-alamat1="{{(isset($data_user['alamat'][0]['alamat']) ? $data_user['alamat'][0]['alamat'] : 'Tidak ada alamat tambahan')}}" data-alamat2="{{(isset($data_user['alamat'][1]['alamat']) ? $data_user['alamat'][1]['alamat'] : 'Tidak ada alamat tambahan')}}" data-alamat3="{{(isset($data_user['alamat'][2]['alamat']) ? $data_user['alamat'][2]['alamat'] : 'Tidak ada alamat tambahan')}}">Ubah</label>
+                        <label for="my_modal_7" id="ubah_alamat" class="text-[#D10B05] font-semibold hover:text-[#9F0804] cursor-pointer" data-alamat1="{{(isset($data_user['alamat'][0]['alamat']) ? $data_user['alamat'][0]['alamat'] : 'Tidak ada alamat tambahan')}}" data-alamat2="{{(isset($data_user['alamat'][1]['alamat']) ? $data_user['alamat'][1]['alamat'] : 'Tidak ada alamat tambahan')}}" data-alamat3="{{(isset($data_user['alamat'][2]['alamat']) ? $data_user['alamat'][2]['alamat'] : 'Tidak ada alamat tambahan')}}">Ubah</label>
 
                         <!-- Put this part before </body> tag -->
                         <input type="checkbox" id="my_modal_7" class="modal-toggle" />
@@ -61,19 +61,19 @@
                             <div class="modal-box">
                                 <p class="font-semibold text-[20px] text-center">Alamat Pengiriman</p>
                                 @if(isset($data_user['alamat'][0]['alamat']))
-                                    <div class="alamat flex items-center gap-5 mt-2">
-                                        <input type="radio" id="alamat1" value="">
-                                        <label for="alamat1">
-                                            <p id="alamat-user-modal">
-                                                {{($data_user['alamat'][0]['alamat'])}}
-                                            </p>
-                                            <p class="font-semibold mt-1" id="phone-user-modal">
-                                                {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
-                                            </p>
-                                        </label>
-                                    </div>
+                                <div class="alamat flex items-center gap-5 mt-2">
+                                    <input type="radio" id="alamat1" value="">
+                                    <label for="alamat1">
+                                        <p id="alamat-user-modal">
+                                            {{($data_user['alamat'][0]['alamat'])}}
+                                        </p>
+                                        <p class="font-semibold mt-1" id="phone-user-modal">
+                                            {{(isset($data_user['no_hp']) ? $data_user['no_hp'] : '(+62) Tidak Tersedia')}}
+                                        </p>
+                                    </label>
+                                </div>
                                 @endif
-                                
+
                                 @if(isset($data_user['alamat'][1]['alamat']))
                                 <div class="alamat flex items-center gap-5 mt-2">
                                     <input type="radio" id="alamat2" value="">
@@ -114,21 +114,21 @@
                                             <p class="text-[#787878] text-start sm:text-xs">
                                                 Provinsi
                                             </p>
-                                            <select name="provinsi" id="provinsi" class="lg:pl-5 sm:pl-2 lg:py-3 sm:py-2 sm:text-xs border-solid border-2 mt-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
+                                            <select name="provinsi" id="provinsi" class="lg:pl-5 pl-2 lg:py-3 py-2 sm:text-xs border-solid border-2 mt-2 border-[#CCCCCC] rounded-lg w-[100%] focus:outline-[#D10B05]">
                                                 <option value="">Pilih Provinsi</option>
                                             </select>
                                             <br>
-                                            <div class="lg:flex lg:mt-4 sm:mt-2 justify-center gap-6 mb-5">
+                                            <div class="lg:flex lg:mt-4 md:mt-3 sm:mt-2 justify-center gap-6 mb-5">
                                                 <div class="flex-col text-start sm:text-xs">
                                                     <label for="kota" class="text-[#787878]">Kota</label> <br>
-                                                    <select name="kota" id="kota" class="lg:pl-5 sm:pl-2 lg:py-3 sm:py-2 lg:mt-3 sm:mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] sm:w-[90%] focus:outline-[#D10B05]">
+                                                    <select name="kota" id="kota" class="lg:pl-5 pl-2 lg:py-3 py-2 lg:mt-3 mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] w-full sm:w-[90%] focus:outline-[#D10B05]">
                                                         <option value="">Pilih Kota</option>
                                                     </select>
                                                 </div>
-                                                <div class="flex-col text-start sm:text-xs sm:mt-3">
+                                                <div class="flex-col text-start sm:text-xs md:mt-3 sm:mt-3">
                                                     <label for="kecamatan" class="text-[#787878]">Kecamatan</label>
                                                     <br>
-                                                    <select name="kecamatan" id="kecamatan" class="lg:pl-5 sm:pl-2 lg:py-3 sm:py-2 lg:mt-3 sm:mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] sm:w-[90%] focus:outline-[#D10B05]">
+                                                    <select name="kecamatan" id="kecamatan" class="lg:pl-5 pl-2 lg:py-3 py-2 lg:mt-3 mt-2 border-solid border-2 border-[#CCCCCC] rounded-lg lg:w-[200px] w-full sm:w-[90%] focus:outline-[#D10B05]">
                                                         <option value="">Pilih Kecamatan</option>
                                                     </select>
                                                 </div>
@@ -138,7 +138,7 @@
                                             <textarea class="peer block min-h-[auto] sm:text-xs mx-auto my-auto w-full mt-3 mb-5 rounded border-2 bg-white border-solid border-[#CCCCCC] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear" id="alamat" name="alamat" rows="4"></textarea>
 
                                             <div class="flex justify-end">
-                                                <button type="submit" class="text-white sm:text-xs bg-[#D10B05] lg:py-2 sm:py-1 lg:px-10 md:px-36 sm:px-20 rounded-lg font-semibold  hover:bg-[#9F0804] transition-all duration-200 ease-linear">
+                                                <button type="submit" class="text-white sm:text-xs bg-[#D10B05] py-2 sm:py-1 lg:px-10 md:px-16 sm:px-20 rounded-lg font-semibold  hover:bg-[#9F0804] transition-all duration-200 ease-linear">
                                                     Tambah
                                                 </button>
                                             </div>
