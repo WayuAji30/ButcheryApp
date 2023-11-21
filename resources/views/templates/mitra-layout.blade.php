@@ -189,20 +189,6 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             </svg>
                         </div>
                     </a>
-                    @else
-                    <a href="/pesanan/{{$supplier->_id}}"
-                        class="py-1 pt-2 px-2 rounded-lg hover:bg-gray-200 transition-all duration-200 ease-in-out">
-                        <div class="relative inline-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
-                                class="sm:w-7">
-                                <g fill="none" stroke="#454545" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6 19v-9a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v9M6 19h12M6 19H4m14 0h2m-9 3h2" />
-                                    <circle cx="12" cy="3" r="1" />
-                                </g>
-                            </svg>
-                        </div>
-                    </a>
                     @endif
 
                     <a class="flex items-center gap-3">
@@ -217,9 +203,9 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                             <ul tabindex="0"
                                 class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}"
-                                        class="text-[#d10b05] font-semibold">Lihat Profile</a></li>
-                                <li><a href="/index" class="font-semibold text-[#d10b05]">Kembali Ke Beranda</a></li>
-                                <li><a href="/logout" class="font-semibold flex justify-between">Logout <svg
+                                        class="font-semibold">Lihat Profile</a></li>
+                                <li><a href="/index" class="font-semibold">Kembali Ke Beranda</a></li>
+                                <li><a href="/logout" class="text-[#d10b05] font-semibold flex justify-between">Logout <svg
                                             xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             viewBox="0 0 24 24">
                                             <path fill="currentColor"
