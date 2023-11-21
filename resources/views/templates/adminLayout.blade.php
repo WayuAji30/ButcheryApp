@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite(['resources/css/output.css', 'resources/css/app.css'])
+    @vite(['resources/css/app.css'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- AOS Animate -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -50,7 +50,12 @@
     @yield('content')
 
 
-    @vite(['resources/js/hapusProduk.js','resources/js/search.js','resources/js/app.js', 'resources/js/hapusRReviews.js', 'resources/js/live_search.js'])
+    @vite(['resources/js/app.js'])
+
+    <script src = "{{asset('js/hapusProduk.js')}}"></script>
+    <script src = "{{asset('js/search.js')}}"></script>
+    <script src = "{{asset('js/hapusRReviews.js')}}"></script>
+    <script src = "{{asset('js/live_search.js')}}"></script>
 
     <!-- AOS Animate -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

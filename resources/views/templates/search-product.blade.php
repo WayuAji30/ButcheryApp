@@ -16,13 +16,13 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- tailwind -->
-    @vite(['resources/css/app.css', 'resources/css/ouput.css', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js'])
+    @vite(['resources/css/app.css'])
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
     <style>
         #fitur button:hover svg path {
-            fill: white;
+            fill: #d10b05;
         }
 
         /* .active {
@@ -444,7 +444,12 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         </div>
     </footer>
     <!-- FOOTER -->
-    @vite(['resources/js/app.js','resources/js/product.js', 'resources/js/drawer.js', 'resources/js/live-search.js'])
+    @vite(['resources/js/app.js'])
+
+    <script src="{{asset('js/live-search.js')}}"></script>
+    <script src="{{asset('js/drawer.js')}}"></script>
+    <script src="{{asset('js/product.js')}}"></script>
+
 </body>
 
 </html>

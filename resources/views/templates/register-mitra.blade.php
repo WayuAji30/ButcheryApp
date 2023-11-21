@@ -13,7 +13,7 @@ $user = KonsumensModel::find(session('id_user'));
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite(['resources/css/app.css','resources/css/output.css'])
+    @vite(['resources/css/app.css'])
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
     <style>
@@ -209,8 +209,12 @@ $user = KonsumensModel::find(session('id_user'));
     </footer>
     <!-- FOOTER -->
 
-    @vite(['resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js',
-    'resources/js/selectIndonesia.js'])
+    @vite(['resources/js/app.js'])
+
+    <script src = "{{asset('js/password.js')}}"></script>
+    <script src = "{{asset('jquery/code.jquery.com_jquery-3.7.1.min.js')}}"></script>
+    <script src = "{{asset('js/selectIndonesia.js')}}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 </body>
 

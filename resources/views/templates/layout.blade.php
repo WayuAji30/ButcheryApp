@@ -17,7 +17,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- tailwind -->
-    @vite(['resources/css/app.css', 'resources/css/ouput.css'])
+    @vite(['resources/css/app.css'])
     <!-- liblary splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet" />
@@ -115,7 +115,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     <!-- todo Preloader -->
     <!-- <div class="loader_bg">
         <div class="loader">
-            <img src="{{asset('assets/img_index/asset/loader/loader-animasi.gif')}}" alt="loader" />
+            <img src="" alt="loader" />
         </div>
     </div> -->
     <!-- todo Preloader -->
@@ -510,10 +510,19 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         AOS.init();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-    @vite(['resources/js/app.js','resources/jquery/code.jquery.com_jquery-3.7.1.min.js', 'resources/js/loader.js',
-    'resources/js/time.js', 'resources/js/hamburgerToggle.js', 'resources/js/cart.js',
-    'resources/js/product.js','resources/js/selectIndonesia.js', 'resources/js/drawer.js',
-    'resources/js/changePassword.js'])
+    
+    @vite(['resources/js/app.js'])
+
+    <script src = "{{asset('jquery/code.jquery.com_jquery-3.7.1.min.js')}}"></script>
+    <script src = "{{asset('js/loader.js')}}"></script>
+    <script src = "{{asset('js/time.js')}}"></script>
+    <script src = "{{asset('js/hamburgerToggle.js')}}"></script>
+    <script src = "{{asset('js/cart.js')}}"></script>
+    <script src = "{{asset('js/product.js')}}"></script>
+    <script src = "{{asset('js/selectIndonesia.js')}}"></script>
+    <script src = "{{asset('js/drawer.js')}}"></script>
+    <script src = "{{asset('js/changePassword.js')}}"></script>
+
 </body>
 
 </html>

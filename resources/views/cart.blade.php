@@ -263,7 +263,9 @@ session()->forget('NewDataCart');
 </footer>
 <!-- FOOTER -->
 
-@vite(['resources/js/app.js', 'resources/js/cart.js'])
+@vite(['resources/js/app.js'])
+
+<script src = "{{asset('js/cart.js')}}"></script>
 
 </body>
 

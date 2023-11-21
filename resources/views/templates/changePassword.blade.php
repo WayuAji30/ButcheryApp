@@ -15,7 +15,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- tailwind -->
-    @vite(['resources/css/app.css', 'resources/css/ouput.css'])
+    @vite(['resources/css/app.css'])
 
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
@@ -428,9 +428,15 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     </footer>
     <!-- FOOTER -->
 
-    @vite(['resources/js/app.js', 'resources/js/password.js',
-    'resources/jquery/code.jquery.com_jquery-3.7.1.min.js','resources/js/changePassword.js',
-    'resources/js/selectIndonesia.js', 'resources/js/profile.js', 'resources/js/drawer.js'])
+    @vite(['resources/js/app.js'])
+
+    <script src = "{{'jquery/code.jquery.com_jquery-3.7.1.min.js'}}"></script>
+    <script src = "{{'js/password.js'}}"></script>
+    <script src = "{{'js/changePassword.js'}}"></script>
+    <script src = "{{'js/selectIndonesia.js'}}"></script>
+    <script src = "{{'js/profile.js'}}"></script>
+    <script src = "{{'js/drawer.js'}}"></script>
+
 
 </body>
 

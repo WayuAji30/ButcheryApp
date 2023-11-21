@@ -24,9 +24,9 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             </h1>
             <div class="ml-10">
                 <p class="mt-3 text-[#999]">Transaksi Bulan Ini</p>
-                <p class="font-semibold mt-1">Rp<span>0</span></p>
+                <p class="font-semibold mt-1">Rp<span>{{number_format($transaksi,0,",")}}</span></p>
                 <p class="mt-5 text-[#999]">Total Transaksi</p>
-                <p class="font-semibold mt-1">Rp<span>0</span></p>
+                <p class="font-semibold mt-1">Rp<span>{{number_format($transaksi,0,",")}}</span></p>
             </div>
         </div>
 
@@ -121,7 +121,28 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             <p class="font-medium text-[#D10b05] lg:ml-7 ml-2 lg:mt-7 md:mt-5 mt-3 lg:text-base text-sm">
                 Prediksi Tren Daging Bulan Ini
             </p>
-            <p class="font-semibold text-[20px] lg:ml-7 ml-2 mb-2">Daging Ayam</p>
+            @php 
+                $maxSales = 0;
+                $bestSelling = null;  
+             @endphp
+             @foreach ($dataTrend as $dT)
+                @php
+                    $terjual = null;
+                    foreach ($produkData as $pD) {
+                        if ($pD['id_produk'] == $dT['_id']) {
+                            $terjual = $pD;
+                            break;
+                        }
+                    }
+            
+                    // Check and update the best-selling product
+                    if ($terjual && $terjual['jumlah_terjual'] > $maxSales) {
+                        $maxSales = $terjual['jumlah_terjual'];
+                        $bestSelling = $dT->id_kategori;
+                    }
+                @endphp
+             @endforeach
+            <p class="font-semibold text-[20px] lg:ml-7 ml-2 mb-2">{{$bestSelling}}</p>
         </div>
         <div class="lg:mt-32 md:mt-24 bg-white w-96 lg:h-28 md:h-24 shadow-md rounded-r-lg border-l-8 border-[#D10b05]"
             data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
@@ -162,66 +183,90 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 <a class="text-[#D10B05] pb-4 lg:px-11 md:px-6 px-3 border-b-4 border-[#D10B05] font-medium">Top 5
                     Daging
                     Bulan
-                    Lalu</a>
+                    Ini </a>
             </p>
             <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
             <table class="table-auto w-full mt-3 h-72">
                 <tbody>
-                    <tr class="border-b-2 border-[#e6e6e6]">
-                        <td>
-                            <span
-                                class="text-[#d10b05] border-2 rounded-full ml-5 px-3 py-1 border-[#d10b05] font-semibold">
-                                1
-                            </span>
-                        </td>
-                        <td class="text-[18px] font-medium">Daging Ayam</td>
-                        <td class="text-[#999]">1,2 Rb Terjual</td>
-                    </tr>
-                    <tr class="border-b-2 border-[#e6e6e6]">
-                        <td>
-                            <span
-                                class="text-[#d10b05] border-2 rounded-full px-3 py-1 ml-5 border-[#d10b05] font-semibold">
-                                2
-                            </span>
-                        </td>
-                        <td class="text-[18px] font-medium">Daging Sapi</td>
-                        <td class="text-[#999]">802 Terjual</td>
-                    </tr>
-                    <tr class="border-b-2 border-[#e6e6e6]">
-                        <td>
-                            <span
-                                class="text-[#d10b05] border-2 rounded-full px-3 py-1 ml-5 border-[#d10b05] font-semibold">
-                                3
-                            </span>
-                        </td>
-                        <td class="text-[18px] font-medium">Daging Ikan</td>
-                        <td class="text-[#999]">605 Terjual</td>
-                    </tr>
-                    <tr class="border-b-2 border-[#e6e6e6]">
-                        <td>
-                            <span
-                                class="text-[#d10b05] border-2 rounded-full px-3 py-1 ml-5 border-[#d10b05] font-semibold">
-                                4
-                            </span>
-                        </td>
-                        <td class="text-[18px] font-medium">Udang</td>
-                        <td class="text-[#999]">322 Terjual</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span
-                                class="text-[#d10b05] border-2 rounded-full px-3 py-1 ml-5 border-[#d10b05] font-semibold">
-                                5
-                            </span>
-                        </td>
-                        <td class="text-[18px] font-medium">Daging Bebek</td>
-                        <td class="text-[#999]">215 Terjual</td>
-                    </tr>
+                    @php $no = 1; @endphp
+                    @foreach ($dataTrend as  $dT)
+                        @php 
+                            $terjual=null;
+                            foreach($produkData as $pD){
+                                if($pD['id_produk'] === $dT['_id']){
+                                    $terjual = $pD;
+                                    break;
+                                }
+                            }
+
+                        @endphp
+                        @if($terjual)
+                        <tr class="border-b-2 border-[#e6e6e6]">
+                            <td>
+                                <span
+                                    class="text-[#d10b05] border-2 rounded-full ml-5 px-3 py-1 border-[#d10b05] font-semibold">
+                                    {{$no++}}
+                                </span>
+                            </td>
+                            <td class="text-[18px] font-medium">{{$dT->id_kategori}}</td>
+                            <td class="text-[#999]">{{$terjual['jumlah_terjual']}} Terjual</td>
+                        </tr>
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
     <!-- TOP 5 DAGING -->
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+@php
+    echo "var transaksi = $transaksi;\n";
+    echo "var dataPenjualan = $data;\n";
+@endphp
+
+const labels = ['November','Desember','Januari'];
+
+const datasets = dataPenjualan.map(item => ({
+    label: item.kategori,
+    backgroundColor: getRandomColor(),
+    borderColor: getRandomColor(),
+    data: [item.jumlah_penjualan],
+    fill: false,
+}));
+
+const chartData = {
+    labels: labels,
+    datasets: datasets,
+};
+
+const configLineChart = {
+    type: "bar",
+    data: chartData,
+    options: {},
+};
+
+var chartLine = new Chart(
+    document.getElementById("chartLine"),
+    configLineChart
+);
+
+function getRandomColor() {
+    // Implement your logic to generate random colors
+    // Example: return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+function generateRandomData() {
+    const randomData = [];
+    for (let i = 0; i < labels.length; i++) {
+        const randomValue = Math.floor(Math.random() * 1000);
+        randomData.push(randomValue);
+    }
+    return randomData;
+}
+</script>
+
 
 @endsection
