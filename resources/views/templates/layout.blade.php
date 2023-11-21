@@ -108,6 +108,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 width: 11.5rem;
             }
         }
+        @media (min-width: 1700px) and (max-width: 1920px) {
+            #search input {
+                width: 900px;
+            }
+        }
     </style>
 </head>
 
@@ -299,7 +304,27 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                 </button>
                             </div>
                             <div class="block mt-4">
-                                <!-- Tampilan mobile belum login -->
+                
+                                <!-- Tampilan mobile sudah login -->
+                                @if (session()->has('login') && $user->role == "supplier")
+                                <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="flex items-center gap-3">
+                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                                        class="border-2 border-[#D10B05] rounded-full" />
+                                    <p class="font-medium text-lg mr-8">{{$user->username}}</p>
+                                </a>
+                                <a href="/daftarProduk/{{$supplier->_id}}" class="flex items-center gap-5 mt-3 ml-1"><img
+                                        src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
+                                    <p class="font-semibold text-lg">Toko Saya</p>
+                                </a>
+
+                                @elseif (session()->has('login') && $user->role == "konsumen")
+                                <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="flex items-center gap-3">
+                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
+                                        class="border-2 border-[#D10B05] rounded-full" />
+                                    <p class="font-medium text-lg mr-8">{{$user->username}}</p>
+                                </a>
+
+                                @else
                                 <div class="flex gap-6">
                                     <a href="/login">
                                         <button class="border-solid border-2 border-[#D10B05] font-semibold rounded-lg py-2 px-10 w-36 text-[#D10B05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">
@@ -312,17 +337,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                         </button>
                                     </a>
                                 </div>
-
-                                <!-- Tampilan mobile sudah login -->
-                                <!-- <a href="" class="flex items-center gap-3">
-                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
-                                        class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium text-lg mr-8"></p>
-                                </a>
-                                <a href="/daftarProduk/" class="flex items-center gap-5 mt-3 ml-1"><img
-                                        src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
-                                    <p class="font-semibold text-lg">Toko Saya</p>
-                                </a>
+                                @endif
                             </div>
                             <div class="border-t-2 border-[#e6e6e6] mt-4"></div>
                             <a href="/logout" class="font-semibold flex items-center text-lg gap-3 ml-2 mt-4"><svg
@@ -330,7 +345,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                     <path fill="currentColor"
                                         d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5zm16 7l-4-4v3H9v2h8v3l4-4z" />
                                 </svg> Logout
-                            </a> -->
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -343,7 +358,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
     <div class="border-t-2 border-solid border-[#E6E6E6]"></div>
     <!-- FOOTER -->
-    <footer>
+    <footer class = "container mx-auto">
         <div class="w-full mt-12 mb-12 sm:text-sm md:text-sm">
             <div class="container lg:px-[53px] md:px-[53px] px-7">
                 <div class="grid grid-cols-12">

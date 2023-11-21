@@ -52,7 +52,7 @@ $user = KonsumensModel::find(session('id_user'));
 
     <div class="border-t-2 border-solid border-[#E6E6E6] lg:mt-40 md:mt-40 sm:mt-20"></div>
     <!-- FOOTER -->
-    <footer>
+    <footer class = "container mx-auto">
         <div class="w-full mt-12 mb-12 sm:text-sm md:text-sm">
             <div class="container lg:px-[53px] md:px-[53px] sm:px-7">
                 <div class="grid grid-cols-12">

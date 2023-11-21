@@ -66,7 +66,7 @@
                                 {{(strlen($pt->nama_produk) > 44 ? substr($pt->nama_produk,0,43) .'...' : $pt->nama_produk)}}
                             </p>
                             <p class="text-[14px] sm:text-[12px] leading-4 font-medium lg:pr-5 hidden sm:block">
-                                {{(strlen($pt->nama_produk) > 44 ? substr($pt->nama_produk,0,43) .'...' : $pt->nama_produk)}}
+                                {{(strlen($pt->nama_produk) > 38 ? substr($pt->nama_produk,0,37) .'...' : $pt->nama_produk)}}
                             </p>
                             <p class="font-bold lg:pt-2 sm:pt-1 sm:text-[14px]">
                                 Rp<span>{{number_format($pt['varian'][0]['harga1'],0,',')}}</span></p>
