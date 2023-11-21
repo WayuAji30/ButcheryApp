@@ -262,74 +262,81 @@ class HomeController extends Controller
         return redirect()->to('/checkOut' . '/' . $id_user);
     }
 
-    public function store_orders($data_orders, $opsi_pengiriman, $total_produk, $biaya_ongkir, $biaya_layanan, $biaya_asuransi, $biaya_tambahan, $subtotal, $total_harga, $status, $alamatPengiriman)
-    {
+    public function store_orders(Request $request)
+{
+    // Set your Merchant Server Key
+    \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+    \Midtrans\Config::$isProduction = false;
+    // Set sanitization on (default)
+    \Midtrans\Config::$isSanitized = true;
+    // Set 3DS transaction for credit card to true
+    \Midtrans\Config::$is3ds = true;
 
-        // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
+    $data_orders = json_decode(urldecode($request->input('data_orders')), true);
+    $opsi_pengiriman = $request->input('opsiPengiriman');
+    $total_produk = $request->input('totalProduk');
+    $biaya_ongkir = $request->input('biayaOngkir');
+    $biaya_layanan = $request->input('biayaLayanan');
+    $biaya_asuransi = $request->input('biayaAsuransi');
+    $biaya_tambahan = $request->input('biayaTambahan');
+    $subtotal = $request->input('subtotal');
+    $total_harga = $request->input('total_harga');
+    $status = $request->input('status');
+    $alamatPengiriman = $request->input('alamatPengiriman');
 
-        $data = json_decode(urldecode($data_orders), true);
+    $dataLama = PurchaseModel::all()->count();
 
-        $dataLama = PurchaseModel::all()->count();
+    foreach ($data_orders as $do) {
+        $order = PurchaseModel::create([
+            'id_user' => $do['id_user'],
+            'id_supplier' => $do['id_supplier'],
+            'id_produk' => $do['id_produk'],
+            'foto' => $do['foto'],
+            'nama_produk' => $do['nama_produk'],
+            'varian' => $do['varian'],
+            'harga' => $do['harga'],
+            'qty' => $do['qty'],
+            'alamat_pengiriman' => $alamatPengiriman,
+            'opsi_pengiriman' => $opsi_pengiriman,
+            'total_produk' => $total_produk,
+            'biaya_ongkir' => $biaya_ongkir,
+            'biaya_layanan' => $biaya_layanan,
+            'biaya_asuransi' => $biaya_asuransi,
+            'biaya_tambahan' => $biaya_tambahan,
+            'subtotal' => $subtotal,
+            'total_harga' => $total_harga,
+            'status' => $status
+        ]);
 
-        foreach ($data as $do) {
-            $order = PurchaseModel::create([
-                'id_user' => $do['id_user'],
-                'id_supplier' => $do['id_supplier'],
-                'id_produk' => $do['id_produk'],
-                'foto' => $do['foto'],
-                'nama_produk' => $do['nama_produk'],
-                'varian' => $do['varian'],
-                'harga' => $do['harga'],
-                'qty' => $do['qty'],
-                'alamat_pengiriman' => $alamatPengiriman,
-                'opsi_pengiriman' => $opsi_pengiriman,
-                'total_produk' => $total_produk,
-                'biaya_ongkir' => $biaya_ongkir,
-                'biaya_layanan' => $biaya_layanan,
-                'biaya_asuransi' => $biaya_asuransi,
-                'biaya_tambahan' => $biaya_tambahan,
-                'subtotal' => $subtotal,
-                'total_harga' => $total_harga,
-                'status' => $status
-            ]);
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $order->_id,
+                'gross_amount' => $order->total_harga,
+            ),
+            'customer_details' => array(
+                'id_user' => $order->id_user
+            ),
+        );
 
-            $params = array(
-                'transaction_details' => array(
-                    'order_id' => $order->_id,
-                    'gross_amount' => $order->total_harga,
-                ),
-                'customer_details' => array(
-                    'id_user' => $order->id_user
-                ),
-            );
-
-            $snapToken = \Midtrans\Snap::getSnapToken($params);
-        }
-
-        $dataBaru = PurchaseModel::all()->count();
-
-        if ($dataBaru > $dataLama) {
-            session(['NewDataPesanan' => true, 'snapToken' => $snapToken]);
-        }
-
-        return redirect()->to('/checkout_payment' . '/' . $order->id_user . '?snapToken=' . $snapToken);
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
     }
+
+    $dataBaru = PurchaseModel::all()->count();
+
+    if ($dataBaru > $dataLama) {
+        session(['NewDataPesanan' => true, 'snapToken' => $snapToken]);
+    }
+
+    return response()->json(['snapToken' => $snapToken]);
+}
 
     public function checkout_payment(Request $request, $id_user)
     {
         $snapToken = $request->get('snapToken');
 
         $order = PurchaseModel::where('id_user', $id_user)->latest()->first();
-        $total_produk =
-
-            $cart = CartModel::where('user_id', $id_user)->first();
+        $cart = CartModel::where('user_id', $id_user)->first();
         $checkout = CheckOutModel::where('user_id', $id_user)->first();
         $data_order = PurchaseModel::where('id_user', $id_user)->latest()->first();
 
@@ -391,10 +398,5 @@ class HomeController extends Controller
 
 
         dd([$response, $response2]);
-    }
-
-    public function toko()
-    {
-        return view('toko');
     }
 }

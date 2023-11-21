@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite(['resources/css/app.css','resources/css/output.css'])
+    @vite(['resources/css/app.css'])
     <title>Butchery</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
 
@@ -38,7 +38,7 @@
 
     <div class="border-t-2 border-solid border-[#E6E6E6] lg:mt-40 mt-20"></div>
     <!-- FOOTER -->
-    <footer class="sm:text-xs">
+    <footer class="container mx-auto sm:text-xs">
         <div class="w-full mt-12 mb-12">
             <div class="container px-[53px]">
                 <div class="grid grid-cols-12">
@@ -190,8 +190,12 @@
         </div>
     </footer>
     <!-- FOOTER -->
-    @vite(['resources/js/password.js', 'resources/js/app.js', 'resources/jquery/code.jquery.com_jquery-3.7.1.min.js',
-    'resources/js/selectIndonesia.js'])
+    @vite(['resources/js/app.js'])
+
+    <script src = "{{asset('jquery/code.jquery.com_jquery-3.7.1.min.js')}}"></script>
+    <script src = "{{asset('js/password.js')}}"></script>
+    <script src = "{{asset('js/selectIndonesia.js')}}"></script>
+
 </body>
 
 </html>

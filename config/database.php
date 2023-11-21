@@ -36,7 +36,7 @@ return [
     'connections' => [
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_DSN', 'mongodb://localhost:27017'),
+            'dsn' => env('DB_DSN', 'mongodb+srv://servicebutchery:yunLgYZtlE1teMbv@dbbutchery.ehezdqp.mongodb.net/?retryWrites=true&w=majority'),
             'database' => env('DB_DATABASE'),
         ],
 

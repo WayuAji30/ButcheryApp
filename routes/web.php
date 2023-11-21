@@ -61,7 +61,7 @@ Route::get('/checkout_payment' . '/', function () {
 });
 Route::get('/checkout_payment/{id_user}', [HomeController::class, 'checkout_payment']);
 
-Route::get('/store_orders/{data_orders}/{opsiPengiriman}/{totalProduk}/{biayaOngkir}/{biayaLayanan}/{biayaAsuransi}/{biayaTambahan}/{subtotal}/{total_harga}/{status}/{alamatPengiriman}', [HomeController::class, 'store_orders']);
+Route::post('/store_orders', [HomeController::class, 'store_orders']);
 
 Route::get('/after_payment/{id_user}/{id_cart}/{id_checkout}/{varian}', [HomeController::class, 'after_payment']);
 
@@ -135,4 +135,4 @@ Route::get('/adminReviews', [AdminController::class, 'adminReviews']);
 Route::post('/hapusProdukAdmin', [AdminController::class, 'deleteProdukByAdmin']);
 Route::post('/hapusRReviews', [AdminController::class, 'deleteRReviews']);
 
-Route::get('/toko', [HomeController::class, 'toko']);
+Route::get('/toko/{id_supplier}', [MitraController::class, 'toko']);

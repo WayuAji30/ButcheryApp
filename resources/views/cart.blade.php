@@ -110,7 +110,7 @@ session()->forget('NewDataCart');
 <div class="border-t-2 border-solid border-[#E6E6E6] mt-40"></div>
 
 <!-- FOOTER -->
-<footer class="sm:text-xs">
+<footer class="container mx-auto sm:text-xs">
     <div class="w-full lg:mt-12 mt-5 mb-12">
         <div class="container px-[53px]">
             <div class="grid grid-cols-12">
@@ -263,7 +263,9 @@ session()->forget('NewDataCart');
 </footer>
 <!-- FOOTER -->
 
-@vite(['resources/js/app.js', 'resources/js/cart.js'])
+@vite(['resources/js/app.js'])
+
+<script src = "{{asset('js/cart.js')}}"></script>
 
 </body>
 

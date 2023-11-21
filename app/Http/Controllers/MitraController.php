@@ -12,6 +12,8 @@ use App\Models\CheckOutModel;
 use App\Models\MetodePembayaranModel;
 use App\Models\PurchaseModel;
 use App\Models\KategoriModel;
+use App\Models\RReviewsModel;
+
 use App\Http\Requests\StoreFileRequest;
 
 use Illuminate\View\View;
@@ -23,16 +25,137 @@ use Illuminate\Support\Facades\Http;
 
 class MitraController extends Controller
 {
-    public function trenDaging(): View
+    public function toko($id_supplier)
     {
-        return view('mitra_center.trenDaging'); // view('folder.file', compact())
+        $data = SuppliersModel::find($id_supplier);
+        $produk_toko = MitraProdukModel::where("supplier_id", $id_supplier)->get();
+        $produk_data = [];
+
+        // menghitung rating, untuk bagian produk toko
+        foreach ($produk_toko as $pt) {
+            $id_produk = $pt->_id;
+            $jumlah_allrating = RReviewsModel::where('id_produk', $id_produk)->get()->sum('ratings');
+            $jumlah_reviews = RReviewsModel::where('id_produk', $id_produk)->count();
+            $jumlah_terjual = PurchaseModel::where('id_produk', $id_produk)->count();
+
+            $avgRating = ($jumlah_reviews != 0) ? round(doubleval($jumlah_allrating / $jumlah_reviews), 1) : "0";
+
+            $produk_data[] = [
+                'id_produk' => $id_produk,
+                'jumlah_allrating' => $jumlah_allrating,
+                'jumlah_reviews' => $jumlah_reviews,
+                'jumlah_terjual' => $jumlah_terjual,
+                'avgRating' => $avgRating,
+            ];
+        }
+
+      // Menghitung rating untuk toko berdasarkan rata-rata rating produk
+        $totalRatingProduk = 0;
+        $banyakProduk = count($produk_data);
+
+        foreach ($produk_data as $pd) {
+            $totalRatingProduk += $pd['avgRating'];
+        }
+
+        $avgRatingToko = ($banyakProduk != 0) ? round(doubleval($totalRatingProduk / $banyakProduk), 1) : "0";
+
+        return view('toko', ['toko' => $data, 'produk_toko' => $produk_toko, 'jumlah_produk' => $banyakProduk, 'produk_data' => $produk_data, 'rating_toko' => $avgRatingToko]);
+    }
+
+    public function trenDaging()
+    {
+        // menghitung jumlah transaksi
+        $data_produk = MitraProdukModel::all();
+        $produkData = [];
+        $totalTransaction = 0;
+
+        foreach ($data_produk as $dp) {
+            $data = PurchaseModel::where('id_supplier', $dp->supplier_id)->get();
+
+            // Periksa apakah $data tidak kosong sebelum mengakses properti
+            if (!$data->isEmpty()) {
+                
+                // Hitung total subtotal dari setiap transaksi
+                foreach ($data as $transaction) {
+                    $totalTransaction += str_replace(".","",$transaction->subtotal);
+                }
+
+                $jumlahTerjual = PurchaseModel::where('id_produk', $dp->_id)->count();
+                $produkData[]=[
+                    'id_produk' => $dp->_id,
+                    'jumlah_terjual' => $jumlahTerjual
+                ];
+            }
+        }   
+        // end menghitung jumlah transaksi
+
+        // grafik
+        $produk = PurchaseModel::all();
+        $getDataPenjualan = [];
+        
+        foreach ($produk as $p) {
+            $getProduk = PurchaseModel::where('nama_produk', $p->nama_produk)->get();
+        
+            if (!$getProduk->isEmpty()) {
+                $getDataPenjualan[$p->nama_produk] = count($getProduk);
+            }
+        }
+        
+        $dataPenjualanBerdasarkanKategori = [];
+        
+        foreach ($getDataPenjualan as $namaProduk => $jumlahPenjualan) {
+            $mitraProduk = MitraProdukModel::where('nama_produk', $namaProduk)->first();
+        
+            if (!empty($mitraProduk)) {
+                $dataPenjualanBerdasarkanKategori[] = [
+                    'nama_produk' => $namaProduk,
+                    'kategori' => $mitraProduk->id_kategori,
+                    'jumlah_penjualan' => $jumlahPenjualan,
+                ];
+            }
+        }
+        // end grafik
+        
+        // Urutkan produk berdasarkan jumlah terjual secara descending
+        usort($produkData, function ($a, $b) {
+            return $b['jumlah_terjual'] - $a['jumlah_terjual'];
+        });
+
+        // Inisialisasi array untuk menyimpan produk terlaris
+        $dataTrend = [];
+
+        // Ambil 5 produk terlaris
+        for ($i = 0; $i < 5; $i++) {
+            if (isset($produkData[$i])) {
+                $dataTrend[] = MitraProdukModel::find($produkData[$i]['id_produk']);
+            }
+        }
+
+
+        return view('mitra_center.trenDaging',['dataTrend' => $dataTrend,'produkData' => $produkData ,'transaksi' => $totalTransaction, 'data' => json_encode($dataPenjualanBerdasarkanKategori)]);
     }
 
     public function pesanan($id_supplier)
     {
+        $data_produk = MitraProdukModel::all();
+        $data_transaksi = [];
+        $totalTransaction = 0;
+
+        foreach ($data_produk as $dp) {
+            $data = PurchaseModel::where('id_supplier', $dp->supplier_id)->get();
+
+            // Periksa apakah $data tidak kosong sebelum mengakses properti
+            if (!$data->isEmpty()) {
+                // Hitung total subtotal dari setiap transaksi
+                foreach ($data as $transaction) {
+                    $totalTransaction += str_replace(".","",$transaction->subtotal);
+                }
+            }
+        }   
+
         $pesanan = PurchaseModel::where('id_supplier', $id_supplier)->get();
 
-        return view('mitra_center.pesanan',['pesanan' => $pesanan]); // view('folder.file', compact())
+        return view('mitra_center.pesanan',['pesanan' => $pesanan, 'transaksi' => $totalTransaction]); // view('folder.file', compact())
     }
 
     public function change_status($id_supplier,$id_pesanan,$status)
@@ -44,7 +167,23 @@ class MitraController extends Controller
 
     public function langganan(): View
     {
-        return view('mitra_center.langganan'); // view('folder.file', compact())
+        $data_produk = MitraProdukModel::all();
+        $data_transaksi = [];
+        $totalTransaction = 0;
+
+        foreach ($data_produk as $dp) {
+            $data = PurchaseModel::where('id_supplier', $dp->supplier_id)->get();
+
+            // Periksa apakah $data tidak kosong sebelum mengakses properti
+            if (!$data->isEmpty()) {
+                // Hitung total subtotal dari setiap transaksi
+                foreach ($data as $transaction) {
+                    $totalTransaction += str_replace(".","",$transaction->subtotal);
+                }
+            }
+        }   
+
+        return view('mitra_center.langganan',['transaksi' => $totalTransaction]); // view('folder.file', compact())
     }
 
     public function daftarProduk(Request $request, $id)
@@ -62,10 +201,27 @@ class MitraController extends Controller
         else{
             $daftarProduk = MitraProdukModel::where('supplier_id',$id)->get();
         }
+
+        $data_produk = MitraProdukModel::all();
+        $data_transaksi = [];
+        $totalTransaction = 0;
+
+        foreach ($data_produk as $dp) {
+            $data = PurchaseModel::where('id_supplier', $dp->supplier_id)->get();
+
+            // Periksa apakah $data tidak kosong sebelum mengakses properti
+            if (!$data->isEmpty()) {
+                // Hitung total subtotal dari setiap transaksi
+                foreach ($data as $transaction) {
+                    $totalTransaction += str_replace(".","",$transaction->subtotal);
+                }
+            }
+        }   
+
         
         $kategori = KategoriModel::all();
 
-        return view('mitra_center.daftarProduk', ['daftarProduk' => $daftarProduk, 'kategori' => $kategori]);
+        return view('mitra_center.daftarProduk', ['daftarProduk' => $daftarProduk, 'kategori' => $kategori, 'transaksi' => $totalTransaction]);
     }
     
     public function tambahProduk()

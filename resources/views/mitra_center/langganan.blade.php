@@ -30,9 +30,9 @@ document.location.href = "/login";
             </h1>
             <div class="ml-10">
                 <p class="mt-3 text-[#999]">Transaksi Bulan Ini</p>
-                <p class="font-semibold mt-1">Rp<span>0</span></p>
+                <p class="font-semibold mt-1">Rp<span>{{number_format($transaksi,0,",")}}</span></p>
                 <p class="mt-5 text-[#999]">Total Transaksi</p>
-                <p class="font-semibold mt-1">Rp<span>0</span></p>
+                <p class="font-semibold mt-1">Rp<span>{{number_format($transaksi,0,",")}}</span></p>
             </div>
         </div>
 
