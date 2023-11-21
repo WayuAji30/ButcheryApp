@@ -54,6 +54,12 @@ session()->forget('NewDataPesanan');
             width: 520px;
         }
     }
+
+    @media (min-width: 1700px) and (max-width: 1920px) {
+        #search input {
+            width: 900px;
+        }
+    }
     </style>
 </head>
 
