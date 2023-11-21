@@ -45,22 +45,13 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         #kecamatan {
             width: 152px;
         }
-<<<<<<< HEAD
-    }
-
-    @media (min-width: 1700px) and (max-width: 1920px) {
-        #search input {
-            width: 900px;
-        }
-    }
-=======
 
         @media (min-width: 1700px) and (max-width: 1920px) {
             #search input {
                 width: 900px;
             }
         }
->>>>>>> 531c67d1faff39712c4c15250804e24a1bafb565
+    }
     </style>
 
 </head>
@@ -284,34 +275,6 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                 </button>
                             </div>
                             <div class="block mt-4">
-<<<<<<< HEAD
-                                <!-- Tampilan mobile belum login -->
-                                <div class="flex gap-6">
-                                    <a href="/login">
-                                        <button
-                                            class="border-solid border-2 border-[#D10B05] font-semibold rounded-lg py-2 px-10 w-36 text-[#D10B05] hover:bg-[#D10B05] hover:text-white transition-all duration-200 ease-in-out">
-                                            Masuk
-                                        </button>
-                                    </a>
-                                    <a href="/register">
-                                        <button
-                                            class="border-solid border-2 bg-[#D10B05] font-semibold rounded-lg py-2 px-10 w-36 border-[#D10B05] text-white mr-4 hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
-                                            Daftar
-                                        </button>
-                                    </a>
-                                </div>
-
-                                <!-- Tampilan mobile sudah login -->
-                                <!-- <a href="" class="flex items-center gap-3">
-                                    <img src="{{asset('assets/img_mitra_center/asset/navbar/profile.svg')}}" alt=""
-                                        class="border-2 border-[#D10B05] rounded-full" />
-                                    <p class="font-medium text-lg mr-8"></p>
-                                </a>
-                                <a href="/daftarProduk/" class="flex items-center gap-5 mt-3 ml-1"><img
-                                        src="{{asset('assets/img_index/asset/navbar/tokosaya.svg')}}" alt="" />
-                                    <p class="font-semibold text-lg">Toko Saya</p>
-                                </a>
-=======
                                  <!-- Tampilan mobile sudah login -->
                                  @if (session()->has('login') && $user->role == "supplier")
                                  <a href="/profile/{{$user->_id}}/{{{$user['alamat'][0]['provinsi']}}}/{{{$user['alamat'][0]['kota/kab']}}}/{{{$user['alamat'][0]['kecamatan']}}}" class="flex items-center gap-3">
@@ -345,7 +308,6 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                                      </a>
                                  </div>
                                  @endif
->>>>>>> 531c67d1faff39712c4c15250804e24a1bafb565
                             </div>
                             <div class="border-t-2 border-[#e6e6e6] mt-4"></div>
                             <a href="/logout" class="font-semibold flex items-center text-lg gap-3 ml-2 mt-4"><svg

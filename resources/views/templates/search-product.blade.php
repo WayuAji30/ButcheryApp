@@ -21,15 +21,9 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
     <title>Butchery | Beli Daging Segar Dengan Kualitas Terbaik Disini</title>
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
     <style>
-<<<<<<< HEAD
-    #fitur button:hover svg path {
-        fill: white;
-    }
-=======
         #fitur button:hover svg path {
             fill: #d10b05;
         }
->>>>>>> 531c67d1faff39712c4c15250804e24a1bafb565
 
     /* .active {
         border-bottom: 2px solid #d10b05;
@@ -80,16 +74,13 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         #search input {
             width: 900px;
         }
-<<<<<<< HEAD
-    }
-=======
 
         @media (min-width: 1700px) and (max-width: 1920px) {
             #search input {
                 width: 900px;
             }
         }
->>>>>>> 531c67d1faff39712c4c15250804e24a1bafb565
+    }
     </style>
 </head>
 

@@ -113,15 +113,12 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
         #search input {
             width: 900px;
         }
-<<<<<<< HEAD
-    }
-=======
         @media (min-width: 1700px) and (max-width: 1920px) {
             #search input {
                 width: 900px;
             }
         }
->>>>>>> 531c67d1faff39712c4c15250804e24a1bafb565
+    }
     </style>
 </head>
 
@@ -407,11 +404,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
     <div class="border-t-2 border-solid border-[#E6E6E6]"></div>
     <!-- FOOTER -->
-<<<<<<< HEAD
-    <footer class="container mx-auto">
-=======
     <footer class = "container mx-auto">
->>>>>>> 531c67d1faff39712c4c15250804e24a1bafb565
         <div class="w-full mt-12 mb-12 sm:text-sm md:text-sm">
             <div class="container lg:px-[53px] md:px-[53px] px-7">
                 <div class="grid grid-cols-12">
