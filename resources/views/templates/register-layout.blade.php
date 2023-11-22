@@ -11,24 +11,24 @@
     <link rel="shortcut icon" href="{{asset('assets/img_index/asset/navbar/logoTitle.svg')}}" type="image/x-icon" />
 
     <style>
-        @media (min-width: 1280px) and (max-width: 1439px) {
-            .button {
-                padding: 12px 50px 12px 50px;
-            }
-
-            .button-submit {
-                padding: 12px 125px 12px 125px;
-            }
-
-            .button-submit2 {
-                padding: 12px 110px 12px 110px;
-            }
-
-            #kota,
-            #kecamatan {
-                width: 140px;
-            }
+    @media (min-width: 1280px) and (max-width: 1439px) {
+        .button {
+            padding: 12px 50px 12px 50px;
         }
+
+        .button-submit {
+            padding: 12px 125px 12px 125px;
+        }
+
+        .button-submit2 {
+            padding: 12px 110px 12px 110px;
+        }
+
+        #kota,
+        #kecamatan {
+            width: 140px;
+        }
+    }
     </style>
 </head>
 
@@ -78,7 +78,8 @@
                         <h1 class="font-semibold">Layanan Pelanggan</h1>
                         <div class="mt-5 text-[#999999]">
                             <ul class="list-none">
-                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan" class="hover:text-[#D10B05]">Bantuan</a></li>
+                                <li><a href="mailto:servicebutchery@gmail.com?subject=Bantuan"
+                                        class="hover:text-[#D10B05]">Bantuan</a></li>
                                 <li class="mt-2">
                                     <a href="" class="hover:text-[#D10B05]">Butchery Care</a>
                                 </li>
@@ -174,10 +175,13 @@
                             </button>
                             <ul class="ml-5 list-none -mt-4">
                                 <li>
-                                    <a href="" class="ml-5"><img src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}" alt="" /></a>
+                                    <a href="" class="ml-5"><img
+                                            src="{{asset('assets/img_index/asset/footer/googleplay.svg')}}"
+                                            alt="" /></a>
                                 </li>
                                 <li class="mt-3">
-                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}" alt="" /></a>
+                                    <a href=""><img src="{{asset('assets/img_index/asset/footer/appstore.svg')}}"
+                                            alt="" /></a>
                                 </li>
                             </ul>
                         </div>
@@ -192,9 +196,9 @@
     <!-- FOOTER -->
     @vite(['resources/js/app.js'])
 
-    <script src = "{{asset('jquery/code.jquery.com_jquery-3.7.1.min.js')}}"></script>
-    <script src = "{{asset('js/password.js')}}"></script>
-    <script src = "{{asset('js/selectIndonesia.js')}}"></script>
+    <script src="{{asset('jquery/code.jquery.com_jquery-3.7.1.min.js')}}"></script>
+    <script src="{{asset('js/password.js')}}"></script>
+    <script src="{{asset('js/selectIndonesia.js')}}"></script>
 
 </body>
 

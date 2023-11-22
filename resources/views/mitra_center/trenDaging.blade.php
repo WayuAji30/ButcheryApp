@@ -121,27 +121,27 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             <p class="font-medium text-[#D10b05] lg:ml-7 ml-2 lg:mt-7 md:mt-5 mt-3 lg:text-base text-sm">
                 Prediksi Tren Daging Bulan Ini
             </p>
-            @php 
-                $maxSales = 0;
-                $bestSelling = null;  
-             @endphp
-             @foreach ($dataTrend as $dT)
-                @php
-                    $terjual = null;
-                    foreach ($produkData as $pD) {
-                        if ($pD['id_produk'] == $dT['_id']) {
-                            $terjual = $pD;
-                            break;
-                        }
-                    }
-            
-                    // Check and update the best-selling product
-                    if ($terjual && $terjual['jumlah_terjual'] > $maxSales) {
-                        $maxSales = $terjual['jumlah_terjual'];
-                        $bestSelling = $dT->id_kategori;
-                    }
-                @endphp
-             @endforeach
+            @php
+            $maxSales = 0;
+            $bestSelling = null;
+            @endphp
+            @foreach ($dataTrend as $dT)
+            @php
+            $terjual = null;
+            foreach ($produkData as $pD) {
+            if ($pD['id_produk'] == $dT['_id']) {
+            $terjual = $pD;
+            break;
+            }
+            }
+
+            // Check and update the best-selling product
+            if ($terjual && $terjual['jumlah_terjual'] > $maxSales) {
+            $maxSales = $terjual['jumlah_terjual'];
+            $bestSelling = $dT->id_kategori;
+            }
+            @endphp
+            @endforeach
             <p class="font-semibold text-[20px] lg:ml-7 ml-2 mb-2">{{$bestSelling}}</p>
         </div>
         <div class="lg:mt-32 md:mt-24 bg-white w-96 lg:h-28 md:h-24 shadow-md rounded-r-lg border-l-8 border-[#D10b05]"
@@ -163,7 +163,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
     <div class="flex md:flex-col sm:flex-col lg:gap-9 gap-5 lg:ml-8 md:ml-4">
         <!-- GRAFIK -->
-        <div class="mt-8 bg-white lg:w-[62%] md:w-[98%] rounded-lg lg:h-[450px] md:h-[440px] h-64 shadow-md"
+        <div class="mt-8 bg-white lg:w-[62%] md:w-[98%] rounded-lg lg:h-[450px] md:h-[440px] sm:h-72 shadow-md"
             data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom">
             <p class="mt-4">
                 <a class="text-[#D10B05] pb-4 lg:px-11 md:px-6 px-3 border-b-4 border-[#D10B05] font-medium">Grafik
@@ -189,29 +189,29 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             <table class="table-auto w-full mt-3 h-72">
                 <tbody>
                     @php $no = 1; @endphp
-                    @foreach ($dataTrend as  $dT)
-                        @php 
-                            $terjual=null;
-                            foreach($produkData as $pD){
-                                if($pD['id_produk'] === $dT['_id']){
-                                    $terjual = $pD;
-                                    break;
-                                }
-                            }
+                    @foreach ($dataTrend as $dT)
+                    @php
+                    $terjual=null;
+                    foreach($produkData as $pD){
+                    if($pD['id_produk'] === $dT['_id']){
+                    $terjual = $pD;
+                    break;
+                    }
+                    }
 
-                        @endphp
-                        @if($terjual)
-                        <tr class="border-b-2 border-[#e6e6e6]">
-                            <td>
-                                <span
-                                    class="text-[#d10b05] border-2 rounded-full ml-5 px-3 py-1 border-[#d10b05] font-semibold">
-                                    {{$no++}}
-                                </span>
-                            </td>
-                            <td class="text-[18px] font-medium">{{$dT->id_kategori}}</td>
-                            <td class="text-[#999]">{{$terjual['jumlah_terjual']}} Terjual</td>
-                        </tr>
-                        @endif
+                    @endphp
+                    @if($terjual)
+                    <tr class="border-b-2 border-[#e6e6e6]">
+                        <td>
+                            <span
+                                class="text-[#d10b05] border-2 rounded-full ml-5 px-3 py-1 border-[#d10b05] font-semibold">
+                                {{$no++}}
+                            </span>
+                        </td>
+                        <td class="text-[18px] font-medium">{{$dT->id_kategori}}</td>
+                        <td class="text-[#999]">{{$terjual['jumlah_terjual']}} Terjual</td>
+                    </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>
@@ -223,11 +223,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
 @php
-    echo "var transaksi = $transaksi;\n";
-    echo "var dataPenjualan = $data;\n";
+echo "var transaksi = $transaksi;\n";
+echo "var dataPenjualan = $data;\n";
 @endphp
 
-const labels = ['November','Desember','Januari'];
+const labels = ['November', 'Desember', 'Januari'];
 
 const datasets = dataPenjualan.map(item => ({
     label: item.kategori,
