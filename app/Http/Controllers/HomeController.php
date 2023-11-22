@@ -127,7 +127,7 @@ class HomeController extends Controller
         if ($jumlah_reviews != 0) {
             $avgRating = round(doubleval($jumlah_allrating / $jumlah_reviews), 1);
         } else {
-            $avgRating = "";
+            $avgRating = "0.0";
         }
 
         $data_reviews = RReviewsModel::where('id_produk', $id)->latest()->paginate(3);

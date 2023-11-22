@@ -279,6 +279,23 @@
                         </a>
                         @endif
 
+                        @if($reviews->isEmpty())
+                            <div class="hidden w-[80%] flex justify-center gap-3 items-center">
+                                @for ($i = 1; $i <= $reviews->lastPage(); $i++)
+                                    <div class="rounded-md cursor-pointer
+                                        @if ($reviews->currentPage() == $i)
+                                            text-white bg-[#D10B05]
+                                        @else
+                                            text-white bg-[#CCCCCC] hover:bg-[#D10B05]
+                                        @endif
+                                        px-2 py-[2px]">
+                                        <a href="{{ $reviews->url($i) }}">
+                                            <span>{{ $i }}</span>
+                                        </a>
+                                    </div>
+                                    @endfor
+                            </div>
+                        @else
                         <div class="w-[80%] flex justify-center gap-3 items-center">
                             @for ($i = 1; $i <= $reviews->lastPage(); $i++)
                                 <div class="rounded-md cursor-pointer
@@ -294,6 +311,8 @@
                                 </div>
                                 @endfor
                         </div>
+
+                        @endif
 
                         @if ($reviews->hasMorePages())
                         <a href="{{ $reviews->nextPageUrl() }}" class="rounded-md cursor-pointer hover:bg-[#CCCCCC] py-1 pr-1">

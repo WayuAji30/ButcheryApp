@@ -126,7 +126,7 @@ document.location.href = "/login";
         </p>
         <div class="ml-12 border-t-2 border-solid border-[#E6E6E6] mt-4"></div>
         <!-- SEARCH BAR -->
-        <div class="flex md:px-5 lg:mt-10 md:mt-5 mt-4 sm:px-2 justify-between md:text-sm">
+        <div class="flex md:px-5 lg:mt-10 md:mt-5 mt-4 sm:px-2 mx-4 justify-between md:text-sm">
             <div class="flex gap-5">
                 <form action="/daftarProduk/{{$supplier->_id}}" method="GET">
                     <div class="relative flex items-center">

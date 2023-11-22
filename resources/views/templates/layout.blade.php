@@ -81,6 +81,7 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
                 height: 20px;
             }
         }
+<<<<<<< HEAD
 
         @media (min-width: 1280px) and (max-width: 1439px) {
             #fitur .col-span-12 {
@@ -109,11 +110,17 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
             }
         }
 
+=======
+>>>>>>> 6e83b7b9a739e3c02fb92891b653d5f674da7ddb
         @media (min-width: 1700px) and (max-width: 1920px) {
             #search input {
                 width: 900px;
             }
         }
+<<<<<<< HEAD
+=======
+    }
+>>>>>>> 6e83b7b9a739e3c02fb92891b653d5f674da7ddb
     </style>
 </head>
 
@@ -363,7 +370,11 @@ $supplier = SuppliersModel::where('user_id', session('id_user'))->first();
 
     <div class="border-t-2 border-solid border-[#E6E6E6]"></div>
     <!-- FOOTER -->
+<<<<<<< HEAD
     <footer class="container mx-auto">
+=======
+    <footer class = "container mx-auto">
+>>>>>>> 6e83b7b9a739e3c02fb92891b653d5f674da7ddb
         <div class="w-full mt-12 mb-12 sm:text-sm md:text-sm">
             <div class="container lg:px-[53px] md:px-[53px] px-7">
                 <div class="grid grid-cols-12">

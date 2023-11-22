@@ -164,6 +164,10 @@ document.location.href = "/login";
                         <button id="" name="btn-siap" disabled
                             class="btn-siap border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
                             data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Siap</button>
+                        @elseif($p->status === "belum bayar")
+                        <button id="" name="btn-siap" disabled
+                            class="btn-siap border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
+                            data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Siap</button>
                         @elseif($p->status === "Sampai")
                         <button id="" name="btn-siap" disabled
                             class="btn-siap border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
@@ -179,21 +183,29 @@ document.location.href = "/login";
                         @endif
 
                         @if($p->status === "Dikirim oleh Kurir")
-                        <button id="" name="btn-kirim" disabled
-                            class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
-                            data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>
+                            <button id="" name="btn-kirim" disabled
+                                class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
+                                data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>
+                        @elseif($p->status === "belum bayar")
+                            <button id="" name="btn-kirim" disabled
+                                class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
+                                data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>
+                        @elseif($p->status === "sudah bayar")
+                            <button id="" name="btn-kirim" disabled
+                                    class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
+                                    data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>
                         @elseif($p->status === "Sampai")
                         <button id="" name="btn-kirim" disabled
                             class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
                             data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>
                         @elseif($p->status === "Sudah dinilai")
-                        <button id="" name="btn-kirim" disabled
-                        class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
-                        data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>                        
+                            <button id="" name="btn-kirim" disabled
+                            class="btn-kirim border-2 border-[#ccc] text-[#ccc]  py-2 px-10 rounded-md font-semibold  mr-2 transition-all duration-200 ease-linear"
+                            data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>                        
                         @else
-                        <button id="" name="btn-kirim"
-                            class="btn-kirim border-2 border-[#D10B05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear"
-                            data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>
+                            <button id="" name="btn-kirim"
+                                class="btn-kirim border-2 border-[#D10B05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold text-white mr-2 hover:bg-[#9F0804] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear"
+                                data-id_supplier="{{$p->id_supplier}}" data-id_pesanan="{{$p->_id}}">Dikirim</button>
                         @endif
                     </td>
                 </tr>
