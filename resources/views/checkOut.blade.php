@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- CART -->
-<div class="container lg:pt-[201px] md:pt-20 sm:pt-5">
+<div class="container mx-auto lg:pt-[201px] md:pt-20 sm:pt-5">
     <div class="grid grid-cols-12">
         <div class="lg:col-span-8 col-span-12 sm:text-sm sm:px-3">
             <div class="lg:ml-24 md:ml-10">
@@ -260,9 +260,7 @@
                                 Rp<span id="harga-total"></span>
                             </p>
                         </div>
-                        <button id="buat-pesanan" 
-                        data-id_user = {{session('id_user')}}
-                        class="lg:mt-6 mt-3 py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
+                        <button id="buat-pesanan" data-id_user={{session('id_user')}} class="lg:mt-6 mt-3 py-2 lg:px-7 md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out">
                             Buat Pesanan
                         </button>
                     </div>
@@ -277,10 +275,10 @@
 
 @vite(['resources/js/app.js'])
 
-<script src = "{{asset('jquery/code.jquery.com_jquery-3.7.1.min.js')}}"></script>
-<script src = "{{asset('js/checkout.js')}}"></script>
-<script src = "{{asset('js/selectIndonesia.js')}}"></script>
-<script src = "{{asset('js/tambahAlamat.js')}}"></script>
+<script src="{{asset('jquery/code.jquery.com_jquery-3.7.1.min.js')}}"></script>
+<script src="{{asset('js/checkout.js')}}"></script>
+<script src="{{asset('js/selectIndonesia.js')}}"></script>
+<script src="{{asset('js/tambahAlamat.js')}}"></script>
 
 
 

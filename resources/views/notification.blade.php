@@ -8,7 +8,7 @@ session()->forget('NewDataPesanan');
 @endphp
 
 <!-- PROFILE -->
-<div class="container lg:pt-52 md:pt-24 sm:pt-20 pb-5">
+<div class="container mx-auto lg:pt-52 md:pt-24 sm:pt-20 pb-5">
     <div class="grid grid-cols-12">
         <div class="col-span-12">
             <div class="grid justify-items-center sm:justify-items-start md:mx-2 sm:mx-2">
@@ -46,13 +46,13 @@ session()->forget('NewDataPesanan');
                                 <td class="text-center sm:text-sm">{{$p->status}}</td>
                                 <td class="text-center sm:text-sm">
                                     @if($p->status === "belum bayar")
-                                        <label for="my_modal_7" class="hidden btn-nilai border-2 bg-[#d10b05] py-2 px-10 rounded-md font-semibold text-white mr-2 hover:hover:bg-[#9F0804] border-[#d10b05] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear cursor-pointer" data-id_user="{{$p->id_user}}" data-id_produk="{{$p->id_produk}}" data-id_pesanan={{$p->_id}}>Nilai</label>
+                                    <label for="my_modal_7" class="hidden btn-nilai border-2 bg-[#d10b05] py-2 px-10 rounded-md font-semibold text-white mr-2 hover:hover:bg-[#9F0804] border-[#d10b05] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear cursor-pointer" data-id_user="{{$p->id_user}}" data-id_produk="{{$p->id_produk}}" data-id_pesanan={{$p->_id}}>Nilai</label>
                                     @elseif($p->status === "Sampai")
-                                        <label for="my_modal_7" class="btn-nilai border-2 bg-[#d10b05] py-2 px-10 rounded-md font-semibold text-white mr-2 hover:hover:bg-[#9F0804] border-[#d10b05] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear cursor-pointer" data-id_user="{{$p->id_user}}" data-id_produk="{{$p->id_produk}}" data-id_pesanan={{$p->_id}}>Nilai</label>
+                                    <label for="my_modal_7" class="btn-nilai border-2 bg-[#d10b05] py-2 px-10 rounded-md font-semibold text-white mr-2 hover:hover:bg-[#9F0804] border-[#d10b05] hover:border-[#9F0804] hover:text-white transition-all duration-200 ease-linear cursor-pointer" data-id_user="{{$p->id_user}}" data-id_produk="{{$p->id_produk}}" data-id_pesanan={{$p->_id}}>Nilai</label>
                                     @elseif($p->status === "Sudah dinilai")
-                                        <label for="" class="border-[#ccc] border-2 py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+                                    <label for="" class="border-[#ccc] border-2 py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
                                     @else
-                                        <label for="" class="border-[#ccc] border-2 py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
+                                    <label for="" class="border-[#ccc] border-2 py-2 px-10 rounded-md font-semibold text-[#ccc] mr-2 transition-all duration-200 ease-linear cursor-pointer">Nilai</label>
                                     @endif
 
                                     <!-- Put this part before </body> tag -->
@@ -85,13 +85,14 @@ session()->forget('NewDataPesanan');
                                         </div>
                                         <label class="modal-backdrop" for="my_modal_7">Close</label>
                                     </div>
-                                    
+
                                     @if($p->status === "belum bayar")
-                                        <button class="btn-bayar border-[#d10b05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold border-2 text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}" data-token = "{{session('snapToken')}}">bayar</button>
-                                    @elseif($p->status === "sudah bayar" || $p->status === "Kurir menuju toko anda" || $p->status == "Sampai" || $p->status == "Sudah dinilai")
-                                        <button disabled class="btn-sampai border-[#ccc] py-2 px-8 rounded-md font-semibold border-2 text-[#ccc] mr-2 transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}">Sampai</button>
+                                    <button class="btn-bayar border-[#d10b05] bg-[#d10b05] py-2 px-8 rounded-md font-semibold border-2 text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}" data-token="{{session('snapToken')}}">bayar</button>
+                                    @elseif($p->status === "sudah bayar" || $p->status === "Kurir menuju toko anda" ||
+                                    $p->status == "Sampai" || $p->status == "Sudah dinilai")
+                                    <button disabled class="btn-sampai border-[#ccc] py-2 px-8 rounded-md font-semibold border-2 text-[#ccc] mr-2 transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}">Sampai</button>
                                     @else
-                                        <button class="btn-sampai bg-[#d10b05] py-2 px-8 rounded-md font-semibold border-2 text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}">Sampai</button>
+                                    <button class="btn-sampai bg-[#d10b05] py-2 px-8 rounded-md font-semibold border-2 text-white mr-2 hover:bg-[#9F0804] transition-all duration-200 ease-linear sm:mt-5" data-id_user="{{$p->id_user}}" data-id_pesanan="{{$p->_id}}">Sampai</button>
                                     @endif
                                 </td>
                             </tr>

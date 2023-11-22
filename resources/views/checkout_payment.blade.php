@@ -1,16 +1,17 @@
 @extends('templates.checkout')
 @section('content')
 
-<?php 
+<?php
+
 use App\Models\CheckOutModel;
 use App\Models\CartModel;
 
-$cart = CartModel::where('user_id',session('id_user'))->first();
-$checkout = CheckOutModel::where('user_id',session('id_user'))->first();
+$cart = CartModel::where('user_id', session('id_user'))->first();
+$checkout = CheckOutModel::where('user_id', session('id_user'))->first();
 ?>
 
 <!-- CART -->
-<div class="container lg:pt-[201px] md:pt-20 sm:pt-5">
+<div class="container mx-auto lg:pt-[201px] md:pt-20 sm:pt-5">
     <div class="grid grid-cols-12">
         <div class="lg:col-span-6 col-span-12 sm:text-sm sm:px-3">
             <div class="flex justify-center items-center lg:mt-20">
@@ -79,8 +80,8 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
                                 Rp<span id="harga-total">{{number_format($data_order->total_harga,0,',')}}</span>
                             </p>
                         </div>
-                            <!-- JANGAN DIHAPUS -->
-                            <!-- <label for="my_modal_7"
+                        <!-- JANGAN DIHAPUS -->
+                        <!-- <label for="my_modal_7"
                                 class="lg:py-2 lg:px-[180px] md:px-4 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</label>
                             <input type="checkbox" id="my_modal_7" class="modal-toggle" />
                             <div class="modal">
@@ -92,8 +93,8 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
                                 </div>
                                 <label class="modal-backdrop" for="my_modal_7">Close</label>
                             </div> -->
-                            <button id="pay-button" class="lg:mt-6 mt-3 lg:py-2 py-1 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</button>
-                        </div>
+                        <button id="pay-button" class="lg:mt-6 mt-3 lg:py-2 py-1 border-2 border-[#D10B05] bg-[#D10B05] w-full text-white rounded-md font-medium hover:bg-[#9F0804] hover:border-[#9F0804] transition-all duration-200 ease-in-out cursor-pointer">Bayar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,40 +104,44 @@ $checkout = CheckOutModel::where('user_id',session('id_user'))->first();
 <div class="lg:mt-20 sm:mt-5"></div>
 
 <script type="text/javascript">
-function copyToClipboard(text) {
-    var tempInput = document.createElement("input");
-    tempInput.value = text;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-    alert("Teks berhasil disalin: " + text);
-}
+    function copyToClipboard(text) {
+        var tempInput = document.createElement("input");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Teks berhasil disalin: " + text);
+    }
 
- // For example trigger on button clicked, or any time you need
- var payButton = document.getElementById('pay-button');
-      payButton.addEventListener('click', function () {
+    // For example trigger on button clicked, or any time you need
+    var payButton = document.getElementById('pay-button');
+    payButton.addEventListener('click', function() {
         // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
         window.snap.pay('{{(isset($snapToken) ? $snapToken : $snapTokenBelumBayar)}}', {
-          onSuccess: function(result){
-            /* You may add your own implementation here */
-            alert("payment success!"); console.log(result);
-            window.location.href ="/after_payment/{{$data_order->total_harga}}/{{(isset($cart->_id) ? $cart->_id : 'null')}}/{{$checkout->_id}}/{{$data_order->varian}}";
-          },
-          onPending: function(result){
-            /* You may add your own implementation here */
-            alert("wating your payment!"); console.log(result);
-          },
-          onError: function(result){
-            /* You may add your own implementation here */
-            alert("payment failed!"); console.log(result);
-          },
-          onClose: function(){
-            /* You may add your own implementation here */
-            alert('you closed the popup without finishing the payment');
-          }
+            onSuccess: function(result) {
+                /* You may add your own implementation here */
+                alert("payment success!");
+                console.log(result);
+                window.location.href =
+                    "/after_payment/{{$data_order->total_harga}}/{{(isset($cart->_id) ? $cart->_id : 'null')}}/{{$checkout->_id}}/{{$data_order->varian}}";
+            },
+            onPending: function(result) {
+                /* You may add your own implementation here */
+                alert("wating your payment!");
+                console.log(result);
+            },
+            onError: function(result) {
+                /* You may add your own implementation here */
+                alert("payment failed!");
+                console.log(result);
+            },
+            onClose: function() {
+                /* You may add your own implementation here */
+                alert('you closed the popup without finishing the payment');
+            }
         });
-      });
+    });
 </script>
 
 @vite(['resources/js/app.js'])

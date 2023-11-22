@@ -9,7 +9,7 @@ session()->forget('NewDataCart');
 
 
 <!-- CART -->
-<div class="container lg:pt-[201px] md:pt-20 pt-16">
+<div class="container mx-auto lg:pt-[201px] md:pt-20 pt-16">
     <div class="grid grid-cols-12">
         <div class="lg:col-span-8 col-span-12">
             <div class="lg:ml-24 ml-5">
@@ -265,7 +265,7 @@ session()->forget('NewDataCart');
 
 @vite(['resources/js/app.js'])
 
-<script src = "{{asset('js/cart.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 
 </body>
 
